@@ -1,5 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+import string
 from src.keys import HUGGING_FACE_TOKEN
 
 if torch.backends.mps.is_built():  # Apple Silicon
@@ -72,15 +73,27 @@ class SequentialityModel:
 
         return 0  # Next word is not in the likelihood dict
 
+
+    def process_sentence(self, sentence: str) -> str:
+        """Function that gets rid of punctuation and split it to return a list of tokens"""
+
+        sentence = sentence.translate(str.maketrans('', '', string.punctuation))
+
+        ids = self.tokenizer.encode(sentence, return_tensors="pt").to(mps_device)
+
+        # This causes a bug
+        translated_tokens = self.tokenizer.decode(ids)
+
+        print(translated_tokens)
+
+
     def calculate_sequentiality(self, sentence : str, verbose : bool = False) -> int:
         """Returns the sum of the likelihoods of each word in a sentence"""
-        fragments = sentence.split()
-
-        fragments.pop(-1)
+        fragments = SequentialityModel.process_sentence(sentence)
 
         total_likelihood = 0
 
-        for i in range(len(fragments) - 1):  # makes it so that you start with a seed word and then finish with the last word
+        for i in range(len(fragments)):  # makes it so that you start with a seed word and then finish with the last word
             if i == 0: continue
 
             self.stem = " ".join(fragments[:i])
@@ -88,9 +101,13 @@ class SequentialityModel:
             if verbose:
                 print(f"DEBUG: iteration {i} / {len(fragments)} started - stem: {self.stem}")
 
-            likelihood_dict = self.k_likelihood(100, verbose)
+            likelihood_dict = self.k_likelihood(100, False)
 
+            # TODO: make this work with token strings instead of words
             likelihood = self.likelihood_from_dict(likelihood_dict, fragments[i])
+
+            if verbose:
+                print(f"\nlikelihood of '{fragments[i]}' given stem '{self.stem}' = {likelihood}\n")
 
             if verbose:
                 print(f"DEBUG: iteration {i} / {len(fragments)} ended")
@@ -105,7 +122,9 @@ class SequentialityModel:
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
-    print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
+    model.process_sentence("The apple. fell, from the tree!")
+    # print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
+    # print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet gorilla!", True)}")
     # model.set_stem("Hi! Nice to meet")
     # # model.k_likelihood(50, True)
     #
