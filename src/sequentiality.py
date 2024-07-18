@@ -18,12 +18,12 @@ class SequentialityModel:
         self.sentence = ""  # this is what sequentiality is calculated on
         self.stem = ""  # this is a slice of the sentence - used for context for model
 
-        # self.tokenizer = AutoTokenizer.from_pretrained(model_name, token=HUGGING_FACE_TOKEN, use_safetensors = True)
-        # self.model = AutoModelForCausalLM.from_pretrained(model_name,
-        #                                                   token=HUGGING_FACE_TOKEN,
-        #                                                   torch_dtype=torch.bfloat16,
-        #                                                   device_map=mps_device,
-        #                                                   use_safetensors=True).to(mps_device)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, token=HUGGING_FACE_TOKEN, use_safetensors = True)
+        self.model = AutoModelForCausalLM.from_pretrained(model_name,
+                                                          token=HUGGING_FACE_TOKEN,
+                                                          torch_dtype=torch.bfloat16,
+                                                          device_map=mps_device,
+                                                          use_safetensors=True).to(mps_device)
         # turn off gradient descent
         torch.set_grad_enabled(False)
 
@@ -63,24 +63,14 @@ class SequentialityModel:
         return probability_dict
 
     @staticmethod
-    def similarity(word1 : str, word2 : str) -> int:
-        """returns the length of the longest substring"""
-        pass
-
-
-    @staticmethod
     def likelihood_from_dict(likelihood_dict: dict, query_key : str) -> int:
         """Returns the likelihood of a word if it is a substring in likelihood_dict or 0 otherwise"""
-        most_similar = ""
         for key in likelihood_dict.keys():
-            if query_key in key:
-                if SequentialityModel.similarity(key, query_key) > SequentialityModel.similarity(most_similar, query_key):  # e.g. case where me is a part of meat
-                    most_similar = key
+            if query_key.lower() in key.lower():
+                if key.strip("▁").lower() == query_key.lower():
+                    return likelihood_dict[key]
 
-        if most_similar != "":  # if there is a marching substring as a key return that likelihood
-            return likelihood_dict[most_similar]
-        else:
-            return 0  # Next word is not in the likelihood dict
+        return 0  # Next word is not in the likelihood dict
 
     def calculate_sequentiality(self, sentence : str, verbose : bool = False) -> int:
         """Returns the sum of the likelihoods of each word in a sentence"""
@@ -88,7 +78,9 @@ class SequentialityModel:
 
         fragments.pop(-1)
 
-        for i in range(len(fragments)):
+        total_likelihood = 0
+
+        for i in range(len(fragments) - 1):  # makes it so that you start with a seed word and then finish with the last word
             if i == 0: continue
 
             self.stem = " ".join(fragments[:i])
@@ -102,23 +94,26 @@ class SequentialityModel:
 
             if verbose:
                 print(f"DEBUG: iteration {i} / {len(fragments)} ended")
-                print(f"DEBUG: k_likelihood: {likelihood}")
+                print(f"DEBUG: likelihood of '{fragments[i]}': {likelihood}")
 
-        return 0 # TODO
+            total_likelihood += likelihood
+
+        return total_likelihood
 
 
 
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
+    print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
     # model.set_stem("Hi! Nice to meet")
     # # model.k_likelihood(50, True)
     #
     # model.calculate_sequentiality("Hi! Nice to meet you", True)
 
 
-    test_dict = {"▁meet": 0.83251953, "▁see": 0.1126709, "▁hear": 0.01187897, "▁have": 0.00924683, "▁finally": 0.00720215, "▁chat": 0.0056076, "▁talk": 0.00160694, "▁virt": 0.00125122, "▁make": 0.00097466, "▁'": 0.00075912, "▁interact": 0.00059128, "▁Me": 0.00027919, "▁virtual": 0.00021756, "▁catch": 0.0001694, "▁go": 0.00013196, "▁learn": 0.00010276, "▁Connect": 7.999e-05, "▁": 6.229e-05, "▁meeting": 4.852e-05, "▁reach": 3.779e-05, "▁beat": 2.944e-05, "▁Virtual": 2.295e-05, ",": 1.788e-05, "▁conquer": 1.389e-05, "▁beh": 1.085e-05, }
-    print(model.likelihood_from_dict(test_dict, "me"))
+    # test_dict = {"▁meet": 0.83251953, "▁see": 0.1126709, "▁hear": 0.01187897, "▁have": 0.00924683, "▁finally": 0.00720215, "▁chat": 0.0056076, "▁talk": 0.00160694, "▁virt": 0.00125122, "▁make": 0.00097466, "▁'": 0.00075912, "▁interact": 0.00059128, "▁Me": 0.00027919, "▁virtual": 0.00021756, "▁catch": 0.0001694, "▁go": 0.00013196, "▁learn": 0.00010276, "▁Connect": 7.999e-05, "▁": 6.229e-05, "▁meeting": 4.852e-05, "▁reach": 3.779e-05, "▁beat": 2.944e-05, "▁Virtual": 2.295e-05, ",": 1.788e-05, "▁conquer": 1.389e-05, "▁beh": 1.085e-05, }
+    # print(model.likelihood_from_dict(test_dict, "hear"))
     # EO6
     # import random
     #
