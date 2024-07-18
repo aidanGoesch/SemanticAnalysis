@@ -37,8 +37,8 @@ class SequentialityModel:
         if self.stem == "":
             return None
 
-        # tokenize to ids
-        input_ids = self.tokenizer.encode(self.stem, return_tensors="pt").to(mps_device)
+        # turn text tokens into ids and convert to tensor
+        input_ids = torch.tensor([self.tokenizer.convert_tokens_to_ids(self.stem)]).to(mps_device)
 
         # call model() to get logits
         logits = self.model(input_ids).logits
@@ -49,7 +49,7 @@ class SequentialityModel:
         # softmax() to get probabilities
         probs = torch.nn.functional.softmax(logits, dim=-1, dtype=torch.float16)
 
-        # keep only the top 20
+        # keep only the top k
         probs, ids = torch.topk(probs, k)
 
         # convert ids to tokens
@@ -68,50 +68,52 @@ class SequentialityModel:
         """Returns the likelihood of a word if it is a substring in likelihood_dict or 0 otherwise"""
         for key in likelihood_dict.keys():
             if query_key.lower() in key.lower():
-                if key.strip("▁").lower() == query_key.lower():
+                if key.lower() == query_key.lower():
                     return likelihood_dict[key]
 
         return 0  # Next word is not in the likelihood dict
 
 
-    def process_sentence(self, sentence: str) -> str:
+    def process_sentence(self, sentence: str, verbose : bool = False) -> (list[str], list[str]):
         """Function that gets rid of punctuation and split it to return a list of tokens"""
 
         sentence = sentence.translate(str.maketrans('', '', string.punctuation))
 
         ids = self.tokenizer.encode(sentence, return_tensors="pt").to(mps_device)
 
-        # This causes a bug
-        translated_tokens = self.tokenizer.decode(ids)
+        translated_tokens = self.tokenizer.convert_ids_to_tokens(ids[0])
 
-        print(translated_tokens)
+        if verbose:
+            print(translated_tokens)
+
+        return sentence.split(), translated_tokens
+
 
 
     def calculate_sequentiality(self, sentence : str, verbose : bool = False) -> int:
         """Returns the sum of the likelihoods of each word in a sentence"""
-        fragments = SequentialityModel.process_sentence(sentence)
+        fragments, tokens = self.process_sentence(sentence)
 
         total_likelihood = 0
 
-        for i in range(len(fragments)):  # makes it so that you start with a seed word and then finish with the last word
+        for i in range(len(tokens)):  # makes it so that you start with a seed word and then finish with the last word
             if i == 0: continue
 
-            self.stem = " ".join(fragments[:i])
+            self.stem = tokens[:i]
 
             if verbose:
                 print(f"DEBUG: iteration {i} / {len(fragments)} started - stem: {self.stem}")
 
             likelihood_dict = self.k_likelihood(100, False)
 
-            # TODO: make this work with token strings instead of words
-            likelihood = self.likelihood_from_dict(likelihood_dict, fragments[i])
+            likelihood = self.likelihood_from_dict(likelihood_dict, tokens[i])
 
             if verbose:
-                print(f"\nlikelihood of '{fragments[i]}' given stem '{self.stem}' = {likelihood}\n")
+                print(f"\nlikelihood of '{tokens[i]}' given stem '{self.stem}' = {likelihood}\n")
 
             if verbose:
                 print(f"DEBUG: iteration {i} / {len(fragments)} ended")
-                print(f"DEBUG: likelihood of '{fragments[i]}': {likelihood}")
+                print(f"DEBUG: likelihood of '{tokens[i]}': {likelihood}")
 
             total_likelihood += likelihood
 
@@ -122,14 +124,9 @@ class SequentialityModel:
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
-    model.process_sentence("The apple. fell, from the tree!")
-    # print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
-    # print(f"total likelihood = {model.calculate_sequentiality("It is nice to meet gorilla!", True)}")
-    # model.set_stem("Hi! Nice to meet")
-    # # model.k_likelihood(50, True)
-    #
-    # model.calculate_sequentiality("Hi! Nice to meet you", True)
-
+    # print(model.process_sentence("It is nice to meet you!")[0])
+    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
+    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla!", True)}")
 
     # test_dict = {"▁meet": 0.83251953, "▁see": 0.1126709, "▁hear": 0.01187897, "▁have": 0.00924683, "▁finally": 0.00720215, "▁chat": 0.0056076, "▁talk": 0.00160694, "▁virt": 0.00125122, "▁make": 0.00097466, "▁'": 0.00075912, "▁interact": 0.00059128, "▁Me": 0.00027919, "▁virtual": 0.00021756, "▁catch": 0.0001694, "▁go": 0.00013196, "▁learn": 0.00010276, "▁Connect": 7.999e-05, "▁": 6.229e-05, "▁meeting": 4.852e-05, "▁reach": 3.779e-05, "▁beat": 2.944e-05, "▁Virtual": 2.295e-05, ",": 1.788e-05, "▁conquer": 1.389e-05, "▁beh": 1.085e-05, }
     # print(model.likelihood_from_dict(test_dict, "hear"))
