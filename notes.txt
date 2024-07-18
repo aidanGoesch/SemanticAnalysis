@@ -1,3 +1,4 @@
 
-Potential Metrics:
-    
+Things to consider for sequentiality
+
+if the word is not present in the top 100 most likely words should the likelihood just be 0?
