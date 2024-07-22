@@ -76,8 +76,11 @@ class SequentialityModel:
 
     def process_sentence(self, sentence: str, verbose : bool = False) -> (list[str], list[str]):
         """Function that gets rid of punctuation and split it to return a list of tokens"""
+        if sentence == "":
+            return ([], [])
 
-        sentence = sentence.translate(str.maketrans('', '', string.punctuation))
+        # sentence = sentence.translate(str.maketrans('', '', string.punctuation)) + "."
+        sentence += "."
 
         ids = self.tokenizer.encode(sentence, return_tensors="pt").to(mps_device)
 
@@ -90,9 +93,18 @@ class SequentialityModel:
 
 
 
-    def calculate_sequentiality(self, sentence : str, verbose : bool = False) -> int:
-        """Returns the sum of the likelihoods of each word in a sentence"""
-        fragments, tokens = self.process_sentence(sentence)
+    def calculate_sequentiality(self, text : str, verbose : bool = False) -> int:
+        """Returns the sum of the likelihoods of each word in a sentence. This may need to change
+        depending on how the transcription works and spereates sentences."""
+        sentence = text.split(".")
+        flag = len(sentence) > 1  # Flag for if the input text is multiple sentences long
+
+        fragments, tokens = [], []
+        for sent in sentence:
+            tmp_fragments, tmp_tokens = self.process_sentence(sent)
+
+            fragments.extend(tmp_fragments)
+            tokens.extend(tmp_tokens)
 
         total_likelihood = 0
 
@@ -102,7 +114,7 @@ class SequentialityModel:
             self.stem = tokens[:i]
 
             if verbose:
-                print(f"DEBUG: iteration {i} / {len(fragments)} started - stem: {self.stem}")
+                print(f"\nDEBUG: iteration {i} / {len(tokens)} started - stem: {self.stem}")
 
             likelihood_dict = self.k_likelihood(100, False)
 
@@ -112,8 +124,8 @@ class SequentialityModel:
                 print(f"\nlikelihood of '{tokens[i]}' given stem '{self.stem}' = {likelihood}\n")
 
             if verbose:
-                print(f"DEBUG: iteration {i} / {len(fragments)} ended")
-                print(f"DEBUG: likelihood of '{tokens[i]}': {likelihood}")
+                print(f"DEBUG: iteration {i} / {len(tokens)} ended")
+                print(f"DEBUG: likelihood of '{tokens[i]}': {likelihood}\n")
 
             total_likelihood += likelihood
 
@@ -125,19 +137,11 @@ class SequentialityModel:
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
     # print(model.process_sentence("It is nice to meet you!")[0])
-    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you!", True)}")
-    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla!", True)}")
+    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you. I hate you.", True)}")
+    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla.", True)}")
+
+    print(f"\ntotal likelihood = {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", True)}")
 
     # test_dict = {"▁meet": 0.83251953, "▁see": 0.1126709, "▁hear": 0.01187897, "▁have": 0.00924683, "▁finally": 0.00720215, "▁chat": 0.0056076, "▁talk": 0.00160694, "▁virt": 0.00125122, "▁make": 0.00097466, "▁'": 0.00075912, "▁interact": 0.00059128, "▁Me": 0.00027919, "▁virtual": 0.00021756, "▁catch": 0.0001694, "▁go": 0.00013196, "▁learn": 0.00010276, "▁Connect": 7.999e-05, "▁": 6.229e-05, "▁meeting": 4.852e-05, "▁reach": 3.779e-05, "▁beat": 2.944e-05, "▁Virtual": 2.295e-05, ",": 1.788e-05, "▁conquer": 1.389e-05, "▁beh": 1.085e-05, }
     # print(model.likelihood_from_dict(test_dict, "hear"))
-    # EO6
-    # import random
-    #
-    # count = 0
-    # for i in range(100000):
-    #     if sum(random.randint(1, 6) for j in range(5)) > 10:
-    #         count += 1
-    #
-    # prob = count / 100000
-    # print(prob)
 
