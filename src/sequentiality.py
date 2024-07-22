@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-import string
+import numpy as np
+from collections import Counter
 from src.keys import HUGGING_FACE_TOKEN
 
 if torch.backends.mps.is_built():  # Apple Silicon
@@ -80,7 +81,6 @@ class SequentialityModel:
             return ([], [])
 
         # sentence = sentence.translate(str.maketrans('', '', string.punctuation)) + "."
-        sentence += "."
 
         ids = self.tokenizer.encode(sentence, return_tensors="pt").to(mps_device)
 
@@ -91,22 +91,12 @@ class SequentialityModel:
 
         return sentence.split(), translated_tokens
 
-
-
-    def calculate_sequentiality(self, text : str, verbose : bool = False) -> int:
-        """Returns the sum of the likelihoods of each word in a sentence. This may need to change
-        depending on how the transcription works and spereates sentences."""
-        sentence = text.split(".")
-        flag = len(sentence) > 1  # Flag for if the input text is multiple sentences long
-
-        fragments, tokens = [], []
-        for sent in sentence:
-            tmp_fragments, tmp_tokens = self.process_sentence(sent)
-
-            fragments.extend(tmp_fragments)
-            tokens.extend(tmp_tokens)
+    def calculate_single_sentence_sequentiality(self, sentence: str, verbose : bool = False) -> float:
+        """Function that returns the negative log likelihood of a sentence"""
+        fragments, tokens = self.process_sentence(sentence)
 
         total_likelihood = 0
+        epsilon = 1e-10  # used for epslion smoothig - prevents log(0)
 
         for i in range(len(tokens)):  # makes it so that you start with a seed word and then finish with the last word
             if i == 0: continue
@@ -127,21 +117,45 @@ class SequentialityModel:
                 print(f"DEBUG: iteration {i} / {len(tokens)} ended")
                 print(f"DEBUG: likelihood of '{tokens[i]}': {likelihood}\n")
 
-            total_likelihood += likelihood
+            if not isinstance(likelihood, int):
+                likelihood = likelihood.cpu().numpy()
 
-        return total_likelihood
+            if likelihood == 0:
+                likelihood = epsilon
 
+            total_likelihood += np.log10(likelihood)
+
+        return -total_likelihood / len(tokens)  # normalize output for length of sentence
+
+    def calculate_sequentiality(self, text : str, verbose : bool = False) -> float:
+        """Returns the sum of the likelihoods of each word in a sentence. This may need to change
+        depending on how the transcription works and spereates sentences."""
+        # TODO: condition the likelihood on a topic
+        contextual_nll, topic_nll = [], []
+        if Counter(text)["."] > 1:  # Case where there are multiple sentences in the text
+            text = text.split(".")
+
+            for i in range(len(text)):
+                if text[i] == "": continue
+
+                contextual_nll.append(self.calculate_single_sentence_sequentiality(". ".join(text[:i + 1]) + ".", verbose))
+                topic_nll.append(self.calculate_single_sentence_sequentiality(text[i], verbose))
+
+                if verbose:
+                    print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
+                    print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
+
+            return contextual_nll[-1] + topic_nll[-1]  # summation because they are both already NLLs
+
+        else:
+            return self.calculate_single_sentence_sequentiality(text, verbose)
 
 
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
-    # print(model.process_sentence("It is nice to meet you!")[0])
-    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you. I hate you.", True)}")
-    print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla.", True)}")
+    print(f"\ntotal NLL of 'I really like you. I never want to see you again.'= {model.calculate_sequentiality("I really like you. I never want to see you again.", False)}")
+    # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla.", True)}")
 
-    print(f"\ntotal likelihood = {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", True)}")
-
-    # test_dict = {"▁meet": 0.83251953, "▁see": 0.1126709, "▁hear": 0.01187897, "▁have": 0.00924683, "▁finally": 0.00720215, "▁chat": 0.0056076, "▁talk": 0.00160694, "▁virt": 0.00125122, "▁make": 0.00097466, "▁'": 0.00075912, "▁interact": 0.00059128, "▁Me": 0.00027919, "▁virtual": 0.00021756, "▁catch": 0.0001694, "▁go": 0.00013196, "▁learn": 0.00010276, "▁Connect": 7.999e-05, "▁": 6.229e-05, "▁meeting": 4.852e-05, "▁reach": 3.779e-05, "▁beat": 2.944e-05, "▁Virtual": 2.295e-05, ",": 1.788e-05, "▁conquer": 1.389e-05, "▁beh": 1.085e-05, }
-    # print(model.likelihood_from_dict(test_dict, "hear"))
+    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.' {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
 
