@@ -16,7 +16,7 @@ else:  # If all else fails
 
 
 class SequentialityModel:
-    def __init__(self, model_name) -> None:
+    def __init__(self, model_name : str, topic : str) -> None:
         self.sentence = ""  # this is what sequentiality is calculated on
         self.stem = ""  # this is a slice of the sentence - used for context for model
 
@@ -29,9 +29,7 @@ class SequentialityModel:
         # turn off gradient descent
         torch.set_grad_enabled(False)
 
-    def set_stem(self, string : str) -> None:
-        """Set method for self.stem"""
-        self.stem = string
+        self.context = f"The topic is {topic}: "
 
     def k_likelihood(self, k : int, verbose : bool = False) -> dict[str, int]:
         """Function that returns the likelihoods of the top k words in the current stem"""
@@ -93,10 +91,10 @@ class SequentialityModel:
 
     def calculate_single_sentence_sequentiality(self, sentence: str, verbose : bool = False) -> float:
         """Function that returns the negative log likelihood of a sentence"""
-        fragments, tokens = self.process_sentence(sentence)
+        fragments, tokens = self.process_sentence(self.context + sentence)
 
         total_likelihood = 0
-        epsilon = 1e-10  # used for epslion smoothig - prevents log(0)
+        epsilon = 1e-10  # used for epsilon smoothing - prevents log(0)
 
         for i in range(len(tokens)):  # makes it so that you start with a seed word and then finish with the last word
             if i == 0: continue
@@ -129,7 +127,7 @@ class SequentialityModel:
 
     def calculate_sequentiality(self, text : str, verbose : bool = False) -> float:
         """Returns the sum of the likelihoods of each word in a sentence. This may need to change
-        depending on how the transcription works and spereates sentences."""
+        depending on how the transcription works and seperates sentences."""
         # TODO: condition the likelihood on a topic
         contextual_nll, topic_nll = [], []
         if Counter(text)["."] > 1:  # Case where there are multiple sentences in the text
@@ -145,6 +143,7 @@ class SequentialityModel:
                     print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
                     print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
 
+            # QUESTION: Should this a) be a sum of all the likelihoods and b) be normalized for the number of sentences
             return contextual_nll[-1] + topic_nll[-1]  # summation because they are both already NLLs
 
         else:
@@ -153,9 +152,9 @@ class SequentialityModel:
 
 
 if __name__ == "__main__":
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct")
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="conversation with a nurse")
     print(f"\ntotal NLL of 'I really like you. I never want to see you again.'= {model.calculate_sequentiality("I really like you. I never want to see you again.", False)}")
-    # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet gorilla.", True)}")
+    # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you.", False)}")
 
-    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.' {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
+    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
 
