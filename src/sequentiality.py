@@ -29,15 +29,19 @@ class SequentialityModel:
         # turn off gradient descent
         torch.set_grad_enabled(False)
 
-        self.context = f"The topic is {topic}: "
+        self.context_string = f"The text after the colon is dependent on the topic of {topic}: "
+        self.context_tokens = self.tokenizer.encode(self.context_string)
+
+        print(self.context_tokens)
 
     def k_likelihood(self, k : int, verbose : bool = False) -> dict[str, int]:
-        """Function that returns the likelihoods of the top k words in the current stem"""
+        """Function that returns the likelihoods of the top k tokens in the current stem"""
         if self.stem == "":
             return None
 
         # turn text tokens into ids and convert to tensor
-        input_ids = torch.tensor([self.tokenizer.convert_tokens_to_ids(self.stem)]).to(mps_device)
+        id_list = self.context_tokens + self.tokenizer.convert_tokens_to_ids(self.stem)
+        input_ids = torch.tensor([id_list]).to(mps_device)
 
         # call model() to get logits
         logits = self.model(input_ids).logits
@@ -91,7 +95,7 @@ class SequentialityModel:
 
     def calculate_single_sentence_sequentiality(self, sentence: str, verbose : bool = False) -> float:
         """Function that returns the negative log likelihood of a sentence"""
-        fragments, tokens = self.process_sentence(self.context + sentence)
+        fragments, tokens = self.process_sentence(sentence)
 
         total_likelihood = 0
         epsilon = 1e-10  # used for epsilon smoothing - prevents log(0)
@@ -129,22 +133,25 @@ class SequentialityModel:
         """Returns the sum of the likelihoods of each word in a sentence. This may need to change
         depending on how the transcription works and seperates sentences."""
         # TODO: condition the likelihood on a topic
-        contextual_nll, topic_nll = [], []
+        contextual_nll, topic_nll, total_sequentiality = [], [], []
         if Counter(text)["."] > 1:  # Case where there are multiple sentences in the text
             text = text.split(".")
 
             for i in range(len(text)):
                 if text[i] == "": continue
 
+                # QUESTION: Should there only be context for the context dependent option or for both.
                 contextual_nll.append(self.calculate_single_sentence_sequentiality(". ".join(text[:i + 1]) + ".", verbose))
                 topic_nll.append(self.calculate_single_sentence_sequentiality(text[i], verbose))
+                total_sequentiality.append(contextual_nll[-1] + topic_nll[-1])  # summation because they are both already NLLs)
 
                 if verbose:
                     print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
                     print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
 
-            # QUESTION: Should this a) be a sum of all the likelihoods and b) be normalized for the number of sentences
-            return contextual_nll[-1] + topic_nll[-1]  # summation because they are both already NLLs
+            if verbose:
+                print(f"DEBUG: total_sequentiality: {total_sequentiality}, topic_nll: {topic_nll}, contextual_nll: {contextual_nll}")
+            return np.mean(total_sequentiality)  # return the average sequentiality of each sentence in the text
 
         else:
             return self.calculate_single_sentence_sequentiality(text, verbose)
@@ -152,8 +159,8 @@ class SequentialityModel:
 
 
 if __name__ == "__main__":
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="conversation with a nurse")
-    print(f"\ntotal NLL of 'I really like you. I never want to see you again.'= {model.calculate_sequentiality("I really like you. I never want to see you again.", False)}")
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a nurse")
+    print(f"\ntotal NLL of 'There are two bison standing next to each other. They seem to be friends.'= {model.calculate_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
     # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you.", False)}")
 
     print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
