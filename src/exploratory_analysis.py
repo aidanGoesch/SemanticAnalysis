@@ -1,5 +1,6 @@
 import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 class ExploratoryAnalysis:
     def __init__(self, text : str):
@@ -14,8 +15,27 @@ class ExploratoryAnalysis:
         description and memorable description"""
         pass
 
+    def bag_of_words(self, verbose : bool = False):
+        """perform bag of words analysis -- counts the frequency of each word in the text"""
+        bag = {}
+
+        for word in self.text.split():
+            if word.lower() in bag and word.lower() not in ENGLISH_STOP_WORDS:  # exclude stop words from the bag
+                bag[word.lower()] += 1
+            else:
+                bag[word.lower()] = 1
+
+        if verbose:
+            tmp = sorted(bag.items(), key=lambda item: item[1], reverse=True)
+            print("top 5 most frequent words:")
+            print(tmp[:5])
+            print("top 5 least frequent words:")
+            print(tmp[-5:])
+
+        self.analysis_results['bag of words'] = bag
+
     def semantic_analysis(self) -> None:
-        """perform semetic analysis on the member variable 'text'"""
+        """perform semetic analysis"""
         tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
         model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
 
@@ -35,5 +55,7 @@ class ExploratoryAnalysis:
 
 
 if __name__ == "__main__":
-    model = ExploratoryAnalysis("Hello, my dog is gross and weird but I barely love him ")
-    print(model.semantic_analysis())
+    model = ExploratoryAnalysis(
+        "In parallel, and in keeping with previous fndings in similarrepeated decision-making tasks, chronological age was associated with increasing noisiness of choices relative tovalues estimated using standard reinforcement learning, and a concurrent increase in perseverative responding. In Experiment 2, we delved further into the relationship between memory precision and choice, by identifying a role for memory precision in selecting which memories are sampled. Specifcally, we designed a variant of the previous task in which sampled context memories could be identifed as specifc or ‘gist’-level (e.g. ‘beaches’ as opposed to ‘that one particular beach’), with each having distinct, opposing efects on choice. We found that lower memory precision was associated with a greater reliance on gist-based memory during memory sampling"
+    )
+    model.bag_of_words(True)
