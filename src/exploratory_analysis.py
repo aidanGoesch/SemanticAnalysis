@@ -34,6 +34,18 @@ class ExploratoryAnalysis:
 
         self.analysis_results['bag of words'] = bag
 
+    def text_length(self):
+        """calculates the number of words and sentences in the text"""
+        pass
+
+    def part_of_speech_tagging(self):
+        """identifies nouns, verbs, and adjectives in the text"""
+        pass
+
+    def first_person_statements(self):
+        """identifies and counts the number of 'I' statements in the text"""
+        pass
+
     def semantic_analysis(self) -> None:
         """perform semetic analysis"""
         tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
