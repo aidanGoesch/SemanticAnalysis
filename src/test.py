@@ -5,13 +5,13 @@ import os
 
 # PYTORCH_ENABLE_MPS_FALLBACK=1
 
-# classifier = pipeline('sentiment-analysis')
-#
-# # pipeline automatically applies pre processing, model, and post processing
-#
-# res = classifier("This is supposed to be a positive review. I loved it!")
-#
-# print(res)
+classifier = pipeline('sentiment-analysis')
+
+# pipeline automatically applies pre processing, model, and post processing
+
+res = classifier("This is supposed to be a positive review. I loved it!")
+
+print(res)
 
 
 # ==
