@@ -3,6 +3,7 @@ import torch
 import numpy as np
 from collections import Counter
 from src.keys import HUGGING_FACE_TOKEN
+import re
 
 if torch.backends.mps.is_built():  # Apple Silicon
     print('mps is used.')
@@ -132,10 +133,9 @@ class SequentialityModel:
     def calculate_sequentiality(self, text : str, verbose : bool = False) -> float:
         """Returns the sum of the likelihoods of each word in a sentence. This may need to change
         depending on how the transcription works and seperates sentences."""
-        # TODO: condition the likelihood on a topic
         contextual_nll, topic_nll, total_sequentiality = [], [], []
         if Counter(text)["."] > 1:  # Case where there are multiple sentences in the text
-            text = text.split(".")
+            text = re.split('[\.\?\!]\s*', text)  # TODO: Fix this
 
             for i in range(len(text)):
                 if text[i] == "": continue
@@ -153,7 +153,7 @@ class SequentialityModel:
                 print(f"DEBUG: total_sequentiality: {total_sequentiality}, topic_nll: {topic_nll}, contextual_nll: {contextual_nll}")
             return np.mean(total_sequentiality)  # return the average sequentiality of each sentence in the text
 
-        else:
+        else:  # TODO: FIX THIS
             return self.calculate_single_sentence_sequentiality(text, verbose)
 
 
@@ -165,3 +165,5 @@ if __name__ == "__main__":
 
     print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
 
+
+# scene 1 and then scene 1 and 2
