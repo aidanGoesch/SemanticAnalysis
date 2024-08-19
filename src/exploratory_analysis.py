@@ -1,9 +1,10 @@
-import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
-import nltk
-from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
+
+import torch
+import nltk
+import re
 
 class ExploratoryAnalysis:
     def __init__(self, text : str):
@@ -72,9 +73,24 @@ class ExploratoryAnalysis:
         self.analysis_results['part of speech tagging'] = res
 
 
-    def first_person_statements(self):
+    def first_person_statements(self, verbose : bool = False):
         """identifies and counts the number of 'I' statements in the text"""
-        pass
+        first_person_statements = []
+        tmp_text = re.split('[\.\?\!]\s*', self.text)
+
+
+        for sentence in tmp_text:
+            if "I " in sentence:
+                first_person_statements.append(sentence)
+
+        self.analysis_results['first person statements'] = first_person_statements
+        self.analysis_results['number of first person statements'] = len(first_person_statements)
+        if verbose:
+            if len(first_person_statements) > 0:
+                for i in first_person_statements:
+                    print(i)
+            else:
+                print("no first person statements")
 
     def semantic_analysis(self) -> None:
         """perform semetic analysis"""
@@ -98,6 +114,6 @@ class ExploratoryAnalysis:
 
 if __name__ == "__main__":
     model = ExploratoryAnalysis(
-        "In parallel, and in keeping with previous fndings in similarrepeated decision-making tasks, chronological age was associated with increasing noisiness of choices relative tovalues estimated using standard reinforcement learning, and a concurrent increase in perseverative responding. In Experiment 2, we delved further into the relationship between memory precision and choice, by identifying a role for memory precision in selecting which memories are sampled. Specifcally, we designed a variant of the previous task in which sampled context memories could be identifed as specifc or ‘gist’-level (e.g. ‘beaches’ as opposed to ‘that one particular beach’), with each having distinct, opposing efects on choice. We found that lower memory precision was associated with a greater reliance on gist-based memory during memory sampling"
+        "In parallel, and in keeping with previous fndings in similarrepeated decision-making tasks, chronological age was associated with increasing noisiness of choices relative tovalues estimated using standard reinforcement learning, and a concurrent increase in perseverative responding. In Experiment 2, we delved further into the relationship between memory precision and choice, by identifying a role for memory precision in selecting which memories are sampled. Specifcally, we designed a variant of the previous task in which sampled context memories could be identifed as specifc or ‘gist’-level (e.g. ‘beaches’ as opposed to ‘that one particular beach’), with each having distinct, opposing efects on choice. We found that lower memory precision was associated with a greater reliance on gist-based memory during memory sampling. I really like ice cream. And then thats when I said that my favorite color is blue!"
     )
-    model.part_of_speech_tagging(True)
+    model.first_person_statements(True)
