@@ -134,28 +134,24 @@ class SequentialityModel:
         """Returns the sum of the likelihoods of each word in a sentence. This may need to change
         depending on how the transcription works and seperates sentences."""
         contextual_nll, topic_nll, total_sequentiality = [], [], []
-        if Counter(text)["."] > 1:  # Case where there are multiple sentences in the text
-            text = re.split('[\.\?\!]\s*', text)  # TODO: Fix this
 
-            for i in range(len(text)):
-                if text[i] == "": continue
+        text = re.split('[\.\?\!]\s*', text)  # TODO: Fix this
 
-                # QUESTION: Should there only be context for the context dependent option or for both.
-                contextual_nll.append(self.calculate_single_sentence_sequentiality(". ".join(text[:i + 1]) + ".", verbose))
-                topic_nll.append(self.calculate_single_sentence_sequentiality(text[i], verbose))
-                total_sequentiality.append(contextual_nll[-1] + topic_nll[-1])  # summation because they are both already NLLs)
+        for i in range(len(text)):
+            if text[i] == "": continue
 
-                if verbose:
-                    print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
-                    print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
+            # QUESTION: Should there only be context for the context dependent option or for both.
+            contextual_nll.append(self.calculate_single_sentence_sequentiality(". ".join(text[:i + 1]) + ".", verbose))
+            topic_nll.append(self.calculate_single_sentence_sequentiality(text[i], verbose))
+            total_sequentiality.append(contextual_nll[-1] + topic_nll[-1])  # summation because they are both already NLLs)
 
             if verbose:
-                print(f"DEBUG: total_sequentiality: {total_sequentiality}, topic_nll: {topic_nll}, contextual_nll: {contextual_nll}")
-            return np.mean(total_sequentiality)  # return the average sequentiality of each sentence in the text
+                print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
+                print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
 
-        else:  # TODO: FIX THIS
-            return self.calculate_single_sentence_sequentiality(text, verbose)
-
+        if verbose:
+            print(f"DEBUG: total_sequentiality: {total_sequentiality}, topic_nll: {topic_nll}, contextual_nll: {contextual_nll}")
+        return np.mean(total_sequentiality)  # return the average sequentiality of each sentence in the text
 
 
 if __name__ == "__main__":
@@ -163,7 +159,7 @@ if __name__ == "__main__":
     print(f"\ntotal NLL of 'There are two bison standing next to each other. They seem to be friends.'= {model.calculate_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
     # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you.", False)}")
 
-    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality("I broke my wrist. It hurt a lot.", False)}")
+    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality('"THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background. ', False)}")
 
 
 # scene 1 and then scene 1 and 2
