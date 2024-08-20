@@ -13,11 +13,14 @@ class ExploratoryAnalysis:
         # dict that is updated in every analysis member function
         self.analysis_results = {}
 
-
-    def create_report(self):
+    def create_report(self, verbose : bool = False):
         """Function that calls performs analysis methods and compiles 2 dictionaries corresponding to the initial
         description and memorable description"""
-        pass
+        self.bag_of_words(verbose)
+        self.text_length(verbose)
+        self.part_of_speech_tagging(verbose)
+        self.first_person_statements(verbose)
+        self.semantic_analysis(verbose)
 
     def bag_of_words(self, verbose : bool = False):
         """perform bag of words analysis -- counts the frequency of each word in the text"""
@@ -38,9 +41,17 @@ class ExploratoryAnalysis:
 
         self.analysis_results['bag of words'] = bag
 
-    def text_length(self):
+    def text_length(self, verbose : bool = False):
         """calculates the number of words and sentences in the text"""
-        pass
+        words = self.text.split()
+        self.analysis_results['number of words'] = len(words)
+
+        sentences = re.split('[\.\?\!]\s*', self.text)
+        self.analysis_results['number of sentences'] = len(sentences)
+
+        if verbose:
+            print(f"text length: {self.analysis_results['number of words']}")
+            print(f"number of sentences: {self.analysis_results['number of sentences']}")
 
     def part_of_speech_tagging(self, verbose : bool = False):
         """identifies nouns, verbs, and adjectives in the text"""
@@ -72,7 +83,6 @@ class ExploratoryAnalysis:
 
         self.analysis_results['part of speech tagging'] = res
 
-
     def first_person_statements(self, verbose : bool = False):
         """identifies and counts the number of 'I' statements in the text"""
         first_person_statements = []
@@ -92,7 +102,7 @@ class ExploratoryAnalysis:
             else:
                 print("no first person statements")
 
-    def semantic_analysis(self) -> None:
+    def semantic_analysis(self, verbose : bool = False) -> None:
         """perform semetic analysis"""
         tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
         model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
@@ -106,6 +116,11 @@ class ExploratoryAnalysis:
         self.analysis_results["verbose semantic analysis"] = \
             {x: y for x, y in zip(["NEGATIVE", "POSITIVE"], logits.softmax(-1).tolist()[0])}
         self.analysis_results["semantic classification"] = model.config.id2label[predicted_class_id]
+        self.analysis_results["semantic classification confidence"] = max(logits.softmax(-1).tolist()[0])
+
+        if verbose:
+            print(
+                f"text sentiment: {self.analysis_results['sentiment classification']} with {self.analysis_results['sentiment analysis confidence']} confidence")
 
     def export_data(self):
         """Function that exports the data"""
@@ -114,6 +129,7 @@ class ExploratoryAnalysis:
 
 if __name__ == "__main__":
     model = ExploratoryAnalysis(
+        # "I really like ice cream"
         "In parallel, and in keeping with previous fndings in similarrepeated decision-making tasks, chronological age was associated with increasing noisiness of choices relative tovalues estimated using standard reinforcement learning, and a concurrent increase in perseverative responding. In Experiment 2, we delved further into the relationship between memory precision and choice, by identifying a role for memory precision in selecting which memories are sampled. Specifcally, we designed a variant of the previous task in which sampled context memories could be identifed as specifc or ‘gist’-level (e.g. ‘beaches’ as opposed to ‘that one particular beach’), with each having distinct, opposing efects on choice. We found that lower memory precision was associated with a greater reliance on gist-based memory during memory sampling. I really like ice cream. And then thats when I said that my favorite color is blue!"
     )
-    model.first_person_statements(True)
+    model.text_length(True)
