@@ -10,7 +10,7 @@ def read_csv(file_path : str) -> np.array:
     ret = ["" for _ in range(26)]  # create an empty list the same length as the number of scenes
 
     for row in raw:
-        ret[int(row[0]) - 1] += " " + row[2]
+        ret[int(row[0]) - 1] += row[2].strip(" .") + ". "
 
     return ret
 
