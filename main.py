@@ -2,10 +2,17 @@ from src.sequentiality import SequentialityModel
 from RPE.reader import read_csv
 import numpy as np
 
-def calculate_cumulative_sequentiality(data : np.array):  # TODO: Add this to the SequentialityModel class
+# use slice notation for scenes
+
+# TODO: sliding window - only use the last 4 sentences
+
+def calculate_cumulative_sequentiality(data : np.array, start : int = None, stop : int = None):  # TODO: Add this to the SequentialityModel class
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a description of a film")
 
     sequentialities = []
+
+    if start is not None:
+        data = data[start:stop]
 
     for i in range(len(data)):
         print("text:" + " ".join(data[:i]))
