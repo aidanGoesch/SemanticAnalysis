@@ -15,6 +15,12 @@ else:  # If all else fails
     print('cpu is used.')
     mps_device = torch.device("cpu")
 
+# TODO: change to vector embedding?
+# get rid of stop words?
+
+# number of previous sentences used to calculate context dependent sequentiality
+CALL_BACK = 4
+
 
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str) -> None:
@@ -33,133 +39,65 @@ class SequentialityModel:
         self.context_string = f"The text after the colon is dependent on the topic of {topic}: "
         self.context_tokens = self.tokenizer.encode(self.context_string)
 
-        print(self.context_tokens)
+        self.memoize = {}
 
-    def k_likelihood(self, k : int, verbose : bool = False) -> dict[str, int]:
-        """Function that returns the likelihoods of the top k tokens in the current stem"""
-        if self.stem == "":
-            return None
+    def _to_tokens_and_logprobs(self, input_texts):
+        input_ids = self.tokenizer(input_texts, padding=True, return_tensors="pt").input_ids
+        outputs = self.model(input_ids)
+        probs = torch.log_softmax(outputs.logits, dim=-1).detach()
 
-        # turn text tokens into ids and convert to tensor
-        id_list = self.context_tokens + self.tokenizer.convert_tokens_to_ids(self.stem)
-        input_ids = torch.tensor([id_list]).to(mps_device)
+        # collect the probability of the generated token -- probability at index 0 corresponds to the token at index 1
+        probs = probs[:, :-1, :]
+        input_ids = input_ids[:, 1:]
+        gen_probs = torch.gather(probs, 2, input_ids[:, :, None]).squeeze(-1)
 
-        # call model() to get logits
-        logits = self.model(input_ids).logits
-
-        # only care about the last projection in the last batch
-        logits = logits[-1, -1]
-
-        # softmax() to get probabilities
-        probs = torch.nn.functional.softmax(logits, dim=-1, dtype=torch.float16)
-
-        # keep only the top k
-        probs, ids = torch.topk(probs, k)
-
-        # convert ids to tokens
-        texts = self.tokenizer.convert_ids_to_tokens(ids)
-
-        probability_dict = dict(zip(texts, probs))
-
-        if verbose:  # debug statement
-            for text, prob in probability_dict.items():
-                print(f"{prob:.8f}: \"{text}\"")
-
-        return probability_dict
-
-    @staticmethod
-    def likelihood_from_dict(likelihood_dict: dict, query_key : str) -> int:
-        """Returns the likelihood of a word if it is a substring in likelihood_dict or 0 otherwise"""
-        for key in likelihood_dict.keys():
-            if query_key.lower() in key.lower():
-                if key.lower() == query_key.lower():
-                    return likelihood_dict[key]
-
-        return 0  # Next word is not in the likelihood dict
+        batch = []
+        for input_sentence, input_probs in zip(input_ids, gen_probs):
+            text_sequence = []
+            for token, p in zip(input_sentence, input_probs):
+                if token not in self.tokenizer.all_special_ids:
+                    text_sequence.append((self.tokenizer.decode(token), p.item()))
+            batch.append(text_sequence)
+        return batch
 
 
-    def process_sentence(self, sentence: str, verbose : bool = False) -> (list[str], list[str]):
-        """Function that gets rid of punctuation and split it to return a list of tokens"""
-        if sentence == "":
-            return ([], [])
 
-        # sentence = sentence.translate(str.maketrans('', '', string.punctuation)) + "."
-
-        ids = self.tokenizer.encode(sentence, return_tensors="pt").to(mps_device)
-
-        translated_tokens = self.tokenizer.convert_ids_to_tokens(ids[0])
-
-        if verbose:
-            print(translated_tokens)
-
-        return sentence.split(), translated_tokens
-
-    def calculate_single_sentence_sequentiality(self, sentence: str, verbose : bool = False) -> float:
-        """Function that returns the negative log likelihood of a sentence"""
-        fragments, tokens = self.process_sentence(sentence)
-
-        total_likelihood = 0
-        epsilon = 1e-10  # used for epsilon smoothing - prevents log(0)
-
-        for i in range(len(tokens)):  # makes it so that you start with a seed word and then finish with the last word
-            if i == 0: continue
-
-            self.stem = tokens[:i]
-
-            if verbose:
-                print(f"\nDEBUG: iteration {i} / {len(tokens)} started - stem: {self.stem}")
-
-            likelihood_dict = self.k_likelihood(100, False)
-
-            likelihood = self.likelihood_from_dict(likelihood_dict, tokens[i])
-
-            if verbose:
-                print(f"\nlikelihood of '{tokens[i]}' given stem '{self.stem}' = {likelihood}\n")
-
-            if verbose:
-                print(f"DEBUG: iteration {i} / {len(tokens)} ended")
-                print(f"DEBUG: likelihood of '{tokens[i]}': {likelihood}\n")
-
-            if not isinstance(likelihood, int):
-                likelihood = likelihood.cpu().numpy()
-
-            if likelihood == 0:
-                likelihood = epsilon
-
-            total_likelihood += np.log10(likelihood)
-
-        return -total_likelihood / len(tokens)  # normalize output for length of sentence
-
-    def calculate_sequentiality(self, text : str, verbose : bool = False) -> float:
+    def calculate_sequentiality(self, sentence : str, i : int,  h : int, verbose : bool = False) -> float:
         """Returns the sum of the likelihoods of each word in a sentence. This may need to change
         depending on how the transcription works and seperates sentences."""
-        contextual_nll, topic_nll, total_sequentiality = [], [], []
 
-        text = re.split('[\.\?\!]\s*', text)  # TODO: Fix this
+        if i - h < 0:
+            context = ". ".join(self.sentences[:i])
 
-        for i in range(len(text)):
-            if text[i] == "": continue
+        else:
+            context = ". ".join(self.sentences[i - h:i])
 
-            # QUESTION: Should there only be context for the context dependent option or for both.
-            contextual_nll.append(self.calculate_single_sentence_sequentiality(". ".join(text[:i + 1]) + ".", verbose))
-            topic_nll.append(self.calculate_single_sentence_sequentiality(text[i], verbose))
-            total_sequentiality.append(contextual_nll[-1] + topic_nll[-1])  # summation because they are both already NLLs)
+        print(context)
 
-            if verbose:
-                print(f"\nDEBUG: contextual nll of '{text[i]}': {contextual_nll[i]}")
-                print(f"DEBUG: topic nll of '{text[i]}': {topic_nll[i]}\n")
 
-        if verbose:
-            print(f"DEBUG: total_sequentiality: {total_sequentiality}, topic_nll: {topic_nll}, contextual_nll: {contextual_nll}")
-        return np.mean(total_sequentiality)  # return the average sequentiality of each sentence in the text
+
+    def calculate_total_sequentialty(self, text : str, verbose : bool = False) -> float:
+        self.sentences = re.split('[\.\?\!]\s*', text)
+        sequentialities = []
+
+        for i, sentence in enumerate(self.sentences):
+            sequentialities.append(self.calculate_sequentiality(sentence, i, CALL_BACK, False))
+
+        return np.mean(sequentialities)
+
+
 
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a nurse")
-    print(f"\ntotal NLL of 'There are two bison standing next to each other. They seem to be friends.'= {model.calculate_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
+    # print(f"\ntotal NLL of 'There are two bison standing next to each other. They seem to be friends.'= {model.calculate_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
     # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you.", False)}")
+    import time
 
-    print(f"\ntotal NLL of 'I broke my wrist. It hurt a lot.'= {model.calculate_sequentiality('"THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background. ', False)}")
+    model.sentences = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 
+    model.calculate_sequentiality("test", 1, CALL_BACK, False)
 
-# scene 1 and then scene 1 and 2
+    # start = time.time()
+    # print(f"\ntotal NLL of test scene= {model.calculate_sequentiality('"THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background. ', False)}")
+    # print("time to run: ", time.time() - start)
