@@ -41,14 +41,15 @@ class SequentialityModel:
         # turn off gradient descent
         torch.set_grad_enabled(False)
 
-        self.context_string = f"The text after the colon is dependent on the topic of {topic}: "
-        self.context_tokens = self.tokenizer.encode(self.context_string)
+        # Pad all text with _
+        self.context_string = f"_The text after the colon is dependent on the topic of {topic}: "
 
-        self.memoize = {}
-
-    def _to_tokens_and_logprobs(self, input_texts):
+    def _to_tokens_and_logprobs(self, text : str) -> list[(str, float)]:
+        """Function that takens"""
         # manually pad every input string with an underscore
-        input_ids = self.tokenizer("_" + input_texts, padding=True, return_tensors="pt").input_ids.to(mps_device)
+        input_text = self.context_string + text
+
+        input_ids = self.tokenizer(input_text, padding=True, return_tensors="pt").input_ids.to(mps_device)
         outputs = self.model(input_ids)
         probs = torch.log_softmax(outputs.logits, dim=-1).detach()
 
@@ -66,9 +67,15 @@ class SequentialityModel:
             batch.append(text_sequence)
         return batch
 
+    def _process_tokens_and_logprobs(self, query_token : str, tokens_and_logprobs : list[(str, float)]) -> float:
+        """Function that returns the sum of logprobs of the tokens in the last sentence"""
+        for j, tmp in enumerate(reversed(tokens_and_logprobs)):
+            if tmp[0].lower() == query_token.lower():
+                print(tokens_and_logprobs[len(tokens_and_logprobs) - j:], query_token)
+                return sum(map(lambda x: x[1], tokens_and_logprobs[j:]))
 
 
-    def calculate_contextual_sequentiality(self, sentence : str, i : int,  h : int, verbose : bool = False) -> float:
+    def calculate_contextual_sequentiality(self, sentence : str, first_token:str, i : int,  h : int, verbose : bool = False) -> float:
         """Calculate the contextually dependent sequentiality of a sentence."""
         raw_sequentiality = 0
         if i - h < 0:
@@ -84,28 +91,27 @@ class SequentialityModel:
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
 
-        tokenized_sentence = self.tokenizer.tokenize(sentence)
+        return self._process_tokens_and_logprobs(first_token, tokens_and_logprobs)
 
-        first_token = tokenized_sentence[0].strip("▁")
 
-        for j, tmp in enumerate(reversed(tokens_and_logprobs)):
-            if tmp[0].lower() == first_token.lower():
-                raw_sequentiality = sum(map(lambda x: x[1], tokens_and_logprobs[j:]))
-                break
-
-        return raw_sequentiality
-
-    def calculate_topic_sequentiality(self, sentence : str, verbose : bool = False) -> float:
+    def calculate_topic_sequentiality(self, sentence : str, first_token : str, verbose : bool = False) -> float:
         """Calculate the sequentiality of a sentence given only a topic"""
-        pass
+        tokens_and_logprobs = self._to_tokens_and_logprobs(sentence)[0]
+
+        return self._process_tokens_and_logprobs(first_token, tokens_and_logprobs)
+
 
     def calculate_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> float:
         """Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
         the purely topic driven version."""
         tokenized_sentence = self.tokenizer.tokenize(sentence)
 
-        topic_sequentiality = self.calculate_topic_sequentiality(sentence)
-        contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, i, CALL_BACK, False)
+        first_token = self.tokenizer.tokenize(sentence)[0].strip("▁")
+
+        print(first_token)
+
+        topic_sequentiality = self.calculate_topic_sequentiality(sentence, first_token)
+        contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, first_token, i, CALL_BACK, False)
 
         return -(topic_sequentiality - contextual_sequentiality) / len(tokenized_sentence)
 
@@ -116,7 +122,7 @@ class SequentialityModel:
         for i, sentence in enumerate(self.sentences):
             if sentence == "": break
 
-            sequentialities.append(self.calculate_sequentiality(sentence, i, CALL_BACK, False))
+            sequentialities.append(self.calculate_sequentiality(sentence, i, False))
 
         return np.mean(sequentialities)
 
