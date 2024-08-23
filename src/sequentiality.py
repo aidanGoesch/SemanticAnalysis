@@ -22,6 +22,27 @@ else:  # If all else fails
 CALL_BACK = 4
 
 
+def _process_tokens_and_logprobs(query_tokens : list[str], tokens_and_logprobs : list[(str, float)]) -> float:
+    """Function that returns the sum of logprobs of the tokens in the last sentence"""
+    i = 0
+    while i < len(tokens_and_logprobs):
+        if tokens_and_logprobs[i][0] == query_tokens[0]:  # if the first token in the sentence matches the cursor
+            for j in range(len(query_tokens)):            # start iterating through the query list to see if it matches
+                if tokens_and_logprobs[i + j][0] != query_tokens[j]:
+                    i = i + j
+                    break
+            else:
+                print(tokens_and_logprobs[i:])
+                return sum(map(lambda x: x[1], tokens_and_logprobs[i:]))
+
+        i += 1
+
+    print("ERROR")
+    print("query:", query_tokens)
+    print("logprobs:", tokens_and_logprobs)
+    return 0
+
+
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str) -> None:
         self.sentence = ""  # this is what sequentiality is calculated on
@@ -67,15 +88,7 @@ class SequentialityModel:
             batch.append(text_sequence)
         return batch
 
-    def _process_tokens_and_logprobs(self, query_token : str, tokens_and_logprobs : list[(str, float)]) -> float:
-        """Function that returns the sum of logprobs of the tokens in the last sentence"""
-        for j, tmp in enumerate(reversed(tokens_and_logprobs)):
-            if tmp[0].lower() == query_token.lower():
-                print(tokens_and_logprobs[len(tokens_and_logprobs) - j:], query_token)
-                return sum(map(lambda x: x[1], tokens_and_logprobs[j:]))
-
-
-    def calculate_contextual_sequentiality(self, sentence : str, first_token:str, i : int,  h : int, verbose : bool = False) -> float:
+    def calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
         """Calculate the contextually dependent sequentiality of a sentence."""
         raw_sequentiality = 0
         if i - h < 0:
@@ -91,29 +104,25 @@ class SequentialityModel:
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
 
-        return self._process_tokens_and_logprobs(first_token, tokens_and_logprobs)
+        return _process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-
-    def calculate_topic_sequentiality(self, sentence : str, first_token : str, verbose : bool = False) -> float:
+    def calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
         """Calculate the sequentiality of a sentence given only a topic"""
-        tokens_and_logprobs = self._to_tokens_and_logprobs(sentence)[0]
+        tokens_and_logprobs = self._to_tokens_and_logprobs(sentence + ".")[0]
 
-        return self._process_tokens_and_logprobs(first_token, tokens_and_logprobs)
+        return _process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
 
     def calculate_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> float:
         """Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
         the purely topic driven version."""
-        tokenized_sentence = self.tokenizer.tokenize(sentence)
+        sentence_tokens = [self.tokenizer.decode(x) for x in self.tokenizer.encode(sentence)]
+        print(sentence_tokens)
 
-        first_token = self.tokenizer.tokenize(sentence)[0].strip("▁")
+        topic_sequentiality = self.calculate_topic_sequentiality(sentence, sentence_tokens)
+        contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, sentence_tokens, i, CALL_BACK, False)
 
-        print(first_token)
-
-        topic_sequentiality = self.calculate_topic_sequentiality(sentence, first_token)
-        contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, first_token, i, CALL_BACK, False)
-
-        return -(topic_sequentiality - contextual_sequentiality) / len(tokenized_sentence)
+        return -(topic_sequentiality - contextual_sequentiality) / len(sentence_tokens)
 
     def calculate_total_sequentialty(self, text : str, verbose : bool = False) -> float:
         self.sentences = re.split('[\.\?\!]\s*', text)
