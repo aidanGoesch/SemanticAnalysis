@@ -1,7 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import numpy as np
-from collections import Counter
 from src.keys import HUGGING_FACE_TOKEN
 import re
 
@@ -15,38 +14,13 @@ else:  # If all else fails
     print('cpu is used.')
     mps_device = torch.device("cpu")
 
-# TODO: change to vector embedding?
-# get rid of stop words?
-
 # number of previous sentences used to calculate context dependent sequentiality
 CALL_BACK = 4
 
 
-def _process_tokens_and_logprobs(query_tokens : list[str], tokens_and_logprobs : list[(str, float)]) -> float:
-    """Function that returns the sum of logprobs of the tokens in the last sentence"""
-    i = 0
-    while i < len(tokens_and_logprobs):
-        if tokens_and_logprobs[i][0] == query_tokens[0]:  # if the first token in the sentence matches the cursor
-            for j in range(len(query_tokens)):            # start iterating through the query list to see if it matches
-                if tokens_and_logprobs[i + j][0] != query_tokens[j]:
-                    i = i + j
-                    break
-            else:
-                print(tokens_and_logprobs[i:])
-                return sum(map(lambda x: x[1], tokens_and_logprobs[i:]))
-
-        i += 1
-
-    print("ERROR")
-    print("query:", query_tokens)
-    print("logprobs:", tokens_and_logprobs)
-    return 0
-
-
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str) -> None:
-        self.sentence = ""  # this is what sequentiality is calculated on
-        self.stem = ""  # this is a slice of the sentence - used for context for model
+        self.sentences = []
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name,
                                                        token=HUGGING_FACE_TOKEN,
@@ -59,6 +33,7 @@ class SequentialityModel:
                                                           use_safetensors=True).to(mps_device)
 
         self.model.config.pad_token_id = self.model.config.eos_token_id
+
         # turn off gradient descent
         torch.set_grad_enabled(False)
 
@@ -88,6 +63,27 @@ class SequentialityModel:
             batch.append(text_sequence)
         return batch
 
+    @staticmethod
+    def _process_tokens_and_logprobs(query_tokens: list[str], tokens_and_logprobs: list[(str, float)]) -> float:
+        """Function that returns the sum of logprobs of the tokens in the last sentence"""
+        i = 0
+        while i < len(tokens_and_logprobs):
+            if tokens_and_logprobs[i][0] == query_tokens[0]:  # if the first token in the sentence matches the cursor
+                for j in range(len(query_tokens)):  # start iterating through the query list to see if it matches
+                    if tokens_and_logprobs[i + j][0] != query_tokens[j]:
+                        i = i + j
+                        break
+                else:
+                    print(tokens_and_logprobs[i:])
+                    return sum(map(lambda x: x[1], tokens_and_logprobs[i:]))
+
+            i += 1
+
+        print("ERROR")
+        print("query:", query_tokens)
+        print("logprobs:", tokens_and_logprobs)
+        return 0
+
     def calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
         """Calculate the contextually dependent sequentiality of a sentence."""
         raw_sequentiality = 0
@@ -104,13 +100,13 @@ class SequentialityModel:
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
 
-        return _process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
+        return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
     def calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
         """Calculate the sequentiality of a sentence given only a topic"""
         tokens_and_logprobs = self._to_tokens_and_logprobs(sentence + ".")[0]
 
-        return _process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
+        return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
 
     def calculate_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> float:
@@ -141,11 +137,6 @@ if __name__ == "__main__":
     # print(f"\ntotal NLL of 'There are two bison standing next to each other. They seem to be friends.'= {model.calculate_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
     # print(f"\ntotal likelihood = {model.calculate_sequentiality("It is nice to meet you.", False)}")
     import time
-
-    # model.sentences = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
-    #
-    # model.calculate_sequentiality("test", 1, CALL_BACK, False)
-
     # start = time.time()
     print(f"\ntotal NLL of test scene= {model.calculate_total_sequentialty('"THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background.', False)}")
     # print("time to run: ", time.time() - start)
