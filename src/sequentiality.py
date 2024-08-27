@@ -74,7 +74,7 @@ class SequentialityModel:
                         i = i + j
                         break
                 else:
-                    print(tokens_and_logprobs[i:])
+                    # print(tokens_and_logprobs[i:])
                     return sum(map(lambda x: x[1], tokens_and_logprobs[i:]))
 
             i += 1
@@ -112,11 +112,13 @@ class SequentialityModel:
     def calculate_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> float:
         """Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
         the purely topic driven version."""
-        sentence_tokens = [self.tokenizer.decode(x) for x in self.tokenizer.encode(sentence)]
-        print(sentence_tokens)
+        sentence_tokens = [self.tokenizer.decode(x) for x in self.tokenizer.encode(sentence + ".")]
 
         topic_sequentiality = self.calculate_topic_sequentiality(sentence, sentence_tokens)
         contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, sentence_tokens, i, CALL_BACK, False)
+
+        if verbose:
+            print(f"topic sequentiality: {topic_sequentiality}\ncontext seqeuentiality: {contextual_sequentiality}\nsentence tokens:{sentence_tokens}")
 
         return (contextual_sequentiality - topic_sequentiality) / len(sentence_tokens)  # flipped because both functions return NLL already
 
@@ -125,18 +127,17 @@ class SequentialityModel:
         sequentialities = []
 
         for i, sentence in enumerate(self.sentences):
-            if sentence == "": break
+            if sentence == "": continue
 
-            sequentialities.append(self.calculate_sequentiality(sentence, i, False))
+            sequentialities.append(self.calculate_sequentiality(sentence, i, verbose))
 
-        print(sequentialities)
         return np.mean(sequentialities)
 
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
-    print(f"\nshould be lower  : {model.calculate_total_sequentiality("There are two bison standing next to each other. They seem to be friends.", False)}")
-    print(f"\nshould be higher : {model.calculate_total_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal.", False)}")
+    print(f"\nshould be lower  : {model.calculate_total_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
+    print(f"\nshould be higher : {model.calculate_total_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
 
     # tmp = model._to_tokens_and_logprobs("")[0]
     #
