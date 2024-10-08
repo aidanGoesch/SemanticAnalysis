@@ -1,0 +1,11 @@
+
+Load participant data
+
+partitions <- divide 7000 rows into groups of 100 rows
+
+for each partition in partitions
+    for each participant in partition
+        score = sequentiality(participant.story)
+
+        save score to a file
+
