@@ -13,20 +13,19 @@ def write_data(file_name, data : pd.DataFrame):
     data.to_csv(f"./data/calculated_values/{file_name}")
 
 
-def verify_data(start : int, stop : int):
+def verify_data(partition_id, participant_id):
     sequentialities = pd.DataFrame(columns=["sequentiality"])
     data = load_data()
 
-    data_slice = data[start:stop]
+    data_slice = data.iloc[partition_id + participant_id]
 
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
 
-    for i in range(len(data_slice)):
-        seq = model.calculate_total_sequentiality(data.iloc[i].story)
-        sequentialities.append(seq)
-        sequentialities.loc[i] = "this is a test"
+    seq = model.calculate_total_sequentiality(data_slice.story)
+    sequentialities.append(seq)
+    sequentialities.loc[0] = "this is a test"
 
-    write_data(f"{start}-{stop}.csv", sequentialities)
+    write_data(f"{partition_id + participant_id}.csv", sequentialities)
 
 
 if __name__ == "__main__":
