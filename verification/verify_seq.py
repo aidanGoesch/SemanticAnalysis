@@ -19,11 +19,11 @@ def verify_data(start : int, stop : int):
 
     data_slice = data[start:stop]
 
-    # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
 
     for i in range(len(data_slice)):
-        # seq = model.calculate_total_sequentiality(person.story)
-        # sequentialities.append(seq)
+        seq = model.calculate_total_sequentiality(data.iloc[i].story)
+        sequentialities.append(seq)
         sequentialities.loc[i] = "this is a test"
 
     write_data(f"{start}-{stop}.csv", sequentialities)
