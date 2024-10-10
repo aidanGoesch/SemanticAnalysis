@@ -79,12 +79,9 @@ class SequentialityModel:
 
             i += 1
 
-        print("ERROR")
-        print("query:", query_tokens)
-        print("logprobs:", tokens_and_logprobs)
         return 0
 
-    def calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
+    def _calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
         """Calculate the contextually dependent sequentiality of a sentence."""
         raw_sequentiality = 0
         if i - h < 0:
@@ -102,42 +99,56 @@ class SequentialityModel:
 
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-    def calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
+    def _calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
         """Calculate the sequentiality of a sentence given only a topic"""
         tokens_and_logprobs = self._to_tokens_and_logprobs(sentence + ".")[0]
 
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-
-    def calculate_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> float:
+    def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> [float]:
         """Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
-        the purely topic driven version."""
+        the purely topic driven version.
+
+        RETURN TYPE:
+        [total_sentence_sequentiality, contextual_sequentiality, topic_sequentiality]
+        """
         sentence_tokens = [self.tokenizer.decode(x) for x in self.tokenizer.encode(sentence + ".")]
 
-        topic_sequentiality = self.calculate_topic_sequentiality(sentence, sentence_tokens)
-        contextual_sequentiality = self.calculate_contextual_sequentiality(sentence, sentence_tokens, i, CALL_BACK, False)
+        topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_tokens)
+        contextual_sequentiality = self._calculate_contextual_sequentiality(sentence, sentence_tokens, i, CALL_BACK, False)
 
         if verbose:
             print(f"topic sequentiality: {topic_sequentiality}\ncontext seqeuentiality: {contextual_sequentiality}\nsentence tokens:{sentence_tokens}")
+        #             flipped because both functions return NLL already
+        return [(contextual_sequentiality - topic_sequentiality) / len(sentence_tokens), contextual_sequentiality, topic_sequentiality]
 
-        return (contextual_sequentiality - topic_sequentiality) / len(sentence_tokens)  # flipped because both functions return NLL already
+    def calculate_text_sequentiality(self, text : str, verbose : bool = False) -> list[float | list]:
+        """Function that calculates the total sequentiality of a text
 
-    def calculate_total_sequentiality(self, text : str, verbose : bool = False) -> float:
+        RETURN TYPE:
+        [total_text_sequentiality, total_sentence-level_sequentiality,
+        contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
+        """
         self.sentences = re.split('[\.\?\!]\s*', text)
-        sequentialities = []
+        total_sequentialities = []
+        contextual_sequentialities = []
+        topic_sequentialities = []
 
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            sequentialities.append(self.calculate_sequentiality(sentence, i, verbose))
+            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, verbose)
+            total_sequentialities.append(total)
+            contextual_sequentialities.append(contextual)
+            topic_sequentialities.append(topic)
 
-        return np.mean(sequentialities)
+        return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities]
 
 
 if __name__ == "__main__":
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
-    print(f"\nshould be lower  : {model.calculate_total_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
-    print(f"\nshould be higher : {model.calculate_total_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
+    print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
+    print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
 
     # tmp = model._to_tokens_and_logprobs("")[0]
     #
