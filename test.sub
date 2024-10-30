@@ -2,18 +2,22 @@
 
 #SBATCH --job-name=test       ## Name of the job.
 #SBATCH -A bornstea_lab      ## CHANGE account to charge
-#SBATCH -p free               ## partition name
+#SBATCH -p free-gpu           ## specify free-gpu partition
 #SBATCH --nodes=1             ## (-N) number of nodes to use
 #SBATCH --ntasks=1            ## (-n) number of tasks to launch
 #SBATCH --array=0-99          ## number of array tasks
 #SBATCH --cpus-per-task=1     ## number of cores the job needs
 #SBATCH --error=slurm-%J.err  ## error log file
 #SBATCH --output=slurm-%J.out ## output log file
+#SBATCH --mail-type=end
+#SBATCH --mail-user=agoesche@uci.edu
+#SBATCH --gres=gpu:V100:1    # specify 1 GPU of type V100
 
 # Run command hostname and save output to the file out.txt
-python3 -m venv myenv
-source myenv/bin/activate
+source ~/.bashrc
 
-pip3 install -r requirements.txt
+conda activate practice
 
 python3 main.py ${1} $SLURM_ARRAY_TASK_ID
+
+exit
