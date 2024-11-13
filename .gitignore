@@ -1,0 +1,10 @@
+__pycache__/
+idea/
+.*/
+
+# Don't comit the key
+/src/keys.py
+
+*.err
+*.out
+
