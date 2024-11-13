@@ -13,7 +13,7 @@ def write_data(file_name, data : pd.DataFrame):
     data.to_csv(f"./data/calculated_values/{file_name}")
 
 
-def verify_data(partition_id, participant_id):
+def verify_data(partition_id, participant_id, recall_length):
     sequentialities = pd.DataFrame(columns=["AssignmentId",
                                             "scalar_text_sequentiality",
                                             "sentence_total_sequentialities",
@@ -26,7 +26,7 @@ def verify_data(partition_id, participant_id):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor", recall_length)
 
     seq = model.calculate_text_sequentiality(vec.story)
     sequentialities.loc[0] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
