@@ -2,6 +2,9 @@ from src.sequentiality import SequentialityModel
 from RPE.reader import read_csv
 import numpy as np
 from verification.verify_seq import *
+from verification.processing import merge_csvs
+from verification.generate_plots import generate
+import pandas as pd
 
 
 # use slice notation for scenes
@@ -52,10 +55,9 @@ def calculate_individual_sequentiality(data: np.array, start: int = None,
 
     print(f"sequentialities = {sequentialities}")
 
-
-def main(*args, **kwargs):
-    print(args)
-    print(kwargs)
+def main():
+    df = pd.read_csv("./data/main.csv")
+    generate(df)
 
 
 if __name__ == '__main__':
@@ -63,4 +65,6 @@ if __name__ == '__main__':
     # calculate_cumulative_sequentiality(d)
     # calculate_individual_sequentiality(d)
 
-    verify_data(int(sys.argv[1]), int(sys.argv[2]))
+    verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+
+    # main()
