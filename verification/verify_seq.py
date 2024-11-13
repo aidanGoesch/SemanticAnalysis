@@ -26,12 +26,14 @@ def verify_data(partition_id, participant_id, recall_length):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor", recall_length)
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+                               topic="a conversation with a doctor",
+                               recall_length=recall_length)
 
     seq = model.calculate_text_sequentiality(vec.story)
     sequentialities.loc[0] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
 
-    write_data(f"{partition_id + participant_id}.csv", sequentialities)
+    write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities)
 
 
 if __name__ == "__main__":
