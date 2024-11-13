@@ -15,12 +15,13 @@ else:  # If all else fails
     mps_device = torch.device("cpu")
 
 # number of previous sentences used to calculate context dependent sequentiality
-CALL_BACK = 4
 
 
 class SequentialityModel:
-    def __init__(self, model_name : str, topic : str) -> None:
+    def __init__(self, model_name : str, topic : str, recall_length=4) -> None:
         self.sentences = []
+
+        self.recall_length = recall_length
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name,
                                                        token=HUGGING_FACE_TOKEN,
@@ -115,7 +116,11 @@ class SequentialityModel:
         sentence_tokens = [self.tokenizer.decode(x) for x in self.tokenizer.encode(sentence + ".")]
 
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_tokens)
-        contextual_sequentiality = self._calculate_contextual_sequentiality(sentence, sentence_tokens, i, CALL_BACK, False)
+        contextual_sequentiality = self._calculate_contextual_sequentiality(sentence=sentence,
+                                                                            sentence_tokens=sentence_tokens,
+                                                                            i=i,
+                                                                            h=self.recall_length,
+                                                                            verbose=False)
 
         if verbose:
             print(f"topic sequentiality: {topic_sequentiality}\ncontext seqeuentiality: {contextual_sequentiality}\nsentence tokens:{sentence_tokens}")
