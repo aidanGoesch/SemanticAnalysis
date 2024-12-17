@@ -6,7 +6,11 @@ import os
 MASTER_PATH = "./data/calculated_values/main.csv"
 
 def merge_csvs(data_dir : str):
-    """Function that merges all CSVs in a gien directory"""
+    """
+    Function that merges all CSVs in a gien directory
+
+    :param directory: Path to the directory containing CSV files
+    """
 
     main_df = pd.DataFrame(columns=["AssignmentId",
                                             "scalar_text_sequentiality",
@@ -47,6 +51,10 @@ def delete_csvs_except_main(directory):
 
 
 if __name__ == "__main__":
+    """
+    example usage:
+    python3 merge.py ./data/directory
+    """
     path = str(sys.argv[1])
     merge_csvs(path)
     print("Merge complete")
