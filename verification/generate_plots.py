@@ -4,7 +4,46 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
-def generate(dfs : [pd.DataFrame]):
+def create_balanced_dataset(df, n_samples=130):
+    """
+    Create a balanced dataset with equal number of samples for each story type.
+
+    Args:
+        df: DataFrame from CSV file
+        n_samples: Number of samples to keep for each type (default: 130)
+    """
+    # Combine all DataFrames
+    combined_df = df
+
+    # Add story type column
+    combined_df['story_type'] = combined_df.apply(determine_bin, axis=1)
+
+    # Initialize empty DataFrame for balanced data
+    balanced_data = pd.DataFrame()
+
+    # Sample equal number of stories from each type
+    for story_type in ['Imagined', 'Retold', 'Recall']:
+        type_data = combined_df[combined_df['story_type'] == story_type]
+
+        # If we have more samples than needed, randomly sample
+        if len(type_data) > n_samples:
+            sampled_data = type_data.sample(n=n_samples, random_state=42)  # Set random_state for reproducibility
+        else:
+            print(f"Warning: Only {len(type_data)} samples available for {story_type} (needed {n_samples})")
+            sampled_data = type_data
+
+        balanced_data = pd.concat([balanced_data, sampled_data], ignore_index=True)
+
+    # Save to CSV
+    balanced_data.to_csv('truncated_data.csv', index=False)
+
+    # Print final counts
+    print("\nFinal dataset counts:")
+    print(balanced_data['story_type'].value_counts())
+
+    return balanced_data
+
+def generate_2d(dfs : [pd.DataFrame]):
     x = []
 
     imagined_recalled = []
@@ -78,5 +117,75 @@ def percentage_dif(l, r):
     return (numerator / denominator) * 100
 
 
+def standard_error(data):
+    """Calculate the standard error of the mean"""
+    return np.std(data, ddof=1) / np.sqrt(len(data))
+
+
+def calculate_sequentiality_by_history(dfs):
+    """
+    Calculate average sequentiality values and print bin counts for each history length.
+    """
+    # Initialize lists for each type
+    imagined = []
+    retold = []
+    recalled = []
+    imagined_err = []
+    retold_err = []
+    recalled_err = []
+
+    # Process each DataFrame (1-9)
+    for i, df in enumerate(dfs):
+        # Group stories by type
+        df['story_type'] = df.apply(determine_bin, axis=1)
+
+        # Print counts for this DataFrame
+        counts = df['story_type'].value_counts()
+        print(f"\nHistory Length {i + 1}:")
+        for story_type in ['Imagined', 'Retold', 'Recall']:
+            count = counts[story_type] if story_type in counts else 0
+            print(f"{story_type}: {count} data points")
+
+        # Calculate means and standard errors for each type
+        for story_type, means, errors in zip(
+                ['Imagined', 'Retold', 'Recall'],
+                [imagined, retold, recalled],
+                [imagined_err, retold_err, recalled_err]
+        ):
+            type_data = df[df['story_type'] == story_type]['scalar_text_sequentiality']
+            if not type_data.empty:
+                means.append(type_data.mean())
+                errors.append(standard_error(type_data))
+            else:
+                means.append(None)
+                errors.append(None)
+
+    return [(imagined, imagined_err),
+            (retold, retold_err),
+            (recalled, recalled_err)]
+
+
+def generate_2a(dfs):
+    """Plot sequentiality values for different story types"""
+    results = calculate_sequentiality_by_history(dfs)
+    x = list(range(len(dfs)))  # 0-8 for the 9 DataFrames
+
+    plt.figure(figsize=(10, 6))
+
+    colors = ['blue', 'red', 'green']
+    labels = ['imagined', 'retold', 'recalled']
+
+    for (means, errors), color, label in zip(results, colors, labels):
+        plt.errorbar(x, means, yerr=errors,
+                     label=label, color=color,
+                     marker='o', capsize=3)
+
+    plt.xlabel('History Length')
+    plt.ylabel('Sequentiality')
+    plt.title('Sequentiality with Varying History Length')
+    plt.legend()
+    plt.show()
+
+
 if __name__ == "__main__":
-    generate(pd.DataFrame())
+    generate_2d(pd.DataFrame())
