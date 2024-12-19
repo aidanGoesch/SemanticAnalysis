@@ -3,7 +3,7 @@ idea/
 .*/
 
 # Don't comit the key
-/src/keys.py
+./src/keys.py
 
 *.err
 *.out
