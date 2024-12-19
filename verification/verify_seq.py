@@ -51,7 +51,7 @@ def test_data(partition_id:int, participant_id:int):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+    model = SequentialityModel("meta-llama/Llama-3.3-70B-Instruct",
                                topic="a conversation with a doctor",
                                recall_length=recall_length)
 
