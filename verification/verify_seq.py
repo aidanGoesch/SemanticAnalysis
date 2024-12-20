@@ -36,7 +36,7 @@ def verify_data(partition_id:int, participant_id:int, recall_length:int):
     write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities)
 
 
-def test_data(partition_id:int, participant_id:int):
+def test_model(partition_id:int, participant_id:int):
     recall_length = 3 # hard code this to reduce unnecessary computations
 
     sequentialities = pd.DataFrame(columns=["AssignmentId",
