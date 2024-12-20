@@ -6,8 +6,6 @@ import torch
 import gc
 
 
-
-
 def calculate_cumulative_sequentiality(data: np.array, start: int = None, stop: int = None):
     """!!! NOT USED ON HPC3 !!!"""
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a description of a film")
