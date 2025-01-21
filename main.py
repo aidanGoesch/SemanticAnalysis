@@ -84,7 +84,8 @@ def explore_random_seeds():
 if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
-    test_model(int(sys.argv[1]), int(sys.argv[2]))
+    # test_model(int(sys.argv[1]), int(sys.argv[2]))
+    compare_models()
     # main()
     # explore_random_seeds()
     # df = pd.read_csv("./data/hcV3-stories.csv")
