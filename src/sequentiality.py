@@ -86,6 +86,7 @@ class SequentialityModel:
                     return sum(p for _, p in tokens_and_logprobs[i:i+len(query_token_ids)])
             i += 1
 
+        print("not found")
         return 0
 
     def _calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
