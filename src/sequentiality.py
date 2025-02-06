@@ -61,6 +61,11 @@ class SequentialityModel:
             batch.append(token_sequence)
         return batch
 
+    def print_token_ids_and_strings(self, token_ids: list[int]):
+        print("Query token sequence:")
+        for token_id in token_ids:
+            token_str = self.tokenizer.decode([token_id])
+            print(f"Token: {token_str!r:10} | ID: {token_id:6}")
 
     @staticmethod
     def _find_subsequence(query: list[int], full_sequence: list[tuple[int, float]]) -> int:
@@ -71,13 +76,14 @@ class SequentialityModel:
                 return i
         return -1
 
-    @staticmethod
-    def _process_tokens_and_logprobs(query_token_ids: list[int], tokens_and_logprobs: list[tuple[int, float]]) -> float:
+    def _process_tokens_and_logprobs(self, query_token_ids: list[int], tokens_and_logprobs: list[tuple[int, float]]) -> float:
         start_idx = SequentialityModel._find_subsequence(query_token_ids, tokens_and_logprobs)
         if start_idx == -1:
             # Debug: print the sequences to see why matching failed
             print("Query token IDs:", query_token_ids)
+            self.print_token_ids_and_strings(query_token_ids)
             print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
+            self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
             return 0
         # Sum only over the tokens corresponding to the query (not the rest of the sequence)
         return sum(p for _, p in tokens_and_logprobs[start_idx:start_idx+len(query_token_ids)])
@@ -107,7 +113,7 @@ class SequentialityModel:
             input_text = context + ". " + sentence + "."
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
-
+        
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
     def _calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
@@ -120,8 +126,9 @@ class SequentialityModel:
         :return: topic sequentiality value - Log(P(sentence | topic))
         :rtype: float
         """
-        tokens_and_logprobs = self._to_tokens_and_logprobs(sentence + ".")[0]
-
+        # Tokenize the full text (which is context + sentence + ".")
+        full_text = self.context_string + sentence + "."
+        tokens_and_logprobs = self._to_tokens_and_logprobs(full_text)[0]
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
     def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> [float]:
@@ -137,20 +144,37 @@ class SequentialityModel:
         :return: [total_sentence_sequentiality, contextual_sequentiality, topic_sequentiality]
         :rtype: list[float]
         """
-        sentence_token_ids = self.tokenizer.encode(sentence + ".")
-    
+        # Tokenize the context string separately.
+        context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
+        
+        # Tokenize the full input (context + sentence + ".")
+        full_text = self.context_string + sentence + "."
+        full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
+        
+        # Extract the sentence tokens by slicing off the context portion.
+        sentence_token_ids = full_ids[len(context_ids):]
+
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
         contextual_sequentiality = self._calculate_contextual_sequentiality(
             sentence=sentence,
             sentence_tokens=sentence_token_ids,
             i=i,
             h=self.recall_length,
-            verbose=False
+            verbose=verbose
         )
 
         if verbose:
-            print(f"topic sequentiality: {topic_sequentiality}\ncontext sequentiality: {contextual_sequentiality}\nsentence token IDs: {sentence_token_ids}")
-        # Normalize by the number of tokens (note: if needed, adjust this)
+            print(f"topic sequentiality: {topic_sequentiality}")
+            print(f"context sequentiality: {contextual_sequentiality}")
+            print("Sentence token IDs:")
+            print(sentence_token_ids)
+            # Optionally print decoded tokens:
+            print("Sentence token sequence:")
+            for token_id in sentence_token_ids:
+                print(f"Token: {self.tokenizer.decode([token_id])!r} | ID: {token_id}")
+            print(f"Sentence: {sentence}")
+        
+        # Normalize by the number of tokens, if desired.
         return [(topic_sequentiality - contextual_sequentiality) / -len(sentence_token_ids), contextual_sequentiality, topic_sequentiality]
 
     def calculate_text_sequentiality(self, text : str, verbose : bool = False) -> list[float | list]:
@@ -171,7 +195,7 @@ class SequentialityModel:
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, verbose)
+            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, True)
             total_sequentialities.append(total)
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
@@ -180,7 +204,8 @@ class SequentialityModel:
 
 
 if __name__ == "__main__":
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
+    # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
+    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct", topic="a conversation with a doctor")
     # model = SequentialityModel("meta-llama/Llama-3.3-70B-Instruct", topic="a conversation with a doctor")
     print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
     print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
