@@ -13,7 +13,7 @@ STORIES = ["Concerts are my most favorite thing, and my boyfriend knew it. That'
 STORY_LENS = [203, 183, 165, 162, 318]
 
 def load_data():
-    df = pd.read_csv("./data/truncated_data.csv")
+    df = pd.read_csv("./data/hcV3-stories-mini.csv")
     return df
 
 
@@ -34,14 +34,14 @@ def verify_data(partition_id:int, participant_id:int, recall_length:int):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
-                               topic="a conversation with a doctor",
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+                               topic="A short story",
                                recall_length=recall_length)
 
     seq = model.calculate_text_sequentiality(vec.story)
     sequentialities.loc[0] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
 
-    write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities)
+    write_data(f"truncated/{recall_length}/{partition_id + participant_id}.csv", sequentialities)
 
 
 def test_model(partition_id:int, participant_id:int):
@@ -73,7 +73,7 @@ def compare_models():
     recall_length = 3 # hard code this to reduce unnecessary computations
 
     # load both models
-    big_model = SequentialityModel("meta-llama/Llama-3.3-70B-Instruct",
+    big_model = SequentialityModel("meta-llama/Phi-4}",
                                topic="A short story",
                                recall_length=recall_length)
     

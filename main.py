@@ -80,12 +80,35 @@ def explore_random_seeds():
 
     print(s)
 
+def print_model_comparisons():
+    df = pd.read_csv("./data/comparison_data_35804930.csv")
+
+    # print(np.mean(df["small_model_times"].iloc[0]))
+
+    small_model_times = eval(df["small_model_times"].iloc[0])
+    big_model_times = eval(df["big_model_times"].iloc[0])
+
+    print(f"average execution time of small model: {np.mean(small_model_times)} with standard deviation {np.std(small_model_times)}")
+    print(f"70b quantized model takes on average {np.mean(big_model_times) / np.mean(small_model_times)}x longer than the 4b model")
+
+    small_model_seq = [x[0] for x in eval(df["small_model_seq"].iloc[0])]
+    big_model_seq = [x[0] for x in eval(df["big_model_seq"].iloc[0])]
+
+    print(big_model_seq)
+
+    print(f"small model sequentiality values: {small_model_seq}\n\taverage: {np.mean(small_model_seq)}\n\tstandard deviation: {np.std(small_model_seq)}")
+    print(f"big model sequentiality values: {big_model_seq}\n\taverage: {np.mean(big_model_seq)}\n\tstandard deviation: {np.std(big_model_seq)}")
+
+
+
+
 
 if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
-    # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+    verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
     # test_model(int(sys.argv[1]), int(sys.argv[2]))
-    compare_models()
+    # compare_models()
+    print_model_comparisons()
     # main()
     # explore_random_seeds()
     # df = pd.read_csv("./data/hcV3-stories.csv")
