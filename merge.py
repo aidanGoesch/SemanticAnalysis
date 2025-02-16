@@ -7,7 +7,7 @@ MASTER_PATH = "./data/calculated_values/main.csv"
 
 def merge_csvs(data_dir : str):
     """
-    Function that merges all CSVs in a gien directory
+    Function that merges all CSVs in a given directory
 
     :param directory: Path to the directory containing CSV files
     """
@@ -26,7 +26,7 @@ def merge_csvs(data_dir : str):
 
         main_df = pd.concat([main_df, tmp_df])
 
-    main_df.to_csv(MASTER_PATH)
+    main_df.to_csv(f"{data_dir}main.csv")
 
 
 def delete_csvs_except_main(directory):
