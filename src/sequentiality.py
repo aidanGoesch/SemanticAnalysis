@@ -154,6 +154,7 @@ class SequentialityModel:
         # Extract the sentence tokens by slicing off the context portion.
         sentence_token_ids = full_ids[len(context_ids):]
 
+        # log probs
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
         contextual_sequentiality = self._calculate_contextual_sequentiality(
             sentence=sentence,

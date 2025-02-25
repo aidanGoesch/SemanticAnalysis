@@ -336,17 +336,16 @@ def select_stories_near_mean(dataset_path, main_path, output_path):
 
 if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
-    # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+    verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
     # test_model(int(sys.argv[1]), int(sys.argv[2]))
     # compare_models()
     # print_model_comparisons()
     # Find values near mean and save results
 
+    # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
+    # create_mini_files(merged_file="./data/hcV3-stories-mini.csv")
 
-    select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
-    create_mini_files(merged_file="./data/hcV3-stories-mini.csv")
-
-    main()
+    # main()
 
     # Print summary statistics
     # explore_random_seeds()
