@@ -39,7 +39,7 @@ def verify_data(partition_id:int, participant_id:int, recall_length:int):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                                topic="A short story",
                                recall_length=recall_length)
 

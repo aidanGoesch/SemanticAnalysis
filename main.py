@@ -1,6 +1,6 @@
 from verification.verify_seq import *
-from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset
-from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin
+from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart
+from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import norm
@@ -31,7 +31,6 @@ def calculate_cumulative_sequentiality(data: np.array, start: int = None, stop: 
 
     print(f"sequentialities = {sequentialities}")
 
-
 def calculate_individual_sequentiality(data: np.array, start: int = None, stop: int = None):
     """!!! NOT USED ON HPC3 !!!"""
     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a description of a film")
@@ -53,12 +52,14 @@ def calculate_individual_sequentiality(data: np.array, start: int = None, stop: 
 
     print(f"sequentialities = {sequentialities}")
 
-def main():
-    """function that generates the graph from the calculated sequentiality values"""
+def generate_plots(data_path:str="./outputs/phi-4k-mini", file_name:str="main.csv"):
+    """
+    Function that generates the graph from the calculated sequentiality values. Takes as an argument the path to where the data is stored, and the filename
+    """
 
     dfs = []
     for i in range(9):
-        dfs.append(pd.read_csv(f"./outputs/llama-70b-quantized/{i + 1}/main.csv"))
+        dfs.append(pd.read_csv(f"{data_path}/{i + 1}/{file_name}"))
 
     generate_2a(dfs)
     generate_2d(dfs)
@@ -104,8 +105,7 @@ def print_model_comparisons():
     print(f"small model sequentiality values: {small_model_seq}\n\taverage: {np.mean(small_model_seq)}\n\tstandard deviation: {np.std(small_model_seq)}")
     print(f"big model sequentiality values: {big_model_seq}\n\taverage: {np.mean(big_model_seq)}\n\tstandard deviation: {np.std(big_model_seq)}")
 
-
-def create_mini_files(base_path="./outputs/calculated_values", merged_file="./datasets/merged_top_stories.csv"):
+def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets/hcV3-stories-quartered.csv"):
     """
     Creates main-mini.csv files in each numbered folder, containing only the rows
     that match AssignmentIDs from the merged top stories file.
@@ -236,7 +236,6 @@ def find_representative_samples(base_path: str = "./outputs/", samples_per_folde
         print("No representative samples were found")
         return None
     
-
 def select_stories_near_mean(dataset_path, main_path, output_path):
     """
     Selects 120 stories for each story type using weighted probability sampling.
@@ -341,7 +340,8 @@ if __name__ == '__main__':
 
     # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
-    # create_mini_files(merged_file="./data/hcV3-stories-mini.csv")
+    # create_mini_files()
 
     # generate plots
-    # main()
+    # generate_plots(file_name = "main-mini.csv")
+    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
