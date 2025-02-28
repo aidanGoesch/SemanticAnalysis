@@ -12,7 +12,7 @@ STORIES = ["Concerts are my most favorite thing, and my boyfriend knew it. That'
 
 STORY_LENS = [203, 183, 165, 162, 318]
 
-def load_data(path="./datasets/hcV3-stories-mini.csv"):
+def load_data(path="./datasets/hcV3-stories-quartered.csv"):
     df = pd.read_csv(path)
     return df
 
