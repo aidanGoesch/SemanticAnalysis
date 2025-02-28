@@ -58,7 +58,7 @@ def main():
 
     dfs = []
     for i in range(9):
-        dfs.append(pd.read_csv(f"./data/calculated_values/{i + 1}/main-mini.csv"))
+        dfs.append(pd.read_csv(f"./outputs/llama-70b-quantized/{i + 1}/main.csv"))
 
     generate_2a(dfs)
     generate_2d(dfs)
@@ -85,7 +85,8 @@ def explore_random_seeds():
     print(s)
 
 def print_model_comparisons():
-    df = pd.read_csv("./data/comparison_data_35804930.csv")
+    """Function that will print model comparison data stored in a csv"""
+    df = pd.read_csv("./outputs/misc/comparison_data_35804930.csv")
 
     # print(np.mean(df["small_model_times"].iloc[0]))
 
@@ -104,7 +105,7 @@ def print_model_comparisons():
     print(f"big model sequentiality values: {big_model_seq}\n\taverage: {np.mean(big_model_seq)}\n\tstandard deviation: {np.std(big_model_seq)}")
 
 
-def create_mini_files(base_path="./data/calculated_values", merged_file="./data/merged_top_stories.csv"):
+def create_mini_files(base_path="./outputs/calculated_values", merged_file="./datasets/merged_top_stories.csv"):
     """
     Creates main-mini.csv files in each numbered folder, containing only the rows
     that match AssignmentIDs from the merged top stories file.
@@ -147,7 +148,7 @@ def create_mini_files(base_path="./data/calculated_values", merged_file="./data/
             print(f"Error processing folder {folder}: {str(e)}")
             continue
 
-def find_representative_samples(base_path: str = "./data/calculated_values", samples_per_folder: int = 15):
+def find_representative_samples(base_path: str = "./outputs/", samples_per_folder: int = 15):
     """
     Finds representative samples from each CSV by selecting stories closest to the mean
     of numerical values.
@@ -337,17 +338,10 @@ def select_stories_near_mean(dataset_path, main_path, output_path):
 if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
-    # test_model(int(sys.argv[1]), int(sys.argv[2]))
-    # compare_models()
-    # print_model_comparisons()
-    # Find values near mean and save results
 
+    # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
     # create_mini_files(merged_file="./data/hcV3-stories-mini.csv")
 
+    # generate plots
     # main()
-
-    # Print summary statistics
-    # explore_random_seeds()
-    # df = pd.read_csv("./data/hcV3-stories.csv")
-    # create_balanced_dataset(df)
