@@ -12,16 +12,21 @@ STORIES = ["Concerts are my most favorite thing, and my boyfriend knew it. That'
 
 STORY_LENS = [203, 183, 165, 162, 318]
 
-def load_data():
-    df = pd.read_csv("./data/hcV3-stories-mini.csv")
+def load_data(path="./datasets/hcV3-stories-mini.csv"):
+    df = pd.read_csv(path)
     return df
 
 
-def write_data(file_name, data : pd.DataFrame):
-    data.to_csv(f"./data/calculated_values/{file_name}")
+def write_data(file_name, data : pd.DataFrame, model_name:str):
+    data.to_csv(f"./outputs/{model_name}/{file_name}")
 
 
 def verify_data(partition_id:int, participant_id:int, recall_length:int):
+    """
+    Function that is run on hpc3 to verify the performance of different LLMs. 
+    
+    !!! BE SURE TO CHANGE THE MODEL NAME OR IT MAY OVERWRITE DATA THAT YOU DON'T WANT IT TO !!!
+    """
     sequentialities = pd.DataFrame(columns=["AssignmentId",
                                             "scalar_text_sequentiality",
                                             "sentence_total_sequentialities",
@@ -34,14 +39,14 @@ def verify_data(partition_id:int, participant_id:int, recall_length:int):
 
     vec = data.iloc[partition_id + participant_id]
 
-    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
                                topic="A short story",
                                recall_length=recall_length)
 
     seq = model.calculate_text_sequentiality(vec.story)
     sequentialities.loc[0] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
 
-    write_data(f"truncated/{recall_length}/{partition_id + participant_id}.csv", sequentialities)
+    write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities, "phi-4k-mini")
 
 
 def test_model(partition_id:int, participant_id:int):
