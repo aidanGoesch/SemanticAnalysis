@@ -152,6 +152,21 @@ def merge_top_stories():
         return None
 
 
+def make_large_subset(df:pd.DataFrame):
+    """
+    Function that returns a random subset of data that makes up a quarter of the original DataFrame
+    """
+    # 1/4 of the data
+    sample_size = df.shape[0] // 4
+
+    subset = df.sample(n=sample_size, replace=False)
+
+    subset.to_csv("./datasets/hcV3-stories-quartered.csv")
+
+    return subset
+
+
+
 if __name__ == "__main__":
     top_stories = analyze_embeddings()
     save_top_stories(top_stories)

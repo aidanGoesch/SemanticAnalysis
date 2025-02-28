@@ -51,13 +51,6 @@ def generate_2d(dfs : [pd.DataFrame]):
     retold_recalled = []
 
     for idx, df in enumerate(dfs):
-        # normalize the sequentiality values
-        scaler = MinMaxScaler()
-        df["scalar_text_sequentiality"] = pd.DataFrame(scaler.fit_transform(df[["scalar_text_sequentiality"]]),
-                                                       columns=["sequentiality"])
-
-        df['seq_type'] = df.apply(determine_bin, axis=1)
-
         # Calculate average sequentiality for each bin type
         df['seq_type'] = df.apply(determine_bin, axis=1)
 
@@ -82,9 +75,9 @@ def generate_2d(dfs : [pd.DataFrame]):
     plt.xlabel("recall")
     plt.ylabel("% difference")
 
-    plt.scatter(x, imagined_recalled, label="imagined vs. recalled", color="blue")
-    plt.scatter(x, imagined_retold, label="imagined vs. retold", color="red")
-    plt.scatter(x, retold_recalled, label="retold vs recalled", color="green")
+    plt.plot(x, imagined_recalled, label="imagined vs. recalled", color="blue")
+    plt.plot(x, imagined_retold, label="imagined vs. retold", color="red")
+    plt.plot(x, retold_recalled, label="retold vs recalled", color="green")
 
     plt.legend(loc='upper right')
     plt.show()
@@ -185,6 +178,29 @@ def generate_2a(dfs):
     plt.title('Sequentiality with Varying History Length')
     plt.legend()
     plt.show()
+
+
+def generate_data_proportion_chart(file_path:str="./datasets/hcV3-stories.csv", title:str="Proportions of hcV3-stories.csv"):
+    df = pd.read_csv(file_path)
+
+
+    df['story_type'] = df.apply(determine_bin, axis=1)
+
+    # Print counts for this DataFrame
+    stats = df['story_type'].value_counts()
+    print(stats)
+
+    labels, counts = [], []
+    for key, value in stats.items():
+        labels.append(key)
+        counts.append(value)
+    
+    plt.pie(counts, labels=labels)
+    plt.title(title)
+    plt.show()
+
+    
+    
 
 
 if __name__ == "__main__":
