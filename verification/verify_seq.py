@@ -46,7 +46,7 @@ def verify_data(partition_id:int, participant_id:int, recall_length:int):
     seq = model.calculate_text_sequentiality(vec.story)
     sequentialities.loc[0] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
 
-    write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities, "phi-4k-mini")
+    write_data(f"{recall_length}/{partition_id + participant_id}.csv", sequentialities, "llama-70b-quantized")
 
 
 def test_model(partition_id:int, participant_id:int):
