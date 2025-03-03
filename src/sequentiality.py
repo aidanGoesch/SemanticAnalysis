@@ -131,7 +131,7 @@ class SequentialityModel:
         tokens_and_logprobs = self._to_tokens_and_logprobs(full_text)[0]
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-    def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> [float]:
+    def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> list[float]:
         """
 
         Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
