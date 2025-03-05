@@ -346,7 +346,7 @@ def test_sequential_vs_parallel():
     for x in [5, 15, 25]:
         # sequential
         start_time = time.perf_counter()
-        model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+        model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                                 topic="A short story",
                                 recall_length=4,
                                 compile=True)
@@ -370,7 +370,7 @@ def test_sequential_vs_parallel():
     for x in [5, 15, 25]:
         # sequential
         start_time = time.perf_counter()
-        model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+        model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                                 topic="A short story",
                                 recall_length=4,
                                 compile=False)
@@ -420,14 +420,16 @@ if __name__ == '__main__':
     test_sequential_vs_parallel()
 
     # x = [5, 15, 25]
-    # s = [67.0769434159156, 176.9803800000809, 256.1642681248486]
-    # s2 = [68.04806358413771, ]
-    # p = [100.46545683289878, 304.41824337490834, 482.0245797911193]
+    # s = [43.7177, 101.5173, 156.0706]
+    # # p = [100.46545683289878, 304.41824337490834, 482.0245797911193]
+
+    # s1 = [132.3931, 107.2755, 161.2929]
+    # s2 = []
 
     # plt.figure()
     # plt.plot(x, s, label="sequential", color="blue")
-    # plt.plot(x, p, label="parallel", color="orange")
-    # plt.plot(x, s2, label="sequential w/ optimization", color="green")
+    # # plt.plot(x, p, label="parallel", color="orange")
+    # plt.plot(x, s1, label="sequential w/ optimization", color="red")
     # plt.legend()
     # plt.show()
 
