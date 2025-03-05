@@ -342,12 +342,14 @@ def test_sequential_vs_parallel():
 
     data = pd.read_csv("./datasets/hcV3-stories-mini.csv")
 
+    print("compiled")
     for x in [5, 15, 25]:
         # sequential
         start_time = time.perf_counter()
         model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
                                 topic="A short story",
-                                recall_length=4)
+                                recall_length=4,
+                                compile=True)
         
 
         for i, row in enumerate(data.iterrows()):
@@ -363,6 +365,28 @@ def test_sequential_vs_parallel():
         print(f"sequential time: {time.perf_counter() - start_time}")
 
         del model
+
+    print("uncompiled")
+    for x in [5, 15, 25]:
+        # sequential
+        start_time = time.perf_counter()
+        model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+                                topic="A short story",
+                                recall_length=4,
+                                compile=False)
+        
+
+        for i, row in enumerate(data.iterrows()):
+            seq = model.calculate_text_sequentiality(row[1]["story"])
+
+            # save it - assume it's constant time
+
+            print(f"row: {i} seq: {seq[0]}")
+
+            if i == (x-1):
+                break
+        
+        print(f"sequential time: {time.perf_counter() - start_time}")
 
     # del model
 
