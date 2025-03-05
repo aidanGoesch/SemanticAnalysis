@@ -18,6 +18,7 @@ else:  # If all else fails
 
 
 torch.set_default_dtype(torch.bfloat16)
+torch.set_float32_matmul_precision('high')
 
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str, recall_length=4, compile=True) -> None:
