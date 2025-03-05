@@ -3,6 +3,8 @@ import torch
 import numpy as np
 from src.keys import HUGGING_FACE_TOKEN
 import re
+# import torch._dynamo
+# torch._dynamo.config.suppress_errors = True
 
 if torch.backends.mps.is_built():  # Apple Silicon
     print('mps is used.')
@@ -14,7 +16,8 @@ else:  # If all else fails
     print('cpu is used.')
     mps_device = torch.device("cpu")
 
-torch.set_default_dtype(torch.float64)  # Use double precision
+
+torch.set_default_dtype(torch.bfloat16)
 
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str, recall_length=4) -> None:
@@ -31,11 +34,14 @@ class SequentialityModel:
                                                           torch_dtype=torch.bfloat16,
                                                           device_map=mps_device,
                                                           use_safetensors=True).to(mps_device)
+        
+        # use JIT compiler
+        self.model = torch.compile(self.model)
 
         self.model.config.pad_token_id = self.model.config.eos_token_id
 
-        # turn off gradient descent
-        torch.set_grad_enabled(False)
+        # optimize for inference
+        torch.inference_mode()
 
         # Pad all text with _
         self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
@@ -80,10 +86,10 @@ class SequentialityModel:
         start_idx = SequentialityModel._find_subsequence(query_token_ids, tokens_and_logprobs)
         if start_idx == -1:
             # Debug: print the sequences to see why matching failed
-            print("Query token IDs:", query_token_ids)
-            self.print_token_ids_and_strings(query_token_ids)
-            print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
-            self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
+            # print("Query token IDs:", query_token_ids)
+            # self.print_token_ids_and_strings(query_token_ids)
+            # print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
+            # self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
             return 0
         # Sum only over the tokens corresponding to the query (not the rest of the sequence)
         return sum(p for _, p in tokens_and_logprobs[start_idx:start_idx+len(query_token_ids)])
@@ -196,7 +202,7 @@ class SequentialityModel:
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, True)
+            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i)
             total_sequentialities.append(total)
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
