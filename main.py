@@ -14,6 +14,7 @@ import os
 "SakanaAI/TinySwallow-1.5B-Instruct"
 "meta-llama/Llama-3.3-70B-Instruct"
 "microsoft/Phi-3-mini-4k-instruct"
+"neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8"
 
 
 # HPC Checklist
@@ -366,7 +367,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct",
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                             topic="A short story",
                             recall_length=recall_length)
     
