@@ -20,7 +20,7 @@ else:  # If all else fails
 torch.set_default_dtype(torch.bfloat16)
 
 class SequentialityModel:
-    def __init__(self, model_name : str, topic : str, recall_length=4) -> None:
+    def __init__(self, model_name : str, topic : str, recall_length=4, compile=True) -> None:
         self.sentences = []
 
         self.recall_length = recall_length
@@ -35,8 +35,9 @@ class SequentialityModel:
                                                           device_map=mps_device,
                                                           use_safetensors=True).to(mps_device)
         
-        # use JIT compiler
-        self.model = torch.compile(self.model)
+        if compile:
+            # use JIT compiler
+            self.model = torch.compile(self.model)
 
         self.model.config.pad_token_id = self.model.config.eos_token_id
 
