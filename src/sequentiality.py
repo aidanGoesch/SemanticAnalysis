@@ -17,11 +17,11 @@ else:  # If all else fails
     mps_device = torch.device("cpu")
 
 
-torch.set_default_dtype(torch.bfloat16)
+# torch.set_default_dtype(torch.bfloat16)
 torch.set_float32_matmul_precision('high')
 
 class SequentialityModel:
-    def __init__(self, model_name : str, topic : str, recall_length=4, compile=True) -> None:
+    def __init__(self, model_name : str, topic : str, recall_length=4) -> None:
         self.sentences = []
 
         self.recall_length = recall_length
@@ -35,24 +35,19 @@ class SequentialityModel:
                                                           torch_dtype=torch.bfloat16,
                                                           device_map=mps_device,
                                                           use_safetensors=True).to(mps_device)
-        
-        if compile:
-            # use JIT compiler
-            self.model = torch.compile(self.model)
 
         self.model.config.pad_token_id = self.model.config.eos_token_id
-
-        # optimize for inference
-        torch.inference_mode()
 
         # Pad all text with _
         self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         input_text = self.context_string + text
-
         input_ids = self.tokenizer(input_text, padding=True, return_tensors="pt").input_ids.to(mps_device)
-        outputs = self.model(input_ids)
+        
+        with torch.inference_mode(): #optimize for inference
+            outputs = self.model(input_ids)
+
         probs = torch.log_softmax(outputs.logits, dim=-1).detach()
 
         # collect the probability of the generated token -- probability at index 0 corresponds to the token at index 1
@@ -88,10 +83,10 @@ class SequentialityModel:
         start_idx = SequentialityModel._find_subsequence(query_token_ids, tokens_and_logprobs)
         if start_idx == -1:
             # Debug: print the sequences to see why matching failed
-            # print("Query token IDs:", query_token_ids)
-            # self.print_token_ids_and_strings(query_token_ids)
-            # print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
-            # self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
+            print("Query token IDs:", query_token_ids)
+            self.print_token_ids_and_strings(query_token_ids)
+            print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
+            self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
             return 0
         # Sum only over the tokens corresponding to the query (not the rest of the sequence)
         return sum(p for _, p in tokens_and_logprobs[start_idx:start_idx+len(query_token_ids)])
@@ -110,15 +105,15 @@ class SequentialityModel:
         """
         raw_sequentiality = 0
         if i - h < 0:
-            context = ". ".join(self.sentences[:i])
+            context = " ".join(self.sentences[:i])
 
         else:
-            context = ". ".join(self.sentences[i - h:i])
+            context = " ".join(self.sentences[i - h:i])
 
         if len(context) == 0:  # beginning of the text - prevents random period at the front of the text
-            input_text = sentence + "."
+            input_text = sentence
         else:
-            input_text = context + ". " + sentence + "."
+            input_text = context + " " + sentence
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
         
@@ -134,8 +129,8 @@ class SequentialityModel:
         :return: topic sequentiality value - Log(P(sentence | topic))
         :rtype: float
         """
-        # Tokenize the full text (which is context + sentence + ".")
-        full_text = self.context_string + sentence + "."
+        # Tokenize the full text (which is context + sentence)
+        full_text = self.context_string + sentence
         tokens_and_logprobs = self._to_tokens_and_logprobs(full_text)[0]
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
@@ -155,8 +150,8 @@ class SequentialityModel:
         # Tokenize the context string separately.
         context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
         
-        # Tokenize the full input (context + sentence + ".")
-        full_text = self.context_string + sentence + "."
+        # Tokenize the full input (context + sentence)
+        full_text = self.context_string + sentence
         full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
         
         # Extract the sentence tokens by slicing off the context portion.
@@ -196,7 +191,13 @@ class SequentialityModel:
         :return: [total_text_sequentiality, total_sentence-level_sequentiality, contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
         :rtype: list[float | list]
         """
-        self.sentences = re.split('[\.\?\!]\s*', text)
+        split_text = re.split(r'(?<!\.\.\.)[\.\?\!](?!\.)\s*', text)
+
+        self.sentences = []
+        for i in range(0, len(split_text) - 1, 2):
+            sentence = split_text[i].strip() + split_text[i + 1]
+            self.sentences.append(sentence)
+
         total_sequentialities = []
         contextual_sequentialities = []
         topic_sequentialities = []

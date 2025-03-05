@@ -1,5 +1,5 @@
 from verification.verify_seq import *
-from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart
+from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
 from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -7,6 +7,21 @@ from scipy.stats import norm
 import torch
 import gc
 import os
+
+
+# Models:
+
+"SakanaAI/TinySwallow-1.5B-Instruct"
+"meta-llama/Llama-3.3-70B-Instruct"
+"microsoft/Phi-3-mini-4k-instruct"
+
+
+# HPC Checklist
+#   - Is the model name correct?
+#   - Is the save file location correct?
+#   - Is the dataset file path correct?
+#   - Is the correct function being run with the correct arguments in main.py?
+#   - Is the version of the code on HPC what you want to run?
 
 
 def calculate_cumulative_sequentiality(data: np.array, start: int = None, stop: int = None):
@@ -334,6 +349,47 @@ def select_stories_near_mean(dataset_path, main_path, output_path):
     print(f"Stories per type:")
     print(selected_stories['story_type'].value_counts())
 
+def run_sequential(recall_length:int):
+    """
+    Function that runs the entire model in one process rather than split between models
+    """
+    data = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
+    
+    # df for writing
+    sequentialities = pd.DataFrame(columns=["AssignmentId",
+                                        "scalar_text_sequentiality",
+                                        "sentence_total_sequentialities",
+                                        "sentence_contextual_sequentialities",
+                                        "sentence_topic_sequentialities",
+                                        "story",
+                                        "recAgnPairId",
+                                        "recImgPairId"])
+
+    # load model once
+    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct",
+                            topic="A short story",
+                            recall_length=recall_length)
+    
+
+    times = []
+
+    data_size = 30
+    for i in range(data_size):
+        vec = data.iloc[i]
+
+        start_time = time.perf_counter()
+        seq = model.calculate_text_sequentiality(vec.story)
+        sequentialities.loc[len(sequentialities)] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
+
+        compute_time = time.perf_counter() - start_time
+        times.append(compute_time)
+
+        print(f"iteration {i+1} sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
+
+    print(f"total time to complete: {np.sum(times):.4f}")
+
+    sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
+
 
 def test_sequential_vs_parallel():
     """
@@ -341,17 +397,14 @@ def test_sequential_vs_parallel():
     """
 
     data = pd.read_csv("./datasets/hcV3-stories-mini.csv")
+    tmp = []
 
-    print("compiled")
-    for x in [5, 15, 25]:
-        # sequential
+    for x in [5, 10, 15, 20, 25]:
         start_time = time.perf_counter()
-        model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+        model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
                                 topic="A short story",
-                                recall_length=4,
-                                compile=True)
+                                recall_length=4)
         
-
         for i, row in enumerate(data.iterrows()):
             seq = model.calculate_text_sequentiality(row[1]["story"])
 
@@ -361,32 +414,14 @@ def test_sequential_vs_parallel():
 
             if i == (x-1):
                 break
-        
-        print(f"sequential time: {time.perf_counter() - start_time}")
+        t = time.perf_counter() - start_time
+        print(f"sequential time: {t}")
+
+        tmp.append(t)
 
         del model
-
-    print("uncompiled")
-    for x in [5, 15, 25]:
-        # sequential
-        start_time = time.perf_counter()
-        model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
-                                topic="A short story",
-                                recall_length=4,
-                                compile=False)
-        
-
-        for i, row in enumerate(data.iterrows()):
-            seq = model.calculate_text_sequentiality(row[1]["story"])
-
-            # save it - assume it's constant time
-
-            print(f"row: {i} seq: {seq[0]}")
-
-            if i == (x-1):
-                break
-        
-        print(f"sequential time: {time.perf_counter() - start_time}")
+    
+    print(tmp)
 
     # del model
 
@@ -417,21 +452,8 @@ if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
-    test_sequential_vs_parallel()
-
-    # x = [5, 15, 25]
-    # s = [43.7177, 101.5173, 156.0706]
-    # # p = [100.46545683289878, 304.41824337490834, 482.0245797911193]
-
-    # s1 = [132.3931, 107.2755, 161.2929]
-    # s2 = []
-
-    # plt.figure()
-    # plt.plot(x, s, label="sequential", color="blue")
-    # # plt.plot(x, p, label="parallel", color="orange")
-    # plt.plot(x, s1, label="sequential w/ optimization", color="red")
-    # plt.legend()
-    # plt.show()
+    # this is the equivalent of verify_data but run sequentially rather than parallel
+    run_sequential(int(sys.argv[1]))
 
     # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
