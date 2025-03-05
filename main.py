@@ -334,9 +334,78 @@ def select_stories_near_mean(dataset_path, main_path, output_path):
     print(f"Stories per type:")
     print(selected_stories['story_type'].value_counts())
 
+
+def test_sequential_vs_parallel():
+    """
+    Function to test whether parallel or sequential running is faster
+    """
+
+    data = pd.read_csv("./datasets/hcV3-stories-mini.csv")
+
+    for x in [5, 15, 25]:
+        # sequential
+        start_time = time.perf_counter()
+        model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+                                topic="A short story",
+                                recall_length=4)
+        
+
+        for i, row in enumerate(data.iterrows()):
+            seq = model.calculate_text_sequentiality(row[1]["story"])
+
+            # save it - assume it's constant time
+
+            print(f"row: {i} seq: {seq[0]}")
+
+            if i == (x-1):
+                break
+        
+        print(f"sequential time: {time.perf_counter() - start_time}")
+
+        del model
+
+    # del model
+
+    # # parallel - pseudo: 
+    # start_time = time.perf_counter()
+
+    # for i, row in enumerate(data.iterrows()):
+    #     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+    #                         topic="A short story",
+    #                         recall_length=4)
+        
+    #     seq = model.calculate_text_sequentiality(row[1]["story"])
+
+    #     # save it - assume it's constant time
+
+    #     print(f"row: {i} seq: {seq[0]}")
+
+    #     if i == 4:
+    #         break
+
+    #     del model
+    
+    # print(f"parallel time: {time.perf_counter() - start_time}")
+
+
+
 if __name__ == '__main__':
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
-    verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+    # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
+
+    test_sequential_vs_parallel()
+
+    # x = [5, 15, 25]
+    # s = [67.0769434159156, 176.9803800000809, 256.1642681248486]
+    # s2 = [68.04806358413771, ]
+    # p = [100.46545683289878, 304.41824337490834, 482.0245797911193]
+
+    # plt.figure()
+    # plt.plot(x, s, label="sequential", color="blue")
+    # plt.plot(x, p, label="parallel", color="orange")
+    # plt.plot(x, s2, label="sequential w/ optimization", color="green")
+    # plt.legend()
+    # plt.show()
 
     # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
