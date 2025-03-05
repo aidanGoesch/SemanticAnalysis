@@ -374,7 +374,7 @@ def run_sequential(recall_length:int):
 
     times = []
 
-    data_size = 30
+    data_size = 1700
     for i in range(data_size):
         vec = data.iloc[i]
 
