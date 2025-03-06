@@ -166,6 +166,142 @@ def make_large_subset(df:pd.DataFrame):
     return subset
 
 
+def make_proportional_subset_using_other_subset(data, other):
+    """ 
+    Function that will make a proportional subset of `data` that incorporates data from `other`.
+    
+    Args:
+        data (str): Path to the main CSV file
+        other (str): Path to the CSV file containing data that must be incorporated
+        
+    Returns:
+        pandas.DataFrame: A new subset of the data that:
+            1. Has no duplicates with 'other'
+            2. When combined with 'other', is representative of original data
+            3. Has size of 1000 - len(other)
+    """
+    import pandas as pd
+    import numpy as np
+    
+    # Load both datasets
+    main_data = pd.read_csv(data)
+    other_data = pd.read_csv(other)
+    
+    # Apply bin categorization
+    main_data['bin'] = main_data.apply(determine_bin, axis=1)
+    other_data['bin'] = other_data.apply(determine_bin, axis=1)
+    
+    # Get original proportions
+    original_proportions = main_data['bin'].value_counts(normalize=True).to_dict()
+    
+    # Calculate sizes
+    other_size = len(other_data)
+    target_size = 1000
+    new_subset_size = target_size - other_size
+    
+    if new_subset_size <= 0:
+        raise ValueError(f"The 'other' dataset already has {other_size} rows, which is >= 1000")
+    
+    # Remove rows from main_data that are already in other_data (based on AssignmentId)
+    filtered_main_data = main_data[~main_data['AssignmentId'].isin(other_data['AssignmentId'])]
+    
+    # Calculate how many from each bin should be in the combined dataset
+    total_target_counts = {bin_type: int(round(prop * target_size)) 
+                          for bin_type, prop in original_proportions.items()}
+    
+    # Get the current counts in the other dataset
+    other_counts = other_data['bin'].value_counts().to_dict()
+    
+    # Calculate how many we need to add for each bin
+    needed_counts = {}
+    for bin_type in original_proportions.keys():
+        other_count = other_counts.get(bin_type, 0)
+        # If we already have more than the proportional amount in 'other', don't add more
+        if other_count >= total_target_counts[bin_type]:
+            needed_counts[bin_type] = 0
+        else:
+            needed_counts[bin_type] = total_target_counts[bin_type] - other_count
+    
+    # Calculate current total and adjust if needed
+    total_needed = sum(needed_counts.values())
+    
+    if total_needed != new_subset_size:
+        # Calculate a scaling factor to adjust all bins proportionally
+        scaling_factor = new_subset_size / total_needed if total_needed > 0 else 0
+        
+        # Apply scaling and round to integers
+        for bin_type in needed_counts:
+            needed_counts[bin_type] = int(round(needed_counts[bin_type] * scaling_factor))
+        
+        # Handle any remaining difference with largest or smallest bin
+        adjusted_total = sum(needed_counts.values())
+        diff = new_subset_size - adjusted_total
+        
+        if diff != 0:
+            # Sort bins by count, descending if adding, ascending if removing
+            sorted_bins = sorted(needed_counts.keys(), 
+                                key=lambda x: needed_counts[x],
+                                reverse=(diff > 0))
+            
+            for bin_type in sorted_bins:
+                if needed_counts[bin_type] > 0 or diff > 0:
+                    adjust = 1 if diff > 0 else -1
+                    needed_counts[bin_type] += adjust
+                    diff -= adjust
+                    if diff == 0:
+                        break
+    
+    # Create the new subset by sampling from each bin
+    new_subset = pd.DataFrame()
+    for bin_type, count in needed_counts.items():
+        if count <= 0:
+            continue
+        
+        bin_data = filtered_main_data[filtered_main_data['bin'] == bin_type]
+        
+        if len(bin_data) <= count:
+            selected = bin_data
+            print(f"Warning: Not enough data for bin {bin_type}. Requested {count}, got {len(bin_data)}")
+        else:
+            selected = bin_data.sample(count)
+        
+        new_subset = pd.concat([new_subset, selected])
+    
+    # Final check to ensure exact size
+    if len(new_subset) != new_subset_size:
+        diff = new_subset_size - len(new_subset)
+        if diff > 0:
+            remaining_data = filtered_main_data[~filtered_main_data['AssignmentId'].isin(new_subset['AssignmentId'])]
+            if len(remaining_data) >= diff:
+                additional = remaining_data.sample(diff)
+                new_subset = pd.concat([new_subset, additional])
+        elif diff < 0:
+            new_subset = new_subset.sample(new_subset_size)
+    
+    # Verify the results
+    assert len(new_subset) == new_subset_size, f"New subset has {len(new_subset)} rows, expected {new_subset_size}"
+    assert len(set(new_subset['AssignmentId']).intersection(set(other_data['AssignmentId']))) == 0, "Duplicate AssignmentIds found"
+    
+    # Debug: Check proportions
+    combined = pd.concat([other_data, new_subset])
+    combined_props = combined['bin'].value_counts(normalize=True).to_dict()
+    
+    print("Original proportions:")
+    for bin_type in original_proportions:
+        print(f"  {bin_type}: {original_proportions[bin_type]:.4f}")
+    
+    print("\nCombined proportions:")
+    for bin_type in original_proportions:
+        combined_prop = combined_props.get(bin_type, 0)
+        print(f"  {bin_type}: {combined_prop:.4f}")
+        print(f"  Difference: {combined_prop - original_proportions[bin_type]:.4f}")
+    
+    # Drop the 'bin' column before returning
+    if 'bin' in new_subset.columns:
+        new_subset = new_subset.drop('bin', axis=1)
+    
+    return new_subset
+
 
 if __name__ == "__main__":
     top_stories = analyze_embeddings()
