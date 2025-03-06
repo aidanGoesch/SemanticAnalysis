@@ -390,6 +390,7 @@ def run_sequential(recall_length:int):
         
         if (i+1) % 10 == 0:
             with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
+                print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
                 file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
 
     print(f"total time to complete: {np.sum(times):.4f}")
