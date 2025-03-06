@@ -1,6 +1,6 @@
 from verification.verify_seq import *
 from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
-from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset
+from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset, make_proportional_subset_using_other_subset
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import norm
@@ -121,7 +121,7 @@ def print_model_comparisons():
     print(f"small model sequentiality values: {small_model_seq}\n\taverage: {np.mean(small_model_seq)}\n\tstandard deviation: {np.std(small_model_seq)}")
     print(f"big model sequentiality values: {big_model_seq}\n\taverage: {np.mean(big_model_seq)}\n\tstandard deviation: {np.std(big_model_seq)}")
 
-def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets/hcV3-stories-quartered.csv"):
+def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets/hcV3-stories-1000.csv"):
     """
     Creates main-mini.csv files in each numbered folder, containing only the rows
     that match AssignmentIDs from the merged top stories file.
@@ -354,7 +354,7 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    data = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
+    data = pd.read_csv("./datasets/hcV3-stories-760.csv")
     
     # df for writing
     sequentialities = pd.DataFrame(columns=["AssignmentId",
@@ -371,10 +371,13 @@ def run_sequential(recall_length:int):
                             topic="A short story",
                             recall_length=recall_length)
     
+    # load the tokens into the cache
+    model.load_tokens_to_cache("./datasets/hcv3-stories-tokens.csv")
+    
 
     times = []
 
-    data_size = 1700
+    data_size = 760
     for i in range(data_size):
         vec = data.iloc[i]
 
@@ -384,15 +387,17 @@ def run_sequential(recall_length:int):
 
         compute_time = time.perf_counter() - start_time
         times.append(compute_time)
-
-        print(f"iteration {i+1} sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
+        
+        if (i+1) % 10 == 0:
+            with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
+                file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
     sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
 
 
-def test_sequential_vs_parallel():
+def test_bed():
     """
     Function to test whether parallel or sequential running is faster
     """
@@ -405,6 +410,8 @@ def test_sequential_vs_parallel():
         model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
                                 topic="A short story",
                                 recall_length=4)
+
+        model.load_tokens_to_cache("./datasets/hcv3-stories-tokens.csv")
         
         for i, row in enumerate(data.iterrows()):
             seq = model.calculate_text_sequentiality(row[1]["story"])
@@ -448,18 +455,136 @@ def test_sequential_vs_parallel():
     # print(f"parallel time: {time.perf_counter() - start_time}")
 
 
+import pandas as pd
+import re
+import os
+import torch
+from tqdm import tqdm
+import json
 
-if __name__ == '__main__':
+def preprocess_dataset(csv_path, model_class, model_params):
+    """
+    Tokenize the entire dataset once and save to a new CSV.
+    
+    Args:
+        csv_path: Path to the input CSV file
+        model_class: The SequentialityModel class
+        model_params: Dictionary of parameters to initialize the model
+    """
+    # Create output directory if it doesn't exist
+    output_dir = os.path.dirname(csv_path)
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Read the dataset
+    print(f"Reading dataset from {csv_path}")
+    data = pd.read_csv(csv_path)
+    
+    # Initialize model for tokenization
+    print("Initializing tokenization model...")
+    model = model_class(**model_params)
+    
+    # Prepare dataframe for tokenized data
+    tokenized_data = pd.DataFrame()
+    tokenized_data['AssignmentId'] = data['AssignmentId']
+    tokenized_data['recAgnPairId'] = data['recAgnPairId']
+    tokenized_data['recImgPairId'] = data['recImgPairId']
+    tokenized_data['story'] = data['story']
+    
+    # Process each story
+    print("Processing stories...")
+    tokenized_sentences_list = []
+    
+    for i in tqdm(range(len(data))):
+        story = data.iloc[i].story
+        sentences = re.split(r'(?<!\.\.\.)[\.\?\!](?!\.)\s*', story)
+        
+        # Clean and pair sentences
+        processed_sentences = []
+        for j in range(0, len(sentences) - 1, 2):
+            if j+1 < len(sentences):
+                sentence = sentences[j].strip() + sentences[j + 1]
+                processed_sentences.append(sentence)
+        
+        # Tokenize all sentences in the story
+        tokenized_sentences = []
+        for sentence in processed_sentences:
+            tokens = model._tokenize_with_cache(sentence)
+            # Convert tensor to list if necessary
+            if isinstance(tokens, torch.Tensor):
+                tokens = tokens.tolist()
+            tokenized_sentences.append(tokens)
+        
+        # Store the tokenized sentences
+        tokenized_sentences_list.append(json.dumps(tokenized_sentences))
+    
+    # Add tokenized sentences to the dataframe
+    tokenized_data['tokenized_sentences'] = tokenized_sentences_list
+    
+    # Write to new CSV
+    output_path = os.path.join(output_dir, 'hcv3-stories-tokens.csv')
+    print(f"Writing tokenized data to {output_path}")
+    tokenized_data.to_csv(output_path, index=False)
+    
+    print("Preprocessing complete!")
+    return output_path
+
+# Example usage:
+if __name__ == "__main__":
+    model_params = {
+        "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
+        "topic": "A short story",
+        "recall_length": 4
+    }
+    
+    preprocess_dataset(
+        csv_path="./datasets/hcV3-stories-760.csv",
+        model_class=SequentialityModel,
+        model_params=model_params
+    )
+
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
+    # run_sequential(int(sys.argv[1]))
+
+
+    # df_760 = make_proportional_subset_using_other_subset(data="./datasets/hcV3-stories.csv", other="./datasets/hcV3-stories-mini-filtered.csv")
+
+    # df_760.to_csv("./datasets/hcV3-stories-760.csv")
+
+    # df = pd.read_csv("./datasets/hcV3-stories-mini-filtered.csv")
+
+    # df_1000 = pd.concat([df, df_760])
+
+    # df_1000.to_csv("./datasets/hcV3-stories-1000.csv")
+
+    # test_bed()
+
+    # x = [5, 10, 15, 20, 25]
+    # s1 = [51.877457665978, 69.82546812505461, 102.48368912516162, 132.18100025015883, 161.17464420897886]
+    # s2 = [44.23506679106504, 77.46961391717196, 111.98336641700007, 154.9341577081941, 160.76373516698368]
+    # s3 = [43.1074358751066, 73.00900541618466, 100.92742945882492, 133.93042233306915, 163.73520620795898]
+    # s4 = [44.16905250004493, 68.6806848749984, 99.41008437494747, 127.99263358395547, 161.46826220816]
+
+    # plt.figure()
+    # plt.plot(x, s1, label="s1", color="blue")
+    # plt.plot(x, s2, label="s2", color="purple")
+    # plt.plot(x, s3, label="s3", color="green")
+    # plt.plot(x, s4, label="s4", color="red")
+    # # plt.plot(x, [percentage_dif(s1, s2) for s1, s2 in zip(s, p)])
+    # # plt.ylim(top=150, bottom=0)
+    # # plt.plot(x, s1, label="sequential w/ optimization", color="red")
+    # plt.legend()
+    # plt.show()
+
 
     # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
     # create_mini_files()
 
     # generate plots
+    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
+    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-1000.csv", title="Proportions of hcV3-stories-1000.csv")
     # generate_plots(file_name = "main-mini.csv")
-    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
+    
