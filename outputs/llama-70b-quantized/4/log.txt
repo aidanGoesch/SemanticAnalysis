@@ -1,0 +1,1 @@
+iteration (10/30) sequentiality value: 0.9293     time to complete: 3.0401     time elapsed: 40.7909     time remaining: ~81.5819
