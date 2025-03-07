@@ -157,11 +157,11 @@ def make_large_subset(df:pd.DataFrame):
     Function that returns a random subset of data that makes up a quarter of the original DataFrame
     """
     # 1/4 of the data
-    sample_size = df.shape[0] // 4
+    sample_size = 1000
 
     subset = df.sample(n=sample_size, replace=False)
 
-    subset.to_csv("./datasets/hcV3-stories-quartered.csv")
+    subset.to_csv("./datasets/hcV3-stories-1000.csv")
 
     return subset
 

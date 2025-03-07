@@ -354,7 +354,7 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    data = pd.read_csv("./datasets/hcV3-stories-760.csv")
+    data = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
     
     # df for writing
     sequentialities = pd.DataFrame(columns=["AssignmentId",
@@ -377,7 +377,7 @@ def run_sequential(recall_length:int):
 
     times = []
 
-    data_size = 760
+    data_size = 1713
     for i in range(data_size):
         vec = data.iloc[i]
 
@@ -387,10 +387,10 @@ def run_sequential(recall_length:int):
 
         compute_time = time.perf_counter() - start_time
         times.append(compute_time)
+        # print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
         
         if (i+1) % 10 == 0:
             with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
-                print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
                 file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
 
     print(f"total time to complete: {np.sum(times):.4f}")
@@ -549,43 +549,18 @@ if __name__ == "__main__":
     # this is the equivalent of verify_data but run sequentially rather than parallel
     run_sequential(int(sys.argv[1]))
 
+    # code that generates a subset
+    # df = pd.read_csv("./datasets/hcV3-stories.csv")
+    # make_large_subset(df)
 
-    # df_760 = make_proportional_subset_using_other_subset(data="./datasets/hcV3-stories.csv", other="./datasets/hcV3-stories-mini-filtered.csv")
-
-    # df_760.to_csv("./datasets/hcV3-stories-760.csv")
-
-    # df = pd.read_csv("./datasets/hcV3-stories-mini-filtered.csv")
-
-    # df_1000 = pd.concat([df, df_760])
-
-    # df_1000.to_csv("./datasets/hcV3-stories-1000.csv")
-
-    # test_bed()
-
-    # x = [5, 10, 15, 20, 25]
-    # s1 = [51.877457665978, 69.82546812505461, 102.48368912516162, 132.18100025015883, 161.17464420897886]
-    # s2 = [44.23506679106504, 77.46961391717196, 111.98336641700007, 154.9341577081941, 160.76373516698368]
-    # s3 = [43.1074358751066, 73.00900541618466, 100.92742945882492, 133.93042233306915, 163.73520620795898]
-    # s4 = [44.16905250004493, 68.6806848749984, 99.41008437494747, 127.99263358395547, 161.46826220816]
-
-    # plt.figure()
-    # plt.plot(x, s1, label="s1", color="blue")
-    # plt.plot(x, s2, label="s2", color="purple")
-    # plt.plot(x, s3, label="s3", color="green")
-    # plt.plot(x, s4, label="s4", color="red")
-    # # plt.plot(x, [percentage_dif(s1, s2) for s1, s2 in zip(s, p)])
-    # # plt.ylim(top=150, bottom=0)
-    # # plt.plot(x, s1, label="sequential w/ optimization", color="red")
-    # plt.legend()
-    # plt.show()
-
+    # create_mini_files(merged_file="./datasets/hcV3-stories-quartered.csv")
+    # generate_plots(data_path="./outputs/phi-4k-mini", file_name="main-mini.csv")
 
     # Find values near mean and save result
     # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
-    # create_mini_files()
 
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
-    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-1000.csv", title="Proportions of hcV3-stories-1000.csv")
+    # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
     # generate_plots(file_name = "main-mini.csv")
     
