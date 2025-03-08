@@ -379,19 +379,26 @@ def run_sequential(recall_length:int):
 
     data_size = 1713
     for i in range(data_size):
-        vec = data.iloc[i]
+        try:
+            vec = data.iloc[i]
 
-        start_time = time.perf_counter()
-        seq = model.calculate_text_sequentiality(vec.story)
-        sequentialities.loc[len(sequentialities)] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
+            start_time = time.perf_counter()
+            seq = model.calculate_text_sequentiality(vec.story)
+            sequentialities.loc[len(sequentialities)] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
 
-        compute_time = time.perf_counter() - start_time
-        times.append(compute_time)
-        # print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
+            compute_time = time.perf_counter() - start_time
+            times.append(compute_time)
+            # print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
+            
+            if (i+1) % 10 == 0:
+                with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
+                    file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
         
-        if (i+1) % 10 == 0:
-            with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
-                file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
+        except Exception as e: # dump sequentialities into a file even if it errors out
+            sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
+            print(e)
+
+            quit()
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
@@ -532,7 +539,7 @@ def preprocess_dataset(csv_path, model_class, model_params):
 # Example usage:
 if __name__ == "__main__":
     # model_params = {
-    #     "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
+    #     "model_name": "SakanaAI/TinySwallow-1.5B-Instruct", 
     #     "topic": "A short story",
     #     "recall_length": 4
     # }
@@ -548,6 +555,9 @@ if __name__ == "__main__":
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
     run_sequential(int(sys.argv[1]))
+
+    # df = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
+    # print(df.iloc[1712])
 
     # code that generates a subset
     # df = pd.read_csv("./datasets/hcV3-stories.csv")
