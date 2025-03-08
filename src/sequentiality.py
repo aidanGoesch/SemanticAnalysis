@@ -171,6 +171,9 @@ class SequentialityModel:
         :return: [total_sentence_sequentiality, contextual_sequentiality, topic_sequentiality]
         :rtype: list[float]
         """
+        if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
+            return 0
+
         # Tokenize the context string separately.
         context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
 
