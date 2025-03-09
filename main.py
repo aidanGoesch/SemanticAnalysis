@@ -370,10 +370,6 @@ def run_sequential(recall_length:int):
     model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                             topic="A short story",
                             recall_length=recall_length)
-    
-    # load the tokens into the cache
-    model.load_tokens_to_cache("./datasets/hcv3-stories-tokens.csv")
-    
 
     times = []
 
@@ -388,7 +384,7 @@ def run_sequential(recall_length:int):
 
             compute_time = time.perf_counter() - start_time
             times.append(compute_time)
-            # print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
+            print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
             
             if (i+1) % 10 == 0:
                 with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
@@ -398,12 +394,11 @@ def run_sequential(recall_length:int):
             sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
             print(e)
 
-            quit()
+            quit(-42)
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
     sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
-
 
 def test_bed():
     """
