@@ -367,7 +367,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
                             topic="A short story",
                             recall_length=recall_length)
 
@@ -536,23 +536,23 @@ def preprocess_dataset(csv_path, model_class, model_params):
 
 # Example usage:
 if __name__ == "__main__":
-    model_params = {
-        "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
-        "topic": "A short story",
-        "recall_length": 4
-    }
+    # model_params = {
+    #     "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
+    #     "topic": "A short story",
+    #     "recall_length": 4
+    # }
     
-    preprocess_dataset(
-        csv_path="./datasets/hcV3-stories-quartered.csv",
-        model_class=SequentialityModel,
-        model_params=model_params
-    )
+    # preprocess_dataset(
+    #     csv_path="./datasets/hcV3-stories-quartered.csv",
+    #     model_class=SequentialityModel,
+    #     model_params=model_params
+    # )
 
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    # run_sequential(int(sys.argv[1]))
+    run_sequential(int(sys.argv[1]))
 
     # df = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
     # print(df.iloc[1712])
