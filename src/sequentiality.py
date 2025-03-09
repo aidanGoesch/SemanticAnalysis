@@ -174,22 +174,11 @@ class SequentialityModel:
         if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
             return 0
 
-        # Tokenize the context string separately.
         context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
-
-        if hasattr(self, 'token_cache') and sentence in self.token_cache:
-            sentence_token_ids = self.token_cache[sentence]
-        else:
-            # Existing tokenization logic
-            context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
-            full_text = self.context_string + sentence
-            full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
-            sentence_token_ids = full_ids[len(context_ids):]
-            
-            # Cache for future use
-            if not hasattr(self, 'token_cache'):
-                self.token_cache = {}
-            self.token_cache[sentence] = sentence_token_ids
+        full_text = self.context_string + sentence
+        full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
+        sentence_token_ids = full_ids[len(context_ids):]
+        self.token_cache[sentence] = sentence_token_ids
         
         # log probs
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
@@ -287,12 +276,9 @@ class SequentialityModel:
         :return: [total_text_sequentiality, total_sentence-level_sequentiality, contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
         :rtype: list[float | list]
         """
-        split_text = re.split(r'(?<!\.\.\.)[\.\?\!](?!\.)\s*', text)
+        sentences = re.findall(r'([^.!?]+[.!?]+)', text)
 
-        self.sentences = []
-        for i in range(0, len(split_text) - 1, 2):
-            sentence = split_text[i].strip() + split_text[i + 1]
-            self.sentences.append(sentence)
+        self.sentences = [s.strip() for s in sentences if s.strip()]
 
         total_sequentialities = []
         contextual_sequentialities = []
