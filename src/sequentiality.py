@@ -174,10 +174,19 @@ class SequentialityModel:
         if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
             return 0
 
-        context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
-        full_text = self.context_string + sentence
-        full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
-        sentence_token_ids = full_ids[len(context_ids):]
+        if hasattr(self, 'token_cache') and sentence in self.token_cache:
+            sentence_token_ids = self.token_cache[sentence]
+        else:
+            # Existing tokenization logic
+            context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
+            full_text = self.context_string + sentence
+            full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
+            sentence_token_ids = full_ids[len(context_ids):]
+            
+            # Cache for future use
+            if not hasattr(self, 'token_cache'):
+                self.token_cache = {}
+            self.token_cache[sentence] = sentence_token_ids
         
         # log probs
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
@@ -203,7 +212,67 @@ class SequentialityModel:
         # Normalize by the number of tokens, if desired.
         return [(topic_sequentiality - contextual_sequentiality) / -len(sentence_token_ids), contextual_sequentiality, topic_sequentiality]
     
+    def load_tokens_to_cache(self, tokenized_data_path):
+        """
+        Load pre-tokenized sentences into the token cache
+        
+        :param tokenized_data_path: Path to CSV with tokenized data
+        """
+        # Initialize token cache if it doesn't exist
+        if not hasattr(self, 'token_cache'):
+            self.token_cache = {}
+        
+        # Load the tokenized data
+        tokenized_df = pd.read_csv(tokenized_data_path)
+        
+        print(f"Loading {len(tokenized_df)} stories into token cache...")
+        loaded_tokens = 0
+        
+        # Process each story
+        for i in range(len(tokenized_df)):
+            story = tokenized_df.iloc[i].story
+            tokenized_sentences = json.loads(tokenized_df.iloc[i].tokenized_sentences)
+            
+            # Split text to get the same sentences as in original tokenization
+            split_text = re.split(r'(?<!\.\.\.)[\.\?\!](?!\.)\s*', story)
+            processed_sentences = []
+            
+            for j in range(0, len(split_text) - 1, 2):
+                if j+1 < len(split_text):
+                    sentence = split_text[j].strip() + split_text[j + 1]
+                    processed_sentences.append(sentence)
+            
+            # Add each sentence and its tokens to the cache
+            for sentence, tokens in zip(processed_sentences, tokenized_sentences):
+                if sentence and tokens:  # Skip empty entries
+                    self.token_cache[sentence] = tokens
+                    loaded_tokens += 1
+        
+        print(f"Loaded {loaded_tokens} tokenized sentences into cache")
     
+
+    def _tokenize_with_cache(self, sentence):
+        """Tokenize with caching for repeated sentences."""
+        if not hasattr(self, 'token_cache'):
+            self.token_cache = {}
+            
+        if sentence in self.token_cache:
+            return self.token_cache[sentence]
+        
+        # Context string tokenization (happens once)
+        if not hasattr(self, '_context_token_ids'):
+            self._context_token_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
+        
+        # Tokenize full text
+        full_text = self.context_string + sentence
+        full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
+        
+        # Extract just the sentence tokens
+        sentence_token_ids = full_ids[len(self._context_token_ids):]
+        
+        # Cache the result
+        self.token_cache[sentence] = sentence_token_ids
+        return sentence_token_ids
 
     def calculate_text_sequentiality(self, text : str, verbose : bool = False) -> list[float | list]:
         """
