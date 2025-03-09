@@ -554,6 +554,16 @@ if __name__ == "__main__":
     # this is the equivalent of verify_data but run sequentially rather than parallel
     run_sequential(int(sys.argv[1]))
 
+    # story = "What is rarely analyzed, is that the real reasons why they ascend do not come to be attributed to personal aspects and errors that, although they seem to go unnoticed, for the superiors and co-workers, you are not ready or not the person indicated for a position better than the current one or who should not even hold the position he has now. 22-05-2019 Thus, it can also be a mistake in the company and can also deteriorate its image at work. The first thing to clarify in this article, is that he has realized that he is an excellent profile, has extensive experience, outstanding academic training and, in general. an interesting resume, the following errors (among others), which may be the cause that a job promotion has not yet been obtained, even if merely, or what is ""selling"" the wrong way, by giving a signal of the market that does not correspond to what you really want to reflect or that does not correspond to what it really is. His high fitness, but his bad attitude. One of the most common mistakes of some workers who are excellent in work and have a great career, is their bad attitude. You do not have to take your personal problems to work with you on a daily basis, nor are others to blame for them. As expert as it may be in your role within the company, this does not ""give you the right"" to treat others badly or to be in the majority of times of bad character, causing others to have to guess when you are in good standing. humor to be able to approach you.        .    It is jumping from bliss. He received the ascent he expected so much. Or on the contrary, he took it by surprise. He is too young and has advanced by leaps and bounds in that ladder of his company. The truth is that a promotion will always be a reason to celebrate. Not only do they improve their economic conditions, but they also progress along the path that has been drawn from the professional field. He feels comfortable with what he has achieved. It is the result of that effort, dedication, but above all, passion that impresses you with your work. However, what seems at first glance only a panorama of good news, can also generate some differences between your coworkers, quarrels, suspicions, and even out of context comments such as ""you are too inexperienced for that position"" or ""will you be able with this new position? Some will be amazed, others will make blinding comments, especially if you have worked with them from “you to you” and find it difficult to give them the level of boss. These and other situations may arise at the time of coupling to your new position, so it is important that you know how to handle them with all assertiveness and intelligence, so that the ship you are sailing on now does not shipwreck. Remember that the key is to earn respect, not to impose it."
+
+
+        # load model once
+    # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
+    #                         topic="A short story",
+    #                         recall_length=1)
+    
+
+    # print(model.calculate_text_sequentiality(story))
     # df = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
     # print(df.iloc[1712])
 

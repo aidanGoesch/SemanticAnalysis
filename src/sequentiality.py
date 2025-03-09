@@ -172,7 +172,7 @@ class SequentialityModel:
         :rtype: list[float]
         """
         if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
-            return 0
+            return 0, 0, 0
 
         if hasattr(self, 'token_cache') and sentence in self.token_cache:
             sentence_token_ids = self.token_cache[sentence]
@@ -188,6 +188,9 @@ class SequentialityModel:
                 self.token_cache = {}
             self.token_cache[sentence] = sentence_token_ids
         
+        if len(sentence_token_ids) == 0:
+            return 0, 0, 0
+
         # log probs
         topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
         contextual_sequentiality = self._calculate_contextual_sequentiality(
@@ -295,7 +298,7 @@ class SequentialityModel:
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i)
+            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, True)
             total_sequentialities.append(total)
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
