@@ -458,6 +458,25 @@ def test_bed():
     # print(f"parallel time: {time.perf_counter() - start_time}")
 
 
+def run_film_fest_init(story:str):
+    """
+    Function that calculates the value for this story and writes it to a csv
+    """
+    recall = 9
+    print("loading model...")
+    # load model once
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+                            topic="A description of a short film",
+                            recall_length=recall)
+    
+    print("model loaded!\nstarting calculation")
+    total, sentence, contextual, topic = model.calculate_text_sequentiality(story)
+
+    print("sequentiality for each sentence in the story:")
+    print(sentence)
+
+    del model #clean up
+
 import pandas as pd
 import re
 import os
@@ -536,6 +555,7 @@ def preprocess_dataset(csv_path, model_class, model_params):
 
 # Example usage:
 if __name__ == "__main__":
+    # Code to preprocess tokens
     # model_params = {
     #     "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
     #     "topic": "A short story",
@@ -552,33 +572,18 @@ if __name__ == "__main__":
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
-
-    # story = "What is rarely analyzed, is that the real reasons why they ascend do not come to be attributed to personal aspects and errors that, although they seem to go unnoticed, for the superiors and co-workers, you are not ready or not the person indicated for a position better than the current one or who should not even hold the position he has now. 22-05-2019 Thus, it can also be a mistake in the company and can also deteriorate its image at work. The first thing to clarify in this article, is that he has realized that he is an excellent profile, has extensive experience, outstanding academic training and, in general. an interesting resume, the following errors (among others), which may be the cause that a job promotion has not yet been obtained, even if merely, or what is ""selling"" the wrong way, by giving a signal of the market that does not correspond to what you really want to reflect or that does not correspond to what it really is. His high fitness, but his bad attitude. One of the most common mistakes of some workers who are excellent in work and have a great career, is their bad attitude. You do not have to take your personal problems to work with you on a daily basis, nor are others to blame for them. As expert as it may be in your role within the company, this does not ""give you the right"" to treat others badly or to be in the majority of times of bad character, causing others to have to guess when you are in good standing. humor to be able to approach you.        .    It is jumping from bliss. He received the ascent he expected so much. Or on the contrary, he took it by surprise. He is too young and has advanced by leaps and bounds in that ladder of his company. The truth is that a promotion will always be a reason to celebrate. Not only do they improve their economic conditions, but they also progress along the path that has been drawn from the professional field. He feels comfortable with what he has achieved. It is the result of that effort, dedication, but above all, passion that impresses you with your work. However, what seems at first glance only a panorama of good news, can also generate some differences between your coworkers, quarrels, suspicions, and even out of context comments such as ""you are too inexperienced for that position"" or ""will you be able with this new position? Some will be amazed, others will make blinding comments, especially if you have worked with them from “you to you” and find it difficult to give them the level of boss. These and other situations may arise at the time of coupling to your new position, so it is important that you know how to handle them with all assertiveness and intelligence, so that the ship you are sailing on now does not shipwreck. Remember that the key is to earn respect, not to impose it."
-
-
-        # load model once
-    # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
-    #                         topic="A short story",
-    #                         recall_length=1)
+    # run_sequential(int(sys.argv[1]))
     
-
-    # print(model.calculate_text_sequentiality(story))
-    # df = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
-    # print(df.iloc[1712])
-
-    # code that generates a subset
-    # df = pd.read_csv("./datasets/hcV3-stories.csv")
-    # make_large_subset(df)
+    story = """
+            "CATCH ME IF YOU CAN" in bold white text fades in on a black screen before fading out. "INSPIRED BY A TRUE STORY" in bold white text fades in on a screen of TV static. Establishing shot of a game show. "TO TELL THE TRUTH" in stylized text in the bottom center of the screen. The host says "Thank you very much and welcome to 'To Tell the Truth'". Yellow curtains open up to reveal three men in black suits, who start walking forward. The host says "Our first guest, he's made a career out of being the most outrageous imposter that we've ever come across on his show. You're going to see what I mean". Host says, "Number 1, what is your name please?" The first man says "My name is Frank William Abagnale". Camera pans to the right. Host says "Number 2" and the second man says "My name is Frank William Abagnale". Camera pans to the right. Host says "Number 3" and the third man says "My name is Frank William Abagnale". Camera cuts back, then zooms in on the first man. Host: "From 1964 to 1967 I successfully impersonated an airline pilot for Pan Am Airways and I flew over 2 million miles for free". Camera pans to the second man. Host: "During that time I was also the chief resident pediatrician at a Georgia hospital". Camera pans to the third man. Host: "And an assistant attorney general for the state of Louisiana". Camera zooms out to all three men. Host: "By the time I was caught, I was considered the youngest and most daring con man in US history. I had cashed almost 4 million dollars in fraudulent checks in 26 foreign countries and all 50 states. And I did it all before my 19th birthday". The men start walking to the left, where there are three podiums. Host: "My name is Frank William Abagnale". The men sit down at their respective podiums/seats. Camera cuts to the host. He says "So, for the first time he's going to have to tell the truth and we're going to start our question with Kitty". Camera cuts to a lady. She says "Thank you. Number 1, why, with all your talent and you're obviously a very bright. Camera zooms in on the first man. Kitty continues: "Why didn't you go in for a legitimate profession?". The man replies. "It was really a question of dollars and cents. When I was a young man I needed the money, and I thought this list of careers was the easiest way to get it". Kitty replies, "I see". Camera pans to the second man. Kitty: "Number 2. I find this all very fascinating. Who was it that finally caught you?". The man leans in to the mic and replies, "His name was Carl Hanratty". Suddenly cut to a scene in the rain. A group of men are trying to communicate with French prison guards (police officers?). Camera cuts to a wider shot showing a group of men. One man repeats his name "Carl Hanratty" to the French prison guards. Close up of Carl Hanratty's face. He says "I am Carl Hanratty". Hanratty says "I represent the FBI of the United States of America. Yeah. I have orders to see the American prisoner Abagnale". Establishing shot of a French prison in the rain. In the bottom right corner, "Marseille, France, Christmas Eve, 1969" appears in white text. View from inside a prison door, through a small round window. A French jailer unlocks and opens the door. Carl follows the jailer through a dimly lit hallway. The jailer picks up a stool and sets it down at the end of the hall. The jailer says "You sit here. You do not open the door" He opens a hole in the wall "You do not pass him anything through the hole." The jailer then walks. The jailer walks away and says something in French to another man standing nearby. View from inside of jail cell. A man is coughing in the background. Carl peers in and says "Aww, Jesus". Looking into the cell, a disheveled man wrapped in a cloak coughs hoarsely and crouches on the floor. Wide shot of outside the cell, thunder roars in the background. Carl looks up and opens his umbrella before sitting down. As Frank continues to cough, Carl says "you know I've got a little bit of a cold myself". Carl says "I'm here to read the articles of extradition according to the European Court for Human Rights. Article 1: Extradition shall be granted in respect of offenses under the laws...". Frank mumbles, "help me" repeatedly as Carl continues to read the articles. Carl pauses, then says "Frank, stop it". Frank says "help me" again, breathing heavily. Carl says "You don't think actually you can fool me, do ya?". Frank coughs coarsely and looks up at the ceiling. Carl says "16 pages to go, stay with me". Carl: "Article two. If the request for extradition includes several separate offenses... ". Frank stumbles and then falls onto the floor. Carl stops reading out the articles. He says "Frank. Frank." Carl stands up quickly, knocking over his stool. He shouts "Get me a doctor in here! I need a doctor. Doctor, now!" as the jail guard approaches. Sudden cut to Carl and the jailors dragging Frank through a hallway. Carl says "Don't sweat it Frank. We're going to get you right to a doctor". The jailors place Frank onto a hospital bed. Carl says, "Frank if you can hear me, don't worry I'm going to take you home in the morning. Home in the morning, Frank". The jailors start washing their hands. Carl asks, "what are you doing?" Official "Washing off the lice" Carl: "This man has to be in a plane for America. He has to see a doctor" Jailor: "The doctor comes in tomorrow". Carl: "I have worked too long, too hard for you to take this away from me. If he dies, I'm holding you responsible". The official turns his head. The camera pans to a door, which is left open and creaking. The official turns to the hospital bed. He opens the curtains to see that Frank is gone. He calls to the guards. The guards rush out the door and Carl says "Ah, Frank". Camera cuts to a prison hallway. Inmates are up against a chain link fence, rattling it ringing bells and making noise. Camera pans to Frank, who coughs and falls to the floor. He tries to stand up but falls again. In the background, officials appear and walk towards Frank, who tries to crawl. Shot of Frank crawling away from the officials. He looks back. The officials walk briskly towards Frank. One of them pulls out a gun. The official presses his gun up against Frank's head. Frank stops crawling and sits back. In the background, the officials try to quiet the other prisoners. Frank gives up and lies down on his back. The camera pans to his face. Frank chuckles as he looks at Carl. Carl walks over, looking at Frank. Frank says "Okay Carl..." Camera cuts to Frank, who says "Let's go home". The camera starts to zoom pan out. A voice in the background says "The New Rochelle Rotary Club has a history that goes back to 1919"
+            """
+    run_film_fest_init(story)
 
     # create_mini_files(merged_file="./datasets/hcV3-stories-quartered.csv")
     # generate_plots(data_path="./outputs/phi-4k-mini", file_name="main-mini.csv")
 
-    # Find values near mean and save result
-    # select_stories_near_mean("./data/hcV3-stories.csv", "./data/calculated_values/4/main.csv", "./data/")
-
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(file_name = "main-mini.csv")
+    # generate_plots(data_path="./outputs/llama-70b-quantized/", file_name = "main.csv")
     
