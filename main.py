@@ -458,7 +458,7 @@ def test_bed():
     # print(f"parallel time: {time.perf_counter() - start_time}")
 
 
-def run_film_fest_init(story:str):
+def run_film_fest_init(stories:list[str]):
     """
     Function that calculates the value for this story and writes it to a csv
     """
@@ -470,10 +470,11 @@ def run_film_fest_init(story:str):
                             recall_length=recall)
     
     print("model loaded!\nstarting calculation")
-    total, sentence, contextual, topic = model.calculate_text_sequentiality(story)
+    for story in stories:
+        total, sentence, contextual, topic = model.calculate_text_sequentiality(story)
 
-    print("sequentiality for each sentence in the story:")
-    print(sentence)
+        print("sequentiality for each sentence in the story:")
+        print(sentence)
 
     del model #clean up
 
@@ -574,10 +575,14 @@ if __name__ == "__main__":
     # this is the equivalent of verify_data but run sequentially rather than parallel
     # run_sequential(int(sys.argv[1]))
     
-    story = """
+    stories = ["""
             Elias found the broken pocket watch buried in the sand just outside the abandoned library. It was stuck at 3:47, the exact time his grandfather had vanished decades ago. He ran his thumb over the cracked glass, wondering if this was a coincidence—or a message. Inside the library, dust coated the shelves, but the checkout desk held a single, faded library card. The name had been smudged beyond recognition, but the last book borrowed stood out: The Vanishing Hour. Elias pulled it from the shelf and flipped through the pages. A red feather slipped out, landing on the floor. The tip was burned. He shivered. His grandfather had once told him a story about birds that carried fire in their wings. As he placed the feather back in the book, something rattled inside its spine. He carefully pried it open and found a brass key with no teeth. A key that opened nothing. Or maybe… something that didn’t need a lock. His hand instinctively went to his pocket, where he kept a peculiar glass marble filled with swirling silver mist. It had been his grandfather’s, a keepsake he never understood. But now, holding the key in one hand and the marble in the other, he heard it—whispers, faint and distant. He closed his eyes, listening. The words became clearer: “Come find me. Before time runs out.” The watch ticked once. Then stopped. Elias exhaled. The hunt was on.
+            """,
             """
-    run_film_fest_init(story)
+            The train station was empty when Mara arrived, save for a single torn ticket caught beneath a bench. She picked it up. Only the date was visible—today’s. The destination had been ripped away. Something rattled in her bag. She hesitated before pulling out the locked wooden box. It had belonged to her mother, passed down from a grandmother she had never met. She’d never found the key, but tonight, it felt heavier, as if waiting for something. A whisper of wind made her turn. On the station wall, taped to the glass, was a child’s drawing of a house. The shape was familiar—her grandmother’s old home—but the windows were shaded black, as if hiding something inside. Mara’s grip tightened around the box. Her mother had warned her never to visit that house at night. Never to enter. But she had never said why. A flicker caught her eye—a rusted lantern with no wick, left abandoned near the tracks. She picked it up, and through the green-tinted glass, she saw something glint inside the base. She pried it open and fished out a silver spoon, its handle engraved: J.L. Her grandmother’s initials. The train whistle blew in the distance. She looked at the torn ticket. Then at the lantern. Then at the box. She had a choice to make. And she knew, deep down, that whatever she chose… the house was waiting.
+            """
+        ]
+    run_film_fest_init(stories)
 
 
     # x = list(range(1, 132))
