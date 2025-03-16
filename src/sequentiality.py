@@ -41,15 +41,6 @@ class SequentialityModel:
                                                           use_safetensors=True).to(mps_device)
         
         self.model.generation_config.cache_implementation = "static"
-
-        # try:
-        #     self.model = torch.compile(self.model, backend="inductor", 
-        #                 mode="reduce-overhead",  # Much more conservative
-        #                 fullgraph=False,         # Allow partial compilation
-        #                 dynamic=True)           # Handle dynamic shapes better
-        #     print("Model Compiled")
-        # except Exception as e:
-        #     print(f"Model not compiled: {e}")
         
         self.model.eval()  # Ensure model is in evaluation mode
         torch.set_grad_enabled(False)  # Disable gradient calculation
@@ -287,7 +278,8 @@ class SequentialityModel:
         :return: [total_text_sequentiality, total_sentence-level_sequentiality, contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
         :rtype: list[float | list]
         """
-        sentences = re.findall(r'([^.!?]+[.!?]+)', text)
+
+        sentences = re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s", text)
 
         self.sentences = [s.strip() for s in sentences if s.strip()]
 
