@@ -465,7 +465,7 @@ def run_film_fest_init(stories:list[str]):
     recall = 9
     print("loading model...")
     # load model once
-    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct",
                             topic="A description of a short film",
                             recall_length=recall)
     
@@ -575,7 +575,11 @@ if __name__ == "__main__":
     # this is the equivalent of verify_data but run sequentially rather than parallel
     # run_sequential(int(sys.argv[1]))
     
-    stories = ["""
+    stories = [
+            """
+            This is a stress test? I really hope this works... A.G. made this. Dr. Su wants to make sure that it works too! "help me?" he said.
+            """,
+            """
             Elias found the broken pocket watch buried in the sand just outside the abandoned library. It was stuck at 3:47, the exact time his grandfather had vanished decades ago. He ran his thumb over the cracked glass, wondering if this was a coincidence—or a message. Inside the library, dust coated the shelves, but the checkout desk held a single, faded library card. The name had been smudged beyond recognition, but the last book borrowed stood out: The Vanishing Hour. Elias pulled it from the shelf and flipped through the pages. A red feather slipped out, landing on the floor. The tip was burned. He shivered. His grandfather had once told him a story about birds that carried fire in their wings. As he placed the feather back in the book, something rattled inside its spine. He carefully pried it open and found a brass key with no teeth. A key that opened nothing. Or maybe… something that didn’t need a lock. His hand instinctively went to his pocket, where he kept a peculiar glass marble filled with swirling silver mist. It had been his grandfather’s, a keepsake he never understood. But now, holding the key in one hand and the marble in the other, he heard it—whispers, faint and distant. He closed his eyes, listening. The words became clearer: “Come find me. Before time runs out.” The watch ticked once. Then stopped. Elias exhaled. The hunt was on.
             """,
             """
@@ -587,16 +591,18 @@ if __name__ == "__main__":
 
     # x = list(range(1, 132))
     # seq = [0.013144356863839286, 1.2882036481584822, 0.8223353794642857, 1.2403020858764648, 1.663923375746783, 0.9185791015625, 1.0516199747721353, 2.01287841796875, 1.2958984375, 3.5830590384347096, 1.17109375, 2.984400885445731, 1.299609375, 3.3293079024269465, 1.637407938639323, 0.924891471862793, 2.9759114583333335, 3.0057915581597223, 4.1131439208984375, 2.9813819298377404, 2.687631607055664, 1.6726830523947012, 1.7950349287553267, 2.656444549560547, 1.4207801818847656, 2.698883056640625, 2.178282304243608, 3.0744384765625, 0.45610809326171875, 2.7419921875, 2.71431884765625, 1.2265625, 1.1523818969726562, 1.8839754377092635, 0, 4.552083333333333, 1.536279296875, 1.23732421875, 3.03857421875, 3.0965169270833335, 2.8037923177083335, 1.0764973958333333, 1.6930803571428572, 0, 1.6593068440755208, 0.4886474609375, 0.5812759399414062, 0, 1.0833296342329546, 2.8576178550720215, 2.899222903781467, 3.4982705646091037, 1.680597686767578, 1.3046875, 3.861837213689631, 1.58447265625, 1.0649573284646738, 1.1930338541666667, 3.363986545138889, 1.6702714399857954, 1.1769211713005514, 3.491030693054199, 1.1409912109375, 4.417874654134114, 1.7004720052083333, 2.14697265625, 1.3665823936462402, 1.7880859375, 0.7770787752591647, 1.1415182260366588, 1.2298828125, 1.2107514880952381, 0.8391510009765625, 1.321417864631204, 0, 2.6124343872070312, 2.241650390625, 2.0873046875, 0.8433868408203125, 0, 0.890771230061849, 1.9272904829545454, 2.496875, 1.3914930555555556, 0, 0.7452256944444444, 2.7682291666666665, 4.12548828125, 4.453125, 2.0037109375, 1.6102362738715277, 4.07568359375, 3.3489583333333335, 2.5260416666666665, 2.010532924107143, 2.494537353515625, 2.5482421875, 4.051215277777778, 0.9527413050333658, 5.024881998697917, 3.4247349330357144, 1.9347076416015625, 1.6064506199048914, 2.7578887939453125, 0.665418122944079, 2.7162000868055554, 3.2390625, 0.7458943684895833, 2.8917410714285716, 1.27646484375, 2.623046875, 2.6168118990384617, 2.4189453125, 0.9529880947536893, 1.293701171875, 1.3093109130859375, 2.4090169270833335, 4.422119140625, 1.8671875, 4.347464425223214, 1.7135881696428572, 2.91103515625, 2.1979166666666665, 2.53216552734375, 1.1111111111111112, 2.3277994791666665, -0.17281150817871094, 2.431361607142857, 2.896875, 1.8603891225961537, 1.5613839285714286]
-
+    # seq1 = [-0.020670572916666668, 1.2595011393229167, 1.181978013780382, 1.200726318359375, 2.10980332439596, 1.2406782670454546, 1.774267578125, 2.400390625, 2.1338704427083335, 0.7711458206176758, 2.056734561920166, 1.425800051007952, 3.911328125, 1.8787109375, 0.6674681163969494, 2.1182774030245266, 1.350280211522029, 1.7837858200073242, 3.2620985243055554, 1.189727783203125, 0.9255625406901041, 5.66845703125, 3.393146514892578, 1.876708984375]
+    # seq2 = [0.08878366570723684, 1.9322338104248047, 2.927734375, 4.225667317708333, 1.34381103515625, 1.0041717529296874, 0.8162550926208496, 1.6382606907894737, 2.755580357142857, 0.5838894314236112, 1.3565118963068181, 2.8967459542410716, 0.6288967132568359, 3.51171875, 2.1002400716145835, 1.2196758270263672, 0.674701603976163, 1.0997890896267362, 5.51953125, 6.118408203125, 1.6428309849330358, -0.9730631510416666, 5.604705810546875, 3.481109619140625, 0.9888814290364584, 0.9737091064453125]
+    
     # plt.figure()
-    # plt.plot(x, seq)
+    # plt.plot([x for x in range(len(seq2))], seq2)
     # plt.xlabel("sentences")
     # plt.ylabel("seqentiality")
     # plt.show()
 
 
     # create_mini_files(merged_file="./datasets/hcV3-stories-quartered.csv")
-    generate_plots(data_path="./outputs/llama-70b-quantized", file_name="main.csv")
+    # generate_plots(data_path="./outputs/llama-70b-quantized", file_name="main.csv")
 
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
