@@ -75,9 +75,9 @@ def generate_2d(dfs : [pd.DataFrame]):
     plt.xlabel("recall")
     plt.ylabel("% difference")
 
-    plt.plot(x, imagined_recalled, label="imagined vs. recalled", color="blue")
-    plt.plot(x, imagined_retold, label="imagined vs. retold", color="red")
-    plt.plot(x, retold_recalled, label="retold vs recalled", color="green")
+    plt.plot(x, imagined_recalled, label="imagined vs. recalled", color="purple")
+    plt.plot(x, imagined_retold, label="imagined vs. retold", color="green")
+    plt.plot(x, retold_recalled, label="retold vs recalled", color="orange")
 
     plt.legend(loc='upper right')
     plt.show()
