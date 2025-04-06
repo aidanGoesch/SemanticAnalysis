@@ -10,11 +10,11 @@ import os
 
 
 # Models:
-
+"microsoft/Phi-3-mini-4k-instruct"
 "SakanaAI/TinySwallow-1.5B-Instruct"
 "meta-llama/Llama-3.3-70B-Instruct"
-"microsoft/Phi-3-mini-4k-instruct"
 "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8"
+"meta-llama/Llama-3.2-3B-Instruct"
 
 
 # HPC Checklist
@@ -354,7 +354,9 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    data = pd.read_csv("./datasets/hcV3-stories-quartered.csv")
+    save_path = "./outputs/llama-3b/"  # CHANGE THIS
+
+    data = pd.read_csv("./datasets/hcV3-stories.csv")
     
     # df for writing
     sequentialities = pd.DataFrame(columns=["AssignmentId",
@@ -367,13 +369,13 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",  # CHANGE THIS
+    model = SequentialityModel("meta-llama/Llama-3.2-3B-Instruct",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
     times = []
 
-    data_size = 1713   # CHANGE THIS
+    data_size = 6854   # CHANGE THIS
     for i in range(data_size):
         try: # try running the model
             vec = data.iloc[i]
@@ -387,18 +389,18 @@ def run_sequential(recall_length:int):
             print((f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}"))
             
             if (i+1) % 10 == 0:
-                with open(f"./outputs/llama-70b-quantized/{recall_length}/log.txt", "w") as file:
+                with open(f"{save_path}{recall_length}/log.txt", "w") as file:
                     file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
         
         except Exception as e: # dump sequentialities into a file even if it errors out
-            sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")
+            sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
             print(e)
 
             quit(-42)
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
-    sequentialities.to_csv(f"./outputs/llama-70b-quantized/{recall_length}/main.csv")  # CHANGE THIS
+    sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
 
 def test_bed():
     """
