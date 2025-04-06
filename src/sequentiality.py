@@ -46,6 +46,7 @@ class SequentialityModel:
         torch.set_grad_enabled(False)  # Disable gradient calculation
 
         self.model.config.pad_token_id = self.model.config.eos_token_id
+        self.tokenizer.pad_token = self.tokenizer.eos_token
 
         # Pad all text with _
         self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
@@ -290,7 +291,7 @@ class SequentialityModel:
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i, True)
+            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i)
             total_sequentialities.append(total)
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
