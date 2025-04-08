@@ -436,56 +436,30 @@ def test_bed():
     
     print(tmp)
 
-    # del model
-
-    # # parallel - pseudo: 
-    # start_time = time.perf_counter()
-
-    # for i, row in enumerate(data.iterrows()):
-    #     model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",
-    #                         topic="A short story",
-    #                         recall_length=4)
-        
-    #     seq = model.calculate_text_sequentiality(row[1]["story"])
-
-    #     # save it - assume it's constant time
-
-    #     print(f"row: {i} seq: {seq[0]}")
-
-    #     if i == 4:
-    #         break
-
-    #     del model
-    
-    # print(f"parallel time: {time.perf_counter() - start_time}")
-
-
 def run_film_fest_init(stories:list[str]):
     """
     Function that calculates the value for this story and writes it to a csv
     """
-    recall = 9
-    print("loading model...")
-    # load model once
-    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct",
-                            topic="A description of a short film",
-                            recall_length=recall)
+     # load model once
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",  # CHANGE THIS
+                            topic="A short story",
+                            recall_length=9)
     
-    print("model loaded!\nstarting calculation")
-    for story in stories:
-        total, sentence, contextual, topic = model.calculate_text_sequentiality(story)
+    sequentialities = []
+    for i in range(len(stories)):
+        text = " ".join(stories[:i])
 
-        print("sequentiality for each sentence in the story:")
-        print(sentence)
+        seq = model.calculate_text_sequentiality(text)
 
-    del model #clean up
+        sequentialities.append(seq[0])
 
-import pandas as pd
-import re
-import os
-import torch
-from tqdm import tqdm
-import json
+        if i == len(stories) - 1:  # print the sequentialities for every sentence in the entire story
+            print(seq[1])
+    
+    print(f"sequentialities by scene: {sequentialities}")
+
+    
+    
 
 def preprocess_dataset(csv_path, model_class, model_params):
     """
@@ -575,39 +549,46 @@ if __name__ == "__main__":
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
+    # run_sequential(int(sys.argv[1]))
+    # stories = ["1", "2", "3", "4", "5", "6"]
     
-    # stories = [
-    #         """
-    #         This is a stress test? I really hope this works... A.G. made this. Dr. Su wants to make sure that it works too! "help me?" he said.
-    #         """,
-    #         """
-    #         Elias found the broken pocket watch buried in the sand just outside the abandoned library. It was stuck at 3:47, the exact time his grandfather had vanished decades ago. He ran his thumb over the cracked glass, wondering if this was a coincidence—or a message. Inside the library, dust coated the shelves, but the checkout desk held a single, faded library card. The name had been smudged beyond recognition, but the last book borrowed stood out: The Vanishing Hour. Elias pulled it from the shelf and flipped through the pages. A red feather slipped out, landing on the floor. The tip was burned. He shivered. His grandfather had once told him a story about birds that carried fire in their wings. As he placed the feather back in the book, something rattled inside its spine. He carefully pried it open and found a brass key with no teeth. A key that opened nothing. Or maybe… something that didn’t need a lock. His hand instinctively went to his pocket, where he kept a peculiar glass marble filled with swirling silver mist. It had been his grandfather’s, a keepsake he never understood. But now, holding the key in one hand and the marble in the other, he heard it—whispers, faint and distant. He closed his eyes, listening. The words became clearer: “Come find me. Before time runs out.” The watch ticked once. Then stopped. Elias exhaled. The hunt was on.
-    #         """,
-    #         """
-    #         The train station was empty when Mara arrived, save for a single torn ticket caught beneath a bench. She picked it up. Only the date was visible—today’s. The destination had been ripped away. Something rattled in her bag. She hesitated before pulling out the locked wooden box. It had belonged to her mother, passed down from a grandmother she had never met. She’d never found the key, but tonight, it felt heavier, as if waiting for something. A whisper of wind made her turn. On the station wall, taped to the glass, was a child’s drawing of a house. The shape was familiar—her grandmother’s old home—but the windows were shaded black, as if hiding something inside. Mara’s grip tightened around the box. Her mother had warned her never to visit that house at night. Never to enter. But she had never said why. A flicker caught her eye—a rusted lantern with no wick, left abandoned near the tracks. She picked it up, and through the green-tinted glass, she saw something glint inside the base. She pried it open and fished out a silver spoon, its handle engraved: J.L. Her grandmother’s initials. The train whistle blew in the distance. She looked at the torn ticket. Then at the lantern. Then at the box. She had a choice to make. And she knew, deep down, that whatever she chose… the house was waiting.
-    #         """
-    #     ]
-    # run_film_fest_init(stories)
+    stories = [""""THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background.""",
+            """View of the back of a man's head. He's sitting at a table across from a woman and eating dinner. The woman looks at the man. View of the man over the woman's shoulder. He's looking down at his plate and cutting something with his knife and fork. Close up of the woman's face. She's looking down and chewing something. Close up of the man's face. He's also looking down and chewing. Side view of the woman's face. She uses her fork to eat something before looking up. Side view of the man's face. He eats a bite while looking down.""",
+            """The woman stands up and grabs a bottle of wine to her side. She walks over to the man. The woman begins to pour wine for the man, but he covers his glass with his hand. The man, without looking up says "not for me dear" and continues eating. The woman sits back down and glances at the man before saying "you know it's our anniversary".""",
+            """The man stops eating and looks at the woman, saying "you know I can't drink wine or alcohol" before starting to eat again. The woman picks up her wine glass and downs it in a few gulps while looking at the man. When she finishes, she sighs and looks at the man pointedly. The woman sets down her wine glass with a "clink" sound. She smiles, sighs and then pours more wine for herself. The man says "the asparagus is very tender".""",
+            """The woman replies "oh yeah". The man continues to eat without looking up. Side view of the woman's face. She says "They say it's an aphrodisiac" while looking at the man. Side view of the man's face. He looks up and asks "Who does?" The woman replies "Oh, I don't know, people. That's just what people say" while eating another bite of food. The man continues to look down and not say anything. The woman glances up at the man but doesn't say anything.""",
+            """The man looks up and says "So dear, how was your day?" The woman, furious, gets up and says "Oh geez, shut up and have a drink!" as she throws her glass of wine at the man. The woman sits down, agitated and says "You're a computer analyst, not a fucking surgeon! Why can't you, I don't know, relax for once in your life!" """, 
+            """The man takes something out of his pocket. The woman says angrily "Oh don't you dare". The man, with wine still on his face puts a cigarette in his mouth and starts to smoke. The woman stands up and says "Don't you dare smoke in my house!" The man starts to smoke but the woman storms over and pulls the cigarette out of his mouth. The woman walks back across the room and angrily puts the cigarette out in an ashtray. The woman looks back across the room to see that the man is lighting another cigarette.""",
+            """The woman sits down and says, frustrated, "Yeah, that's right, passive smoke. That's exactly what I wanted for my anniversary". The man continues to look down and smoke. The woman continues, "followed by some stilted conversation. And if I'm really lucky, by some short, mechanical sex." The man looks up at the woman. The woman looks down, avoiding eye contact for a moment but glances up. The man continues to stare at the woman. He swallows. The woman looks back before saying…""",
+            """The woman says "I'm sorry." and begins to stand up. The woman walks across the room to the man, and says "Come here". The woman sits down in the man's lap and hugs him, saying "There, there. I didn't mean what I said". The woman holds the man's head closer, stroking his hair.""", 
+            """The woman's hand traces the man's head to his neck. She pulls down the man's shirt collar to reveal a switch on his neck. Close up of the woman's face. She blinks. The woman's hand slides to the switch. She pushes it down with a "click" sound. Close up of the man's face. With a whine sound, his neck droops and he lies on the woman's shoulder, seemingly unconscious.""", 
+            """The woman pushes the man off her shoulder with a grunt, stands up, and walks away. His head hangs there, limp. The woman sits down at the other side of the table. She takes off her shoes and crosses her legs on the table, sighing. She says sarcastically "Happy anniversary".""", 
+            """Close up of the back of a laptop. The camera pans up to the woman, typing something. Metallophone music starts playing in the background. On her computer screen: "PROMETEUS ROBOTICS CHOOSE EVERLASTING LOVE". With a click, the screen displays a lineup of six differently dressed men. The woman types something before looking up. Across the room, the man still sits there, his head down, hanging limply. The woman looks back down at her screen before smiling. On her screen: several pictures of a muscular, dark haired man.""",
+            """The woman puts on a bluetooth headset before looking down at her screen again. Screen briefly shows the same page with the man, before switching to a screen that says "...DIALING: 0800 800 800..." Sounds of a phone being dialed in the background. Close up of the woman's face. A woman on the other end of the phone says "Hello you've reached Rachelite technical support, how may I help you?" The woman replies: "Hi. I, I'm unsatisfied with my current unit". The customer support rep says "Okay, what model do you currently have?" The camera pans from the computer screen to a picture frame of the woman in a wedding dress hugging the man. Woman: "It's the 100 series" Customer service: "And what seems to be the problem?" Close up of the woman's face. Woman: "He lacks ambition. He has no sense of adventure." Customer service representative: "Yes, that is a common malfunction with the 100 series.""",
+            """The customer service rep continues, "Would it help if we upgraded you to a higher model?" Woman: "Yeah, would you be able to..." Camera cuts to a view of the man sitting there, still limp. The woman continues… "give me something". Camera cuts back to a view of the woman. She continues, "a bit sportier?" Customer service rep: "Certainly. Do you have any preferences?" Woman: "Oh, um…." as she clicks the computer.""",
+            """View of the computer screen, showing the same man. Woman: "A rock climber. Oh no, a masseuse". Camera slowly pans away from the woman at her computer. Woman: "Oh wait. A rock climbing masseuse? Yeah, like the picture. Yeah, but no beard. Maybe just a 5 o'clock shadow. Yeah. And, could he have shorter hair? And blonde. Yeah. And…." The camera fades to black.""",
+            """A loud banging sound on the black screen. Sudden cut to a view of a doorbell. The woman's eye approaches the doorbell.""",
+            """A clicking sound as the door unlocks. The woman opens up the door to a delivery girl looking down at her clipboard. A large box that says "Prometeus Robotics…." is pushed into frame, and another delivery girl steps into frame. Someone walks across frame to reveal a  layer of plastic. Sound of wrinkling plastic as it is pulled away. Close up of the woman's face. She blinks, and the sound of wrinkling plastic continues. The delivery woman peels back the plastic to reveal a man, exactly as the woman described earlier. Camera slowly zooms in on the woman's face. She looks intensely ahead. A delivery woman walks behind her. String music swells in the background.""", 
+            """The woman turns her head to see the delivery women have tied the original man to a cart and start to wheel him away. Camera pans out from the woman's face as she looks at the original man. The new man is in the background, still partially wrapped in plastic. The woman starts walking over to the original man and the delivery women and says "Um wait please". The woman gives the original man a quick kiss before backing away.""",
+            """Close up of the woman's hands as she takes a ring off of the original man's ring finger.""",
+            """Close up of the woman's hands as she puts the ring on the new man's ring finger. She sets the man's hand down and pats it gently.""",
+            """Close up of the woman's hands on the man's neck. She flicks the switch with a click, and an electronic whine starts. The whine continues. The woman walks across the frame and the man sits there motionless. The woman sits down and looks expectantly at the man. The man blinks. With an electronic whine, he looks around. He then grabs the napkin next to him and sits up.""",
+            """The woman asks cautiously "Glass of wine?" and looks at the man. The man, looking down, replies "No thanks, I've got a big climb tomorrow as he eats a bite of food. The woman looks back before looking down again.""",
+            """The man looks at the woman and says "the asparagus is very tender". The woman looks back hesitantly before smiling, nodding and saying "Yes, dear". Back to the man, who says "They say it's an aphrodisiac, you know?" while eating a piece. The woman, smiling, asks "Who does?" The man, shaking his head and smiling slightly says "I don't know, it's just what people say" before standing up.""",
+            """The man slowly walks across the room until he's behind the woman.""",
+            """The man starts to massage the woman's shoulders. He says, "So, tell me about your day dear". The woman says "Oh, I went into town this morning to pick up some stuff for tonight." The man looks down while continuing to massage her. The woman continues, "then um, I went for light lunch with Anna". Close up of the man's hands. He says "Hm? Then what?" Back to the woman, who, chuckling, says "Um, and then I decided…" Close up of the man's hands. His hands move up her shoulders. The woman continues, "since it's our anniversary, too." The man's left hand moves up to the woman's neck. Woman: "...treat myself and I..." """,
+            """With a click sound, the woman suddenly stops talking. The woman's neck goes limp and her head hangs. The man looks up and smiles slightly before walking away. View of the woman's face hanging there, expressionless. The man walks away""",
+            """View of the woman's neck, revealing a switch. Camera pans up. In the background the man walks across the room and sits down on a sofa with a cigarette and turns on the TV, crossing his legs. Close up of the man's emotionless face as he smokes, with the TV going in the background.""",
+            ]
 
 
-    # x = list(range(1, 132))
-    # seq = [0.013144356863839286, 1.2882036481584822, 0.8223353794642857, 1.2403020858764648, 1.663923375746783, 0.9185791015625, 1.0516199747721353, 2.01287841796875, 1.2958984375, 3.5830590384347096, 1.17109375, 2.984400885445731, 1.299609375, 3.3293079024269465, 1.637407938639323, 0.924891471862793, 2.9759114583333335, 3.0057915581597223, 4.1131439208984375, 2.9813819298377404, 2.687631607055664, 1.6726830523947012, 1.7950349287553267, 2.656444549560547, 1.4207801818847656, 2.698883056640625, 2.178282304243608, 3.0744384765625, 0.45610809326171875, 2.7419921875, 2.71431884765625, 1.2265625, 1.1523818969726562, 1.8839754377092635, 0, 4.552083333333333, 1.536279296875, 1.23732421875, 3.03857421875, 3.0965169270833335, 2.8037923177083335, 1.0764973958333333, 1.6930803571428572, 0, 1.6593068440755208, 0.4886474609375, 0.5812759399414062, 0, 1.0833296342329546, 2.8576178550720215, 2.899222903781467, 3.4982705646091037, 1.680597686767578, 1.3046875, 3.861837213689631, 1.58447265625, 1.0649573284646738, 1.1930338541666667, 3.363986545138889, 1.6702714399857954, 1.1769211713005514, 3.491030693054199, 1.1409912109375, 4.417874654134114, 1.7004720052083333, 2.14697265625, 1.3665823936462402, 1.7880859375, 0.7770787752591647, 1.1415182260366588, 1.2298828125, 1.2107514880952381, 0.8391510009765625, 1.321417864631204, 0, 2.6124343872070312, 2.241650390625, 2.0873046875, 0.8433868408203125, 0, 0.890771230061849, 1.9272904829545454, 2.496875, 1.3914930555555556, 0, 0.7452256944444444, 2.7682291666666665, 4.12548828125, 4.453125, 2.0037109375, 1.6102362738715277, 4.07568359375, 3.3489583333333335, 2.5260416666666665, 2.010532924107143, 2.494537353515625, 2.5482421875, 4.051215277777778, 0.9527413050333658, 5.024881998697917, 3.4247349330357144, 1.9347076416015625, 1.6064506199048914, 2.7578887939453125, 0.665418122944079, 2.7162000868055554, 3.2390625, 0.7458943684895833, 2.8917410714285716, 1.27646484375, 2.623046875, 2.6168118990384617, 2.4189453125, 0.9529880947536893, 1.293701171875, 1.3093109130859375, 2.4090169270833335, 4.422119140625, 1.8671875, 4.347464425223214, 1.7135881696428572, 2.91103515625, 2.1979166666666665, 2.53216552734375, 1.1111111111111112, 2.3277994791666665, -0.17281150817871094, 2.431361607142857, 2.896875, 1.8603891225961537, 1.5613839285714286]
-    # seq1 = [-0.020670572916666668, 1.2595011393229167, 1.181978013780382, 1.200726318359375, 2.10980332439596, 1.2406782670454546, 1.774267578125, 2.400390625, 2.1338704427083335, 0.7711458206176758, 2.056734561920166, 1.425800051007952, 3.911328125, 1.8787109375, 0.6674681163969494, 2.1182774030245266, 1.350280211522029, 1.7837858200073242, 3.2620985243055554, 1.189727783203125, 0.9255625406901041, 5.66845703125, 3.393146514892578, 1.876708984375]
-    # seq2 = [0.08878366570723684, 1.9322338104248047, 2.927734375, 4.225667317708333, 1.34381103515625, 1.0041717529296874, 0.8162550926208496, 1.6382606907894737, 2.755580357142857, 0.5838894314236112, 1.3565118963068181, 2.8967459542410716, 0.6288967132568359, 3.51171875, 2.1002400716145835, 1.2196758270263672, 0.674701603976163, 1.0997890896267362, 5.51953125, 6.118408203125, 1.6428309849330358, -0.9730631510416666, 5.604705810546875, 3.481109619140625, 0.9888814290364584, 0.9737091064453125]
-    
-    # plt.figure()
-    # plt.plot([x for x in range(len(seq2))], seq2)
-    # plt.xlabel("sentences")
-    # plt.ylabel("seqentiality")
-    # plt.show()
+    run_film_fest_init(stories)
 
-
-    # create_mini_files(merged_file="./datasets/hcV3-stories-quartered.csv")
+    # create_mini_files(base_path="./outputs/llama-3b", merged_file="./datasets/hcV3-stories-quartered.csv")
     # generate_plots(data_path="./outputs/llama-70b-quantized", file_name="main.csv")
 
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/llama-70b-quantized/", file_name = "main.csv")
+    # generate_plots(data_path="./outputs/llama-3b/", file_name = "main.csv")
     
