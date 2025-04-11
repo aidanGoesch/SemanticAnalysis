@@ -369,7 +369,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",  # CHANGE THIS
+    model = SequentialityModel("meta-llama/Llama-3.2-3B-Instruct",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
