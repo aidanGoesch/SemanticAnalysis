@@ -48,8 +48,10 @@ class SequentialityModel:
         self.model.config.pad_token_id = self.model.config.eos_token_id
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
+        self.topic = topic
+
         # Pad all text with _
-        self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
+        self.context_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         start_time = time.perf_counter() 
@@ -77,6 +79,11 @@ class SequentialityModel:
         
         # print(f"model infernce time: {time.perf_counter() - start_time}")
         return batch
+    
+    def set_topic(self, topic: str):
+        """Method that sets the topic of the model"""
+        self.topic = topic
+        self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
 
     def print_token_ids_and_strings(self, token_ids: list[int]):
         print("Query token sequence:")
@@ -269,16 +276,20 @@ class SequentialityModel:
         self.token_cache[sentence] = sentence_token_ids
         return sentence_token_ids
 
-    def calculate_text_sequentiality(self, text : str, verbose : bool = False) -> list[float | list]:
+    def calculate_text_sequentiality(self, text : str, topic : str = None, verbose : bool = False) -> list[float | list]:
         """
         Function that calculates the total sequentiality of a text
 
         :param text: entire input text
+        :param topic: a topic to condition the text on
         :param verbose: debug
 
         :return: [total_text_sequentiality, total_sentence-level_sequentiality, contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
         :rtype: list[float | list]
         """
+        if topic is not None:  # Don't use the default topic set during model creation
+            self.set_topic(topic)
+
 
         sentences = re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s", text)
 
