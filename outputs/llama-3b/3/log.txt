@@ -1,1 +1,1 @@
-iteration (6850/6854) sequentiality value: 1.2364     time to complete: 0.8881     time elapsed: 4314.4873     time remaining: ~2.5194
+iteration (6850/6854) sequentiality value: 1.2166     time to complete: 0.8680     time elapsed: 4259.2723     time remaining: ~2.4872
