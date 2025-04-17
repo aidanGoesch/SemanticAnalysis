@@ -24,7 +24,7 @@ else:  # If all else fails
 torch.set_float32_matmul_precision('high')
 
 class SequentialityModel:
-    def __init__(self, model_name : str, topic : str, recall_length=4) -> None:
+    def __init__(self, model_name : str, topic : str, recall_length:int=4) -> None:
         self.sentences = []
 
         self.recall_length = recall_length
@@ -49,13 +49,14 @@ class SequentialityModel:
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
         self.topic = topic
+        self.default_topic = topic
 
         # Pad all text with _
-        self.context_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "
+        self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         start_time = time.perf_counter() 
-        input_text = self.context_string + text
+        input_text = self.topic_string + text
         input_ids = self.tokenizer(input_text, padding=True, return_tensors="pt").input_ids.to(mps_device)
         
         with torch.inference_mode(): #optimize for inference
@@ -77,13 +78,12 @@ class SequentialityModel:
                     token_sequence.append((token.item(), p.item()))
             batch.append(token_sequence)
         
-        # print(f"model infernce time: {time.perf_counter() - start_time}")
         return batch
     
     def set_topic(self, topic: str):
         """Method that sets the topic of the model"""
         self.topic = topic
-        self.context_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
+        self.topic_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
 
     def print_token_ids_and_strings(self, token_ids: list[int]):
         print("Query token sequence:")
@@ -153,13 +153,12 @@ class SequentialityModel:
         :rtype: float
         """
         # Tokenize the full text (which is context + sentence)
-        full_text = self.context_string + sentence
+        full_text = self.topic_string + sentence
         tokens_and_logprobs = self._to_tokens_and_logprobs(full_text)[0]
         return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
     def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> list[float]:
         """
-
         Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
         the purely topic driven version.
 
@@ -173,19 +172,11 @@ class SequentialityModel:
         if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
             return 0, 0, 0
 
-        if hasattr(self, 'token_cache') and sentence in self.token_cache:
-            sentence_token_ids = self.token_cache[sentence]
-        else:
-            # Existing tokenization logic
-            context_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
-            full_text = self.context_string + sentence
-            full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
-            sentence_token_ids = full_ids[len(context_ids):]
-            
-            # Cache for future use
-            if not hasattr(self, 'token_cache'):
-                self.token_cache = {}
-            self.token_cache[sentence] = sentence_token_ids
+        # Existing tokenization logic
+        context_ids = self.tokenizer.encode(self.topic_string, add_special_tokens=False)
+        full_text = self.topic_string + sentence
+        full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
+        sentence_token_ids = full_ids[len(context_ids):]
         
         if len(sentence_token_ids) == 0:
             return 0, 0, 0
@@ -254,7 +245,10 @@ class SequentialityModel:
     
 
     def _tokenize_with_cache(self, sentence):
-        """Tokenize with caching for repeated sentences."""
+        """
+        !!! DEPRECATED !!!
+        Tokenize with caching for repeated sentences.
+        """
         if not hasattr(self, 'token_cache'):
             self.token_cache = {}
             
@@ -263,10 +257,10 @@ class SequentialityModel:
         
         # Context string tokenization (happens once)
         if not hasattr(self, '_context_token_ids'):
-            self._context_token_ids = self.tokenizer.encode(self.context_string, add_special_tokens=False)
+            self._context_token_ids = self.tokenizer.encode(self.topic_string, add_special_tokens=False)
         
         # Tokenize full text
-        full_text = self.context_string + sentence
+        full_text = self.topic_string + sentence
         full_ids = self.tokenizer.encode(full_text, add_special_tokens=False)
         
         # Extract just the sentence tokens
@@ -287,8 +281,10 @@ class SequentialityModel:
         :return: [total_text_sequentiality, total_sentence-level_sequentiality, contextual_sentence-level_sequentiality, topic_sentence-level_sequentiality]
         :rtype: list[float | list]
         """
-        if topic is not None:  # Don't use the default topic set during model creation
+        if topic is not None:
             self.set_topic(topic)
+        else:
+            self.set_topic(self.default_topic)
 
 
         sentences = re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s", text)
