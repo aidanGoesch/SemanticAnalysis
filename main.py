@@ -535,24 +535,11 @@ def preprocess_dataset(csv_path, model_class, model_params):
 
 # Example usage:
 if __name__ == "__main__":
-    # Code to preprocess tokens
-    # model_params = {
-    #     "model_name": "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8", 
-    #     "topic": "A short story",
-    #     "recall_length": 4
-    # }
-    
-    # preprocess_dataset(
-    #     csv_path="./datasets/hcV3-stories-quartered.csv",
-    #     model_class=SequentialityModel,
-    #     model_params=model_params
-    # )
-
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
+    # run_sequential(int(sys.argv[1]))
     
     # stories = [""""THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background.""",
     #         """View of the back of a man's head. He's sitting at a table across from a woman and eating dinner. The woman looks at the man. View of the man over the woman's shoulder. He's looking down at his plate and cutting something with his knife and fork. Close up of the woman's face. She's looking down and chewing something. Close up of the man's face. He's also looking down and chewing. Side view of the woman's face. She uses her fork to eat something before looking up. Side view of the man's face. He eats a bite while looking down.""",
@@ -592,5 +579,5 @@ if __name__ == "__main__":
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/llama-3b/", file_name = "main.csv")
+    generate_plots(data_path="./outputs/llama-3b/", file_name = "main.csv")
     
