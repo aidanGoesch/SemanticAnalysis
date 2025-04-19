@@ -155,8 +155,9 @@ if __name__ == "__main__":
     print("model loaded")
 
     model = SequentialityEmbeddingModel(embed, "a conversation with a doctor", 4)
-    print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
-    print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
+    print("format: topic_sequentiality, contextual_sequentiality")
+    print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)[:2]}")
+    print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)[:2]}")
 
 
 
