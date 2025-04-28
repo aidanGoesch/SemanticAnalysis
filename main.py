@@ -354,7 +354,7 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    save_path = "./outputs/phi-4k-mini/"  # CHANGE THIS
+    save_path = "./outputs/gpt-2-xl/"  # CHANGE THIS
 
     data = pd.read_csv("./datasets/hcV3-stories.csv")
     
@@ -369,7 +369,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct",  # CHANGE THIS
+    model = SequentialityModel("openai-community/gpt2-xl",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
@@ -396,14 +396,14 @@ def run_sequential(recall_length:int):
                     file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
         
         except Exception as e: # dump sequentialities into a file even if it errors out
-            sequentialities.to_csv(f"{save_path}{recall_length}/main_new.csv")
+            sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
             print(e)
 
             quit(-42)
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
-    sequentialities.to_csv(f"{save_path}{recall_length}/main_new.csv")
+    sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
 
 def test_bed():
     """
@@ -579,23 +579,4 @@ if __name__ == "__main__":
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/phi-4k-mini/", file_name = "main.csv")
-    
-
-
-
-
-def majority(arr):
-    if len(arr) == 2:
-        if arr[0] == arr[1]:
-            return arr[0]
-        return None
-    
-    else:
-        r = majority(arr[:len(arr) // 2])
-        l = majority(arr[len(arr) // 2:])
-
-        if l == r and r is not None:
-            return r
-        else:
-            return None
+    # generate_plots(data_path="./outputs/phi-4k-mini/", file_name = "main_new.csv")
