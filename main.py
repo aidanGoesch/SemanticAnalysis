@@ -16,6 +16,10 @@ import os
 "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8"
 "meta-llama/Llama-3.2-3B-Instruct"
 
+# non-prompt finetuned
+"openai-community/gpt2-xl"
+"allenai/OLMo-2-1124-13B"
+
 
 # HPC Checklist
 #   - Is the model name correct?
@@ -354,7 +358,7 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    save_path = "./outputs/gpt-2-xl/"  # CHANGE THIS
+    save_path = "./outputs/OLMo/"  # CHANGE THIS
 
     data = pd.read_csv("./datasets/hcV3-stories.csv")
     
@@ -369,7 +373,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("openai-community/gpt2-xl",  # CHANGE THIS
+    model = SequentialityModel("allenai/OLMo-2-1124-13B",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
@@ -579,4 +583,4 @@ if __name__ == "__main__":
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/phi-4k-mini/", file_name = "main_new.csv")
+    # generate_plots(data_path="./outputs/gpt-2-xl/", file_name = "main.csv")
