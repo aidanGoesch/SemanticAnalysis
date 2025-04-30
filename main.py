@@ -72,7 +72,7 @@ def calculate_individual_sequentiality(data: np.array, start: int = None, stop: 
 
     print(f"sequentialities = {sequentialities}")
 
-def generate_plots(data_path:str="./outputs/phi-4k-mini", file_name:str="main.csv"):
+def generate_plots(data_path:str="./outputs/phi-4k-mini", file_name:str="main.csv", model_name:str="model"):
     """
     Function that generates the graph from the calculated sequentiality values. Takes as an argument the path to where the data is stored, and the filename
     """
@@ -81,8 +81,8 @@ def generate_plots(data_path:str="./outputs/phi-4k-mini", file_name:str="main.cs
     for i in range(9):
         dfs.append(pd.read_csv(f"{data_path}/{i + 1}/{file_name}"))
 
-    generate_2a(dfs)
-    generate_2d(dfs)
+    generate_2a(dfs, model_name)
+    generate_2d(dfs, model_name)
 
 def explore_random_seeds():
     s = []
@@ -358,7 +358,7 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    save_path = "./outputs/OLMo/"  # CHANGE THIS
+    save_path = "./outputs/llama-3b/"  # CHANGE THIS
 
     data = pd.read_csv("./datasets/hcV3-stories.csv")
     
@@ -373,7 +373,7 @@ def run_sequential(recall_length:int):
                                         "recImgPairId"])
 
     # load model once
-    model = SequentialityModel("allenai/OLMo-2-1124-13B",  # CHANGE THIS
+    model = SequentialityModel("meta-llama/Llama-3.2-3B-Instruct",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
@@ -400,14 +400,14 @@ def run_sequential(recall_length:int):
                     file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
         
         except Exception as e: # dump sequentialities into a file even if it errors out
-            sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
+            sequentialities.to_csv(f"{save_path}{recall_length}/main_new_context.csv")
             print(e)
 
             quit(-42)
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
-    sequentialities.to_csv(f"{save_path}{recall_length}/main.csv")
+    sequentialities.to_csv(f"{save_path}{recall_length}/main_new_context.csv")
 
 def test_bed():
     """
@@ -583,4 +583,4 @@ if __name__ == "__main__":
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/gpt-2-xl/", file_name = "main.csv")
+    # generate_plots(data_path="./outputs/gpt-2-xl/", file_name = "main.csv", model_name = "GPT-2-XL")

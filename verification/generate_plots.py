@@ -43,7 +43,7 @@ def create_balanced_dataset(df, n_samples=130):
 
     return balanced_data
 
-def generate_2d(dfs : [pd.DataFrame]):
+def generate_2d(dfs : [pd.DataFrame], model_name:str):
     x = []
 
     imagined_recalled = []
@@ -72,6 +72,7 @@ def generate_2d(dfs : [pd.DataFrame]):
 
     plt.figure()
     plt.title("Prelim recreation")
+    plt.suptitle(f"Model Used: {model_name}")
     plt.xlabel("recall")
     plt.ylabel("% difference")
 
@@ -158,7 +159,7 @@ def calculate_sequentiality_by_history(dfs):
             (recalled, recalled_err)]
 
 
-def generate_2a(dfs):
+def generate_2a(dfs, model_name:str):
     """Plot sequentiality values for different story types"""
     results = calculate_sequentiality_by_history(dfs)
     x = list(range(len(dfs)))  # 0-8 for the 9 DataFrames
@@ -176,6 +177,7 @@ def generate_2a(dfs):
     plt.xlabel('History Length')
     plt.ylabel('Sequentiality')
     plt.title('Sequentiality with Varying History Length')
+    plt.suptitle(f"Model Used: {model_name}")
     plt.legend()
     plt.show()
 
