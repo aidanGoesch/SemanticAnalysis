@@ -52,7 +52,8 @@ class SequentialityModel:
         self.default_topic = topic
 
         # Pad all text with _
-        self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "
+        # self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
+        self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         start_time = time.perf_counter() 
