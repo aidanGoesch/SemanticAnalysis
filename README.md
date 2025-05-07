@@ -9,7 +9,7 @@ Then go to https://pytorch.org/get-started/locally/ to install the right version
 
 Equation for the sequentiality value of a sentence: 
 
-$ c(s_i, h) = -\frac{1}{|s_i|} \left( \log p_{\mathrm{LM}}(s_i \mid \mathcal{T}) - \log p_{\mathrm{LM}}(s_i \mid \mathcal{T}, s_{i-h:i-1}) \right) $
+![alt text](image.png)
 
 is on line `209` of `src/sequentiality.py`. The sequentiality values for each sentence of a story are then averaged to get the value for the whole text (in accordance with the paper) in the method `SequentialityModel.calculate_text_sequentiality` on line `276`. The topic is set for every story using `SequentialityModel.set_topic` every time `SequentialityModel.calculate_text_sequentiality` is called
 
