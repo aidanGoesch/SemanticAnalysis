@@ -44,6 +44,10 @@ def create_balanced_dataset(df, n_samples=130):
     return balanced_data
 
 def generate_2d(dfs : [pd.DataFrame], model_name:str):
+    """
+    Function that generates figure 2d
+    """
+
     x = []
 
     imagined_recalled = []
@@ -85,12 +89,15 @@ def generate_2d(dfs : [pd.DataFrame], model_name:str):
 
 
 def determine_bin(row):
-    """Function used to divide each value into bins according to whether it was an imagined, or remembered"""
-    # recAgnPairId = None for imagined stories -> ID of the retold story being recalled
-    # if not None then its recalled
+    """
+    Function used to divide each value into bins according to whether it was an imagined, or remembered
 
-    # recImgPairId = None for retold stories -> ID of imagined story being recalled
-    # if not None then its recalled
+    recAgnPairId = None for imagined stories -> ID of the retold story being recalled
+    - if not None then its recalled
+
+    recImgPairId = None for retold stories -> ID of imagined story being recalled
+    - if not None then its recalled
+    """
 
     if isinstance(row['recAgnPairId'], float) and isinstance(row['recImgPairId'], float):
         return 'Recall'  # This is a recall (neither points to it)
@@ -102,6 +109,9 @@ def determine_bin(row):
         return 'Error'  # Can't be both retold and imagined
 
 def percentage_dif(l, r):
+    """
+    Calculate the percentage difference
+    """
     numerator = abs(l - r)
     denominator = np.mean([l, r])
 
@@ -112,7 +122,9 @@ def percentage_dif(l, r):
 
 
 def standard_error(data):
-    """Calculate the standard error of the mean"""
+    """
+    Calculate the standard error of the mean
+    """
     return np.std(data, ddof=1) / np.sqrt(len(data))
 
 
@@ -160,7 +172,9 @@ def calculate_sequentiality_by_history(dfs):
 
 
 def generate_2a(dfs, model_name:str):
-    """Plot sequentiality values for different story types"""
+    """
+    Plot sequentiality values for different story types
+    """
     results = calculate_sequentiality_by_history(dfs)
     x = list(range(len(dfs)))  # 0-8 for the 9 DataFrames
 
@@ -201,35 +215,5 @@ def generate_data_proportion_chart(file_path:str="./datasets/hcV3-stories.csv", 
     plt.title(title)
     plt.show()
     
-
-
-
-# x = [5, 10, 15, 20, 25]
-# # s = [96.15147966588847, 253.69168474990875, 218.6335731248837, 216.62307874998078, 258.85097066592425]
-# # p = [42.29447991680354, 69.11600054102018, 100.3485505420249, 132.64719383278862, 153.53329075011425]
-
-# p = [43.23337691696361, 73.38943483307958, 114.94705275003798, 144.4546077500563, 162.4089816659689]
-
-# s = [43.75251183309592, 73.2175690419972, 105.70431220787577, 137.43758141691796, 161.05119587481022]
-
-
-# seq1 = [1.1295, .8012, .9326, 1.0341, 1.0873]
-# seq2 = [1.3333, 0.8272, 0.9314, 1.0584, 1.1323]
-
-# # s1 = [132.3931, 107.2755, 161.2929]
-# # s2 = []
-
-# plt.figure()
-# plt.plot(x, s, label="normal", color="blue")
-# plt.plot(x, p, label="inference_mode", color="orange")
-# # plt.plot(x, [percentage_dif(s1, s2) for s1, s2 in zip(s, p)])
-# # plt.ylim(top=150, bottom=0)
-# # plt.plot(x, s1, label="sequential w/ optimization", color="red")
-# plt.legend()
-# plt.show()
-    
-    
-
-
 if __name__ == "__main__":
     generate_2d(pd.DataFrame())

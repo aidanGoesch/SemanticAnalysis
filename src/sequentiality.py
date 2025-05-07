@@ -5,9 +5,6 @@ import pandas as pd
 from src.keys import HUGGING_FACE_TOKEN
 import re
 import json
-import time
-# from torch._dynamo import optimize
-# torch._dynamo.config.suppress_errors = True
 
 if torch.backends.mps.is_built():  # Apple Silicon
     print('mps is used.')
@@ -52,11 +49,10 @@ class SequentialityModel:
         self.default_topic = topic
 
         # Pad all text with _
-        # self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
-        self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
+        self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
+        # self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
-        start_time = time.perf_counter() 
         input_text = self.topic_string + text
         input_ids = self.tokenizer(input_text, padding=True, return_tensors="pt").input_ids.to(mps_device)
         
@@ -82,7 +78,9 @@ class SequentialityModel:
         return batch
     
     def set_topic(self, topic: str):
-        """Method that sets the topic of the model"""
+        """
+        Method that sets the topic of the model
+        """
         self.topic = topic
         self.topic_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
 
@@ -94,7 +92,9 @@ class SequentialityModel:
 
     @staticmethod
     def _find_subsequence(query: list[int], full_sequence: list[tuple[int, float]]) -> int:
-        """Return the starting index in full_sequence where query is found, or -1 if not found."""
+        """
+        Return the starting index in full_sequence where query is found, or -1 if not found.
+        """
         n = len(query)
         for i in range(len(full_sequence) - n + 1):
             if all(full_sequence[i + j][0] == query[j] for j in range(n)):
@@ -102,7 +102,9 @@ class SequentialityModel:
         return -1
 
     def _process_tokens_and_logprobs(self, query_token_ids: list[int], tokens_and_logprobs: list[tuple[int, float]]) -> float:
-        start_time = time.perf_counter()
+        """
+        Take raw logprobs and process them (i.e. sum across the correct subset of them)
+        """
         start_idx = SequentialityModel._find_subsequence(query_token_ids, tokens_and_logprobs)
         if start_idx == -1:
             # Debug: print the sequences to see why matching failed
@@ -111,7 +113,7 @@ class SequentialityModel:
             print("Full sequence token IDs:", [t for t, _ in tokens_and_logprobs])
             self.print_token_ids_and_strings([t for t, _ in tokens_and_logprobs])
             return 0
-        # print(f"processing time: {time.perf_counter() - start_time}")
+
         # Sum only over the tokens corresponding to the query (not the rest of the sequence)
         return sum(p for _, p in tokens_and_logprobs[start_idx:start_idx+len(query_token_ids)])
 
@@ -203,7 +205,7 @@ class SequentialityModel:
                 print(f"Token: {self.tokenizer.decode([token_id])!r} | ID: {token_id}")
             print(f"Sentence: {sentence}")
         
-        # Normalize by the number of tokens, if desired.
+        # Normalize by the number of tokens
         return [(topic_sequentiality - contextual_sequentiality) / -len(sentence_token_ids), contextual_sequentiality, topic_sequentiality]
     
     def load_tokens_to_cache(self, tokenized_data_path):

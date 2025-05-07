@@ -443,30 +443,6 @@ def test_bed():
     
     print(tmp)
 
-def run_film_fest_init(stories:list[str]):
-    """
-    Function that calculates the value for this story and writes it to a csv
-    """
-     # load model once
-    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",  # CHANGE THIS
-                            topic="A short story",
-                            recall_length=9)
-    
-    sequentialities = []
-    for i in range(len(stories)):
-        text = " ".join(stories[:i])
-
-        seq = model.calculate_text_sequentiality(text)
-
-        sequentialities.append(seq[0])
-
-        if i == len(stories) - 1:  # print the sequentialities for every sentence in the entire story
-            print(seq[1])
-    
-    print(f"sequentialities by scene: {sequentialities}")
-
-    
-    
 
 def preprocess_dataset(csv_path, model_class, model_params):
     """
@@ -543,39 +519,7 @@ if __name__ == "__main__":
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
-    
-    # stories = [""""THE BOYFRIEND" in bold white text fades in on a black screen before fading out. The letters of "high maintenance" appear in the center of the screen one by one in white text. A simple jingle plays in the background.""",
-    #         """View of the back of a man's head. He's sitting at a table across from a woman and eating dinner. The woman looks at the man. View of the man over the woman's shoulder. He's looking down at his plate and cutting something with his knife and fork. Close up of the woman's face. She's looking down and chewing something. Close up of the man's face. He's also looking down and chewing. Side view of the woman's face. She uses her fork to eat something before looking up. Side view of the man's face. He eats a bite while looking down.""",
-    #         """The woman stands up and grabs a bottle of wine to her side. She walks over to the man. The woman begins to pour wine for the man, but he covers his glass with his hand. The man, without looking up says "not for me dear" and continues eating. The woman sits back down and glances at the man before saying "you know it's our anniversary".""",
-    #         """The man stops eating and looks at the woman, saying "you know I can't drink wine or alcohol" before starting to eat again. The woman picks up her wine glass and downs it in a few gulps while looking at the man. When she finishes, she sighs and looks at the man pointedly. The woman sets down her wine glass with a "clink" sound. She smiles, sighs and then pours more wine for herself. The man says "the asparagus is very tender".""",
-    #         """The woman replies "oh yeah". The man continues to eat without looking up. Side view of the woman's face. She says "They say it's an aphrodisiac" while looking at the man. Side view of the man's face. He looks up and asks "Who does?" The woman replies "Oh, I don't know, people. That's just what people say" while eating another bite of food. The man continues to look down and not say anything. The woman glances up at the man but doesn't say anything.""",
-    #         """The man looks up and says "So dear, how was your day?" The woman, furious, gets up and says "Oh geez, shut up and have a drink!" as she throws her glass of wine at the man. The woman sits down, agitated and says "You're a computer analyst, not a fucking surgeon! Why can't you, I don't know, relax for once in your life!" """, 
-    #         """The man takes something out of his pocket. The woman says angrily "Oh don't you dare". The man, with wine still on his face puts a cigarette in his mouth and starts to smoke. The woman stands up and says "Don't you dare smoke in my house!" The man starts to smoke but the woman storms over and pulls the cigarette out of his mouth. The woman walks back across the room and angrily puts the cigarette out in an ashtray. The woman looks back across the room to see that the man is lighting another cigarette.""",
-    #         """The woman sits down and says, frustrated, "Yeah, that's right, passive smoke. That's exactly what I wanted for my anniversary". The man continues to look down and smoke. The woman continues, "followed by some stilted conversation. And if I'm really lucky, by some short, mechanical sex." The man looks up at the woman. The woman looks down, avoiding eye contact for a moment but glances up. The man continues to stare at the woman. He swallows. The woman looks back before saying…""",
-    #         """The woman says "I'm sorry." and begins to stand up. The woman walks across the room to the man, and says "Come here". The woman sits down in the man's lap and hugs him, saying "There, there. I didn't mean what I said". The woman holds the man's head closer, stroking his hair.""", 
-    #         """The woman's hand traces the man's head to his neck. She pulls down the man's shirt collar to reveal a switch on his neck. Close up of the woman's face. She blinks. The woman's hand slides to the switch. She pushes it down with a "click" sound. Close up of the man's face. With a whine sound, his neck droops and he lies on the woman's shoulder, seemingly unconscious.""", 
-    #         """The woman pushes the man off her shoulder with a grunt, stands up, and walks away. His head hangs there, limp. The woman sits down at the other side of the table. She takes off her shoes and crosses her legs on the table, sighing. She says sarcastically "Happy anniversary".""", 
-    #         """Close up of the back of a laptop. The camera pans up to the woman, typing something. Metallophone music starts playing in the background. On her computer screen: "PROMETEUS ROBOTICS CHOOSE EVERLASTING LOVE". With a click, the screen displays a lineup of six differently dressed men. The woman types something before looking up. Across the room, the man still sits there, his head down, hanging limply. The woman looks back down at her screen before smiling. On her screen: several pictures of a muscular, dark haired man.""",
-    #         """The woman puts on a bluetooth headset before looking down at her screen again. Screen briefly shows the same page with the man, before switching to a screen that says "...DIALING: 0800 800 800..." Sounds of a phone being dialed in the background. Close up of the woman's face. A woman on the other end of the phone says "Hello you've reached Rachelite technical support, how may I help you?" The woman replies: "Hi. I, I'm unsatisfied with my current unit". The customer support rep says "Okay, what model do you currently have?" The camera pans from the computer screen to a picture frame of the woman in a wedding dress hugging the man. Woman: "It's the 100 series" Customer service: "And what seems to be the problem?" Close up of the woman's face. Woman: "He lacks ambition. He has no sense of adventure." Customer service representative: "Yes, that is a common malfunction with the 100 series.""",
-    #         """The customer service rep continues, "Would it help if we upgraded you to a higher model?" Woman: "Yeah, would you be able to..." Camera cuts to a view of the man sitting there, still limp. The woman continues… "give me something". Camera cuts back to a view of the woman. She continues, "a bit sportier?" Customer service rep: "Certainly. Do you have any preferences?" Woman: "Oh, um…." as she clicks the computer.""",
-    #         """View of the computer screen, showing the same man. Woman: "A rock climber. Oh no, a masseuse". Camera slowly pans away from the woman at her computer. Woman: "Oh wait. A rock climbing masseuse? Yeah, like the picture. Yeah, but no beard. Maybe just a 5 o'clock shadow. Yeah. And, could he have shorter hair? And blonde. Yeah. And…." The camera fades to black.""",
-    #         """A loud banging sound on the black screen. Sudden cut to a view of a doorbell. The woman's eye approaches the doorbell.""",
-    #         """A clicking sound as the door unlocks. The woman opens up the door to a delivery girl looking down at her clipboard. A large box that says "Prometeus Robotics…." is pushed into frame, and another delivery girl steps into frame. Someone walks across frame to reveal a  layer of plastic. Sound of wrinkling plastic as it is pulled away. Close up of the woman's face. She blinks, and the sound of wrinkling plastic continues. The delivery woman peels back the plastic to reveal a man, exactly as the woman described earlier. Camera slowly zooms in on the woman's face. She looks intensely ahead. A delivery woman walks behind her. String music swells in the background.""", 
-    #         """The woman turns her head to see the delivery women have tied the original man to a cart and start to wheel him away. Camera pans out from the woman's face as she looks at the original man. The new man is in the background, still partially wrapped in plastic. The woman starts walking over to the original man and the delivery women and says "Um wait please". The woman gives the original man a quick kiss before backing away.""",
-    #         """Close up of the woman's hands as she takes a ring off of the original man's ring finger.""",
-    #         """Close up of the woman's hands as she puts the ring on the new man's ring finger. She sets the man's hand down and pats it gently.""",
-    #         """Close up of the woman's hands on the man's neck. She flicks the switch with a click, and an electronic whine starts. The whine continues. The woman walks across the frame and the man sits there motionless. The woman sits down and looks expectantly at the man. The man blinks. With an electronic whine, he looks around. He then grabs the napkin next to him and sits up.""",
-    #         """The woman asks cautiously "Glass of wine?" and looks at the man. The man, looking down, replies "No thanks, I've got a big climb tomorrow as he eats a bite of food. The woman looks back before looking down again.""",
-    #         """The man looks at the woman and says "the asparagus is very tender". The woman looks back hesitantly before smiling, nodding and saying "Yes, dear". Back to the man, who says "They say it's an aphrodisiac, you know?" while eating a piece. The woman, smiling, asks "Who does?" The man, shaking his head and smiling slightly says "I don't know, it's just what people say" before standing up.""",
-    #         """The man slowly walks across the room until he's behind the woman.""",
-    #         """The man starts to massage the woman's shoulders. He says, "So, tell me about your day dear". The woman says "Oh, I went into town this morning to pick up some stuff for tonight." The man looks down while continuing to massage her. The woman continues, "then um, I went for light lunch with Anna". Close up of the man's hands. He says "Hm? Then what?" Back to the woman, who, chuckling, says "Um, and then I decided…" Close up of the man's hands. His hands move up her shoulders. The woman continues, "since it's our anniversary, too." The man's left hand moves up to the woman's neck. Woman: "...treat myself and I..." """,
-    #         """With a click sound, the woman suddenly stops talking. The woman's neck goes limp and her head hangs. The man looks up and smiles slightly before walking away. View of the woman's face hanging there, expressionless. The man walks away""",
-    #         """View of the woman's neck, revealing a switch. Camera pans up. In the background the man walks across the room and sits down on a sofa with a cigarette and turns on the TV, crossing his legs. Close up of the man's emotionless face as he smokes, with the TV going in the background.""",
-    #         ]
-
-
-    # run_film_fest_init(stories)
+    # run_sequential(int(sys.argv[1]))
 
     # create_mini_files(base_path="./outputs/llama-3b", merged_file="./datasets/hcV3-stories-quartered.csv")
     # generate_plots(data_path="./outputs/llama-70b-quantized", file_name="main.csv")
@@ -583,4 +527,4 @@ if __name__ == "__main__":
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/gpt-2-xl/", file_name = "main.csv", model_name = "GPT-2-XL")
+    generate_plots(data_path="./outputs/llama-3b/", file_name = "main_new_context.csv", model_name = "Llama 3.2 3b")
