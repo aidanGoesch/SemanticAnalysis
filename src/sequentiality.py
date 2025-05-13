@@ -16,8 +16,6 @@ else:  # If all else fails
     print('cpu is used.')
     mps_device = torch.device("cpu")
 
-
-# torch.set_default_dtype(torch.bfloat16)
 torch.set_float32_matmul_precision('high')
 
 class SequentialityModel:
@@ -49,8 +47,8 @@ class SequentialityModel:
         self.default_topic = topic
 
         # Pad all text with _
-        self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
-        # self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
+        # self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
+        self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         input_text = self.topic_string + text
@@ -82,7 +80,8 @@ class SequentialityModel:
         Method that sets the topic of the model
         """
         self.topic = topic
-        self.topic_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
+        # self.topic_string = f"_condition every word on this topic: <TOPIC>{topic}<END_TOPIC> "
+        self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
 
     def print_token_ids_and_strings(self, token_ids: list[int]):
         print("Query token sequence:")
