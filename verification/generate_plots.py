@@ -106,7 +106,20 @@ def determine_bin(row):
     elif isinstance(row['recAgnPairId'], float) and not isinstance(row['recImgPairId'], float):
         return 'Imagined'  # This is an imagined story with a recall
     else:
-        return 'Error'  # Can't be both retold and imagined
+        return 'Error'  # Can't be both retold and imagined?
+    
+
+def determine_bin(row):
+    """please work oh my god"""
+
+    if row["memType"] == "recalled":
+        return "Recall"
+    elif row["memType"] == "retold":
+        return "Retold"
+    elif row["memType"] == "imagined":
+        return "Imagined"
+    else:
+        return "Error"
 
 def percentage_dif(l, r):
     """

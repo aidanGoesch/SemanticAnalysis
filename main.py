@@ -522,9 +522,9 @@ if __name__ == "__main__":
     run_sequential(int(sys.argv[1]))
 
     # create_mini_files(base_path="./outputs/llama-3b", merged_file="./datasets/hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/llama-70b-quantized", file_name="main.csv")
+    # generate_plots(data_path="./outputs/gpt-2-xl", file_name="main.csv")
 
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/llama-3b/", file_name = "main_new_context.csv", model_name = "Llama 3.2 3b")
+    # generate_plots(data_path="./outputs/llama-3b/", file_name = "main.csv", model_name = "Llama 3.2 3b")
