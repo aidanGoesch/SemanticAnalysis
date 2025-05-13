@@ -370,7 +370,8 @@ def run_sequential(recall_length:int):
                                         "sentence_topic_sequentialities",
                                         "story",
                                         "recAgnPairId",
-                                        "recImgPairId"])
+                                        "recImgPairId",
+                                        "memType"])
 
     # load model once
     model = SequentialityModel("meta-llama/Llama-3.2-3B-Instruct",  # CHANGE THIS
@@ -389,7 +390,7 @@ def run_sequential(recall_length:int):
 
             start_time = time.perf_counter()
             seq = model.calculate_text_sequentiality(story, topic=topic)
-            sequentialities.loc[len(sequentialities)] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId]
+            sequentialities.loc[len(sequentialities)] = [vec.AssignmentId] + seq + [vec.story, vec.recAgnPairId, vec.recImgPairId] + [vec.memType]
 
             compute_time = time.perf_counter() - start_time
             times.append(compute_time)
