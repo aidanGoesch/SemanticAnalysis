@@ -1,5 +1,5 @@
-from verification.verify_seq import *
 from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
+from verification.verify_seq import *
 from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset, make_proportional_subset_using_other_subset
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -358,9 +358,9 @@ def run_sequential(recall_length:int):
     """
     Function that runs the entire model in one process rather than split between models
     """
-    save_path = "./outputs/llama-3b/"  # CHANGE THIS
+    save_path = "./outputs/llama-70b-quantized/"  # CHANGE THIS
 
-    data = pd.read_csv("./datasets/hcV3-stories.csv")
+    data = pd.read_csv("./datasets/240.csv")
     
     # df for writing
     sequentialities = pd.DataFrame(columns=["AssignmentId",
@@ -374,13 +374,13 @@ def run_sequential(recall_length:int):
                                         "memType"])
 
     # load model once
-    model = SequentialityModel("meta-llama/Llama-3.2-3B-Instruct",  # CHANGE THIS
+    model = SequentialityModel("neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",  # CHANGE THIS
                             topic="A short story",
                             recall_length=recall_length)
 
     times = []
 
-    data_size = 6854   # CHANGE THIS
+    data_size = 240   # CHANGE THIS
     for i in range(data_size):
         try: # try running the model
             vec = data.iloc[i]
@@ -401,14 +401,14 @@ def run_sequential(recall_length:int):
                     file.write(f"iteration ({i+1}/{data_size}) sequentiality value: {seq[0]:.4f}     time to complete: {compute_time:.4f}     time elapsed: {np.sum(times):.4f}     time remaining: ~{np.mean(times) * (data_size - i - 1):.4f}")
         
         except Exception as e: # dump sequentialities into a file even if it errors out
-            sequentialities.to_csv(f"{save_path}{recall_length}/main_new_context.csv")
+            sequentialities.to_csv(f"{save_path}{recall_length}/240.csv")
             print(e)
 
             quit(-42)
 
     print(f"total time to complete: {np.sum(times):.4f}")
 
-    sequentialities.to_csv(f"{save_path}{recall_length}/main_new_context.csv")
+    sequentialities.to_csv(f"{save_path}{recall_length}/240.csv")
 
 def test_bed():
     """
@@ -443,6 +443,23 @@ def test_bed():
         del model
     
     print(tmp)
+
+def print_data_statistics(data : pd.DataFrame, filename : str):
+    print(f"Description of {filename}: ")
+    print(f"\tmean `distracted`: {data["distracted"].mean()}\tstandard deviation `distracted`: {data['distracted'].std()}")
+    print(f"\tmean `draining`: {data["draining"].mean()}\tstandard deviation `draining`: {data['draining'].std()}")
+    print(f"\tmean `frequency`: {data["frequency"].mean()}\tstandard deviation `frequency`: {data['frequency'].std()}")
+    print(f"\tmean `importance`: {data["importance"].mean()}\tstandard deviation `importance`: {data['importance'].std()}")
+    print(f"\tmean `logTimeSinceEvent`: {data["logTimeSinceEvent"].mean()}\tstandard deviation `logTimeSinceEvent`: {data['logTimeSinceEvent'].std()}")
+    pass
+
+def print_stat_dif(df1 : pd.DataFrame, df2 : pd.DataFrame):
+    print("difference between mean values of whole vs quartered dataset")
+    print(f"\tdifference in `distracted` mean: {df1["distracted"].mean() - df2["distracted"].mean()}\n\tdifference in `distracted` standard deviation: {df1["distracted"].std() - df2["distracted"].std()}")
+    print(f"\tdifference in `draining` mean: {df1["draining"].mean() - df2["draining"].mean()}\n\tdifference in `draining` standard deviation: {df1["draining"].std() - df2["draining"].std()}")
+    print(f"\tdifference in `frequency` mean: {df1["frequency"].mean() - df2["frequency"].mean()}\n\tdifference in `frequency` standard deviation: {df1["frequency"].std() - df2["frequency"].std()}")
+    print(f"\tdifference in `importance` mean: {df1["importance"].mean() - df2["importance"].mean()}\n\tdifference in `importance` standard deviation: {df1["importance"].std() - df2["importance"].std()}")
+    print(f"\tdifference in `logTimeSinceEvent` mean: {df1["logTimeSinceEvent"].mean() - df2["logTimeSinceEvent"].mean()}\n\tdifference in `logTimeSinceEvent` standard deviation: {df1["logTimeSinceEvent"].std() - df2["logTimeSinceEvent"].std()}")
 
 
 def preprocess_dataset(csv_path, model_class, model_params):
@@ -514,6 +531,14 @@ def preprocess_dataset(csv_path, model_class, model_params):
     print("Preprocessing complete!")
     return output_path
 
+
+def get_mean_length(df : pd.DataFrame):
+    total = 0
+    for i in range(len(df)):
+        total += len(eval(df.iloc[i]["sentence_total_sequentialities"]))
+    
+    return total / len(df)
+
 # Example usage:
 if __name__ == "__main__":
     # this is how it was run on hpc3 - function is in verification/verify_seq.py
@@ -523,7 +548,19 @@ if __name__ == "__main__":
     run_sequential(int(sys.argv[1]))
 
     # create_mini_files(base_path="./outputs/llama-3b", merged_file="./datasets/hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/gpt-2-xl", file_name="main.csv")
+    # generate_plots(data_path="./outputs/llama-3b", file_name="main_new_context.csv", model_name="Llama 3b")
+
+    # quartered = pd.read_csv("./outputs/llama-70b-quantized/1/main.csv")
+    # full = pd.read_csv("./outputs/gpt-2-xl/1/main.csv")
+
+    # print(f"mean story length for full dataset: {get_mean_length(full)}")
+    # print(f"mean story length for quartered dataset: {get_mean_length(quartered)}")
+
+    # match HippocorpusAssignmentId to regular
+
+    # create subset of the stories
+
+    # print_data_statistics(df, "quartered dataset")
 
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
