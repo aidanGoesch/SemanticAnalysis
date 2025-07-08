@@ -125,7 +125,7 @@ def print_model_comparisons():
     print(f"small model sequentiality values: {small_model_seq}\n\taverage: {np.mean(small_model_seq)}\n\tstandard deviation: {np.std(small_model_seq)}")
     print(f"big model sequentiality values: {big_model_seq}\n\taverage: {np.mean(big_model_seq)}\n\tstandard deviation: {np.std(big_model_seq)}")
 
-def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets/hcV3-stories-1000.csv"):
+def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets/hcV3-stories-1000.csv", data_file="main.csv", save_file="main-mini.csv"):
     """
     Creates main-mini.csv files in each numbered folder, containing only the rows
     that match AssignmentIDs from the merged top stories file.
@@ -146,8 +146,8 @@ def create_mini_files(base_path="./outputs/phi-4k-mini", merged_file="./datasets
     # Process each numbered folder
     for folder in range(1, 10):  # Folders 1 through 9
         folder_path = os.path.join(base_path, str(folder))
-        main_csv_path = os.path.join(folder_path, "main.csv")
-        output_path = os.path.join(folder_path, "main-mini.csv")
+        main_csv_path = os.path.join(folder_path, data_file)
+        output_path = os.path.join(folder_path, save_file)
         
         try:
             # Read the main.csv file
@@ -545,7 +545,7 @@ if __name__ == "__main__":
     # verify_data(int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3]))
 
     # this is the equivalent of verify_data but run sequentially rather than parallel
-    run_sequential(int(sys.argv[1]))
+    # run_sequential(int(sys.argv[1]))
 
     # create_mini_files(base_path="./outputs/llama-3b", merged_file="./datasets/hcV3-stories-quartered.csv")
     # generate_plots(data_path="./outputs/llama-3b", file_name="main_new_context.csv", model_name="Llama 3b")
@@ -562,7 +562,20 @@ if __name__ == "__main__":
 
     # print_data_statistics(df, "quartered dataset")
 
+    create_mini_files("./outputs/llama-70b-quantized", "./datasets/hcV3-multi-topic.csv", "main.csv", "main-multi.csv")
+
+    # 3) Merge back (or filter) to keep only rows in df1 whose sentence reached consensus
+
+    # counts.to_csv("./datasets/240-stats.csv")
+
+
+
+    # group by sentence type
+    # run summary statistics on each sentence type
+    # make bar graph with mean se sequentiality for each sentence type 
+
+
     # generate plots
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories.csv", title="Proportions of hcV3-stories.csv")
     # generate_data_proportion_chart(file_path="./datasets/hcV3-stories-quartered.csv", title="Proportions of hcV3-stories-quartered.csv")
-    # generate_plots(data_path="./outputs/llama-3b/", file_name = "main.csv", model_name = "Llama 3.2 3b")
+    generate_plots(data_path="./outputs/llama-70b-quantized/", file_name = "main-multi.csv", model_name = "Llama 70b")

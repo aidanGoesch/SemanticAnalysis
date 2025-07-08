@@ -189,7 +189,7 @@ def generate_2a(dfs, model_name:str):
     Plot sequentiality values for different story types
     """
     results = calculate_sequentiality_by_history(dfs)
-    x = list(range(len(dfs)))  # 0-8 for the 9 DataFrames
+    x = list(range(1, len(dfs) + 1))  # 0-8 for the 9 DataFrames
 
     plt.figure(figsize=(10, 6))
 
