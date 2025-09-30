@@ -563,8 +563,8 @@ def run_film_fest():
                             "sentence_topic_sequentialities",
                             "story"])
 
-    for i in tqdm(range(1, 5)): # history lengths
-        model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct",  # CHANGE THIS
+    for i in tqdm(range(1, 10)): # history lengths
+        model = SequentialityModel("allenai/OLMo-2-1124-13B",  # CHANGE THIS
                                 topic="An annotation of a short film",
                                 recall_length=i)
 
