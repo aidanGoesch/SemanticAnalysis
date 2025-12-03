@@ -1,0 +1,42 @@
+overview:
+1. each folder is a subject, containing 1-2 audio files and the associated transcripts. The order of the audio files is the same as the order of the transcripts (i.e., transcript0 is the first audio file; transcript1 is the second).
+2. the audio files are always about two stories, called "pie man" and "eyespy". The order of the two stories are random within a subject.
+
+instructions:
+
+1. modify the transcripts according to the audio files. 
+2. Omit filler words such as "um", "oh"
+3. Keep only one if a word is repeated in a row such as "and and" 
+4. remove "I am done" at the end of the transcript, if it exists
+5. Make sure the proper nouns are correct:
+6. spell out numbers (e.g. "eighty five", not "85")
+7. letter case does not matter. punctuation does not matter, but try to keep apostrophes.
+
+list of proper nouns in the pie man story:
+
+Bronx
+Fordham University
+Dean McGowan
+pie man
+Jim Dwyer
+Pulitzer Prize
+Sheila Beale
+Angela
+
+list of proper nouns in the eyespy story:
+
+providence 
+rhode island 
+kennedy
+mikayla
+camelot
+hyannis
+bobby
+aunt momo
+gilligan's island
+cousin ilene
+cousin kevin
+katherine hepburn
+uncle al
+columbo and sandy duncan
+aunt pat
