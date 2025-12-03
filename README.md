@@ -5,6 +5,13 @@ Paste `pip install -r requirements.txt` into the command line in the root of dir
 
 Then go to https://pytorch.org/get-started/locally/ to install the right version of PyTorch.
 
+### *IMPORTANT*
+DO NOT COMMIT API KEYS. This will cause problems and will not be good. to get around this use a `.env` file, which stores environment variables for the program. `src/keys.py` loads the environment variables so you don't have to worry about accidentally committing them. Below is a template that you should copy and paste into `.env` in the root of the repository. To run, you only need a HuggingFace key ([here](https://huggingface.co/settings/tokens)).
+```
+OPEN_AI_API_KEY="your_openai_api_key_here"
+HUGGING_FACE_API_KEY="your_hugging_face_key_here"
+```
+
 
 
 ## Description
@@ -24,13 +31,12 @@ The sequentiality values for each sentence of a story are then averaged to get t
 When it's finished running `SequentialityModel.calculate_text_sequentiality` returns a tuple containing the scalar sequentiality value for the entire text, as well as lists of topic, contextual and total sequentialities for every sentence in the text. 
 
 ### `main.py`
-To run the code, run use `python3 main.py` and change the function at the bottom of the file. The function that was used to generate data was `run_sequential` (definition on line `357` of `main.py`). Calling `generate_plots` in `main.py` will generate Figure 2a and 2d. 
-
-`generate_mini_files` is a function that when given a subset of `hcV3-stories` will section the calculated values for every history length for a given model and create other files that only include values that are in the subset of `hcV3-stories`. For example, I can create a subset of `hcV3-stories` that only includes stories about cats. From here, since I've already calculated all the values for all history lengths in the dataset, I just need to find the subset of the calculated values where the AssignmentId's match all of the ones in the subset that talks about cats. This allows me to divide the data in different ways without having to recalculate sequentiality values for the subset.
+To run the code, run use `python3 main.py` and change the function at the bottom of the file. The function that was used to generate data was `run_sequential` (definition on line `357` of `main.py`). Calling `generate_plots` in `main.py` will generate Figure 2a and 2d from the original paper. 
 
 
-## Data
-The dataset used in the original paper ([Hippocorpus](https://huggingface.co/datasets/allenai/hippocorpus)), is in `datasets/hcV3-stories.csv`. Also in `datasets/` are a bunch of subsets of the whole dataset, such as the one used for Llama-70b on HPC3. 
+## Output Structure
 
-The calculated sequentiality values are stored in `outputs/` and are organized by model (each sub-folder is named after its corresponding model). Within each model folder, there are 9 folders that are numbered according to the history length that was used to calculate the values in that folder. `main.csv` is the file that contains all of the sequentiality values for the entire dataset, and the other files are subsets of `main.csv` (`main-mini.csv` was used to generate the plots).
+The outputs are stored in the `outputs/` folder. Each model has its own sub-folder, and within each model folder there are 9 folders numbered according to the history length used to calculate the sequentiality values in that folder. Each history length folder contains a `main.csv` file which contains the sequentiality values for the entire dataset using that model and history length. There are also smaller subsets of `main.csv` such as `main-mini.csv`, which was used to generate the plots in the paper. Please select a history length that works for you, and adhere to the data storage conventions.
 
+## Data Structure
+The dataset used in the original paper ([Hippocorpus](https://huggingface.co/datasets/allenai/hippocorpus)), is in `datasets/hippocorpus/`. There are other datasets in the other folders in `datasets/` that you can use.
