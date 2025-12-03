@@ -102,9 +102,8 @@ class SequentialityEmbeddingModel():
             verbose=verbose
         )
 
-        # TODO: How do you combine the topic and contextual similarities to get the desired metric
+        return np.mean([topic_sequentiality, contextual_sequentiality]), contextual_sequentiality, topic_sequentiality
 
-        return 0, topic_sequentiality, contextual_sequentiality
          
 
     def calculate_text_sequentiality(self, text:str, topic:str=None, verbose:bool=False) -> list[float | list]:  # TODO: Change this so that it uses the embeddings
@@ -141,7 +140,12 @@ class SequentialityEmbeddingModel():
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
 
-        return [np.mean(contextual_sequentialities), np.mean(topic_sequentialities), contextual_sequentialities, topic_sequentialities]
+        return [
+        np.mean(total_sequentialities),
+        total_sequentialities,
+        contextual_sequentialities,
+        topic_sequentialities
+    ]
 
     
 

@@ -8,3 +8,4 @@ idea/
 *.err
 *.out
 
+*.DS_Store

@@ -1,0 +1,28 @@
+text: '[Verbal Instructions]\n\nMake sure your volume is turned on. These verbal instructions will be followed by written instructions. Please be sure to pay close attention to both sets of instructions and any other written instructions throughout the task.\n\nAfter listening to these instructions, the experiment will continue automatically. ',
+
+
+In this experiment, you will listen to two stories which range from 7 minutes to 15 minutes. After each story, you will be asked to recollect the story in as much detail as possible by speaking aloud. Your voice will be automatically recorded by your computer microphone. We ask that you describe the story in as much detail as you can and try to do so in the order in which you heard the story. Remembering the entire story in as much detail as possible will be more important than remembering the correct order. Therefore, feel free to return to any point you may have missed when recalling the story. Please do not engage in any other tasks while listening to the story, such as taking notes or texting.\n\nThis data will be used for scientific purposes and we rely on your attention and diligent participation throughout the experiment. Thank you.
+
+   
+Next, we ask that you recall the story in as much detail as possible. We ask that you speak for at least 4 minutes, but longer is better. A green circle on the screen will turn yellow when 4 minutes have elapsed, but please continue to recall until you complete the story.\n\nPlease try to recall the story in as much detail as possible and in the correct order. Please return to any point you may have missed. Your voice will be automatically recorded using your computer’s microphone. \n\nOnce 4 minutes have passed AND you have completed recalling the complete story, you will say “I am done”, and then press [d] to complete your recording.\n\nPlease press the [spacebar] to begin recalling the story.'
+
+
+text: 'Please recall the story in as much detail as possible.\n\nYou must recall the story for at least four minutes (the green circle will turn yellow once two minutes have elapsed), but please continue beyond this time to complete your recollection of the story. Please say "I am done" and then press [\'d\'] when you are done recalling the entire story.',
+
+
+Questionnaire:
+
+sliders (from 1 to 5):
+1. I found the experiment difficult.
+2. I understood the task instructions.
+3. I was engaged in the experiment. In other words, I paid close attention to the stories and took the task seriously
+Report average length of time it took to complete the study on each platform
+
+free response questions:
+1. Did you use a particular strategy to memorize the story (e.g., imagining yourself in the story or simply paying close attention)?
+2. Were there any moments in either story that you found particularly memorable? If so, please describe them below. 
+3. Is there anything you think we should know about your experience taking our experiment?
+4. Are you a native english speaker? That is, is English your first language?
+5. Do you speak any other languages besides English? If so, how many years have you spoken this language(s) and what is your level of fluency.
+6. What were you doing while listening to the stories?
+

@@ -1,3 +1,5 @@
+# CODE THAT MERGES ALL CSVs IN A DIRECTORY
+
 import pandas as pd
 import pathlib
 import sys
