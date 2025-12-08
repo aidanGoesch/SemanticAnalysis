@@ -23,6 +23,14 @@ import os
 "openai-community/gpt2-xl"
 "allenai/OLMo-2-1124-13B"
 
+# models to test
+MODEL_IDS = ["SakanaAI/TinySwallow-1.5B-Instruct",
+            "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
+            "openai-community/gpt2-xl",
+            "allenai/OLMo-2-1124-13B",
+            "meta-llama/Llama-3.1-8B-Instruct",
+            "Qwen/Qwen2.5-7B-Instruct"]
+
 
 # HPC Checklist
 #   - Is the model name correct?
@@ -112,8 +120,81 @@ def run_sequential(recall_length:int):
     sequentialities.to_csv(f"{save_path}{recall_length}/full.csv")
 
 
+def get_annotations() -> list[str]:
+    """
+    Function that returns the list of annotations so that it looks prettier in the following function
+    """
+    sentences = [
+    "M and K do a crossword puzzle together.",
+    "M suggests adopting a dog; K isn't receptive.",
+    "M is reprimanded unfairly by her boss.",
+    "K goes to the dentist.",
+    "K is bored at dinner with M's parents.",
+    "M bumps into an old friend who works at a top law firm.",
+    "K misses M's piano recital.",
+    "M is offered a high-paying job in another state.",
+    "K buys M a birthday present.",
+    "M sees that K forgot to take out the trash.",
+    "M confronts K and demands a divorce."
+]
+    return sentences
+
+
+def generate_model_sequentiality(model_idx:int):
+    """
+    Function that is run on HPC to test a specific model from the model id 
+    """
+    if model_idx not in range(len(MODEL_IDS)):
+        print("model id out of bounds")
+        return
+    
+    model_name = MODEL_IDS[model_idx]
+    model = SequentialityModel(model_name=model_name, 
+                               topic="something",
+                               recall_length=9)
+    
+    # read in filmfest data
+    scenes = get_annotations()
+
+    output = pd.DataFrame(columns=["scalar_text_sequentiality",
+                            "sentence_total_sequentialities",
+                            "sentence_contextual_sequentialities",
+                            "sentence_topic_sequentialities",
+                            "topic"])
+
+    # calculate sequentiality
+    # no divorce topic
+    topic_1 = "A short story about M and K"
+    total_text_sequentiality, sentence_level_sequentiality, contextual_sentence_level_sequentiality, topic_sentence_level_sequentiality = model.calculate_text_sequentiality(" ".join(scenes), topic=topic_1)
+
+    # save to file
+    output.loc[len(output)] = [total_text_sequentiality,
+                                sentence_level_sequentiality,
+                                contextual_sentence_level_sequentiality,
+                                topic_sentence_level_sequentiality,
+                                topic_1]
+    
+    # divorce topic
+    topic_2 = "A short story about M and K getting a divorce"
+    total_text_sequentiality, sentence_level_sequentiality, contextual_sentence_level_sequentiality, topic_sentence_level_sequentiality = model.calculate_text_sequentiality(" ".join(scenes), topic=topic_2)
+
+    # save to file
+    output.loc[len(output)] = [total_text_sequentiality,
+                                sentence_level_sequentiality,
+                                contextual_sentence_level_sequentiality,
+                                topic_sentence_level_sequentiality,
+                                topic_2]
+    
+    os.makedirs("./outputs/benchmarking/", exist_ok=True)
+    
+    # sanitize model name for filename
+    safe_model_name = model_name.replace("/", "_")
+    output.to_csv(f"./outputs/benchmarking/{safe_model_name}.csv", index=False)
+
+
 # Example usage:
 if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
     # run_sequential(int(sys.argv[1]))
-    pass
+    idx = int(sys.argv[1])
+    generate_model_sequentiality(idx)
