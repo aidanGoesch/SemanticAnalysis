@@ -149,18 +149,48 @@ def generate_model_sequentiality(model_idx:int):
         return
     
     model_name = MODEL_IDS[model_idx]
+    print(f"\n{'='*60}")
+    print(f"Starting sequentiality generation for model {model_idx}: {model_name}")
+    print(f"{'='*60}\n")
     
     # Clear corrupted cache
     import shutil
     from pathlib import Path
-    cache_dir = Path.home() / ".cache" / "huggingface" / "hub"
-    model_cache = list(cache_dir.glob(f"*{model_name.replace('/', '--')}*"))
-    for cache in model_cache:
-        shutil.rmtree(cache, ignore_errors=True)
     
-    model = SequentialityModel(model_name=model_name, 
-                               topic="something",
-                               recall_length=9)
+    cache_dir = Path.home() / ".cache" / "huggingface" / "hub"
+    safe_cache_name = model_name.replace('/', '--')
+    
+    print(f"Checking for cached model files: {safe_cache_name}")
+    model_caches = list(cache_dir.glob(f"*{safe_cache_name}*"))
+    
+    if model_caches:
+        print(f"Found {len(model_caches)} cached entries. Clearing...")
+        for cache in model_caches:
+            try:
+                print(f"  Removing: {cache}")
+                shutil.rmtree(cache, ignore_errors=True)
+            except Exception as e:
+                print(f"  Warning: Could not remove {cache}: {e}")
+        print("Cache cleared successfully")
+    else:
+        print("No cached entries found")
+    
+    print("\nInitializing SequentialityModel...")
+    try:
+        model = SequentialityModel(
+            model_name=model_name, 
+            topic="something",
+            recall_length=9
+        )
+    except Exception as e:
+        print(f"\nFATAL ERROR: Failed to initialize model")
+        print(f"Error type: {type(e).__name__}")
+        print(f"Error message: {e}")
+        import traceback
+        traceback.print_exc()
+        return
+    
+    print("\nModel loaded successfully. Starting sequentiality calculations...")
     
     # read in filmfest data
     scenes = get_annotations()
@@ -173,6 +203,7 @@ def generate_model_sequentiality(model_idx:int):
 
     # calculate sequentiality
     # no divorce topic
+    print("\nCalculating sequentiality for topic 1 (no divorce)...")
     topic_1 = "A short story about M and K"
     total_text_sequentiality, sentence_level_sequentiality, contextual_sentence_level_sequentiality, topic_sentence_level_sequentiality = model.calculate_text_sequentiality(" ".join(scenes), topic=topic_1)
 
@@ -183,7 +214,10 @@ def generate_model_sequentiality(model_idx:int):
                                 topic_sentence_level_sequentiality,
                                 topic_1]
     
+    print(f"Topic 1 sequentiality: {total_text_sequentiality:.4f}")
+    
     # divorce topic
+    print("\nCalculating sequentiality for topic 2 (divorce)...")
     topic_2 = "A short story about M and K getting a divorce"
     total_text_sequentiality, sentence_level_sequentiality, contextual_sentence_level_sequentiality, topic_sentence_level_sequentiality = model.calculate_text_sequentiality(" ".join(scenes), topic=topic_2)
 
@@ -194,16 +228,31 @@ def generate_model_sequentiality(model_idx:int):
                                 topic_sentence_level_sequentiality,
                                 topic_2]
     
+    print(f"Topic 2 sequentiality: {total_text_sequentiality:.4f}")
+    
     os.makedirs("./outputs/benchmarking/", exist_ok=True)
     
     # sanitize model name for filename
     safe_model_name = model_name.replace("/", "_")
-    output.to_csv(f"./outputs/benchmarking/{safe_model_name}.csv", index=False)
+    output_path = f"./outputs/benchmarking/{safe_model_name}.csv"
+    output.to_csv(output_path, index=False)
+    
+    print(f"\n{'='*60}")
+    print(f"Results saved to: {output_path}")
+    print(f"{'='*60}\n")
 
 
 # Example usage:
 if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
     # run_sequential(int(sys.argv[1]))
+    
+    if len(sys.argv) < 2:
+        print("Usage: python main.py <model_index>")
+        print(f"Available models (0-{len(MODEL_IDS)-1}):")
+        for i, model in enumerate(MODEL_IDS):
+            print(f"  {i}: {model}")
+        sys.exit(1)
+    
     idx = int(sys.argv[1])
     generate_model_sequentiality(idx)

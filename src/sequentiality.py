@@ -21,19 +21,49 @@ torch.set_float32_matmul_precision('high')
 class SequentialityModel:
     def __init__(self, model_name : str, topic : str, recall_length:int=4) -> None:
         self.sentences = []
-
         self.recall_length = recall_length
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name,
-                                                       token=HUGGING_FACE_TOKEN,
-                                                       use_safetensors=True,
-                                                       padding_side="left",
-                                                       use_fast=True)
-        self.model = AutoModelForCausalLM.from_pretrained(model_name,
-                                                          token=HUGGING_FACE_TOKEN,
-                                                          torch_dtype=torch.bfloat16,
-                                                          device_map=mps_device,
-                                                          use_safetensors=True).to(mps_device)
+        print(f"Loading tokenizer for: {model_name}")
+        
+        # Try loading tokenizer with error handling
+        try:
+            self.tokenizer = AutoTokenizer.from_pretrained(
+                model_name,
+                token=HUGGING_FACE_TOKEN,
+                use_safetensors=True,
+                padding_side="left",
+                use_fast=True,
+                force_download=True,  # Force fresh download
+                trust_remote_code=True  # Some models need this
+            )
+            print("Tokenizer loaded successfully (fast)")
+        except Exception as e:
+            print(f"Fast tokenizer failed: {e}")
+            print("Attempting to load slow tokenizer...")
+            try:
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    model_name,
+                    token=HUGGING_FACE_TOKEN,
+                    use_safetensors=True,
+                    padding_side="left",
+                    use_fast=False,  # Use slow tokenizer
+                    force_download=True,
+                    trust_remote_code=True
+                )
+                print("Tokenizer loaded successfully (slow)")
+            except Exception as e2:
+                print(f"Both tokenizers failed. Last error: {e2}")
+                raise
+        
+        print(f"Loading model: {model_name}")
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            token=HUGGING_FACE_TOKEN,
+            torch_dtype=torch.bfloat16,
+            device_map=mps_device,
+            use_safetensors=True,
+            trust_remote_code=True
+        ).to(mps_device)
         
         self.model.generation_config.cache_implementation = "static"
         
@@ -49,6 +79,8 @@ class SequentialityModel:
         # Pad all text with _
         # self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
         self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
+        
+        print("Model initialization complete")
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         input_text = self.topic_string + text
