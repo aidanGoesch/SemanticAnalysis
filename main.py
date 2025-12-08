@@ -149,6 +149,15 @@ def generate_model_sequentiality(model_idx:int):
         return
     
     model_name = MODEL_IDS[model_idx]
+    
+    # Clear corrupted cache
+    import shutil
+    from pathlib import Path
+    cache_dir = Path.home() / ".cache" / "huggingface" / "hub"
+    model_cache = list(cache_dir.glob(f"*{model_name.replace('/', '--')}*"))
+    for cache in model_cache:
+        shutil.rmtree(cache, ignore_errors=True)
+    
     model = SequentialityModel(model_name=model_name, 
                                topic="something",
                                recall_length=9)
