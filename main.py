@@ -1,9 +1,9 @@
 from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
 from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset, make_proportional_subset_using_other_subset
-from src.embedding import SequentialityEmbeddingModel # this is the USE model
+# from src.embedding import SequentialityEmbeddingModel # this is the USE model
 from src.sequentiality import calculate_sequentiality, calculate_sequentiality_statistics, SequentialityModel
 import pandas as pd
-import tensorflow_hub as hub
+# import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 from tqdm import tqdm
@@ -246,7 +246,7 @@ def generate_model_sequentiality(model_idx:int):
 
 
 def run_ai_generated_stories():
-    models = ["allenai/OLMo-2-1124-13B"]
+    models = ["allenai/OLMo-2-0325-32B"]
 
     # Load datasets
     open_ai_data = pd.read_csv("./datasets/misc/syntehtic-stories-openai.csv")
