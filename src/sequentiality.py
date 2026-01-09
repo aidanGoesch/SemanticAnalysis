@@ -63,21 +63,13 @@ class SequentialityModel:
                 trust_remote_code=True
             )
         
-        # KEEP YOUR OLD MODEL LOADING CODE:
-        self.model = AutoModelForCausalLM.from_pretrained(model_name,
-                                                        token=HUGGING_FACE_TOKEN,
-                                                        dtype=torch.bfloat16,
-                                                        device_map=mps_device,
-                                                        use_safetensors=True).to(mps_device)
-        
         print(f"Loading model: {model_name}")
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             token=HUGGING_FACE_TOKEN,
             dtype=torch.bfloat16,
             device_map=mps_device,
-            use_safetensors=True,
-            trust_remote_code=True
+            use_safetensors=True
         ).to(mps_device)
         
         self.model.generation_config.cache_implementation = "static"
