@@ -387,7 +387,7 @@ def calculate_sequentiality(models:list[str], text_input:list[str], topics:list[
     for model in models:
         seq_model = None
         try:
-            seq_model = SequentialityModel(model_name=model, topic=default_topic)
+            seq_model = SequentialityModel(model=model, topic=default_topic)
             
             for i, data in enumerate(text_input):
                 if use_default:
