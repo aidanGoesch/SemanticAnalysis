@@ -66,7 +66,7 @@ class SequentialityModel:
         # KEEP YOUR OLD MODEL LOADING CODE:
         self.model = AutoModelForCausalLM.from_pretrained(model_name,
                                                         token=HUGGING_FACE_TOKEN,
-                                                        torch_dtype=torch.bfloat16,
+                                                        dtype=torch.bfloat16,
                                                         device_map=mps_device,
                                                         use_safetensors=True).to(mps_device)
         
@@ -74,7 +74,7 @@ class SequentialityModel:
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             token=HUGGING_FACE_TOKEN,
-            torch_dtype=torch.bfloat16,
+            dtype=torch.bfloat16,
             device_map=mps_device,
             use_safetensors=True,
             trust_remote_code=True
