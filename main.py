@@ -1,6 +1,6 @@
 from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
 from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset, make_proportional_subset_using_other_subset
-from src.embedding import SequentialityEmbeddingModel # this is the USE model
+# from src.embedding import SequentialityEmbeddingModel # this is the USE model
 from src.sequentiality import calculate_sequentiality, calculate_sequentiality_statistics, SequentialityModel
 import pandas as pd
 import tensorflow_hub as hub
@@ -122,26 +122,44 @@ def run_sequential(recall_length:int):
 
     sequentialities.to_csv(f"{save_path}{recall_length}/full.csv")
 
-
 def get_annotations() -> list[str]:
     """
     Function that returns the list of annotations so that it looks prettier in the following function
     """
     sentences = [
-    "M and K do a crossword puzzle together.",
-    "M suggests adopting a dog; K isn't receptive.",
-    "M is reprimanded unfairly by her boss.",
-    "K goes to the dentist.",
-    "K is bored at dinner with M's parents.",
-    "M bumps into an old friend who works at a top law firm.",
-    "K misses M's piano recital.",
-    "M is offered a high-paying job in another state.",
-    "K buys M a birthday present.",
-    "M sees that K forgot to take out the trash.",
-    "M confronts K and demands a divorce."
-]
+        "A woman and man sat across from each other while quietly eating dinner.",
+        "The man ate his dinner without looking up.",
+        "The woman poured wine for him, but he politely refused.",
+        "The woman reminded him it was their anniversary, but he kept eating.",
+        "The man commented on the asparagus, and she teased him about its aphrodisiac qualities.",
+        "The woman grew frustrated and scolded him for not celebrating their anniversary.",
+        "The argument escalated, and she threw her wine at him in anger.",
+        "The man ignored her outburst and lit a cigarette.",
+        "The woman snatched the cigarette from his mouth and threw it aside.",
+        "She found a hidden switch on the back of his neck and pressed it.",
+        "The man went limp, resting his head on her shoulder.",
+        "The woman moves to her computer, scrolls through websites displaying robot men, and ordered one to arrive in his place.",
+        "The robot man was delivered, wrapped in plastic, matching her specifications perfectly.",
+        "She removed the ring from the original man and placed it on the robot's hand.",
+        "The robot came to life, awakening with mechanical precision.",
+        "The robot massaged her shoulders gently, mimicking the original man's gestures.",
+        "The woman smiled, satisfied, as her new partner followed her every command.",
+        "The robot reaches toward the woman's neck to reveal a switch.",
+        "The robot turns off the switch and the woman goes limp; she was a robot too."
+        ]
     return sentences
 
+def get_annotation_summary():
+    sentences = [
+    "A man (M) and woman (W) sit down to have dinner on their anniversary.",
+    "W feels ignored by M all night.",
+    "W finds a switch on the back of M's neck and presses it, revealing that M is a robot.",
+    "The next day, W orders a new husband (H) from the internet.",
+    "When H arrives, W switches him on.",
+    "H gives W a massage, making W very pleased with H.",
+    "Suddenly, H presses a switch on the back of W's neck, revealing that W was a robot all along."
+    ]
+    return sentences
 
 def generate_model_sequentiality(model_idx:int):
     """
@@ -196,7 +214,7 @@ def generate_model_sequentiality(model_idx:int):
     print("\nModel loaded successfully. Starting sequentiality calculations...")
     
     # read in filmfest data
-    scenes = get_annotations()
+    scenes = get_annotation_summary()
 
     output = pd.DataFrame(columns=["scalar_text_sequentiality",
                             "sentence_total_sequentialities",
@@ -290,12 +308,23 @@ if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
     # run_sequential(int(sys.argv[1]))
     
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <model_index>")
-        print(f"Available models (0-{len(MODEL_IDS)-1}):")
-        for i, model in enumerate(MODEL_IDS):
-            print(f"  {i}: {model}")
-        sys.exit(1)
+    #if len(sys.argv) < 2:
+        #print("Usage: python main.py <model_index>")
+        #print(f"Available models (0-{len(MODEL_IDS)-1}):")
+        #for i, model in enumerate(MODEL_IDS):
+            #print(f"  {i}: {model}")
+        #sys.exit(1)
     
-    idx = int(sys.argv[1])
-    generate_model_sequentiality(idx)
+    #idx = int(sys.argv[1])
+    #generate_model_sequentiality(idx)
+	summary_sentences = get_annotation_summary()
+
+	summary_sentences_string = " ".join(summary_sentences)
+
+	calculate_sequentiality([MODEL_IDS[0]],
+                            text_input=[summary_sentences_string,
+                                        summary_sentences_string,
+                                        summary_sentences_string],
+                            topics=["A short story about a couple having dinner",
+                                    "A short dystopian story about a couple having dinner",
+                                    "A short story about a robot couple having dinner"], save_path="outputs/summary_topics/sequentiality_results.csv")

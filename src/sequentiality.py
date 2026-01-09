@@ -387,7 +387,7 @@ def calculate_sequentiality(models:list[str], text_input:list[str], topics:list[
     for model in models:
         seq_model = None
         try:
-            seq_model = SequentialityModel(model_name=model, topic=default_topic)
+            seq_model = SequentialityModel(model=model, topic=default_topic)
             
             for i, data in enumerate(text_input):
                 if use_default:
@@ -433,9 +433,10 @@ def calculate_sequentiality_statistics(seq_data:pd.DataFrame):
 
 
 if __name__ == "__main__":
+	print("HIII")
     # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
-    model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct", topic="a conversation with a doctor")
+    #model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct", topic="a conversation with a doctor")
     # model = SequentialityModel("meta-llama/Llama-3.3-70B-Instruct", topic="a conversation with a doctor")
-    print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
-    print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
+    #print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
+    #print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
 
