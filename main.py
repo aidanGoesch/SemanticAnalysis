@@ -290,12 +290,13 @@ if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
     # run_sequential(int(sys.argv[1]))
     
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <model_index>")
-        print(f"Available models (0-{len(MODEL_IDS)-1}):")
-        for i, model in enumerate(MODEL_IDS):
-            print(f"  {i}: {model}")
-        sys.exit(1)
+    # if len(sys.argv) < 2:
+    #     print("Usage: python main.py <model_index>")
+    #     print(f"Available models (0-{len(MODEL_IDS)-1}):")
+    #     for i, model in enumerate(MODEL_IDS):
+    #         print(f"  {i}: {model}")
+    #     sys.exit(1)
     
-    idx = int(sys.argv[1])
-    generate_model_sequentiality(idx)
+    # idx = int(sys.argv[1])
+    # generate_model_sequentiality(idx)
+    run_ai_generated_stories()
