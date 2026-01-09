@@ -2,6 +2,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import numpy as np
 import pandas as pd
+import scipy.stats as stats
 from src.keys import HUGGING_FACE_TOKEN
 import re
 import json
@@ -19,12 +20,29 @@ else:  # If all else fails
 torch.set_float32_matmul_precision('high')
 
 class SequentialityModel:
-    def __init__(self, model_name : str, topic : str, recall_length:int=4) -> None:
+    def __init__(self, model:str, topic : str, recall_length:int=4) -> None:
+        """
+        input a list of models and compute the mean across model variants - makes sense to load the models when calculate_text_sequentiality is called rather than have them loaded in the init - would probably run out of memory if we tried to load them all at once
+        """
         self.sentences = []
 
         self.recall_length = recall_length
 
-        # ADD THIS TOKENIZER FIX:
+        self._load_model(model)
+
+        self.topic = topic
+        self.default_topic = topic
+
+        # Pad all text with _
+        self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
+        # self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
+        
+        print("Model initialization complete")
+
+    def _load_model(self, model_name : str):
+        """
+        Wrapper function that loads a specific model
+        """
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(
                 model_name,
@@ -70,14 +88,23 @@ class SequentialityModel:
         self.model.config.pad_token_id = self.model.config.eos_token_id
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        self.topic = topic
-        self.default_topic = topic
-
-        # Pad all text with _
-        # self.topic_string = f"_condition every word on this topic: <TOPIC>{self.topic}<END_TOPIC> "  # this is the standard context setting
-        self.topic_string = f"_Below is a story about the following: {topic}. "                       # this is used for instruction tuned models
+    def _clean_up_model(self):
+        """Clean up GPU memory and model resources"""
+        if hasattr(self, 'model') and self.model is not None:
+            del self.model
+        if hasattr(self, 'tokenizer') and self.tokenizer is not None:
+            del self.tokenizer
         
-        print("Model initialization complete")
+        # Clear GPU cache
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+        elif torch.backends.mps.is_available():
+            torch.mps.empty_cache()
+        
+        # Force garbage collection
+        import gc
+        gc.collect()
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         input_text = self.topic_string + text
@@ -334,7 +361,75 @@ class SequentialityModel:
             contextual_sequentialities.append(contextual)
             topic_sequentialities.append(topic)
 
-        return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities]
+        return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities, topic]
+
+
+def calculate_sequentiality(models:list[str], text_input:list[str], topics:list[str]=[], save_path:str=None) -> pd.DataFrame:
+    """
+    Function that calculates the sequentiality for a list of models and some input data.
+
+    The function optionally takes a list of topics that are supposed to map one to one to the 
+    inputted text data. If not, a default topic will be used.
+    """
+
+    default_topic = "A short story"
+
+    # make sure topic mapping is 1:1
+    use_default = len(text_input) == len(topics)
+
+    output = pd.DataFrame(columns=["scalar_text_sequentiality",
+                        "sentence_total_sequentialities",
+                        "sentence_contextual_sequentialities",
+                        "sentence_topic_sequentialities",
+                        "topic",
+                        "model_id"])
+    
+    for model in models:
+        seq_model = None
+        try:
+            seq_model = SequentialityModel(model_name=model, topic=default_topic)
+            
+            for i, data in enumerate(text_input):
+                if use_default:
+                    topic = topics[i]
+                else:
+                    topic = default_topic
+
+                seq = seq_model.calculate_text_sequentiality(data, topic=topic)
+                new_row = [seq[0], seq[1], seq[2], seq[3], topic, model]
+                output.loc[len(output)] = new_row
+                
+        except Exception as e:
+            print(f"Could not load model: {model}, skipping... Error: {e}")
+        finally:
+            # Always clean up GPU resources after each model
+            if seq_model is not None:
+                seq_model._clean_up_model()
+                del seq_model
+
+    # if there is a save path specified, save the csv
+    if save_path is not None:
+        output.to_csv(save_path)
+
+    return output
+
+def calculate_sequentiality_statistics(seq_data:pd.DataFrame):
+    """
+    Function that calculates the mean and standard error sequentiality values for
+    all stories in the data frame across model_ids
+    """
+    
+    # Group by story index (assuming stories are in order and repeated for each model)
+    seq_data['story_index'] = seq_data.index // seq_data['model_id'].nunique()
+    
+    # Calculate mean and standard error for each story
+    stats_data = seq_data.groupby('story_index')['scalar_text_sequentiality'].agg([
+        ('mean_sequentiality', 'mean'),
+        ('std_error', lambda x: stats.sem(x))
+    ]).reset_index()
+    
+    return stats_data
+
 
 
 if __name__ == "__main__":
