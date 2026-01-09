@@ -246,7 +246,7 @@ def generate_model_sequentiality(model_idx:int):
 
 
 def run_ai_generated_stories():
-    models = ["allenai/OLMo-2-0325-32B"]
+    models = ["allenai/OLMo-2-1124-7B"]
 
     # Load datasets
     open_ai_data = pd.read_csv("./datasets/misc/syntehtic-stories-openai.csv")
