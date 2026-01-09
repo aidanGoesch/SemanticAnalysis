@@ -28,7 +28,6 @@ import numpy as np
 
 # models to test
 MODEL_IDS = ["SakanaAI/TinySwallow-1.5B-Instruct",
-            "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
             "openai-community/gpt2-xl",
             "allenai/OLMo-2-1124-13B",
             "meta-llama/Llama-3.1-8B-Instruct",
@@ -317,14 +316,14 @@ if __name__ == "__main__":
     
     #idx = int(sys.argv[1])
     #generate_model_sequentiality(idx)
-	summary_sentences = get_annotation_summary()
+	summary_sentences = get_annotations()
 
 	summary_sentences_string = " ".join(summary_sentences)
 
-	calculate_sequentiality([MODEL_IDS[0]],
+	calculate_sequentiality(MODEL_IDS,
                             text_input=[summary_sentences_string,
                                         summary_sentences_string,
                                         summary_sentences_string],
                             topics=["A short story about a couple having dinner",
                                     "A short dystopian story about a couple having dinner",
-                                    "A short story about a robot couple having dinner"], save_path="outputs/summary_topics/sequentiality_results.csv")
+                                    "A short story about a robot couple having dinner"], save_path="outputs/summary_topics/sequentiality_results_20sent.csv")
