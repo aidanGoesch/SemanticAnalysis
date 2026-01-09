@@ -1,7 +1,7 @@
 from verification.generate_plots import generate_2d, generate_2a, create_balanced_dataset, generate_data_proportion_chart, percentage_dif
-from verification.verify_seq import *
 from verification.subset import analyze_embeddings, save_top_stories, merge_top_stories, determine_bin, make_large_subset, make_proportional_subset_using_other_subset
 from src.embedding import SequentialityEmbeddingModel # this is the USE model
+from src.sequentiality import calculate_sequentiality, calculate_sequentiality_statistics, SequentialityModel
 import pandas as pd
 import tensorflow_hub as hub
 import matplotlib.pyplot as plt
@@ -9,7 +9,10 @@ from scipy.stats import norm
 from tqdm import tqdm
 import torch
 import gc
+import sys
 import os
+import time
+import numpy as np
 
 
 # Models:
@@ -240,6 +243,46 @@ def generate_model_sequentiality(model_idx:int):
     print(f"\n{'='*60}")
     print(f"Results saved to: {output_path}")
     print(f"{'='*60}\n")
+
+
+def run_ai_generated_stories():
+    models = ["allenai/OLMo-2-1124-13B"]
+
+    # Load datasets
+    open_ai_data = pd.read_csv("./datasets/misc/syntehtic-stories-openai.csv")
+    google_data = pd.read_csv("./datasets/misc/syntehtic-stories-google.csv")
+    anthropic_data = pd.read_csv("./datasets/misc/syntehtic-stories-anthropic.csv")
+
+    # Calculate sequentiality for each dataset
+    open_ai_output = calculate_sequentiality(models, list(open_ai_data["story"]), list(open_ai_data["topic"]))
+    google_output = calculate_sequentiality(models, list(google_data["story"]), list(google_data["topic"]))
+    anthropic_output = calculate_sequentiality(models, list(anthropic_data["story"]), list(anthropic_data["topic"]))
+
+    # Add temperature and source columns
+    open_ai_output['temperature'] = open_ai_data['temperature'].values
+    open_ai_output['source'] = 'openai'
+    
+    google_output['temperature'] = google_data['temperature'].values
+    google_output['source'] = 'google'
+    
+    anthropic_output['temperature'] = anthropic_data['temperature'].values
+    anthropic_output['source'] = 'anthropic'
+
+    # Merge all dataframes
+    merged_df = pd.concat([open_ai_output, google_output, anthropic_output], ignore_index=True)
+    
+    # Reorder columns for clarity
+    merged_df = merged_df[['temperature', 'topic', 'source', 'scalar_text_sequentiality', 
+                          'sentence_total_sequentialities', 'sentence_contextual_sequentialities', 
+                          'sentence_topic_sequentialities', 'model_id']]
+    
+    # Save to outputs folder
+    os.makedirs("./outputs/ai_generated/", exist_ok=True)
+    merged_df.to_csv("./outputs/ai_generated/merged_sequentiality.csv", index=False)
+    
+    print(f"Merged dataframe saved with {len(merged_df)} rows")
+    return merged_df
+
 
 
 # Example usage:
