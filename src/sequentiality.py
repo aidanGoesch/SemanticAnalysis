@@ -356,15 +356,13 @@ class SequentialityModel:
         return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities, topic]
 
 
-def calculate_sequentiality(models:list[str], text_input:list[str], topics:list[str]=[], save_path:str=None) -> pd.DataFrame:
+def calculate_sequentiality(models:list[str], history_length:int, text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story") -> pd.DataFrame:
     """
     Function that calculates the sequentiality for a list of models and some input data.
 
     The function optionally takes a list of topics that are supposed to map one to one to the 
     inputted text data. If not, a default topic will be used.
     """
-
-    default_topic = "A short story"
 
     # make sure topic mapping is 1:1
     use_default = len(text_input) == len(topics)
@@ -379,7 +377,7 @@ def calculate_sequentiality(models:list[str], text_input:list[str], topics:list[
     for model in models:
         seq_model = None
         try:
-            seq_model = SequentialityModel(model=model, topic=default_topic)
+            seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=history_length)
             
             for i, data in enumerate(text_input):
                 if use_default:

@@ -245,7 +245,7 @@ def generate_model_sequentiality(model_idx:int):
     print(f"{'='*60}\n")
 
 
-def run_ai_generated_stories():
+def run_ai_generated_stories(history_length:int):
     models = ["allenai/OLMo-2-1124-13B"]
 
     # Load datasets
@@ -253,36 +253,37 @@ def run_ai_generated_stories():
     google_data = pd.read_csv("./datasets/misc/syntehtic-stories-google.csv")
     anthropic_data = pd.read_csv("./datasets/misc/syntehtic-stories-anthropic.csv")
 
+    # turn into one giant dataframe
+    total_data = pd.concat([open_ai_data + google_data + anthropic_data])
+
     # Calculate sequentiality for each dataset
-    open_ai_output = calculate_sequentiality(models, list(open_ai_data["story"]), list(open_ai_data["topic"]))
-    google_output = calculate_sequentiality(models, list(google_data["story"]), list(google_data["topic"]))
-    anthropic_output = calculate_sequentiality(models, list(anthropic_data["story"]), list(anthropic_data["topic"]))
-
-    # Add temperature and source columns
-    open_ai_output['temperature'] = open_ai_data['temperature'].values
-    open_ai_output['source'] = 'openai'
-    
-    google_output['temperature'] = google_data['temperature'].values
-    google_output['source'] = 'google'
-    
-    anthropic_output['temperature'] = anthropic_data['temperature'].values
-    anthropic_output['source'] = 'anthropic'
-
-    # Merge all dataframes
-    merged_df = pd.concat([open_ai_output, google_output, anthropic_output], ignore_index=True)
-    
-    # Reorder columns for clarity
-    merged_df = merged_df[['temperature', 'topic', 'source', 'scalar_text_sequentiality', 
-                          'sentence_total_sequentialities', 'sentence_contextual_sequentialities', 
-                          'sentence_topic_sequentialities', 'model_id']]
+    output = calculate_sequentiality(MODEL_IDS, history_length, list(total_data["story"]), list(total_data["topic"]))
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)
-    merged_df.to_csv("./outputs/ai_generated/merged_sequentiality.csv", index=False)
+    output.to_csv("./outputs/ai_generated/merged_sequentiality.csv", index=False)
     
-    print(f"Merged dataframe saved with {len(merged_df)} rows")
-    return merged_df
+    print(f"Merged dataframe saved with {len(output)} rows")
+    return output
 
+
+def replication(history_length:int):
+    """
+    Function that replicates the findings from the original paper across multiple models
+    """
+
+    data = pd.read_csv("./datasets/hippocorpus/hcV3-stories.csv")
+
+    output = calculate_sequentiality(MODEL_IDS, 
+                                     history_length=history_length, 
+                                     text_input=list(data["story"]),
+                                     topics=list(data["mainEvent"]))
+
+    os.makedirs("./outputs/ensemble/", exist_ok=True)
+    output.to_csv(f"./outputs/ensemble/replication-recall{history_length}.csv", index=False)
+
+    print(f"Saved DataFrame for history {history_length}")
+    return output
 
 
 # Example usage:
@@ -299,4 +300,6 @@ if __name__ == "__main__":
     
     # idx = int(sys.argv[1])
     # generate_model_sequentiality(idx)
-    run_ai_generated_stories()
+    history_length = int(sys.argv[1])
+    run_ai_generated_stories(history_length=history_length)
+    
