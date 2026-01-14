@@ -261,7 +261,7 @@ def run_ai_generated_stories(history_length:int):
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)
-    output.to_csv("./outputs/ai_generated/merged_sequentiality.csv", index=False)
+    output.to_csv(f"./outputs/ai_generated/merged_sequentiality_{history_length}.csv", index=False)
     
     print(f"Merged dataframe saved with {len(output)} rows")
     return output
@@ -302,4 +302,3 @@ if __name__ == "__main__":
     # generate_model_sequentiality(idx)
     history_length = int(sys.argv[1])
     run_ai_generated_stories(history_length=history_length)
-    
