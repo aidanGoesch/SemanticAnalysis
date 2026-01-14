@@ -254,7 +254,7 @@ def run_ai_generated_stories(history_length:int):
     anthropic_data = pd.read_csv("./datasets/misc/syntehtic-stories-anthropic.csv")
 
     # turn into one giant dataframe
-    total_data = pd.concat([open_ai_data + google_data + anthropic_data])
+    total_data = pd.concat([open_ai_data, google_data, anthropic_data], ignore_index=True)
 
     # Calculate sequentiality for each dataset
     output = calculate_sequentiality(MODEL_IDS, history_length, list(total_data["story"]), list(total_data["topic"]))

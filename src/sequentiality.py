@@ -365,7 +365,7 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
     """
 
     # make sure topic mapping is 1:1
-    use_default = len(text_input) == len(topics)
+    use_default = len(text_input) != len(topics)
 
     output = pd.DataFrame(columns=["scalar_text_sequentiality",
                         "sentence_total_sequentialities",
