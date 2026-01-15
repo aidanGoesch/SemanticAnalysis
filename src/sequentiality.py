@@ -396,7 +396,7 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
             seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=history_length)
             
             for i, data in enumerate(text_input):
-                if use_default:
+                if not use_default: # if we are not using the default we want to use the actual topics
                     topic = topics[i]
                 else:
                     topic = default_topic
