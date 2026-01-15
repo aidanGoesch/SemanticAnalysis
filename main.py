@@ -28,7 +28,6 @@ import numpy as np
 
 # models to test
 MODEL_IDS = ["SakanaAI/TinySwallow-1.5B-Instruct",
-            "neuralmagic/Llama-3.3-70B-Instruct-quantized.w8a8",
             "openai-community/gpt2-xl",
             "allenai/OLMo-2-1124-13B",
             "meta-llama/Llama-3.1-8B-Instruct",
@@ -246,8 +245,6 @@ def generate_model_sequentiality(model_idx:int):
 
 
 def run_ai_generated_stories(history_length:int):
-    models = ["allenai/OLMo-2-1124-13B"]
-
     # Load datasets
     open_ai_data = pd.read_csv("./datasets/misc/syntehtic-stories-openai.csv")
     google_data = pd.read_csv("./datasets/misc/syntehtic-stories-google.csv")
@@ -257,7 +254,10 @@ def run_ai_generated_stories(history_length:int):
     total_data = pd.concat([open_ai_data, google_data, anthropic_data], ignore_index=True)
 
     # Calculate sequentiality for each dataset
-    output = calculate_sequentiality(MODEL_IDS, history_length, list(total_data["story"]), list(total_data["topic"]))
+    output = calculate_sequentiality(models=MODEL_IDS, 
+                                     history_length=history_length, 
+                                     text_input=list(total_data["story"]), 
+                                     topics=list(total_data["topic"]))
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)

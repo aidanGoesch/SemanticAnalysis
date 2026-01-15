@@ -121,6 +121,13 @@ class SequentialityModel:
                     token_sequence.append((token.item(), p.item()))
             batch.append(token_sequence)
         
+        # Clear intermediate tensors
+        del outputs, probs, gen_probs, input_ids
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        elif torch.backends.mps.is_available():
+            torch.mps.empty_cache()
+        
         return batch
     
     def set_topic(self, topic: str):
@@ -367,6 +374,12 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
     # make sure topic mapping is 1:1
     use_default = len(text_input) != len(topics)
 
+    if use_default:
+        print(f"using default topic (topic: {default_topic})")
+    else:
+        print("not using default topic")
+
+
     output = pd.DataFrame(columns=["scalar_text_sequentiality",
                         "sentence_total_sequentialities",
                         "sentence_contextual_sequentialities",
@@ -374,7 +387,10 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
                         "topic",
                         "model_id"])
     
-    for model in models:
+    import gc
+    
+    for model_idx, model in enumerate(models):
+        print(f"Processing model {model_idx + 1}/{len(models)}: {model}")
         seq_model = None
         try:
             seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=history_length)
@@ -396,6 +412,14 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
             if seq_model is not None:
                 seq_model._clean_up_model()
                 del seq_model
+            
+            # Aggressive cleanup between models only
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()
+            elif torch.backends.mps.is_available():
+                torch.mps.empty_cache()
 
     # if there is a save path specified, save the csv
     if save_path is not None:
