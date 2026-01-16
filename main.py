@@ -244,7 +244,7 @@ def generate_model_sequentiality(model_idx:int):
     print(f"{'='*60}\n")
 
 
-def run_ai_generated_stories(history_length:int):
+def run_ai_generated_stories(model_id:str):
     # Load datasets
     open_ai_data = pd.read_csv("./datasets/misc/syntehtic-stories-openai.csv")
     google_data = pd.read_csv("./datasets/misc/syntehtic-stories-google.csv")
@@ -253,15 +253,17 @@ def run_ai_generated_stories(history_length:int):
     # turn into one giant dataframe
     total_data = pd.concat([open_ai_data, google_data, anthropic_data], ignore_index=True)
 
-    # Calculate sequentiality for each dataset
-    output = calculate_sequentiality(models=MODEL_IDS, 
-                                     history_length=history_length, 
+    # Calculate sequentiality for all datasets for all history lengths
+    output = calculate_sequentiality(model=model_id, 
+                                     history_lengths=list(range(1, 10)), 
                                      text_input=list(total_data["story"]), 
                                      topics=list(total_data["topic"]))
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)
-    output.to_csv(f"./outputs/ai_generated/merged_sequentiality_{history_length}.csv", index=False)
+    
+    safe_model_name = model_id.replace("/", "_")
+    output.to_csv(f"./outputs/ai_generated/merged_sequentiality_{safe_model_name}.csv", index=False)
     
     print(f"Merged dataframe saved with {len(output)} rows")
     return output
@@ -300,5 +302,9 @@ if __name__ == "__main__":
     
     # idx = int(sys.argv[1])
     # generate_model_sequentiality(idx)
-    history_length = int(sys.argv[1])
-    run_ai_generated_stories(history_length=history_length)
+
+    model_idx = int(sys.argv[1])
+    if model_idx in range(len(MODEL_IDS)):
+        model = MODEL_IDS[model_idx]
+
+    run_ai_generated_stories(model_id=model)

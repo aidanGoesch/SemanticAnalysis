@@ -11,14 +11,14 @@
 #SBATCH --mail-type=end
 #SBATCH --mail-user=agoesche@uci.edu
 #SBATCH --gres=gpu:A100:1     # specify 1 GPU of type A100
-#SBATCH --array=1-9           # Run 9 jobs with array indices 1-9
+#SBATCH --array=0-4           # Run 5 jobs with array indices 0-4 (for 5 models)
 
 # Run command hostname and save output to the file out.txt
 source ~/.bashrc
 
-conda activate practice
+conda activate semantic_analysis
 
-# SLURM_ARRAY_TASK_ID will be 1, 2, 3, ... 9
+# SLURM_ARRAY_TASK_ID will be 0, 1, 2, 3, 4 (matching MODEL_IDS indices)
 python3 main.py ${SLURM_ARRAY_TASK_ID}
 
 exit

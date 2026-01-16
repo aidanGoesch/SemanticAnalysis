@@ -5,6 +5,7 @@ import pandas as pd
 import scipy.stats as stats
 from src.keys import HUGGING_FACE_TOKEN
 import re
+import gc
 import json
 
 if torch.backends.mps.is_built():  # Apple Silicon
@@ -361,9 +362,13 @@ class SequentialityModel:
             topic_sequentialities.append(topic)
 
         return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities, topic]
+    
+    def set_history_length(self, history_len:int):
+        if history_len > 0:
+            self.recall_length = history_len
 
 
-def calculate_sequentiality(models:list[str], history_length:int, text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story") -> pd.DataFrame:
+def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story") -> pd.DataFrame:
     """
     Function that calculates the sequentiality for a list of models and some input data.
 
@@ -385,16 +390,16 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
                         "sentence_contextual_sequentialities",
                         "sentence_topic_sequentialities",
                         "topic",
-                        "model_id"])
+                        "model_id",
+                        "history_length"])
     
-    import gc
-    
-    for model_idx, model in enumerate(models):
-        print(f"Processing model {model_idx + 1}/{len(models)}: {model}")
-        seq_model = None
-        try:
-            seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=history_length)
-            
+    seq_model = None
+    try:
+        seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=1)  # set the default history length to 1
+        
+        for history_length in history_lengths:
+            seq_model.set_history_length(history_length)
+
             for i, data in enumerate(text_input):
                 if not use_default: # if we are not using the default we want to use the actual topics
                     topic = topics[i]
@@ -402,24 +407,24 @@ def calculate_sequentiality(models:list[str], history_length:int, text_input:lis
                     topic = default_topic
 
                 seq = seq_model.calculate_text_sequentiality(data, topic=topic)
-                new_row = [seq[0], seq[1], seq[2], seq[3], topic, model]
+                new_row = [seq[0], seq[1], seq[2], seq[3], topic, model, history_length]
                 output.loc[len(output)] = new_row
-                
-        except Exception as e:
-            print(f"Could not load model: {model}, skipping... Error: {e}")
-        finally:
-            # Always clean up GPU resources after each model
-            if seq_model is not None:
-                seq_model._clean_up_model()
-                del seq_model
             
-            # Aggressive cleanup between models only
-            gc.collect()
-            if torch.cuda.is_available():
-                torch.cuda.empty_cache()
-                torch.cuda.synchronize()
-            elif torch.backends.mps.is_available():
-                torch.mps.empty_cache()
+    except Exception as e:
+        print(f"Could not load model: {model}, skipping... Error: {e}")
+    finally:
+        # Always clean up GPU resources after each model
+        if seq_model is not None:
+            seq_model._clean_up_model()
+            del seq_model
+        
+        # Aggressive cleanup between models only
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+        elif torch.backends.mps.is_available():
+            torch.mps.empty_cache()
 
     # if there is a save path specified, save the csv
     if save_path is not None:
@@ -450,6 +455,6 @@ if __name__ == "__main__":
     # model = SequentialityModel("microsoft/Phi-3-mini-4k-instruct", topic="a conversation with a doctor")
     model = SequentialityModel("SakanaAI/TinySwallow-1.5B-Instruct", topic="a conversation with a doctor")
     # model = SequentialityModel("meta-llama/Llama-3.3-70B-Instruct", topic="a conversation with a doctor")
-    print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
-    print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
+    # print(f"\nshould be lower  : {model.calculate_text_sequentiality("There are two bison standing next to each other. They seem to be friends. Why is this not working.", False)}")
+    # print(f"\nshould be higher : {model.calculate_text_sequentiality("I broke my arm. It hurts a lot, and I don't know if it'll ever heal. When I looked down, I could see the bone sticking out.", False)}")
 
