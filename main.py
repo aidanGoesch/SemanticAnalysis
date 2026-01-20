@@ -307,4 +307,5 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    replication(model)
+    # replication(model)
+    run_ai_generated_stories(model)
