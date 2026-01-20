@@ -261,7 +261,7 @@ def run_ai_generated_stories(model_id:str):
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)
-    
+
     safe_model_name = model_id.replace("/", "_")
     output.to_csv(f"./outputs/ai_generated/merged_sequentiality_{safe_model_name}.csv", index=False)
     
@@ -303,8 +303,8 @@ if __name__ == "__main__":
     # idx = int(sys.argv[1])
     # generate_model_sequentiality(idx)
 
-    model_idx = int(sys.argv[1])
-    if model_idx in range(len(MODEL_IDS)):
-        model = MODEL_IDS[model_idx]
+    # model_idx = int(sys.argv[1])
+    # if model_idx in range(len(MODEL_IDS)):
+    #     model = MODEL_IDS[model_idx]
 
-    run_ai_generated_stories(model_id=model)
+    run_ai_generated_stories(model_id=MODEL_IDS[2])
