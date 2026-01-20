@@ -6,6 +6,7 @@ import scipy.stats as stats
 from src.keys import HUGGING_FACE_TOKEN
 import re
 import gc
+import os
 import json
 
 if torch.backends.mps.is_built():  # Apple Silicon
@@ -368,13 +369,15 @@ class SequentialityModel:
             self.recall_length = history_len
 
 
-def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story") -> pd.DataFrame:
+def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False) -> pd.DataFrame:
     """
     Function that calculates the sequentiality for a list of models and some input data.
 
     The function optionally takes a list of topics that are supposed to map one to one to the 
     inputted text data. If not, a default topic will be used.
     """
+    # safe model name for saving in the right place
+    safe_model_name = model.replace("/", "_")
 
     # make sure topic mapping is 1:1
     use_default = len(text_input) != len(topics)
@@ -398,6 +401,11 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
         seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=1)  # set the default history length to 1
         
         for history_length in history_lengths:
+            # Skip if checkpoint already exists
+            checkpoint_file = f"./outputs/ensemble/{safe_model_name}/replication-recall{history_length}.csv"
+            if os.path.exists(checkpoint_file):
+                print(f"Skipping history length {history_length} (checkpoint exists)")
+                continue
             seq_model.set_history_length(history_length)
 
             for i, data in enumerate(text_input):
@@ -409,6 +417,13 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
                 seq = seq_model.calculate_text_sequentiality(data, topic=topic)
                 new_row = [seq[0], seq[1], seq[2], seq[3], topic, model, history_length]
                 output.loc[len(output)] = new_row
+
+            if checkpoint_history_lengths:
+                os.makedirs(f"./outputs/ensemble/{safe_model_name}/", exist_ok=True)
+                output.to_csv(f"./outputs/ensemble/{safe_model_name}/replication-recall{history_length}.csv", index=False)
+
+                print(f"checkpoint at history {history_length} saved")
+                
             
     except Exception as e:
         print(f"Could not load model: {model}, skipping... Error: {e}")

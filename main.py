@@ -261,7 +261,7 @@ def run_ai_generated_stories(model_id:str):
     
     # Save to outputs folder
     os.makedirs("./outputs/ai_generated/", exist_ok=True)
-
+    
     safe_model_name = model_id.replace("/", "_")
     output.to_csv(f"./outputs/ai_generated/merged_sequentiality_{safe_model_name}.csv", index=False)
     
@@ -269,23 +269,20 @@ def run_ai_generated_stories(model_id:str):
     return output
 
 
-def replication(history_length:int):
+def replication(model_id:str):
     """
     Function that replicates the findings from the original paper across multiple models
     """
 
     data = pd.read_csv("./datasets/hippocorpus/hcV3-stories.csv")
 
-    output = calculate_sequentiality(MODEL_IDS, 
-                                     history_length=history_length, 
-                                     text_input=list(data["story"]),
-                                     topics=list(data["mainEvent"]))
+    output = calculate_sequentiality(model=model_id, 
+                                    history_length=list(range(1, 10)), 
+                                    text_input=list(data["story"]),
+                                    topics=list(data["mainEvent"]),
+                                    checkpoint_history_lengths=True)
 
-    os.makedirs("./outputs/ensemble/", exist_ok=True)
-    output.to_csv(f"./outputs/ensemble/replication-recall{history_length}.csv", index=False)
-
-    print(f"Saved DataFrame for history {history_length}")
-    return output
+    return True
 
 
 # Example usage:
@@ -303,8 +300,11 @@ if __name__ == "__main__":
     # idx = int(sys.argv[1])
     # generate_model_sequentiality(idx)
 
-    # model_idx = int(sys.argv[1])
-    # if model_idx in range(len(MODEL_IDS)):
-    #     model = MODEL_IDS[model_idx]
+    model_idx = int(sys.argv[1])
+    if model_idx in range(len(MODEL_IDS)):
+        model = MODEL_IDS[model_idx]
+    else:
+        print("invalid model index")
+        exit(-2)
 
-    run_ai_generated_stories(model_id=MODEL_IDS[2])
+    replication(model)
