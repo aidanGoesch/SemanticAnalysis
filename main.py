@@ -277,7 +277,7 @@ def replication(model_id:str):
     data = pd.read_csv("./datasets/hippocorpus/hcV3-stories.csv")
 
     output = calculate_sequentiality(model=model_id, 
-                                    history_length=list(range(1, 10)), 
+                                    history_lengths=list(range(1, 10)), 
                                     text_input=list(data["story"]),
                                     topics=list(data["mainEvent"]),
                                     checkpoint_history_lengths=True)
