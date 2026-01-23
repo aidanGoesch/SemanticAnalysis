@@ -285,6 +285,23 @@ def replication(model_id:str):
     return True
 
 
+def cancer(model_id:str):
+    story_1 = "I went to the park. John has cancer."
+    story_2 = "I went to the park to see John. John has cancer."
+
+    output = calculate_sequentiality(model=model_id,
+                                     history_lengths=[2],
+                                     text_input=[story_1, story_2],
+                                     topics=["A short story", "A short story"])
+    
+    # Save to outputs folder
+    os.makedirs("./outputs/cancer/", exist_ok=True)
+    
+    safe_model_name = model_id.replace("/", "_")
+
+    output.to_csv(f"./outputs/ensemble/cancer/{safe_model_name}.csv")
+
+
 # Example usage:
 if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
@@ -307,5 +324,4 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    replication(model)
-    # run_ai_generated_stories(model)
+    cancer(model)
