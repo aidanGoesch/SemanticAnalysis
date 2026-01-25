@@ -295,7 +295,7 @@ def cancer(model_id:str):
                                      topics=["A short story", "A short story"])
     
     # Save to outputs folder
-    os.makedirs("./outputs/cancer/", exist_ok=True)
+    os.makedirs("./outputs/ensemble/cancer/", exist_ok=True)
     
     safe_model_name = model_id.replace("/", "_")
 
