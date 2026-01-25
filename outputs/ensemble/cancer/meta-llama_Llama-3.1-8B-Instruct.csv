@@ -1,1 +1,3 @@
 ,scalar_text_sequentiality,sentence_total_sequentialities,sentence_contextual_sequentialities,sentence_topic_sequentialities,topic,model_id,history_length
+0,0.1873046875,"[-0.1234375, 0.498046875]","[-11.705078125, -10.896484375]","[-11.087890625, -12.390625]",A short story,meta-llama/Llama-3.1-8B-Instruct,2
+1,0.45540364583333337,"[-0.240234375, 1.1510416666666667]","[-25.861328125, -8.9375]","[-23.939453125, -12.390625]",A short story,meta-llama/Llama-3.1-8B-Instruct,2

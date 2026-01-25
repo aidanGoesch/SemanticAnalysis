@@ -1,1 +1,3 @@
 ,scalar_text_sequentiality,sentence_total_sequentialities,sentence_contextual_sequentialities,sentence_topic_sequentialities,topic,model_id,history_length
+0,-0.3445963541666667,"[-0.5140625, -0.17513020833333334]","[-15.6171875, -13.732421875]","[-13.046875, -13.20703125]",A short story,openai-community/gpt2-xl,2
+1,0.078125,"[-0.33984375, 0.49609375]","[-30.8828125, -11.71875]","[-28.1640625, -13.20703125]",A short story,openai-community/gpt2-xl,2
