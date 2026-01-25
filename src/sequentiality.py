@@ -401,11 +401,12 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
         seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=1)  # set the default history length to 1
         
         for history_length in history_lengths:
-            # Skip if checkpoint already exists
-            checkpoint_file = f"./outputs/ensemble/{safe_model_name}/replication-recall{history_length}.csv"
-            if os.path.exists(checkpoint_file):
-                print(f"Skipping history length {history_length} (checkpoint exists)")
-                continue
+            # Skip if checkpoint already exists (only when checkpointing is enabled)
+            if checkpoint_history_lengths:
+                checkpoint_file = f"./outputs/ensemble/{safe_model_name}/replication-recall{history_length}.csv"
+                if os.path.exists(checkpoint_file):
+                    print(f"Skipping history length {history_length} (checkpoint exists)")
+                    continue
             seq_model.set_history_length(history_length)
 
             for i, data in enumerate(text_input):

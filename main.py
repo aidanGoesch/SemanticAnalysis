@@ -298,7 +298,6 @@ def cancer(model_id:str):
     os.makedirs("./outputs/ensemble/cancer/", exist_ok=True)
     
     safe_model_name = model_id.replace("/", "_")
-
     output.to_csv(f"./outputs/ensemble/cancer/{safe_model_name}.csv")
 
 
