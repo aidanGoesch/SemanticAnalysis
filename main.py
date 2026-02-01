@@ -301,6 +301,22 @@ def cancer(model_id:str):
     output.to_csv(f"./outputs/ensemble/cancer/{safe_model_name}.csv")
 
 
+def wedding(model_id:str):
+    wedding_stories = pd.read_csv("./datasets/hippocorpus/wedding_stories.csv")
+
+    output = calculate_sequentiality(model=model_id,
+                                     history_lengths=[1, 5, 30],
+                                     text_input=list(wedding_stories["story"]),
+                                     topics=list(wedding_stories["mainEvent"]))
+    
+
+    # Save to outputs folder
+    os.makedirs("./outputs/ensemble/wedding/", exist_ok=True)
+    
+    safe_model_name = model_id.replace("/", "_")
+    output.to_csv(f"./outputs/ensemble/wedding/{safe_model_name}.csv")
+
+
 # Example usage:
 if __name__ == "__main__":
     # This is the function to use when running on hpc - see documentation for parameters
@@ -323,4 +339,4 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    cancer(model)
+    wedding(model)
