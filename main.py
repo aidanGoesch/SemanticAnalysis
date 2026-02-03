@@ -302,7 +302,7 @@ def cancer(model_id:str):
 
 
 def wedding(model_id:str):
-    wedding_stories = pd.read_csv("./datasets/hippocorpus/wedding_stories.csv")
+    wedding_stories = pd.read_csv("./datasets/hippocorpus/wedding_bonus.csv")
 
     output = calculate_sequentiality(model=model_id,
                                      history_lengths=[1, 5, 30],
@@ -311,10 +311,10 @@ def wedding(model_id:str):
     
 
     # Save to outputs folder
-    os.makedirs("./outputs/ensemble/wedding/", exist_ok=True)
+    os.makedirs("./outputs/ensemble/wedding_bonus/", exist_ok=True)
     
     safe_model_name = model_id.replace("/", "_")
-    output.to_csv(f"./outputs/ensemble/wedding/{safe_model_name}.csv")
+    output.to_csv(f"./outputs/ensemble/wedding_bonus/{safe_model_name}.csv")
 
 
 def shuffled_boyfriend(model_id:str):
@@ -359,4 +359,4 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    shuffled_boyfriend(model)
+    wedding(model)
