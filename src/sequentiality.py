@@ -9,6 +9,9 @@ import gc
 import os
 import json
 
+SPLIT   = "|||SPLIT|||"
+PROTECT = "|||DOT|||"
+
 if torch.backends.mps.is_built():  # Apple Silicon
     print('mps is used.')
     mps_device = torch.device("mps")
@@ -345,8 +348,21 @@ class SequentialityModel:
         else:
             self.set_topic(self.default_topic)
 
+        def split_sentences(text):
+            # Step 1: Protect abbreviation dots
+            protected = re.sub(r'\b([A-Za-z])\.', r'\1' + PROTECT, text)  # single-letter: e.g., i.e.
+            for abbr in ['Mr', 'Mrs', 'Ms', 'Dr', 'Prof', 'Sr', 'Jr', 'vs', 'etc',
+                        'Fig', 'St', 'Ave', 'Mt', 'Inc', 'Ltd', 'Corp', 'Dept', 'Univ']:
+                protected = re.sub(r'\b' + abbr + r'\.', abbr + PROTECT, protected)
 
-        sentences = re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s", text)
+            # Step 2: Split on [.?!]" or plain [.?!] followed by whitespace
+            marked = re.sub(r'([.?!]")\s+', r'\1' + SPLIT, protected)
+            marked = re.sub(r'([.?!])\s+',  r'\1' + SPLIT, marked)
+
+            # Step 3: Restore protected dots and return sentences
+            return [s.replace(PROTECT, '.').strip() for s in marked.split(SPLIT) if s.strip()]
+
+        sentences = split_sentences(text)
 
         self.sentences = [s.strip() for s in sentences if s.strip()]
 
