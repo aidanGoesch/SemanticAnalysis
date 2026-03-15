@@ -343,7 +343,7 @@ def multilingual(model_id:str):
 
     output = calculate_sequentiality(model=model_id,
                                      history_lengths=[1, 5, 30],
-                                     text_input=list(data["story"]),
+                                     text_input=list(data["text"]),
                                      topics=list(["a short story" for i in range(len(data))]))
     
 
