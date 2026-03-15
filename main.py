@@ -335,6 +335,24 @@ def shuffled_boyfriend(model_id:str):
     safe_model_name = model_id.replace("/", "_")
     output.to_csv(f"./outputs/ensemble/shuffled_boyfriend/{safe_model_name}.csv")
 
+def multilingual(model_id:str):
+    """
+    Run each story for each model
+    """
+    data = pd.read_csv("./datasets/misc/multilingual-stories.csv")
+
+    output = calculate_sequentiality(model=model_id,
+                                     history_lengths=[1, 5, 30],
+                                     text_input=list(data["story"]),
+                                     topics=list(["a short story" for i in range(len(data))]))
+    
+
+    # Save to outputs folder
+    os.makedirs("./outputs/ensemble/multilingual/", exist_ok=True)
+    
+    safe_model_name = model_id.replace("/", "_")
+    output.to_csv(f"./outputs/ensemble/multilingual/{safe_model_name}.csv")
+
 
 
 # Example usage:
@@ -359,4 +377,4 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    wedding(model)
+    multilingual(model)

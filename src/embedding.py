@@ -1,3 +1,4 @@
+import pandas as pd
 import numpy as np
 import regex as re
 import tensorflow_hub as hub
@@ -148,6 +149,53 @@ class SequentialityEmbeddingModel():
     ]
 
     
+def calculate_sequentiality(model, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False) -> pd.DataFrame:
+    """
+    Function that calculates the sequentiality for a list of models and some input data using USE embeddings rather than logits.
+
+    The function optionally takes a list of topics that are supposed to map one to one to the 
+    inputted text data. If not, a default topic will be used.
+    """
+    # load the model from kaggle
+    print("loading model...")
+    embed = hub.load(
+    "https://www.kaggle.com/models/google/universal-sentence-encoder/TensorFlow2/universal-sentence-encoder/2"
+    )
+    print("model loaded")
+
+    # if there isn't a 1:1 mapping from topic to story then use the default topic for everything
+    use_default = len(text_input) != len(topics)
+
+    model = SequentialityEmbeddingModel(embed, default_topic, 0) # set history to 0 for now
+
+    output = pd.DataFrame(columns=["scalar_text_sequentiality",
+                        "sentence_total_sequentialities",
+                        "sentence_contextual_sequentialities",
+                        "sentence_topic_sequentialities",
+                        "topic",
+                        "model_id",
+                        "history_length"])
+
+    for history_length in history_lengths:
+        sequentiality_values = []
+        for i, data in enumerate(text_input):
+            if not use_default:
+                topic = topics[i]
+            else:
+                topic = default_topic
+
+            seq = model.calculate_text_sequentiality(data, topic=topic)
+            new_row = [seq[0], seq[1], seq[2], seq[3], topic, model, history_length]
+            output.loc[len(output)] = new_row
+
+        if checkpoint_history_lengths:
+            os.makedirs(f"./outputs/USE/", exist_ok=True)
+            output.to_csv(f"./outputs/ensemble/USE/{history_length}.csv", index=False)
+
+            print(f"checkpoint at history {history_length} saved")
+
+
+    return output
 
 
 
