@@ -385,7 +385,7 @@ class SequentialityModel:
             self.recall_length = history_len
 
 
-def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False) -> pd.DataFrame:
+def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False, context_string:str="") -> pd.DataFrame:
     """
     Function that calculates the sequentiality for a list of models and some input data.
 
@@ -415,7 +415,10 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
     seq_model = None
     try:
         seq_model = SequentialityModel(model=model, topic=default_topic, recall_length=1)  # set the default history length to 1
-        
+
+        if context_string: # set it to something specific if specified, otherwise use the default
+            seq_model.topic_string = context_string
+
         for history_length in history_lengths:
             # Skip if checkpoint already exists (only when checkpointing is enabled)
             if checkpoint_history_lengths:
