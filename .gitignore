@@ -14,4 +14,6 @@ idea/
 *.DS_Store
 
 # don't commit environment variables (API keys etc)
-.env
+.envdatasets/hippocorpus/shuffled-hcV3.csv
+outputs/hippocorpus_use.csv
+outputs/ensemble/openai-community_gpt2-xl/replication-recall9.csv

@@ -1,0 +1,13 @@
+Memory Type,History Length,Condition,Mean Sequentiality,SEM,SD,N Models
+imagined,1,original,0.5241,0.0533,0.1192,5
+imagined,1,shuffled,0.1528,0.0224,0.05,5
+imagined,30,original,0.775,0.0608,0.136,5
+imagined,30,shuffled,0.3753,0.0269,0.0602,5
+recalled,1,original,0.2889,0.0273,0.0609,5
+recalled,1,shuffled,0.1489,0.0206,0.0461,5
+recalled,30,original,0.4511,0.0379,0.0848,5
+recalled,30,shuffled,0.3265,0.0292,0.0653,5
+retold,1,original,0.3012,0.0395,0.0883,5
+retold,1,shuffled,0.2098,0.0293,0.0655,5
+retold,30,original,0.5766,0.0536,0.1199,5
+retold,30,shuffled,0.4498,0.0492,0.11,5

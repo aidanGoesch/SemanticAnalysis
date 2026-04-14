@@ -1,0 +1,217 @@
+﻿scene number,Start Time (s) ,End Time (s) ,"Start Time (TRs, 1.5s)","End Time (TRs, 1.5s)",scene number - concatenated,Start Time (s)  - concatenated,End Time (s)  - concatenated,"Start Time (TRs, 1.5s) - concatenated","End Time (TRs, 1.5s) - concatenated",Start Time (m.ss),scene title,Space-In/Outdoor or unknown,scene start time,scene end time,Importance_Rater1_PostView,Importance_Rater2_PostView,Importance_Rater3_PostView,Importance_Rater4_PostView,Importance_Rater1_Online,Importance_Rater2_Online,Importance_Rater3_Online,Importance_Rater4_Online
+1,0,33,1,23,1,0,33,1,23,0,Let's All Go To The Lobby,Indoor,0:00,0:33,NA,NA,NA,NA,NA,NA,NA,NA
+2,34,40,24,28,2,34,40,24,28,0.34,Countdown,Unknown,0:34,0:40,NA,NA,NA,NA,NA,NA,NA,NA
+3,41,43,28,30,3,41,43,28,30,0.41,CATCH ME IF YOU CAN title,Unknown,0:41,0:43,5,4,1,NA,NA,NA,NA,NA
+4,44,46,30,32,4,44,46,30,32,0.44,Inspired by a true story,Unknown,0:44,0:46,5,2,1,1,4,8,3,1
+5,47,58,32,40,5,47,58,32,40,0.47,To Tell The Truth Intro,Indoor,0:47,0:58,7,3,3,2,5,8,2,2
+6,59,70,40,48,6,59,70,40,48,0.59,Imposter Introductions,Indoor,0:59,1:10,7,7,5,2,10,10,2,2
+7,71,108,48,73,7,71,108,48,73,1.11,Bio of imposter,Indoor,1:11,1:48,10,10,6,7,10,10,4,4
+8,109,133,74,90,8,109,133,74,90,1.49,Question/Answer 1,Indoor,1:49,2:13,2,5,4,5,4,7,3,3
+9,134,142,90,96,9,134,142,90,96,2.14,Question/Answer 2,Indoor,2:14,2:22,5,10,8,9,8,7,5,3
+10,143,168,96,113,10,143,168,96,113,2.23,outside jail in rain,Outdoor,2:23,2:48,5,9,7,7,5,9,4,3
+11,169,191,114,128,11,169,191,114,128,2.49,entering jail,Indoor,2:49,3:11,1,6,3,5,4,3,2,1
+12,192,210,129,141,12,192,210,129,141,3.12,inside jail - visitation instructions,Indoor,3:12,3:30,1,3,4,5,4,4,2,1
+13,211,241,142,162,13,211,241,142,162,3.31,inside jail - meets sick prisoner,Indoor,3:31,4:01,2,8,9,7,6,4,5,1
+14,242,258,162,173,14,242,258,162,173,4.02,inside jail - reading article 1,Indoor,4:02,4:18,1,4,4,6,6,3,5,2
+15,259,270,174,181,15,259,270,174,181,4.19,inside jail - don't think you can fool me,Indoor,4:19,4:30,6,5,6,6,7,4,3,2
+16,271,278,182,186,16,271,278,182,186,4.31,inside jail - article 2/frank falls,Indoor,4:31,4:38,3,7,6,9,7,6,6,2
+17,279,292,187,196,17,279,292,187,196,4.39,inside jail - call doctor,Indoor,4:39,4:52,4,5,7,7,8,5,6,4
+18,293,304,196,204,18,293,304,196,204,4.53,head to jail hospital,Indoor,4:53,5:04,3,6,5,7,7,4,5,3
+19,305,323,204,216,19,305,323,204,216,5.05,inside hospital chat w official,Indoor,5:05,5:23,1,4,4,6,8,5,5,5
+20,324,337,217,226,20,324,337,217,226,5.24,they see frank left the room,Indoor,5:24,5:37,7,7,10,9,10,6,7,7
+21,338,344,226,230,21,338,344,226,230,5.38,escape attempt - inmate noise,Indoor,5:38,5:44,2,2,7,7,7,3,3,4
+22,345,350,231,234,22,345,350,231,234,5.45,escape attempt - frank falls ,Indoor,5:45,5:50,5,4,7,9,6,3,4,3
+23,350,362,234,242,23,350,362,234,242,5.5,escape attempt - officals approach,Indoor,5:50,6:02,3,3,6,9,8,3,6,3
+24,363,370,243,248,24,363,370,243,248,6.03,escape attempt - gun to head,Indoor,6:03,6:10,3,5,5,8,8,5,4,3
+25,371,375,248,251,25,371,375,248,251,6.11,escape attempt - frank gives up,Indoor,6:11,6:15,5,8,8,9,5,2,6,2
+26,376,390,252,261,26,376,390,252,261,6.16,escape attempt - let's go home/scene outro,Indoor,6:16,6:30,7,8,9,10,10,4,6,4
+27,391,396,262,265,27,391,396,262,265,6.31,THE RECORD title,Unknown,6:31,6:36,2,5,1,NA,NA,NA,NA,NA
+28,397,402,266,269,28,397,402,266,269,6.37,girl inside room alone w pizza,Indoor,6:37,6:42,2,2,2,2,1,4,5,1
+29,403,407,270,272,29,403,407,270,272,6.43,knock at the door,Indoor,6:43,6:47,2,2,2,4,5,5,6,1
+30,408,417,273,279,30,408,417,273,279,6.48,girl sees and opens package,Indoor,6:48,6:57,2,4,4,5,5,7,7,5
+31,418,420,280,281,31,418,420,280,281,6.58,girl finds record,Indoor,6:58,7:00,2,5,8,8,3,9,7,4
+32,421,430,282,288,32,421,430,282,288,7.01,"girl starts record, eats pizza",Indoor,7:01,7:10,2,3,4,6,2,6,5,4
+33,431,436,288,292,33,431,436,288,292,7.11,record skips/pizza disappears,Indoor,7:11,7:16,10,9,10,8,7,6,7,4
+34,437,443,292,296,34,437,443,292,296,7.17,notices pizza gone,Indoor,7:17,7:23,6,9,8,10,9,6,7,2
+35,444,459,297,307,35,444,459,297,307,7.24,"has realization, turns record back and forth",Indoor,7:24,7:39,8,10,10,9,NA,10,9,8
+36,460,475,308,318,36,460,475,308,318,7.4,next realization - jumps time 1,Indoor,7:40,7:55,5,10,7,9,NA,9,8,7
+37,476,484,318,324,37,476,484,318,324,7.56,pregnancy turntable/baby,Indoor,7:56,8:04,5,7,6,8,NA,9,6,5
+38,485,491,324,328,38,485,491,324,328,8.05,skip back to childhood,Indoor,8:05,8:11,5,7,6,8,NA,9,8,7
+39,492,513,329,343,39,492,513,329,343,8.12,skip fwd to middle age,Indoor,8:12,8:33,5,7,8,8,NA,9,7,6
+40,514,524,344,350,40,514,524,344,350,8.34,skip to old age,Indoor,8:34,8:44,5,9,6,8,NA,8,6,6
+41,525,528,351,353,41,525,528,351,353,8.45,skip to death/ashes,Indoor,8:45,8:48,9,10,10,8,NA,10,9,7
+42,529,539,354,360,42,529,539,354,360,8.49,THE  BOYFRIEND title,Unknown,8:49,8:59,2,5,1,NA,NA,NA,NA,NA
+43,540,562,361,376,43,540,562,361,376,9,intro-silent eating,Indoor,9:00,9:22,7,3,2,2,5,2,4,2
+44,563,574,376,384,44,563,574,376,384,9.23,"she gets up to pour wine, he refuses",Indoor,9:23,9:34,7,8,5,3,8,8,7,4
+45,575,601,384,402,45,575,601,384,402,9.35,so she chugs wine,Indoor,9:35,10:01,5,2,5,3,8,7,7,2
+46,602,622,402,416,46,602,622,402,416,10.02,asparagus aphrodesiac,Indoor,10:02,10:22,4,8,4,3,7,7,6,3
+47,623,636,416,425,47,623,636,416,425,10.23,how was your day/you're a computer,Indoor,10:23,10:36,4,4,7,7,10,9,9,5
+48,637,650,426,434,48,637,650,426,434,10.37,cigarettes,Indoor,10:37,10:50,5,2,5,7,9,9,9,5
+49,651,677,435,452,49,651,677,435,452,10.51,she complains,Indoor,10:51,11:17,4,2,4,7,9,8,10,4
+50,678,697,453,466,50,678,697,453,466,11.18,"she apologizes, moves to his lap",Indoor,11:18,11:37,4,4,5,6,9,7,9,5
+51,698,711,466,475,51,698,711,466,475,11.38,robot switch / turned off,Indoor,11:38,11:51,10,10,10,10,10,10,10,10
+52,713,728,476,486,52,713,728,476,486,11.53,she sits back down,Indoor,11:53,12:08,2,2,4,7,9,9,9,7
+53,729,748,487,500,53,729,748,487,500,12.09,looks for new robot online,Indoor,12:09,12:28,2,9,8,9,9,7,10,7
+54,749,778,500,520,54,749,778,500,520,12.29,calls robot store /unsatisfied,Indoor,12:29,12:58,2,9,5,8,9,9,10,9
+55,779,820,520,548,55,779,820,520,548,12.59,rock climbing masseuse,Indoor,12:59,13:40,6,5,6,6,8,10,10,8
+56,821,823,548,550,56,821,823,548,550,13.41,cut scene/bang on door,Indoor,13:41,13:43,2,1,4,6,8,7,9,6
+57,824,851,550,568,57,824,851,550,568,13.44,delivery,Indoor,13:44,14:11,2,9,5,8,9,8,10,6
+58,852,870,569,581,58,852,870,569,581,14.12,goodbye old bf,Indoor,14:12,14:30,7,7,8,7,9,8,10,7
+59,871,873,582,583,59,871,873,582,583,14.31,takes the ring,Indoor,14:31,14:33,6,7,8,6,8,8,10,6
+60,874,882,584,589,60,874,882,584,589,14.34,new ringfinger,Indoor,14:34,14:42,6,7,8,8,8,8,10,7
+61,883,900,590,601,61,883,900,590,601,14.43,power up new bf,Indoor,14:43,15:00,6,7,6,10,3,7,9,5
+62,901,909,602,607,62,901,909,602,607,15.01,new BF refuses wine,Indoor,15:01,15:09,7,8,9,6,7,8,10,5
+63,910,928,608,620,63,910,928,608,620,15.1,asparagus aphrodesiac reversed,Indoor,15:10,15:28,8,8,9,6,8,8,10,5
+64,929,936,620,625,64,929,936,620,625,15.29,he goes to her,Indoor,15:29,15:36,2,1,5,5,8,8,9,5
+65,937,966,626,645,65,937,966,626,645,15.37,tell me about your day massage,Indoor,15:37,16:06,2,4,5,7,4,8,9,5
+66,967,976,646,652,66,967,976,646,652,16.07,shuts her off,Indoor,16:07,16:16,10,10,10,10,10,10,10,9
+67,977,998,652,666,67,977,998,652,666,16.17,he sits down to watch tv,Indoor,16:17,16:38,2,6,8,7,3,9,9,6
+68,999,1004,667,670,68,999,1004,667,670,16.39,THE SHOE title,Unknown,16:39,16:44,2,5,1,NA,,,,
+69,1005,1023,671,683,69,1005,1023,671,683,16.45,opening shot of shoe,Outdoor,16:45,17:03,4,3,2,4,2,7,3,1
+70,1024,1043,684,696,70,1024,1043,684,696,17.04,milk carton/drinking,Outdoor,17:04,17:23,2,1,4,3,1,5,6,1
+71,1044,1047,697,699,71,1044,1047,697,699,17.24,sees girl on street,Outdoor,17:24,17:27,2,5,4,7,2,5,6,1
+72,1048,1053,700,703,72,1048,1053,700,703,17.28,man approaches,Outdoor,17:28,17:33,3,6,3,5,2,6,7,2
+73,1054,1057,704,706,73,1054,1057,704,706,17.34,"walks away, trips",Outdoor,17:34,17:37,2,7,7,5,1,5,3,4
+74,1058,1066,706,712,74,1058,1066,706,712,17.38,watches girl on street,Outdoor,17:38,17:46,2,7,5,8,4,7,7,4
+75,1067,1070,712,714,75,1067,1070,712,714,17.47,puts down milk carton,Outdoor,17:47,17:50,2,3,2,3,2,6,6,4
+76,1071,1092,715,729,76,1071,1092,715,729,17.51,they mimic eachother,Outdoor,17:51,18:12,6,10,10,10,9,8,9,5
+77,1093,1097,730,732,77,1093,1097,730,732,18.13,she sees car coming,Outdoor,18:13,18:17,3,9,8,10,9,10,10,9
+78,1098,1101,733,735,78,1098,1101,733,735,18.18,car hits him,Outdoor,18:18,18:21,6,10,8,10,NA,10,10,9
+79,1102,1112,736,742,79,1102,1112,736,742,18.22,she watches car go flying,Outdoor,18:22,18:32,3,9,7,9,NA,10,10,9
+80,1113,1133,743,756,80,1113,1133,743,756,18.33,"shoe comes flying, lands among others",Outdoor,18:33,18:53,7,5,10,7,NA,8,10,7
+81,1134,1140,757,761,81,1134,1140,757,761,18.54,KEITH REYNOLDS title,Unknown,18:54,19:00,2,3,1,NA,NA,NA,NA,NA
+82,1141,1151,762,768,82,1141,1151,762,768,19.01,car drives up,Outdoor,19:01,19:11,1,1,1,3,3,6,3,1
+83,1152,1154,769,770,83,1152,1154,769,770,19.12,can't make it tonight title,Unknown,19:12,19:14,3,6,3,2,7,7,6,1
+84,1155,1172,771,782,84,1155,1172,771,782,19.15,person gets out of car,Outdoor,19:15,19:32,1,2,2,2,1,8,4,1
+85,1173,1190,783,794,85,1173,1190,783,794,19.33,walks/music/introduction,Outdoor,19:33,19:50,8,4,7,6,8,9,7,3
+86,1191,1203,795,803,86,1191,1203,795,803,19.51,promotion/sarah,Indoor,19:51,20:03,6,5,5,9,9,8,7,3
+87,1204,1216,804,812,87,1204,1216,804,812,20.04,sarah's coffee,Indoor,20:04,20:16,6,6,5,7,7,8,8,4
+88,1217,1228,812,820,88,1217,1228,812,820,20.17,a fall by the window,Indoor,20:17,20:28,4,1,2,9,9,9,8,7
+89,1228,1243,820,830,89,1228,1243,820,830,20.28,keith goes up,Indoor,20:28,20:43,1,2,5,4,6,8,9,4
+90,1244,1251,830,835,90,1244,1251,830,835,20.44,patrick campbell,Indoor,20:44,20:51,7,8,6,7,9,9,9,5
+91,1252,1259,836,840,91,1252,1259,836,840,20.52,keith doesn't get promotion,Indoor,20:52,20:59,8,10,8,9,10,8,10,6
+92,1260,1274,841,850,92,1260,1274,841,850,21,patrick tells sarah/keith goes down,Indoor,21:00,21:14,7,7,6,8,10,9,10,5
+93,1275,1286,851,858,93,1275,1286,851,858,21.15,doors open/they were kissing,Indoor,21:15,21:26,5,10,8,9,9,9,8,7
+94,1287,1306,859,872,94,1287,1306,859,872,21.27,patrick gets in elevator,Indoor,21:27,21:46,4,6,4,6,7,6,9,5
+95,1307,1322,872,882,95,1307,1322,872,882,21.47,patrick insults keith,Indoor,21:47,22:02,5,9,4,6,10,7,9,7
+96,1323,1344,883,897,96,1323,1344,883,897,22.03,elevator fight,Indoor,22:03,22:24,6,10,8,10,10,8,10,9
+97,1345,1355,898,904,97,1345,1355,898,904,22.25,ruth goes up stairs,Indoor,22:25,22:35,7,5,7,5,9,9,10,6
+98,1356,1367,905,912,98,1356,1367,905,912,22.36,keith taking the body down the stairs,Indoor,22:36,22:47,7,5,8,7,10,8,9,8
+99,1368,1392,913,929,99,1368,1392,913,929,22.48,they meet/ruth passes out,Indoor,22:48,23:12,8,5,6,10,10,8,9,9
+100,1393,1402,930,936,100,1393,1402,930,936,23.13,sarah misses patrick,Indoor,23:13,23:22,4,5,5,7,9,8,10,6
+101,1403,1413,936,943,101,1403,1413,936,943,23.23,keith decides to go down ladder,Indoor,23:23,23:33,2,2,5,8,8,8,9,6
+102,1414,1419,944,947,102,1414,1419,944,947,23.34,employee scene,Indoor,23:34,23:39,1,1,4,2,2,7,9,5
+103,1420,1436,948,958,103,1420,1436,948,958,23.4,sarah sees keith w body,Indoor,23:40,23:56,3,7,7,9,9,7,5,5
+104,1437,1449,959,967,104,1437,1449,959,967,23.57,sarah faints,Indoor,23:57,24:09:00,5,7,6,10,9,7,7,6
+105,1450,1472,968,982,105,1450,1472,968,982,24.1,keith drops body/thinks,Indoor,24:10:00,24:32:00,6,6,8,10,10,8,10,5
+106,1473,1492,983,996,106,1473,1492,983,996,24.33,keith sees barry,Indoor,24:33:00,24:52:00,6,6,6,9,10,7,9,7
+1,0,33,1,23,107,1493,1526,997,1019,0,Let's All Go To The Lobby,Indoor,0:00,0:33,NA,NA,NA,NA,NA,NA,NA,NA
+2,34,40,24,28,108,1527,1533,1020,1024,0.34,Countdown,Indoor,0:34,0:40,NA,NA,NA,NA,NA,NA,NA,NA
+3,41,44,28,30,109,1534,1537,1024,1026,0.41,THE ROCK title,Outdoor,0:41,0:44,2,6,1,NA,NA,NA,NA,NA
+4,45,50,31,34,110,1538,1543,1027,1030,0.45,underwater ocean scene,Outdoor,0:45,0:50,2,1,3,2,1,5,1,1
+5,51,65,35,44,111,1544,1558,1031,1040,0.51,above ground/big happy mtn,Outdoor,0:51,1:05,7,6,4,2,4,4,4,2
+6,66,75,45,51,112,1559,1568,1041,1047,1.06,mtn sleep/dream,Indoor,1:06,1:15,7,6,4,2,2,8,7,2
+7,76,85,52,58,113,1569,1578,1048,1054,1.16,"seasons pass, becomes boulder",Indoor,1:16,1:25,7,10,5,7,7,9,7,3
+8,86,103,58,70,114,1579,1596,1054,1066,1.26,boulder wakes to tree chopping/builders,Outdoor,1:26,1:43,7,7,5,8,6,9,9,3
+9,104,117,70,79,115,1597,1610,1066,1075,1.44,boulder gets up and goes to woods,Outdoor,1:44,1:57,7,6,4,7,8,8,8,3
+10,118,139,80,94,116,1611,1632,1076,1090,1.58,boulder gets hauled and turned into wheel in waterwheel house,Indoor,1:58,2:19,7,8,7,7,9,8,9,5
+11,140,146,94,98,117,1633,1639,1090,1094,2.2,wheel is taken by soldiers and smashed,Indoor,2:20,2:26,7,6,5,6,9,8,7,6
+12,147,156,99,105,118,1640,1649,1095,1101,2.27,wheel is turned into cannonball,Indoor,2:27,2:36,7,9,7,8,7,8,9,8
+13,157,168,106,113,119,1650,1661,1102,1109,2.37,war scene,Indoor,2:37,2:48,7,4,5,5,7,8,6,7
+14,169,179,114,120,120,1662,1672,1110,1116,2.49,broken ball falls underwater,Indoor,2:49,2:59,7,5,5,8,6,7,9,7
+15,180,183,121,123,121,1673,1676,1117,1119,3,becomes small rock in a stream,Outdoor,3:00,3:03,7,9,4,8,4,7,8,5
+16,184,198,124,133,122,1677,1691,1120,1129,3.04,"small rock wanders, rests under tree",Indoor,3:04,3:18,7,6,4,6,3,8,7,6
+17,199,210,134,141,123,1692,1703,1130,1137,3.19,"rock picked up by scientist, is fossil",Indoor,3:19,3:30,7,9,7,7,8,9,10,7
+18,211,224,142,150,124,1704,1717,1138,1146,3.31,fossil is in science museum,Outdoor,3:31,3:44,7,4,4,8,7,8,7,7
+19,225,234,151,157,125,1718,1727,1147,1153,3.45,fossil is knocked out of display into trash,Indoor,3:45,3:54,7,6,5,7,9,8,9,6
+20,235,241,158,162,126,1728,1734,1154,1158,3.55,fossil ends up in street ,Indoor,3:55,4:01,7,5,5,8,7,6,5,5
+21,242,245,162,164,127,1735,1738,1158,1160,4.02,"fossil thrown through window, out window",Indoor,4:02,4:05,7,5,5,6,6,8,5,6
+22,246,262,165,176,128,1739,1755,1161,1172,4.06,fossil battered in street,Indoor,4:06,4:22,7,7,5,8,6,8,6,5
+23,263,269,176,180,129,1756,1762,1172,1176,4.23,fossil crushed into tiny speck of dust,Indoor,4:23,4:29,7,9,7,8,7,8,8,5
+24,270,289,181,194,130,1763,1782,1177,1190,4.3,"sand swept into trash pile, is sad",Outdoor,4:30,4:49,7,8,7,7,5,8,9,4
+25,290,300,194,201,131,1783,1793,1190,1197,4.5,sand excavated,Outdoor,4:50,5:00,7,7,6,6,6,9,10,4
+26,301,307,202,206,132,1794,1800,1198,1202,5.01,sand poured into molt,Outdoor,5:01,5:07,7,8,6,5,9,9,10,5
+27,308,315,206,211,133,1801,1808,1202,1207,5.08,sand becomes lens/mirror,Outdoor,5:08,5:15,7,9,7,8,10,8,9,6
+28,316,329,212,220,134,1809,1822,1208,1216,5.16,"lens put in space shuttle, goes to space",Outdoor,5:16,5:29,7,9,6,8,9,9,9,7
+29,330,346,221,232,135,1823,1839,1217,1228,5.3,"lens shoots through space, lands on planet",Indoor,5:30,5:46,7,9,6,8,9,9,10,4
+30,347,369,232,247,136,1840,1862,1228,1243,5.47,"planet erupts, grows a new sleepy mountain",Indoor,5:47,6:09,9,10,10,10,9,10,10,7
+31,370,374,248,250,137,1863,1867,1244,1246,6.1,THE PRISONER title,Indoor,6:10,6:14,10,5,4,NA,NA,NA,NA,NA
+32,375,387,251,259,138,1868,1880,1247,1255,6.15,"man asks maid where he is, can't get answer",Outdoor,6:15,6:27,5,6,5,5,3,8,5,2
+33,388,395,260,264,139,1881,1888,1256,1260,6.28,"man asks for police station, told are none",Outdoor,6:28,6:35,5,5,6,4,4,8,6,2
+34,396,410,265,274,140,1889,1903,1261,1270,6.36,man goes looking for phone,Indoor,6:36,6:50,3,2,4,3,4,8,7,1
+35,411,430,275,288,141,1904,1923,1271,1284,6.51,man tries to use telephone,Outdoor,6:51,7:10,7,10,5,7,8,7,6,3
+36,431,450,288,301,142,1924,1943,1284,1297,7.11,"man is lost, looks around",Outdoor,7:11,7:30,2,4,4,3,5,4,3,3
+37,451,457,302,306,143,1944,1950,1298,1302,7.31,man goes tolook at a village map,Outdoor,7:31,7:37,4,8,6,5,9,5,5,3
+38,458,469,306,314,144,1951,1962,1302,1310,7.38,"woman pulls up in taxi, man asks for nearest town, she says only local",Outdoor,7:38,7:49,5,10,7,6,9,7,8,4
+39,470,501,314,335,145,1963,1994,1310,1331,7.5,"they drive through town, talking about languages,etc",Outdoor,7:50,8:21,3,7,6,4,8,5,6,4
+40,502,519,336,347,146,1995,2012,1332,1343,8.22,"she drops him off, he doesn't pay in units",Indoor,8:22,8:39,5,8,6,8,4,6,4,3
+41,520,549,348,367,147,2013,2042,1344,1363,8.4,"man goes into general store, multiple languages",Indoor,8:40,9:09,4,5,7,5,3,5,7,3
+42,550,569,368,380,148,2043,2062,1364,1376,9.1,man asks for a map,Outdoor,9:10,9:29,2,7,5,6,7,6,8,4
+43,570,578,381,386,149,2063,2071,1377,1382,9.3,map of village is general,Outdoor,9:30,9:38,4,10,8,9,9,6,8,4
+44,579,601,387,402,150,2072,2094,1383,1398,9.39,"gets larger map, also general",Indoor,9:39,10:01,6,10,9,9,10,7,9,5
+45,602,614,402,410,151,2095,2107,1398,1406,10.02,"asks for larger area map, told are none",Outdoor,10:02,10:14,8,9,8,7,9,7,9,5
+46,615,622,411,416,152,2108,2115,1407,1412,10.15,"asks for car, told only taxis",Outdoor,10:15,10:22,8,8,7,9,8,5,7,4
+47,623,635,416,424,153,2116,2128,1412,1420,10.23,leaves store,Outdoor,10:23,10:35,2,1,4,3,9,7,9,3
+48,636,639,425,427,154,2129,2132,1421,1423,10.36,THE BLACK HOLE title,Indoor,10:36,10:39,5,5,1,NA,NA,NA,NA,NA
+49,640,656,428,438,155,2133,2149,1424,1434,10.4,"office scene, man making copies, hits copier",Outdoor,10:40,10:56,2,5,2,3,3,6,4,2
+50,657,671,439,448,156,2150,2164,1435,1444,10.57,copy machine makes big black dots,Outdoor,10:57,11:11,3,6,2,6,3,7,7,2
+51,672,676,449,452,157,2165,2169,1445,1448,11.12,"man puts coffee cup on black hole, disappears",Indoor,11:12,11:16,10,8,8,9,8,7,8,4
+52,677,699,452,467,158,2170,2192,1448,1463,11.17,"man puts hand in black hole, pulls out cup",Outdoor,11:17,11:39,10,9,6,9,10,8,9,5
+53,700,708,468,473,159,2193,2201,1464,1469,11.4,man puts arm in black hole,Outdoor,11:40,11:48,8,10,5,7,9,8,10,7
+54,709,726,474,485,160,2202,2219,1470,1481,11.49,"man puts hole on vending machine, grabs candy",Outdoor,11:49,12:06,10,8,7,9,5,8,9,7
+55,727,739,486,494,161,2220,2232,1482,1490,12.07,"man puts hole on office door, unlocks",Outdoor,12:07,12:19,10,7,6,7,10,6,10,6
+56,740,765,494,511,162,2233,2258,1490,1507,12.2,"man puts hole on safe, reaches in for cash",Outdoor,12:20,12:45,10,8,6,9,10,8,10,8
+57,766,773,512,516,163,2259,2266,1508,1512,12.46,"man crawls in safe, disappears, black hole falls off",Indoor,12:46,12:53,10,10,10,10,10,10,10,9
+58,774,782,517,522,164,2267,2275,1513,1518,12.54,"man locked inside safe, camera pans out",Indoor,12:54,13:02,10,9,8,9,6,10,10,7
+59,783,786,523,525,165,2276,2279,1519,1521,13.03,POST-IT LOVE title,Indoor,13:03,13:06,4,5,1,NA,NA,NA,NA,NA
+60,787,789,526,527,166,2280,2282,1522,1523,13.07,"photo on wall, ""post-it love""",Indoor,13:07,13:09,4,6,3,1,1,4,2,1
+61,790,800,528,534,167,2283,2293,1524,1530,13.1,woman in office at copy machine,Outdoor,13:10,13:20,2,5,4,2,1,5,1,1
+62,801,818,535,546,168,2294,2311,1531,1542,13.21,"pans to man at next copy machine, shows them each working",Outdoor,13:21,13:38,4,5,5,2,7,5,4,3
+63,819,825,547,551,169,2312,2318,1543,1547,13.39,they look over at eachother,Outdoor,13:39,13:45,8,9,5,4,9,6,7,2
+64,826,831,552,555,170,2319,2324,1548,1551,13.46,man goes to desk,Indoor,13:46,13:51,2,6,3,2,1,5,8,3
+65,832,835,556,558,171,2325,2328,1552,1554,13.52,finds post-it smiley face in folder,Outdoor,13:52,13:55,6,10,7,7,7,7,9,4
+66,836,842,558,562,172,2329,2335,1554,1558,13.56,"he looks around, she glances",Indoor,13:56,14:02,9,8,8,7,9,7,9,4
+67,843,850,563,568,173,2336,2343,1559,1564,14.03,he takes it in,Outdoor,14:03,14:10,5,6,6,5,7,5,6,6
+68,851,871,568,582,174,2344,2364,1564,1578,14.11,woman goes to desk finds post-it sun on window,Outdoor,14:11,14:31,7,10,7,7,8,7,8,6
+69,872,887,582,592,175,2365,2380,1578,1588,14.32,"man straightens up in bathroom, sees post-it heart",Outdoor,14:32,14:47,7,10,7,7,9,10,8,5
+70,888,899,593,600,176,2381,2392,1589,1596,14.48,"woman goes in supply closet, sees post-it flowers",Outdoor,14:48,14:59,7,10,7,7,8,8,9,5
+71,900,917,601,612,177,2393,2410,1597,1608,15,"woman takes arm full of post-its, heads back to desk",Indoor,15:00,15:17,4,6,6,6,8,6,9,4
+72,918,931,613,622,178,2411,2424,1609,1618,15.18,woman sees man making mural of post-its of their faces,Indoor,15:18,15:31,8,10,9,10,10,9,10,6
+73,932,939,622,627,179,2425,2432,1618,1623,15.32,"man sees her coming, looks at her",Outdoor,15:32,15:39,6,9,8,6,9,9,10,6
+74,940,947,628,632,180,2433,2440,1624,1628,15.4,"she stares back, smiles",Indoor,15:40,15:47,9,9,8,8,9,9,10,5
+75,948,955,633,638,181,2441,2448,1629,1634,15.48,BUS STOP opening title,Outdoor,15:48,15:55,2,2,1,NA,NA,NA,NA,NA
+76,956,979,638,654,182,2449,2472,1634,1650,15.56,"shot of street, man waiting at bus stop with ice cream listening to headphones",Indoor,15:56,16:19,2,3,2,2,2,4,5,1
+77,980,997,654,666,183,2473,2490,1650,1662,16.2,"car screeches up, woman jumps out to use payphone",Outdoor,16:20,16:37,3,4,5,3,5,5,6,3
+78,998,1005,666,671,184,2491,2498,1662,1667,16.38,"man watches her, woman bangs phone on hook",Outdoor,16:38,16:45,3,2,4,3,7,6,7,4
+79,1006,1014,672,677,185,2499,2507,1668,1673,16.46,"her car starts to roll, she comes toward him",Indoor,16:46,16:54,2,2,5,4,8,6,9,4
+80,1015,1029,678,687,186,2508,2522,1674,1683,16.55,"she says she has emergency, needs his phone, he hands her phoen",Outdoor,16:55,17:09,5,6,5,6,9,7,10,4
+81,1030,1049,688,700,187,2523,2542,1684,1696,17.1,"she walks around talking on phone, pacing",Outdoor,17:10,17:29,4,5,6,5,9,7,9,6
+82,1050,1056,701,705,188,2543,2549,1697,1701,17.3,woman threatens person on phone to go to police,Indoor,17:30,17:36,5,5,7,7,9,7,9,7
+83,1057,1064,706,710,189,2550,2557,1702,1706,17.37,"woman smashes phone in street, cries",Outdoor,17:37,17:44,6,6,6,8,8,7,10,6
+84,1065,1077,711,719,190,2558,2570,1707,1715,17.45,man asks her for money for broken phone,Outdoor,17:45,17:57,3,6,6,6,5,6,9,7
+85,1078,1079,720,720,191,2571,2572,1716,1716,17.58,"she says ""he's here""",Indoor,17:58,17:59,6,5,8,4,6,6,10,7
+86,1080,1092,721,729,192,2573,2585,1717,1725,18,"shot of 2nd man driving up in car w music, parks",Indoor,18:00,18:12,6,5,7,8,9,7,10,6
+87,1093,1100,730,734,193,2586,2593,1726,1730,18.13,"they see him from far down block, man asks ""who's that""",Outdoor,18:13,18:20,4,6,5,5,8,6,8,6
+88,1101,1115,735,744,194,2594,2608,1731,1740,18.21,"she walks toward car, 1st man follows asking for money",Indoor,18:21,18:35,3,7,4,5,6,4,9,6
+89,1116,1121,745,748,195,2609,2614,1741,1744,18.36,"shot of 2nd man in car w loud music, he gets out",Indoor,18:36,18:41,3,5,5,3,8,5,10,7
+90,1122,1129,749,754,196,2615,2622,1745,1750,18.42,"""this time you've gone too far"" she mumbles as she approaches car",Indoor,18:42,18:49,5,8,6,7,8,6,8,5
+91,1130,1141,754,762,197,2623,2634,1750,1758,18.5,"woman and 2nd man argue, ""where is she?""",Outdoor,18:50,19:01,5,8,7,8,9,6,9,6
+92,1142,1160,762,774,198,2635,2653,1758,1770,19.02,two men size eachother up,Indoor,19:02,19:20,5,5,5,6,10,6,9,7
+93,1161,1167,775,779,199,2654,2660,1771,1775,19.21,"1st man recognizes second as magician, and she as his assistant",Outdoor,19:21,19:27,6,8,7,8,10,8,10,7
+94,1168,1174,780,784,200,2661,2667,1776,1780,19.28,woman pulls gun,Outdoor,19:28,19:34,6,7,6,7,10,7,10,7
+95,1175,1183,784,790,201,2668,2676,1780,1786,19.35,magician pulls out 2nd gun,Outdoor,19:35,19:43,6,7,6,7,10,7,10,7
+96,1184,1190,790,794,202,2677,2683,1786,1790,19.44,she fires a shot,Indoor,19:44,19:50,3,9,8,10,10,7,10,7
+97,1191,1197,795,799,203,2684,2690,1791,1795,19.51,howl/cry heard coming from inside the car,Indoor,19:51,19:57,6,7,8,9,9,9,10,7
+98,1198,1210,800,808,204,2691,2703,1796,1804,19.58,"woman runs toward car, magician stops 1st man from running away",Outdoor,19:58,20:10,5,6,6,7,10,7,9,6
+99,1211,1213,808,810,205,2704,2706,1804,1806,20.11,"woman is opening trunk of the car, cries/howls inside",Outdoor,20:11,20:13,4,8,8,9,10,7,10,6
+100,1214,1227,810,819,206,2707,2720,1806,1815,20.14,"magician pulls out relic, begins to hypnotize first man",Outdoor,20:14,20:27,4,7,7,10,10,8,10,7
+101,1228,1235,820,824,207,2721,2728,1816,1820,20.28,woman breaks into trunk,Outdoor,20:28,20:35,4,6,5,8,9,7,10,7
+102,1236,1262,825,842,208,2729,2755,1821,1838,20.36,first man slowly falls to ground as magician speaks,Outdoor,20:36,21:02,5,7,8,10,9,9,10,7
+103,1263,1268,843,846,209,2756,2761,1839,1842,21.03,"man on ground, ice cream melting, starts to howl",Indoor,21:03,21:08,5,8,9,10,9,7,8,7
+104,1269,1276,847,852,210,2762,2769,1843,1848,21.09,magician checks spell written in pocket,Indoor,21:09,21:16,7,4,7,8,9,7,9,6
+105,1277,1287,852,859,211,2770,2780,1848,1855,21.17,"woman approaches again with gun, shoots magician",Indoor,21:17,21:27,6,9,8,8,10,8,10,8
+106,1288,1291,860,862,212,2781,2784,1856,1858,21.28,"magician shoots back, dies",Indoor,21:28,21:31,6,9,8,8,10,8,10,8
+107,1292,1323,862,883,213,2785,2816,1858,1879,21.32,"first man eats ice cream off ground barking like a dog, crawls away on all fours toward car",Indoor,21:32,22:03,8,10,7,10,10,8,10,6
+108,1324,1331,884,888,214,2817,2824,1880,1884,22.04,"2nd woman (from car trunk) appears on all fours, also barking",Indoor,22:04,22:11,8,10,10,10,10,9,10,7
+109,1332,1356,889,905,215,2825,2849,1885,1901,22.12,"they smell eachother, act like dogs in the street",Indoor,22:12,22:36,8,9,10,9,8,7,10,6
+110,1357,1372,906,916,216,2850,2865,1902,1912,22.37,"they crawl away, barking",Indoor,22:37,22:52,9,7,6,9,7,7,7,6

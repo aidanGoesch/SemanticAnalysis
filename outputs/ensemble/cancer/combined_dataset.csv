@@ -1,0 +1,25 @@
+Unnamed: 0,scalar_text_sequentiality,sentence_total_sequentialities,sentence_contextual_sequentialities,sentence_topic_sequentialities,topic,model_id,history_length,story
+0,0.1873046875,"[-0.1234375, 0.498046875]","[-11.705078125, -10.896484375]","[-11.087890625, -12.390625]",A short story,meta-llama/Llama-3.1-8B-Instruct,2,"I went to the park.
+John has cancer."
+1,0.4554036458333333,"[-0.240234375, 1.1510416666666667]","[-25.861328125, -8.9375]","[-23.939453125, -12.390625]",A short story,meta-llama/Llama-3.1-8B-Instruct,2,"I went to the park to see John.
+John has cancer."
+0,-0.3445963541666667,"[-0.5140625, -0.17513020833333334]","[-15.6171875, -13.732421875]","[-13.046875, -13.20703125]",A short story,openai-community/gpt2-xl,2,"I went to the park.
+John has cancer."
+1,0.078125,"[-0.33984375, 0.49609375]","[-30.8828125, -11.71875]","[-28.1640625, -13.20703125]",A short story,openai-community/gpt2-xl,2,"I went to the park to see John.
+John has cancer."
+0,0.0408203125,"[-0.13125, 0.212890625]","[-12.18359375, -11.478515625]","[-11.52734375, -12.1171875]",A short story,Qwen/Qwen2.5-7B-Instruct,2,"I went to the park.
+John has cancer."
+1,0.4784342447916666,"[-0.11865234375, 1.0755208333333333]","[-22.94921875, -8.890625]","[-22.0, -12.1171875]",A short story,Qwen/Qwen2.5-7B-Instruct,2,"I went to the park to see John.
+John has cancer."
+0,-0.4048502604166666,"[-0.4890625, -0.3206380208333333]","[-12.44140625, -14.7939453125]","[-9.99609375, -13.83203125]",A short story,SakanaAI/TinySwallow-1.5B-Instruct,2,"I went to the park.
+John has cancer."
+1,0.1438395182291666,"[-0.362060546875, 0.6497395833333334]","[-23.98828125, -11.8828125]","[-21.091796875, -13.83203125]",A short story,SakanaAI/TinySwallow-1.5B-Instruct,2,"I went to the park to see John.
+John has cancer."
+0,0.1225911458333333,"[0.08828125, 0.15690104166666666]","[-13.65625, -12.400390625]","[-14.09765625, -12.87109375]",A short story,allenai/OLMo-2-1124-13B,2,"I went to the park.
+John has cancer."
+1,0.3391927083333333,"[0.1328125, 0.5455729166666666]","[-27.984375, -11.234375]","[-29.046875, -12.87109375]",A short story,allenai/OLMo-2-1124-13B,2,"I went to the park to see John.
+John has cancer."
+,-0.05903811752796173,,,,A short story,USE_Sequentiality,2,"I went to the park.
+John has cancer."
+,-0.022637546062469482,,,,A short story,USE_Sequentiality,2,"I went to the park to see John.
+John has cancer."
