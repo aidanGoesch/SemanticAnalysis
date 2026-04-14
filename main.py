@@ -370,7 +370,7 @@ def phone_call_raw(model_id:str):
     ]
 
     output = calculate_sequentiality(model=model_id,
-                            history_lengths=[220], # max history (207 sentences in the raw story)
+                            history_lengths=[2, 4, 6, 8], # max history (207 sentences in the raw story)
                             text_input=[raw_story, raw_story, cleaned_story, cleaned_story],
                             topics=topics * 2,
                             context_string="_Use this description of the context to guide your interpretation of the story: <CONTEXT>{self.topic}<END_CONTEXT> ")
@@ -394,7 +394,7 @@ def phone_call_cleaned(model_id:str):
     ]
 
     output = calculate_sequentiality(model=model_id,
-                        history_lengths=[220], # max history (207 sentences in the raw story)
+                        history_lengths=[2, 4, 6, 8], # max history (207 sentences in the raw story)
                         text_input=[raw_story, raw_story, cleaned_story, cleaned_story],
                         topics=topics * 2)
 
@@ -426,4 +426,4 @@ if __name__ == "__main__":
         print("invalid model index")
         exit(-2)
 
-    phone_call_raw(model)
+    phone_call_cleaned(model)

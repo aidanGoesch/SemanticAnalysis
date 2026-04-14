@@ -13,6 +13,9 @@
 #SBATCH --gres=gpu:A100:1      # specify 1 GPU of type A30
 #SBATCH --array=0-4            # Array job for 5 models (indices 0-4)
 
+export HF_HOME=/dfs6b/pub/agoesche/hf_cache
+export TRANSFORMERS_CACHE=/dfs6b/pub/agoesche/hf_cache
+
 # Run command hostname and save output to the file out.txt
 source ~/.bashrc
 
