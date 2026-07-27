@@ -105,7 +105,9 @@ class SequentialityModel:
 
     def _to_tokens_and_logprobs(self, text: str) -> list[list[tuple[int, float]]]:
         input_text = self.topic_string + text
-        input_ids = self.tokenizer(input_text, padding=True, return_tensors="pt").input_ids.to(mps_device)
+        max_len = getattr(self.model.config, "max_position_embeddings", None)
+        input_ids = self.tokenizer(input_text, padding=True, truncation=max_len is not None,
+                                   max_length=max_len, return_tensors="pt").input_ids.to(mps_device)
         
         with torch.inference_mode(): #optimize for inference
             outputs = self.model(input_ids)
@@ -332,6 +334,21 @@ class SequentialityModel:
         self.token_cache[sentence] = sentence_token_ids
         return sentence_token_ids
 
+    @staticmethod
+    def split_sentences(text):
+        # Step 1: Protect abbreviation dots
+        protected = re.sub(r'\b([A-Za-z])\.', r'\1' + PROTECT, text)  # single-letter: e.g., i.e.
+        for abbr in ['Mr', 'Mrs', 'Ms', 'Dr', 'Prof', 'Sr', 'Jr', 'vs', 'etc',
+                    'Fig', 'St', 'Ave', 'Mt', 'Inc', 'Ltd', 'Corp', 'Dept', 'Univ']:
+            protected = re.sub(r'\b' + abbr + r'\.', abbr + PROTECT, protected)
+
+        # Step 2: Split on [.?!]" or plain [.?!] followed by whitespace
+        marked = re.sub(r'([.?!]")\s+', r'\1' + SPLIT, protected)
+        marked = re.sub(r'([.?!])\s+',  r'\1' + SPLIT, marked)
+
+        # Step 3: Restore protected dots and return sentences
+        return [s.replace(PROTECT, '.').strip() for s in marked.split(SPLIT) if s.strip()]
+
     def calculate_text_sequentiality(self, text : str, topic : str = None, verbose : bool = False) -> list[float | list]:
         """
         Function that calculates the total sequentiality of a text
@@ -348,21 +365,7 @@ class SequentialityModel:
         else:
             self.set_topic(self.default_topic)
 
-        def split_sentences(text):
-            # Step 1: Protect abbreviation dots
-            protected = re.sub(r'\b([A-Za-z])\.', r'\1' + PROTECT, text)  # single-letter: e.g., i.e.
-            for abbr in ['Mr', 'Mrs', 'Ms', 'Dr', 'Prof', 'Sr', 'Jr', 'vs', 'etc',
-                        'Fig', 'St', 'Ave', 'Mt', 'Inc', 'Ltd', 'Corp', 'Dept', 'Univ']:
-                protected = re.sub(r'\b' + abbr + r'\.', abbr + PROTECT, protected)
-
-            # Step 2: Split on [.?!]" or plain [.?!] followed by whitespace
-            marked = re.sub(r'([.?!]")\s+', r'\1' + SPLIT, protected)
-            marked = re.sub(r'([.?!])\s+',  r'\1' + SPLIT, marked)
-
-            # Step 3: Restore protected dots and return sentences
-            return [s.replace(PROTECT, '.').strip() for s in marked.split(SPLIT) if s.strip()]
-
-        sentences = split_sentences(text)
+        sentences = SequentialityModel.split_sentences(text)
 
         self.sentences = [s.strip() for s in sentences if s.strip()]
 
@@ -454,7 +457,7 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
 
                 if n_shuffle > 0:
                     # Shuffle sentences and calculate sequentiality
-                    sentences = re.split(r"(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|!)\s", data)
+                    sentences = SequentialityModel.split_sentences(data)
                     for _ in range(n_shuffle):
                         np.random.shuffle(sentences)
                         shuffled_text = " ".join(sentences)
@@ -462,11 +465,15 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
                         new_row_shuffled = [shuffled_seq[0], shuffled_seq[1], shuffled_seq[2], shuffled_seq[3], topic, model, history_length]
                         shuffled_output.loc[len(shuffled_output)] = new_row_shuffled
 
-                    # shuffle all the words
+                    # shuffle all the words, inserting periods at mean sentence length intervals
                     words = re.findall(r"[a-zA-Z']+", data)
+                    mean_sentence_len = int(round(np.mean([len(re.findall(r"[a-zA-Z']+", s)) for s in sentences])))
+                    mean_sentence_len = max(mean_sentence_len, 1)  # guard against empty
                     for _ in range(n_shuffle):
                         np.random.shuffle(words)
-                        shuffled_text = " ".join(words)
+                        # insert a period every mean_sentence_len words
+                        chunks = [" ".join(words[i:i + mean_sentence_len]) for i in range(0, len(words), mean_sentence_len)]
+                        shuffled_text = ". ".join(chunks) + "."
                         shuffled_seq = seq_model.calculate_text_sequentiality(shuffled_text, topic=topic)
                         new_row_shuffled = [shuffled_seq[0], shuffled_seq[1], shuffled_seq[2], shuffled_seq[3], topic, model, history_length]
                         shuffled_output.loc[len(shuffled_output)] = new_row_shuffled
