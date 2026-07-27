@@ -418,12 +418,13 @@ def event_segmentation(model_id:str):
     
     os.makedirs("./outputs/ensemble/event_segmentation/", exist_ok=True)
 
+    safe_model_name = model_id.replace("/", "_")
     output = calculate_sequentiality(model=model_id,
                         history_lengths=[2, 4, 6, 8], 
                         text_input=[pieman, monkey, tunnel],
                         topics=topics,
                         n_shuffle=10,
-                        save_path="./outputs/ensemble/event_segmentation/")
+                        save_path=f"./outputs/ensemble/event_segmentation/{safe_model_name}.csv")
 
 
 # Example usage:
