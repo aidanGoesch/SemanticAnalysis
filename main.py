@@ -424,8 +424,8 @@ def event_segmentation(model_id:str):
                         history_lengths=[2, 4, 6, 8], 
                         text_input=[pieman, monkey, tunnel],
                         topics=topics,
-                        n_shuffle=10,
-                        save_path=f"./outputs/ensemble/event_segmentation/{safe_model_name}_condensed.csv")
+                        calculate_entropy=True,
+                        save_path=f"./outputs/ensemble/event_segmentation/{safe_model_name}_entropy.csv")
 
 
 # Example usage:

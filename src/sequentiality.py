@@ -178,7 +178,7 @@ class SequentialityModel:
         # Sum only over the tokens corresponding to the query (not the rest of the sequence)
         return sum(p for _, p in tokens_and_logprobs[start_idx:start_idx+len(query_token_ids)])
 
-    def _calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False) -> float:
+    def _calculate_contextual_sequentiality(self, sentence : str, sentence_tokens : list[str], i : int,  h : int, verbose : bool = False, compute_entropy=False) -> float:
         """
         Calculate the contextually dependent sequentiality of a sentence.
 
@@ -190,23 +190,27 @@ class SequentialityModel:
         :return: contextual sequentiality value - Log(P(sentence | previous h sentences ^ topic))
         :rtype: float
         """
-        raw_sequentiality = 0
         if i - h < 0:
             context = " ".join(self.sentences[:i])
-
         else:
             context = " ".join(self.sentences[i - h:i])
 
-        if len(context) == 0:  # beginning of the text - prevents random period at the front of the text
+        if len(context) == 0:
             input_text = sentence
         else:
             input_text = context + " " + sentence
 
         tokens_and_logprobs = self._to_tokens_and_logprobs(input_text)[0]
-        
-        return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
+        logprob = self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-    def _calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False) -> float:
+        if not compute_entropy:
+            return logprob
+
+        token_entropies = self._to_entropy(input_text)[0]
+        entropy = self._process_entropy(sentence_tokens, token_entropies)
+        return logprob, entropy
+
+    def _calculate_topic_sequentiality(self, sentence : str, sentence_tokens : list[str], verbose : bool = False, compute_entropy : bool = False) -> float:
         """
         Calculate the sequentiality of a sentence given only a topic
 
@@ -216,12 +220,20 @@ class SequentialityModel:
         :return: topic sequentiality value - Log(P(sentence | topic))
         :rtype: float
         """
-        # Tokenize the full text (which is context + sentence)
-        full_text = self.topic_string + sentence
-        tokens_and_logprobs = self._to_tokens_and_logprobs(full_text)[0]
-        return self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
+        # Pass only `sentence` — both _to_tokens_and_logprobs and _to_entropy
+        # prepend topic_string internally, so passing full_text here would
+        # double-prefix the topic and condition on the wrong sequence.
+        tokens_and_logprobs = self._to_tokens_and_logprobs(sentence)[0]
+        logprob = self._process_tokens_and_logprobs(sentence_tokens, tokens_and_logprobs)
 
-    def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False) -> list[float]:
+        if not compute_entropy:
+            return logprob
+
+        token_entropies = self._to_entropy(sentence)[0]
+        entropy = self._process_entropy(sentence_tokens, token_entropies)
+        return logprob, entropy
+
+    def _calculate_sentence_sequentiality(self, sentence : str, i: int, verbose : bool = False, compute_entropy : bool=False) -> list[float]:
         """
         Calculates the sequentiality of a given sentence by subtracting the context dependent sequentiality from
         the purely topic driven version.
@@ -234,7 +246,7 @@ class SequentialityModel:
         :rtype: list[float]
         """
         if len(sentence) == 0:  # artifact of new regex - shouldn't change anything
-            return 0, 0, 0
+            return (0, 0, 0, 0, 0) if compute_entropy else (0, 0, 0)
 
         # Existing tokenization logic
         context_ids = self.tokenizer.encode(self.topic_string, add_special_tokens=False)
@@ -243,17 +255,23 @@ class SequentialityModel:
         sentence_token_ids = full_ids[len(context_ids):]
         
         if len(sentence_token_ids) == 0:
-            return 0, 0, 0
+            return (0, 0, 0, 0, 0) if compute_entropy else (0, 0, 0)
 
         # log probs
-        topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
-        contextual_sequentiality = self._calculate_contextual_sequentiality(
-            sentence=sentence,
-            sentence_tokens=sentence_token_ids,
-            i=i,
-            h=self.recall_length,
-            verbose=verbose
-        )
+        if compute_entropy:
+            topic_sequentiality, topic_entropy = self._calculate_topic_sequentiality(
+                sentence, sentence_token_ids, compute_entropy=True)
+            contextual_sequentiality, context_entropy = self._calculate_contextual_sequentiality(
+                sentence=sentence, sentence_tokens=sentence_token_ids,
+                i=i, h=self.recall_length, verbose=verbose, compute_entropy=True)
+        else:
+            topic_sequentiality = self._calculate_topic_sequentiality(sentence, sentence_token_ids)
+            contextual_sequentiality = self._calculate_contextual_sequentiality(
+                sentence=sentence, sentence_tokens=sentence_token_ids,
+                i=i, h=self.recall_length, verbose=verbose)
+
+        # Normalize by the number of tokens
+        total = (topic_sequentiality - contextual_sequentiality) / -len(sentence_token_ids)
 
         if verbose:
             print(f"topic sequentiality: {topic_sequentiality}")
@@ -265,9 +283,10 @@ class SequentialityModel:
             for token_id in sentence_token_ids:
                 print(f"Token: {self.tokenizer.decode([token_id])!r} | ID: {token_id}")
             print(f"Sentence: {sentence}")
-        
-        # Normalize by the number of tokens
-        return [(topic_sequentiality - contextual_sequentiality) / -len(sentence_token_ids), contextual_sequentiality, topic_sequentiality]
+
+        if compute_entropy:
+            return total, contextual_sequentiality, topic_sequentiality, context_entropy, topic_entropy
+        return total, contextual_sequentiality, topic_sequentiality
     
     def load_tokens_to_cache(self, tokenized_data_path):
         """
@@ -334,6 +353,58 @@ class SequentialityModel:
         self.token_cache[sentence] = sentence_token_ids
         return sentence_token_ids
 
+    def _to_entropy(self, text: str) -> list[list[float]]:
+        """
+        Computes per-token entropy of the next-token distribution.
+        Mirrors _to_tokens_and_logprobs's tokenization/alignment exactly,
+        but returns entropy instead of the realized token's logprob.
+        """
+        input_text = self.topic_string + text
+        max_len = getattr(self.model.config, "max_position_embeddings", None)
+        input_ids = self.tokenizer(input_text, padding=True, truncation=max_len is not None,
+                                max_length=max_len, return_tensors="pt").input_ids.to(mps_device)
+
+        with torch.inference_mode():
+            outputs = self.model(input_ids)
+
+        log_probs = torch.log_softmax(outputs.logits, dim=-1).detach()
+        probs = log_probs.exp()
+        entropy = -(probs * log_probs).sum(dim=-1)  # [batch, seq_len]
+
+        # align the same way _to_tokens_and_logprobs does: drop last position,
+        # drop first input_id (predicting token i+1 from position i)
+        entropy = entropy[:, :-1]
+        input_ids_shifted = input_ids[:, 1:]
+
+        batch = []
+        special_ids = set(self.tokenizer.all_special_ids)
+        for input_sentence, sent_entropy in zip(input_ids_shifted, entropy):
+            token_entropies = []
+            for token, h in zip(input_sentence, sent_entropy):
+                if token.item() not in special_ids:
+                    token_entropies.append((token.item(), h.item()))
+            batch.append(token_entropies)
+
+        del outputs, log_probs, probs, entropy, input_ids_shifted
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        elif torch.backends.mps.is_available():
+            torch.mps.empty_cache()
+
+        return batch
+
+    def _process_entropy(self, query_token_ids: list[int], token_entropies: list[tuple[int, float]]) -> float:
+        """
+        Mean per-token entropy over the span corresponding to query_token_ids.
+        Mirrors _process_tokens_and_logprobs but averages instead of summing,
+        since entropy at each position is a separate distribution, not additive.
+        """
+        start_idx = SequentialityModel._find_subsequence(query_token_ids, token_entropies)
+        if start_idx == -1:
+            return 0.0
+        span = token_entropies[start_idx:start_idx + len(query_token_ids)]
+        return float(np.mean([h for _, h in span]))
+
     @staticmethod
     def split_sentences(text):
         # Step 1: Protect abbreviation dots
@@ -349,7 +420,7 @@ class SequentialityModel:
         # Step 3: Restore protected dots and return sentences
         return [s.replace(PROTECT, '.').strip() for s in marked.split(SPLIT) if s.strip()]
 
-    def calculate_text_sequentiality(self, text : str, topic : str = None, verbose : bool = False) -> list[float | list]:
+    def calculate_text_sequentiality(self, text : str, topic : str = None, verbose : bool = False, calculate_entropy: bool=False) -> list[float | list]:
         """
         Function that calculates the total sequentiality of a text
 
@@ -373,15 +444,37 @@ class SequentialityModel:
         contextual_sequentialities = []
         topic_sequentialities = []
 
+        context_entropies = []
+        topic_entropies   = []
+
         for i, sentence in enumerate(self.sentences):
             if sentence == "": continue
 
-            total, contextual, topic = self._calculate_sentence_sequentiality(sentence, i)
+            if calculate_entropy:
+                total, contextual, topic_seq, ctx_ent, top_ent = \
+                    self._calculate_sentence_sequentiality(sentence, i, compute_entropy=True)
+                context_entropies.append(ctx_ent)
+                topic_entropies.append(top_ent)
+            else:
+                total, contextual, topic_seq = \
+                    self._calculate_sentence_sequentiality(sentence, i, compute_entropy=False)
+
             total_sequentialities.append(total)
             contextual_sequentialities.append(contextual)
-            topic_sequentialities.append(topic)
+            topic_sequentialities.append(topic_seq)
 
-        return [np.mean(total_sequentialities), total_sequentialities, contextual_sequentialities, topic_sequentialities, topic]
+        result = [
+            np.mean(total_sequentialities),
+            total_sequentialities,
+            contextual_sequentialities,
+            topic_sequentialities,
+            topic,
+        ]
+
+        if calculate_entropy:
+            result += [context_entropies, topic_entropies]
+
+        return result
     
     def set_history_length(self, history_len:int):
         if history_len > 0:
@@ -389,7 +482,7 @@ class SequentialityModel:
 
 
 def calculate_sequentiality(model:str, history_lengths:list[int], text_input:list[str], topics:list[str]=[], n_shuffle:int=0,
-                            save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False) -> pd.DataFrame:
+                            save_path:str=None, default_topic:str="A short story", checkpoint_history_lengths:bool=False, calculate_entropy:bool=False) -> pd.DataFrame:
     """
     Function that calculates the sequentiality for a list of models and some input data.
 
@@ -414,22 +507,21 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
         print("not using default topic")
 
 
-    output = pd.DataFrame(columns=["scalar_text_sequentiality",
-                        "sentence_total_sequentialities",
-                        "sentence_contextual_sequentialities",
-                        "sentence_topic_sequentialities",
-                        "topic",
-                        "model_id",
-                        "history_length"])
+    base_columns = ["scalar_text_sequentiality",
+                    "sentence_total_sequentialities",
+                    "sentence_contextual_sequentialities",
+                    "sentence_topic_sequentialities",
+                    "topic",
+                    "model_id",
+                    "history_length"]
+
+    if calculate_entropy:
+        base_columns += ["context_entropies", "topic_entropies"]
+
+    output = pd.DataFrame(columns=base_columns)
 
     if n_shuffle > 0:
-        shuffled_output = pd.DataFrame(columns=["scalar_text_sequentiality",
-                                "sentence_total_sequentialities",
-                                "sentence_contextual_sequentialities",
-                                "sentence_topic_sequentialities",
-                                "topic",
-                                "model_id",
-                                "history_length"])
+        shuffled_output = pd.DataFrame(columns=base_columns)
     
     seq_model = None
     try:
@@ -450,7 +542,7 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
                 else:
                     topic = default_topic
 
-                seq = seq_model.calculate_text_sequentiality(data, topic=topic)
+                seq = seq_model.calculate_text_sequentiality(data, topic=topic, calculate_entropy=calculate_entropy)
                 new_row = [seq[0], seq[1], seq[2], seq[3], topic, model, history_length]
                 output.loc[len(output)] = new_row
 
