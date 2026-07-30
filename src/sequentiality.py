@@ -544,6 +544,8 @@ def calculate_sequentiality(model:str, history_lengths:list[int], text_input:lis
 
                 seq = seq_model.calculate_text_sequentiality(data, topic=topic, calculate_entropy=calculate_entropy)
                 new_row = [seq[0], seq[1], seq[2], seq[3], topic, model, history_length]
+                if calculate_entropy:
+                    new_row += [seq[5], seq[6]]  # context_entropies, topic_entropies
                 output.loc[len(output)] = new_row
 
 
