@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=test       ## Name of the job.
+#SBATCH --job-name=filmfest   ## Name of the job.
 #SBATCH -A bornstea_lab_gpu   ## CHANGE account to charge
 #SBATCH -p gpu                ## specify free-gpu partition
 #SBATCH --nodes=1             ## (-N) number of nodes to use
@@ -11,7 +11,7 @@
 #SBATCH --mail-type=end
 #SBATCH --mail-user=agoesche@uci.edu
 #SBATCH --gres=gpu:A100:1      # specify 1 GPU of type A30
-#SBATCH --array=0-4%1            # Array job for 5 models (indices 0-4)
+#SBATCH --array=0-1%1            # Array job for 2 models: 0 = OLMo, 1 = Llama
 
 export HF_HOME=/dfs6b/pub/agoesche/hf_cache
 export TRANSFORMERS_CACHE=/dfs6b/pub/agoesche/hf_cache
@@ -21,7 +21,7 @@ source ~/.bashrc
 
 conda activate semantic_analysis
 
-# SLURM_ARRAY_TASK_ID will be 0, 1, 2, 3, 4 (matching MODEL_IDS indices)
-python3 main.py $SLURM_ARRAY_TASK_ID
+# SLURM_ARRAY_TASK_ID will be 0, 1 (matching MODEL_IDS indices in run_filmfest.py)
+python3 run_filmfest.py $SLURM_ARRAY_TASK_ID
 
 exit
