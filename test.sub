@@ -5,7 +5,8 @@
 #SBATCH -p gpu                ## specify free-gpu partition
 #SBATCH --nodes=1             ## (-N) number of nodes to use
 #SBATCH --ntasks=1            ## (-n) number of tasks to launch
-#SBATCH --cpus-per-task=1     ## number of cores the job needs
+#SBATCH --cpus-per-task=8     ## number of cores the job needs
+#SBATCH --mem-per-cpu=8G      ## 64 GB RAM total; OLMo-13B needs ~26 GB just to load
 #SBATCH --error=slurm-%J.err  ## error log file
 #SBATCH --output=slurm-%J.out ## output log file
 #SBATCH --mail-type=end
