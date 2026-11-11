@@ -1,0 +1,2285 @@
+{
+  "condensed": [
+    {
+      "condensed_id": 0,
+      "text": "An announcer introduced the upcoming X Minus One program.",
+      "source_ids": [
+        0
+      ]
+    },
+    {
+      "condensed_id": 1,
+      "text": "The announcer promoted the next day's NBC Weekday broadcast hosted by Virginia Graham and Mike Wallace.",
+      "source_ids": [
+        1
+      ]
+    },
+    {
+      "condensed_id": 2,
+      "text": "The broadcast would feature guests Rita Gam, a Hollywood star and prospective bridesmaid for Grace Kelly, singer Johnnie Ray, and British actor Trevor Howard.",
+      "source_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "condensed_id": 3,
+      "text": "The announcer invited listeners to tune in for NBC Weekday and then to stay for X Minus One.",
+      "source_ids": [
+        5,
+        6
+      ]
+    },
+    {
+      "condensed_id": 4,
+      "text": "Electronic sounds accompanied a countdown for blastoff from X minus five to X minus one, then fire.",
+      "source_ids": [
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "condensed_id": 5,
+      "text": "A rocket ship blasted off after a moment of silence.",
+      "source_ids": [
+        11
+      ]
+    },
+    {
+      "condensed_id": 6,
+      "text": "The program introduced transcribed tales of new dimensions in time and space, describing stories of the future set in possible years and worlds.",
+      "source_ids": [
+        11,
+        12
+      ]
+    },
+    {
+      "condensed_id": 7,
+      "text": "The National Broadcasting Company and Galaxy Science Fiction Magazine presented X Minus One.",
+      "source_ids": [
+        13
+      ]
+    },
+    {
+      "condensed_id": 8,
+      "text": "The episode featured a story by Frederik Pohl called Tunnel Under the World.",
+      "source_ids": [
+        14
+      ]
+    },
+    {
+      "condensed_id": 9,
+      "text": "On the morning of June fifteenth, Guy Burckhardt woke up screaming.",
+      "source_ids": [
+        15
+      ]
+    },
+    {
+      "condensed_id": 10,
+      "text": "He had experienced a dream more real than any before, involving a sharp metal-ripping explosion and a searing wave of heat he could still hear and feel.",
+      "source_ids": [
+        16,
+        17
+      ]
+    },
+    {
+      "condensed_id": 11,
+      "text": "He sat up and called for Mary repeatedly, asking where she was.",
+      "source_ids": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "condensed_id": 12,
+      "text": "Mary approached with hurried footsteps and asked what was wrong, noting he was trembling.",
+      "source_ids": [
+        24,
+        25,
+        26
+      ]
+    },
+    {
+      "condensed_id": 13,
+      "text": "He asked where she had been, and she replied she had been in the kitchen cooking breakfast.",
+      "source_ids": [
+        27,
+        28
+      ]
+    },
+    {
+      "condensed_id": 14,
+      "text": "She asked what the matter was, and he said he did not know, guessing it was a dream involving an explosion.",
+      "source_ids": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "condensed_id": 15,
+      "text": "Mary revealed she had also dreamed of a big explosion followed by something hitting her on the head.",
+      "source_ids": [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "condensed_id": 16,
+      "text": "Burckhardt speculated that a real explosion might have triggered both their dreams.",
+      "source_ids": [
+        37,
+        38
+      ]
+    },
+    {
+      "condensed_id": 17,
+      "text": "Mary warned him there would be trouble at his office if he did not hurry to work.",
+      "source_ids": [
+        39
+      ]
+    },
+    {
+      "condensed_id": 18,
+      "text": "Burckhardt rode the bus to work and watched for evidence of an explosion but found none, observing the town looked better than ever.",
+      "source_ids": [
+        40,
+        41
+      ]
+    },
+    {
+      "condensed_id": 19,
+      "text": "He found it strange that none of the usual crowd was on the bus.",
+      "source_ids": [
+        42
+      ]
+    },
+    {
+      "condensed_id": 20,
+      "text": "He felt relieved when his old friend Henry Swanson boarded the bus.",
+      "source_ids": [
+        43
+      ]
+    },
+    {
+      "condensed_id": 21,
+      "text": "Burckhardt greeted Henry, but Henry did not recognize him and claimed they had never met.",
+      "source_ids": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    {
+      "condensed_id": 22,
+      "text": "Someone expressed confusion and identified himself to Henry, who then excused himself to exit at his stop.",
+      "source_ids": [
+        50,
+        51,
+        52
+      ]
+    },
+    {
+      "condensed_id": 23,
+      "text": "The other person expressed surprise at Henry's departure.",
+      "source_ids": [
+        53
+      ]
+    },
+    {
+      "condensed_id": 24,
+      "text": "Guy Burckhardt exited in front of the Contro Chemical building and took the elevator to the ninety-eighth floor where he had worked in the accounting department for twelve years.",
+      "source_ids": [
+        54
+      ]
+    },
+    {
+      "condensed_id": 25,
+      "text": "Guy realized near his floor that the elevator speaker was playing different commercials than usual.",
+      "source_ids": [
+        55
+      ]
+    },
+    {
+      "condensed_id": 26,
+      "text": "The elevator speaker advertised Feckle Freezers as the solution to home freezer dissatisfaction and claimed most wives would do anything for one.",
+      "source_ids": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    {
+      "condensed_id": 27,
+      "text": "The elevator door opened and Guy walked down the hall and greeted Miss Horn.",
+      "source_ids": [
+        62
+      ]
+    },
+    {
+      "condensed_id": 28,
+      "text": "Miss Horn returned the greeting.",
+      "source_ids": [
+        63
+      ]
+    },
+    {
+      "condensed_id": 29,
+      "text": "Guy noticed Miss Horn had a new hairdo and commented that it made a difference in her appearance.",
+      "source_ids": [
+        64,
+        65,
+        66,
+        67,
+        68
+      ]
+    },
+    {
+      "condensed_id": 30,
+      "text": "Guy asked if Mr. Barth was in.",
+      "source_ids": [
+        69
+      ]
+    },
+    {
+      "condensed_id": 31,
+      "text": "Miss Horn told Guy that Mr. Barth was not in because he had an appointment with Mr. Dorchin of the Human Research Institute.",
+      "source_ids": [
+        70,
+        71
+      ]
+    },
+    {
+      "condensed_id": 32,
+      "text": "Guy expressed surprise because it was the fifteenth of June and Mr. Barth needed to sign the quarterly statement.",
+      "source_ids": [
+        72,
+        73,
+        74
+      ]
+    },
+    {
+      "condensed_id": 33,
+      "text": "Miss Horn confirmed Mr. Barth said he would not be in, and Guy found this peculiar.",
+      "source_ids": [
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "condensed_id": 34,
+      "text": "Guy asked Miss Horn what a Feckle Freezer was.",
+      "source_ids": [
+        79
+      ]
+    },
+    {
+      "condensed_id": 35,
+      "text": "Miss Horn repeated the question, and Guy explained there was new copy on the elevator commercial and speculated that Dorchin must have landed another account.",
+      "source_ids": [
+        80,
+        81,
+        82,
+        83
+      ]
+    },
+    {
+      "condensed_id": 36,
+      "text": "Miss Horn said she did not know what a Feckle Freezer was.",
+      "source_ids": [
+        84
+      ]
+    },
+    {
+      "condensed_id": 37,
+      "text": "Guy remarked it was a funny day and felt something strange was going on but could not identify what.",
+      "source_ids": [
+        85,
+        86,
+        87
+      ]
+    },
+    {
+      "condensed_id": 38,
+      "text": "Guy could not shake the troubling thought from his mind throughout the day and through dinner.",
+      "source_ids": [
+        88,
+        89
+      ]
+    },
+    {
+      "condensed_id": 39,
+      "text": "Guy continued brooding as he and Mary prepared for bed.",
+      "source_ids": [
+        90
+      ]
+    },
+    {
+      "condensed_id": 40,
+      "text": "Mary asked Guy if he was tired and if anything was wrong.",
+      "source_ids": [
+        91,
+        92,
+        93,
+        94
+      ]
+    },
+    {
+      "condensed_id": 41,
+      "text": "Guy said he did not know if anything was wrong.",
+      "source_ids": [
+        95
+      ]
+    },
+    {
+      "condensed_id": 42,
+      "text": "Mary said she would get a good night's sleep and asked if Guy was coming to bed.",
+      "source_ids": [
+        96,
+        97
+      ]
+    },
+    {
+      "condensed_id": 43,
+      "text": "Guy said he would sit up and read for a while, and Mary said good night.",
+      "source_ids": [
+        98,
+        99
+      ]
+    },
+    {
+      "condensed_id": 44,
+      "text": "Someone said good night to Guy Burckhardt.",
+      "source_ids": [
+        100
+      ]
+    },
+    {
+      "condensed_id": 45,
+      "text": "At exactly midnight, Guy Burckhardt lapsed into a sudden deep sleep.",
+      "source_ids": [
+        101
+      ]
+    },
+    {
+      "condensed_id": 46,
+      "text": "The following morning, Guy Burckhardt woke up screaming.",
+      "source_ids": [
+        102,
+        103
+      ]
+    },
+    {
+      "condensed_id": 47,
+      "text": "Mary asked Guy what was wrong after hearing an explosion sound.",
+      "source_ids": [
+        104,
+        105
+      ]
+    },
+    {
+      "condensed_id": 48,
+      "text": "Guy told Mary it was nothing, probably a bad dream.",
+      "source_ids": [
+        106,
+        107,
+        108
+      ]
+    },
+    {
+      "condensed_id": 49,
+      "text": "Mary said Guy gave her a shock.",
+      "source_ids": [
+        109
+      ]
+    },
+    {
+      "condensed_id": 50,
+      "text": "Guy mentioned he had been having many nightmares lately.",
+      "source_ids": [
+        110,
+        111,
+        112
+      ]
+    },
+    {
+      "condensed_id": 51,
+      "text": "Guy described having the same dream yesterday involving a big explosion and then nothing.",
+      "source_ids": [
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "condensed_id": 52,
+      "text": "Mary questioned whether Guy had a dream yesterday.",
+      "source_ids": [
+        116
+      ]
+    },
+    {
+      "condensed_id": 53,
+      "text": "Guy insisted Mary had the same sort of dream.",
+      "source_ids": [
+        117,
+        118
+      ]
+    },
+    {
+      "condensed_id": 54,
+      "text": "Mary denied remembering any dream.",
+      "source_ids": [
+        119,
+        120,
+        121
+      ]
+    },
+    {
+      "condensed_id": 55,
+      "text": "Guy tried to remind Mary she told him about a dream, but Mary insisted he was mistaken and suggested he dreamed that she had a dream.",
+      "source_ids": [
+        122,
+        123
+      ]
+    },
+    {
+      "condensed_id": 56,
+      "text": "Guy admitted he might have dreamed it since everything seemed strange yesterday.",
+      "source_ids": [
+        124,
+        125,
+        126
+      ]
+    },
+    {
+      "condensed_id": 57,
+      "text": "Mary told Guy to get dressed because today was the fifteenth.",
+      "source_ids": [
+        127,
+        128
+      ]
+    },
+    {
+      "condensed_id": 58,
+      "text": "Guy reacted with surprise that the date was the fifteenth.",
+      "source_ids": [
+        129,
+        130
+      ]
+    },
+    {
+      "condensed_id": 59,
+      "text": "Guy concluded it must have been a dream because yesterday was also the fifteenth.",
+      "source_ids": [
+        131,
+        132
+      ]
+    },
+    {
+      "condensed_id": 60,
+      "text": "Guy Burckhardt got up, dressed, ate breakfast, and took the usual bus to work.",
+      "source_ids": [
+        133
+      ]
+    },
+    {
+      "condensed_id": 61,
+      "text": "Everything seemed brighter and newer than usual again.",
+      "source_ids": [
+        134
+      ]
+    },
+    {
+      "condensed_id": 62,
+      "text": "Guy noticed none of the old crowd was on the bus, which puzzled him again.",
+      "source_ids": [
+        135
+      ]
+    },
+    {
+      "condensed_id": 63,
+      "text": "Guy encountered Henry on the bus and greeted him.",
+      "source_ids": [
+        136,
+        137,
+        138
+      ]
+    },
+    {
+      "condensed_id": 64,
+      "text": "Henry urgently told Guy not to talk to him.",
+      "source_ids": [
+        139
+      ]
+    },
+    {
+      "condensed_id": 65,
+      "text": "Guy asked Henry what was wrong and whether someone was following him.",
+      "source_ids": [
+        140,
+        141
+      ]
+    },
+    {
+      "condensed_id": 66,
+      "text": "Henry asked Guy if he knew and said he was sure Guy remembered.",
+      "source_ids": [
+        142,
+        143
+      ]
+    },
+    {
+      "condensed_id": 67,
+      "text": "Guy asked Henry what he should remember.",
+      "source_ids": [
+        144
+      ]
+    },
+    {
+      "condensed_id": 68,
+      "text": "Henry said he could not talk, announced his stop, and excused himself to leave.",
+      "source_ids": [
+        145,
+        146,
+        147
+      ]
+    },
+    {
+      "condensed_id": 69,
+      "text": "Guy called after Henry in frustration.",
+      "source_ids": [
+        148
+      ]
+    },
+    {
+      "condensed_id": 70,
+      "text": "Guy Burckhardt got off at his stop and took the elevator to the ninety-eighth floor, as in yesterday's dream.",
+      "source_ids": [
+        149
+      ]
+    },
+    {
+      "condensed_id": 71,
+      "text": "The elevator speaker played a commercial for Marlin Cigarettes, claiming they were sanitized and contained a drug that created smooth smoke sensations.",
+      "source_ids": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155
+      ]
+    },
+    {
+      "condensed_id": 72,
+      "text": "Burckhardt exited the elevator and walked down the marble corridor to his office.",
+      "source_ids": [
+        156
+      ]
+    },
+    {
+      "condensed_id": 73,
+      "text": "Miss Horn greeted Burckhardt and asked if he liked her new hairdo.",
+      "source_ids": [
+        157,
+        158,
+        159
+      ]
+    },
+    {
+      "condensed_id": 74,
+      "text": "Burckhardt approved and asked if Mr. Barth was in.",
+      "source_ids": [
+        160,
+        161
+      ]
+    },
+    {
+      "condensed_id": 75,
+      "text": "Miss Horn told him Barth had an appointment with Mr. Dorchin at the Research Institute.",
+      "source_ids": [
+        162,
+        163,
+        164
+      ]
+    },
+    {
+      "condensed_id": 76,
+      "text": "Burckhardt said he had guessed this and noted that today was June fifteenth, meaning Barth would not be present to sign the quarterly statement.",
+      "source_ids": [
+        165,
+        166,
+        167,
+        168
+      ]
+    },
+    {
+      "condensed_id": 77,
+      "text": "Burckhardt expressed frustration and asked Miss Horn for a cigarette.",
+      "source_ids": [
+        169,
+        170
+      ]
+    },
+    {
+      "condensed_id": 78,
+      "text": "Miss Horn offered him Marlin cigarettes.",
+      "source_ids": [
+        171,
+        172,
+        173
+      ]
+    },
+    {
+      "condensed_id": 79,
+      "text": "Burckhardt remarked he had never heard of Marlins before today and questioned whether they were guinea pigs for Dorchin's new advertising accounts.",
+      "source_ids": [
+        174,
+        175
+      ]
+    },
+    {
+      "condensed_id": 80,
+      "text": "Miss Horn asked if something was wrong, and Burckhardt dismissively told her to forget it.",
+      "source_ids": [
+        176,
+        177,
+        178,
+        179
+      ]
+    },
+    {
+      "condensed_id": 81,
+      "text": "Burckhardt went to his desk and stared at the mail.",
+      "source_ids": [
+        180
+      ]
+    },
+    {
+      "condensed_id": 82,
+      "text": "He already knew the Factory Distributors envelope contained an order for twelve new electronic computers.",
+      "source_ids": [
+        181
+      ]
+    },
+    {
+      "condensed_id": 83,
+      "text": "He knew the Development Journal contained an article about transprinting human engineer brain circuits onto robot engineer circuits for automatic factory operation.",
+      "source_ids": [
+        182
+      ]
+    },
+    {
+      "condensed_id": 84,
+      "text": "He knew Finebeck & Sons had sent a complaint about Contro Chemicals' newest household robot circuit.",
+      "source_ids": [
+        183
+      ]
+    },
+    {
+      "condensed_id": 85,
+      "text": "He forced himself to open the mail after a long while, and the contents matched his expectations exactly.",
+      "source_ids": [
+        184,
+        185
+      ]
+    },
+    {
+      "condensed_id": 86,
+      "text": "The phone rang and Burckhardt answered.",
+      "source_ids": [
+        186
+      ]
+    },
+    {
+      "condensed_id": 87,
+      "text": "Henry Swanson identified himself and asked if Burckhardt remembered.",
+      "source_ids": [
+        187,
+        188,
+        189,
+        190
+      ]
+    },
+    {
+      "condensed_id": 88,
+      "text": "Burckhardt asked what he should remember, and Swanson urged him to just remember.",
+      "source_ids": [
+        191,
+        192
+      ]
+    },
+    {
+      "condensed_id": 89,
+      "text": "Burckhardt told Swanson to stop playing games and stated that either yesterday was a dream or Swanson had snubbed him on the bus, and the same thing happened today.",
+      "source_ids": [
+        193,
+        194,
+        195
+      ]
+    },
+    {
+      "condensed_id": 90,
+      "text": "Swanson expressed relief that Burckhardt did remember, saying he had suspected this when he saw him but could not be certain.",
+      "source_ids": [
+        196,
+        197,
+        198
+      ]
+    },
+    {
+      "condensed_id": 91,
+      "text": "Burckhardt asked what Swanson wanted.",
+      "source_ids": [
+        199
+      ]
+    },
+    {
+      "condensed_id": 92,
+      "text": "Swanson instructed Burckhardt to get off the bus with him the next morning and act casual because someone might be watching.",
+      "source_ids": [
+        200,
+        201,
+        202,
+        203
+      ]
+    },
+    {
+      "condensed_id": 93,
+      "text": "Burckhardt asked who might be watching, but the phone line disconnected.",
+      "source_ids": [
+        204,
+        205
+      ]
+    },
+    {
+      "condensed_id": 94,
+      "text": "Burckhardt rattled the phone cradle and called out but received no response.",
+      "source_ids": [
+        206
+      ]
+    },
+    {
+      "condensed_id": 95,
+      "text": "Miss Horn entered Burckhardt's office after he buzzed for her.",
+      "source_ids": [
+        207
+      ]
+    },
+    {
+      "condensed_id": 96,
+      "text": "Burckhardt asked Miss Horn to buy him a pack of Kelvins cigarettes because he was out.",
+      "source_ids": [
+        208,
+        209
+      ]
+    },
+    {
+      "condensed_id": 97,
+      "text": "Miss Horn suggested Marlins instead, but Burckhardt stated he smoked Kelvins.",
+      "source_ids": [
+        210,
+        211
+      ]
+    },
+    {
+      "condensed_id": 98,
+      "text": "Miss Horn claimed Marlins had soft, creamy smoke that soothed the throat.",
+      "source_ids": [
+        212
+      ]
+    },
+    {
+      "condensed_id": 99,
+      "text": "Burckhardt questioned whether she believed that advertising, and Miss Horn insisted it was true.",
+      "source_ids": [
+        213,
+        214
+      ]
+    },
+    {
+      "condensed_id": 100,
+      "text": "Miss Horn told Burckhardt she had grown to admire him and wanted to comfort him because she knew he had been troubled.",
+      "source_ids": [
+        215,
+        216,
+        217,
+        218
+      ]
+    },
+    {
+      "condensed_id": 101,
+      "text": "Burckhardt noted she had never mentioned her feelings before, and she told him her first name was April.",
+      "source_ids": [
+        219,
+        220,
+        221
+      ]
+    },
+    {
+      "condensed_id": 102,
+      "text": "Burckhardt acknowledged this and said it was a pretty name.",
+      "source_ids": [
+        222,
+        223
+      ]
+    },
+    {
+      "condensed_id": 103,
+      "text": "Miss Horn explained she had his welfare at heart, which was why she wanted him to switch to Marlins.",
+      "source_ids": [
+        224,
+        225
+      ]
+    },
+    {
+      "condensed_id": 104,
+      "text": "Burckhardt agreed and asked her to bring him a carton.",
+      "source_ids": [
+        226,
+        227,
+        228
+      ]
+    },
+    {
+      "condensed_id": 105,
+      "text": "Miss Horn thanked him, and Burckhardt told her she ought to go.",
+      "source_ids": [
+        229,
+        230,
+        231,
+        232
+      ]
+    },
+    {
+      "condensed_id": 106,
+      "text": "Miss Horn said she would return.",
+      "source_ids": [
+        233
+      ]
+    },
+    {
+      "condensed_id": 107,
+      "text": "Burckhardt sensed something was wrong and peculiar about the events: Swanson's call, Miss Horn's strange behavior, the new products, and the dream.",
+      "source_ids": [
+        234,
+        235,
+        236
+      ]
+    },
+    {
+      "condensed_id": 108,
+      "text": "Guy Burckhardt went home that night feeling like a man in a nightmare.",
+      "source_ids": [
+        237
+      ]
+    },
+    {
+      "condensed_id": 109,
+      "text": "Burckhardt entered his home, and Mary asked if he had a good day.",
+      "source_ids": [
+        238,
+        239,
+        240
+      ]
+    },
+    {
+      "condensed_id": 110,
+      "text": "Burckhardt replied it was fair.",
+      "source_ids": [
+        241
+      ]
+    },
+    {
+      "condensed_id": 111,
+      "text": "Mary asked him to replace a blown fuse in the cellar before sitting down, explaining the hall closet switch had blown and she had shut it off.",
+      "source_ids": [
+        242,
+        243,
+        244
+      ]
+    },
+    {
+      "condensed_id": 112,
+      "text": "Burckhardt agreed.",
+      "source_ids": [
+        245
+      ]
+    },
+    {
+      "condensed_id": 113,
+      "text": "Mary told him supper would be ready soon and asked him not to start working on his boat hull project.",
+      "source_ids": [
+        246
+      ]
+    },
+    {
+      "condensed_id": 114,
+      "text": "Burckhardt said he would not, then went down to the cellar.",
+      "source_ids": [
+        247
+      ]
+    },
+    {
+      "condensed_id": 115,
+      "text": "Burckhardt called out to Mary from the cellar, and she opened the cellar door asking what he wanted.",
+      "source_ids": [
+        248,
+        249
+      ]
+    },
+    {
+      "condensed_id": 116,
+      "text": "Someone called for Mary to come down to the cellar quickly.",
+      "source_ids": [
+        250,
+        251
+      ]
+    },
+    {
+      "condensed_id": 117,
+      "text": "Mary hurried down the cellar stairs and asked what was happening.",
+      "source_ids": [
+        252
+      ]
+    },
+    {
+      "condensed_id": 118,
+      "text": "Guy said he was unsure but had been searching for a fuse under the boat hull and scratched around.",
+      "source_ids": [
+        253,
+        254,
+        255
+      ]
+    },
+    {
+      "condensed_id": 119,
+      "text": "Guy told Mary to look and shone a flashlight on the floor.",
+      "source_ids": [
+        256,
+        257
+      ]
+    },
+    {
+      "condensed_id": 120,
+      "text": "Mary asked what about the floor.",
+      "source_ids": [
+        258,
+        259,
+        260
+      ]
+    },
+    {
+      "condensed_id": 121,
+      "text": "Guy explained the floor was supposed to be cement but was actually copper with only a thin cement layer over metal.",
+      "source_ids": [
+        261,
+        262,
+        263,
+        264
+      ]
+    },
+    {
+      "condensed_id": 122,
+      "text": "Guy scraped cement with a tool and showed more metal underneath the concrete.",
+      "source_ids": [
+        265,
+        266
+      ]
+    },
+    {
+      "condensed_id": 123,
+      "text": "Guy chipped away at the wall and revealed metal there as well.",
+      "source_ids": [
+        267,
+        268,
+        269
+      ]
+    },
+    {
+      "condensed_id": 124,
+      "text": "Guy declared metal existed under the floor and behind the walls everywhere.",
+      "source_ids": [
+        270
+      ]
+    },
+    {
+      "condensed_id": 125,
+      "text": "Mary said she did not understand.",
+      "source_ids": [
+        271
+      ]
+    },
+    {
+      "condensed_id": 126,
+      "text": "Guy told Mary that someone had replaced their house with a clever imitation for unknown reasons.",
+      "source_ids": [
+        272
+      ]
+    },
+    {
+      "condensed_id": 127,
+      "text": "Mary exclaimed Guy's name.",
+      "source_ids": [
+        273
+      ]
+    },
+    {
+      "condensed_id": 128,
+      "text": "Guy said he would look around more.",
+      "source_ids": [
+        274
+      ]
+    },
+    {
+      "condensed_id": 129,
+      "text": "Mary mentioned dinner would be ready and Guy told her to save it because he had things to figure out.",
+      "source_ids": [
+        275,
+        276
+      ]
+    },
+    {
+      "condensed_id": 130,
+      "text": "The following morning Guy Burckhardt woke up screaming.",
+      "source_ids": [
+        277
+      ]
+    },
+    {
+      "condensed_id": 131,
+      "text": "Guy dragged himself into the kitchen where Mary was preparing breakfast and discovered it was still June fifteenth.",
+      "source_ids": [
+        278
+      ]
+    },
+    {
+      "condensed_id": 132,
+      "text": "Guy entered the kitchen and asked Mary where the morning paper was.",
+      "source_ids": [
+        279,
+        280,
+        281
+      ]
+    },
+    {
+      "condensed_id": 133,
+      "text": "Mary said it was outside the door.",
+      "source_ids": [
+        282
+      ]
+    },
+    {
+      "condensed_id": 134,
+      "text": "Guy hurried to the door and retrieved the newspaper which confirmed the date was June fifteenth.",
+      "source_ids": [
+        283,
+        284
+      ]
+    },
+    {
+      "condensed_id": 135,
+      "text": "Mary told Guy to hurry because Mr. Barth would fill out the quarterly tax return that day.",
+      "source_ids": [
+        285,
+        286
+      ]
+    },
+    {
+      "condensed_id": 136,
+      "text": "Guy said Barth would not be there because he would attend a meeting with Dorchin at the Human Research Institute.",
+      "source_ids": [
+        287,
+        288,
+        289
+      ]
+    },
+    {
+      "condensed_id": 137,
+      "text": "Mary mentioned Mr. Dorchin and said he would be there.",
+      "source_ids": [
+        290,
+        291
+      ]
+    },
+    {
+      "condensed_id": 138,
+      "text": "Guy predicted Miss Horn would have a new hairdo and the elevator would sell a new product and wondered about Swanson.",
+      "source_ids": [
+        292
+      ]
+    },
+    {
+      "condensed_id": 139,
+      "text": "Guy wondered if things would be the same that day and Mary asked what he was talking about.",
+      "source_ids": [
+        293
+      ]
+    },
+    {
+      "condensed_id": 140,
+      "text": "Guy dismissed the topic and asked for his coat.",
+      "source_ids": [
+        294,
+        295,
+        296
+      ]
+    },
+    {
+      "condensed_id": 141,
+      "text": "Mary noted Guy had not eaten breakfast.",
+      "source_ids": [
+        297
+      ]
+    },
+    {
+      "condensed_id": 142,
+      "text": "Guy said he did not want to miss his bus and would see Mary that night.",
+      "source_ids": [
+        298,
+        299
+      ]
+    },
+    {
+      "condensed_id": 143,
+      "text": "Guy Burckhardt boarded his bus and observed the same unfamiliar faces, unusually new buildings, and bright sunshine.",
+      "source_ids": [
+        300,
+        301
+      ]
+    },
+    {
+      "condensed_id": 144,
+      "text": "Henry Swanson, looking pale and furtive, climbed aboard at the customary corner.",
+      "source_ids": [
+        302
+      ]
+    },
+    {
+      "condensed_id": 145,
+      "text": "Swanson approached Burckhardt and asked if he remembered the phone call.",
+      "source_ids": [
+        303,
+        304,
+        305
+      ]
+    },
+    {
+      "condensed_id": 146,
+      "text": "Burckhardt confirmed he remembered, and Swanson expressed relief.",
+      "source_ids": [
+        306,
+        307
+      ]
+    },
+    {
+      "condensed_id": 147,
+      "text": "Swanson instructed Burckhardt to exit at the next corner and follow him to an excavation site about a block away, warning him to ensure no one followed.",
+      "source_ids": [
+        308,
+        309,
+        310,
+        311,
+        312
+      ]
+    },
+    {
+      "condensed_id": 148,
+      "text": "Burckhardt walked down the sidewalk and Swanson called him from behind a fence.",
+      "source_ids": [
+        313,
+        314
+      ]
+    },
+    {
+      "condensed_id": 149,
+      "text": "Burckhardt joined Swanson and asked what was happening.",
+      "source_ids": [
+        315,
+        316
+      ]
+    },
+    {
+      "condensed_id": 150,
+      "text": "Swanson paused to verify Burckhardt had not been followed.",
+      "source_ids": [
+        317,
+        318
+      ]
+    },
+    {
+      "condensed_id": 151,
+      "text": "Burckhardt asked who might follow them, and Swanson said he was unsure of their identity.",
+      "source_ids": [
+        319,
+        320,
+        321
+      ]
+    },
+    {
+      "condensed_id": 152,
+      "text": "Swanson explained he initially suspected Russians but now believed they might be Martians, reasoning no humans could accomplish what they had done.",
+      "source_ids": [
+        322,
+        323,
+        324
+      ]
+    },
+    {
+      "condensed_id": 153,
+      "text": "Burckhardt asked Swanson to explain from the beginning.",
+      "source_ids": [
+        325,
+        326,
+        327
+      ]
+    },
+    {
+      "condensed_id": 154,
+      "text": "Swanson asked Burckhardt to confirm that peculiar things had happened to him, including missing friends and changes to his house.",
+      "source_ids": [
+        328,
+        329,
+        330,
+        331
+      ]
+    },
+    {
+      "condensed_id": 155,
+      "text": "Swanson revealed something stranger about the date, stating that today was June fifteenth, yet it felt like yesterday and the day before were also June fifteenth.",
+      "source_ids": [
+        332,
+        333,
+        334,
+        335
+      ]
+    },
+    {
+      "condensed_id": 156,
+      "text": "Swanson confirmed the date was always June fifteenth and claimed only he and Burckhardt knew this fact.",
+      "source_ids": [
+        336,
+        337,
+        338
+      ]
+    },
+    {
+      "condensed_id": 157,
+      "text": "Burckhardt asked why and how this was happening.",
+      "source_ids": [
+        339,
+        340
+      ]
+    },
+    {
+      "condensed_id": 158,
+      "text": "Swanson speculated it involved some form of mass hypnosis.",
+      "source_ids": [
+        341,
+        342
+      ]
+    },
+    {
+      "condensed_id": 159,
+      "text": "Burckhardt questioned why the hypnosis did not affect them and noted his wife Mary remembered nothing.",
+      "source_ids": [
+        343,
+        344
+      ]
+    },
+    {
+      "condensed_id": 160,
+      "text": "Swanson theorized that they had somehow been missed during the event and were protected from the full force of the rays or whatever method was used.",
+      "source_ids": [
+        345,
+        346
+      ]
+    },
+    {
+      "condensed_id": 161,
+      "text": "Swanson asked Burckhardt where he was on the night of the fourteenth around midnight.",
+      "source_ids": [
+        347
+      ]
+    },
+    {
+      "condensed_id": 162,
+      "text": "Burckhardt recalled that night was Sunday and confirmed it.",
+      "source_ids": [
+        348,
+        349
+      ]
+    },
+    {
+      "condensed_id": 163,
+      "text": "One person stated they had been in the cellar under the boat they were building.",
+      "source_ids": [
+        350
+      ]
+    },
+    {
+      "condensed_id": 164,
+      "text": "Another person stated they had been in their darkroom developing pictures.",
+      "source_ids": [
+        351
+      ]
+    },
+    {
+      "condensed_id": 165,
+      "text": "Someone expressed confusion and asked what made others think Russians or Martians were involved.",
+      "source_ids": [
+        352,
+        353
+      ]
+    },
+    {
+      "condensed_id": 166,
+      "text": "A speaker claimed to have seen them at the end of a tunnel built under Tyler Town.",
+      "source_ids": [
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360
+      ]
+    },
+    {
+      "condensed_id": 167,
+      "text": "The speaker described the tunnel as made of copper or some alloy.",
+      "source_ids": [
+        361,
+        362
+      ]
+    },
+    {
+      "condensed_id": 168,
+      "text": "One person mentioned finding a copper layer under their cellar floor the previous night.",
+      "source_ids": [
+        363,
+        364
+      ]
+    },
+    {
+      "condensed_id": 169,
+      "text": "Another person confirmed they had also found a copper layer and discovered an entrance at the bottom of an excavation.",
+      "source_ids": [
+        365,
+        366,
+        367
+      ]
+    },
+    {
+      "condensed_id": 170,
+      "text": "Someone reacted with surprise.",
+      "source_ids": [
+        368
+      ]
+    },
+    {
+      "condensed_id": 171,
+      "text": "Henry explained they could not tell the police because even the police might be Martians in disguise.",
+      "source_ids": [
+        369,
+        370,
+        371
+      ]
+    },
+    {
+      "condensed_id": 172,
+      "text": "Someone dismissed this as melodramatic.",
+      "source_ids": [
+        372,
+        373
+      ]
+    },
+    {
+      "condensed_id": 173,
+      "text": "Henry challenged this skepticism and invited the person to come with him into the tunnel to see proof.",
+      "source_ids": [
+        374,
+        375,
+        376,
+        377,
+        378
+      ]
+    },
+    {
+      "condensed_id": 174,
+      "text": "Henry Swanson led Guy Burckhardt to a small hole in the side of the excavation.",
+      "source_ids": [
+        379
+      ]
+    },
+    {
+      "condensed_id": 175,
+      "text": "Henry removed a cutout piece of metallic substance and they crawled into a dimly-lit tunnel.",
+      "source_ids": [
+        380
+      ]
+    },
+    {
+      "condensed_id": 176,
+      "text": "They walked approximately two miles until Swanson signaled for silence.",
+      "source_ids": [
+        381,
+        382
+      ]
+    },
+    {
+      "condensed_id": 177,
+      "text": "Burckhardt expressed amazement that a tunnel ran under the entire town.",
+      "source_ids": [
+        383,
+        384
+      ]
+    },
+    {
+      "condensed_id": 178,
+      "text": "Swanson told him there was more to see and mentioned a room farther ahead with a glass door to look through.",
+      "source_ids": [
+        385,
+        386,
+        387
+      ]
+    },
+    {
+      "condensed_id": 179,
+      "text": "Burckhardt asked if the approach was safe and Swanson confirmed it was safe unless one of them came along.",
+      "source_ids": [
+        388,
+        389,
+        390
+      ]
+    },
+    {
+      "condensed_id": 180,
+      "text": "They proceeded forward.",
+      "source_ids": [
+        391,
+        392
+      ]
+    },
+    {
+      "condensed_id": 181,
+      "text": "They walked to a door and Swanson instructed Burckhardt to look through the glass to confirm what he saw.",
+      "source_ids": [
+        393,
+        394,
+        395
+      ]
+    },
+    {
+      "condensed_id": 182,
+      "text": "Burckhardt reacted with shock.",
+      "source_ids": [
+        396,
+        397
+      ]
+    },
+    {
+      "condensed_id": 183,
+      "text": "Burckhardt observed a tremendous panel with dozens of telescreens and a servorobot positioned in front of each screen.",
+      "source_ids": [
+        398,
+        399
+      ]
+    },
+    {
+      "condensed_id": 184,
+      "text": "The robots appear to be computing and evaluating data from the screens.",
+      "source_ids": [
+        400,
+        401,
+        402
+      ]
+    },
+    {
+      "condensed_id": 185,
+      "text": "One speaker questioned this evaluation capability.",
+      "source_ids": [
+        403,
+        404
+      ]
+    },
+    {
+      "condensed_id": 186,
+      "text": "Someone explained that each robot contains part of a human mind.",
+      "source_ids": [
+        405,
+        406
+      ]
+    },
+    {
+      "condensed_id": 187,
+      "text": "Someone stated that transferring evaluating circuits from human brains to robots violates the law, and whoever conducts this experiment operates far outside legal boundaries.",
+      "source_ids": [
+        407,
+        408
+      ]
+    },
+    {
+      "condensed_id": 188,
+      "text": "Burckhardt admitted he had not examined the screen data because he feared triggering a warning circuit.",
+      "source_ids": [
+        409,
+        410,
+        411
+      ]
+    },
+    {
+      "condensed_id": 189,
+      "text": "Someone suggested that knowing what the robots were working on would allow them to contact the authorities.",
+      "source_ids": [
+        412
+      ]
+    },
+    {
+      "condensed_id": 190,
+      "text": "Both agreed to risk investigating the data together.",
+      "source_ids": [
+        413,
+        414,
+        415,
+        416,
+        417
+      ]
+    },
+    {
+      "condensed_id": 191,
+      "text": "Someone told the other to open the door.",
+      "source_ids": [
+        418
+      ]
+    },
+    {
+      "condensed_id": 192,
+      "text": "The metal door opened and electronic sounds filled the background.",
+      "source_ids": [
+        419
+      ]
+    },
+    {
+      "condensed_id": 193,
+      "text": "Someone confirmed initial safety and urged the other to examine the data without disturbing the robots.",
+      "source_ids": [
+        420,
+        421,
+        422,
+        423
+      ]
+    },
+    {
+      "condensed_id": 194,
+      "text": "They approached a screen to examine it.",
+      "source_ids": [
+        424,
+        425
+      ]
+    },
+    {
+      "condensed_id": 195,
+      "text": "The screen displayed test results showing Marlin Cigarettes achieved eighty percent effectiveness using the Soft Feminine Approach in the 47K12 group, with projections indicating seventy percent nationwide influence.",
+      "source_ids": [
+        426,
+        427
+      ]
+    },
+    {
+      "condensed_id": 196,
+      "text": "The Direct Elevator Pitch achieved only ten percent and should be abandoned in favor of new High-Persuasion Personal Elements.",
+      "source_ids": [
+        428,
+        429
+      ]
+    },
+    {
+      "condensed_id": 197,
+      "text": "One person asked Henry if he understood the meaning of this data.",
+      "source_ids": [
+        430
+      ]
+    },
+    {
+      "condensed_id": 198,
+      "text": "Henry admitted he had no idea what it meant.",
+      "source_ids": [
+        431
+      ]
+    },
+    {
+      "condensed_id": 199,
+      "text": "The other acknowledged Henry's confusion and noted the information seemed crazy but fit the facts.",
+      "source_ids": [
+        432,
+        433
+      ]
+    },
+    {
+      "condensed_id": 200,
+      "text": "Someone asked if Henry knew who was behind this and suggested Martians.",
+      "source_ids": [
+        434,
+        435
+      ]
+    },
+    {
+      "condensed_id": 201,
+      "text": "The speaker rejected the Martian theory and identified humans as the responsible party.",
+      "source_ids": [
+        436,
+        437,
+        438
+      ]
+    },
+    {
+      "condensed_id": 202,
+      "text": "These humans aimed to develop the perfect propaganda machine.",
+      "source_ids": [
+        439,
+        440
+      ]
+    },
+    {
+      "condensed_id": 203,
+      "text": "The speaker did not know the identity of these people or their methods but believed they had taken control of Tyler Town through hypnosis, drugs, or some kind of ray.",
+      "source_ids": [
+        441,
+        442,
+        443
+      ]
+    },
+    {
+      "condensed_id": 204,
+      "text": "The perpetrators allow residents to live through a single day while exposing them to suggestions and propaganda.",
+      "source_ids": [
+        444,
+        445
+      ]
+    },
+    {
+      "condensed_id": 205,
+      "text": "At day's end, the perpetrators evaluate how residents reacted to the stimuli.",
+      "source_ids": [
+        446
+      ]
+    },
+    {
+      "condensed_id": 206,
+      "text": "At midnight, they erase memories of the day, and residents restart the same day with different stimuli each morning.",
+      "source_ids": [
+        447
+      ]
+    },
+    {
+      "condensed_id": 207,
+      "text": "Henry expressed disbelief at this explanation.",
+      "source_ids": [
+        448,
+        449
+      ]
+    },
+    {
+      "condensed_id": 208,
+      "text": "The speaker acknowledged the idea sounded ridiculous but urged the listener to consider that someone could run a perfect test on an entire community.",
+      "source_ids": [
+        450,
+        451,
+        452
+      ]
+    },
+    {
+      "condensed_id": 209,
+      "text": "The speaker explained that if one man learned to influence people completely, he could sell anything from freezers to political candidates within a year.",
+      "source_ids": [
+        453,
+        454
+      ]
+    },
+    {
+      "condensed_id": 210,
+      "text": "The speaker realized they were guinea pigs and declared that the whole community served as a test tube for Dorchin's propaganda research.",
+      "source_ids": [
+        455,
+        456
+      ]
+    },
+    {
+      "condensed_id": 211,
+      "text": "Burckhardt admitted he did not know what to do but stated they needed to escape the town and contact the FBI.",
+      "source_ids": [
+        457,
+        458,
+        459
+      ]
+    },
+    {
+      "condensed_id": 212,
+      "text": "Henry asked if they could succeed, and Burckhardt said it was worth trying and urged them to go.",
+      "source_ids": [
+        460,
+        461,
+        462
+      ]
+    },
+    {
+      "condensed_id": 213,
+      "text": "Henry told Burckhardt to wait and directed him to look through the door because someone was coming down the tunnel.",
+      "source_ids": [
+        463,
+        464,
+        465,
+        466,
+        467
+      ]
+    },
+    {
+      "condensed_id": 214,
+      "text": "They decided to hide behind a circuit box and remained silent.",
+      "source_ids": [
+        468,
+        469,
+        470
+      ]
+    },
+    {
+      "condensed_id": 215,
+      "text": "A metal door opened and Dorchin, the head of the Research Institute, entered the room.",
+      "source_ids": [
+        471
+      ]
+    },
+    {
+      "condensed_id": 216,
+      "text": "Burckhardt told Henry to be quiet as Dorchin's footsteps approached and stopped.",
+      "source_ids": [
+        472,
+        473
+      ]
+    },
+    {
+      "condensed_id": 217,
+      "text": "Dorchin ordered Burckhardt to come out, stating they knew he was in the room because Miss Horn had informed them that Burckhardt remembered.",
+      "source_ids": [
+        474,
+        475,
+        476
+      ]
+    },
+    {
+      "condensed_id": 218,
+      "text": "Dorchin warned that resistance was useless and asked Burckhardt to come out peacefully so the maintenance crew could adjust him to prevent memory retention between experiments, assuring him it would be painless.",
+      "source_ids": [
+        477,
+        478,
+        479,
+        480
+      ]
+    },
+    {
+      "condensed_id": 219,
+      "text": "Dorchin threatened to come after them if they did not emerge peacefully.",
+      "source_ids": [
+        481
+      ]
+    },
+    {
+      "condensed_id": 220,
+      "text": "Burckhardt gave Henry a wrench and instructed him to jump Dorchin on his signal.",
+      "source_ids": [
+        482,
+        483
+      ]
+    },
+    {
+      "condensed_id": 221,
+      "text": "Henry warned that Dorchin might be armed, but Burckhardt replied they had nothing to lose.",
+      "source_ids": [
+        484,
+        485
+      ]
+    },
+    {
+      "condensed_id": 222,
+      "text": "Dorchin announced he was coming after them and his footsteps approached.",
+      "source_ids": [
+        486,
+        487,
+        488
+      ]
+    },
+    {
+      "condensed_id": 223,
+      "text": "A scuffle occurred and Henry struck Dorchin on the head with the wrench, causing Dorchin's body to crash to the floor.",
+      "source_ids": [
+        489,
+        490
+      ]
+    },
+    {
+      "condensed_id": 224,
+      "text": "Henry believed he had killed Dorchin, but Burckhardt told him to wait and unbutton Dorchin's coat to check if his heart was still beating.",
+      "source_ids": [
+        490,
+        491,
+        492,
+        493
+      ]
+    },
+    {
+      "condensed_id": 225,
+      "text": "They opened the coat and heard electric sparks buzzing inside.",
+      "source_ids": [
+        494
+      ]
+    },
+    {
+      "condensed_id": 226,
+      "text": "Henry asked what was wrong, and Burckhardt told him to look underneath the coat.",
+      "source_ids": [
+        495,
+        496,
+        497
+      ]
+    },
+    {
+      "condensed_id": 227,
+      "text": "They discovered that Dorchin was a robot.",
+      "source_ids": [
+        498,
+        499
+      ]
+    },
+    {
+      "condensed_id": 228,
+      "text": "A humanoid robot designed to resemble Dorchin stood there.",
+      "source_ids": [
+        500,
+        501
+      ]
+    },
+    {
+      "condensed_id": 229,
+      "text": "Someone urged the group to leave.",
+      "source_ids": [
+        502,
+        503
+      ]
+    },
+    {
+      "condensed_id": 230,
+      "text": "Someone told them to wait and asked about something.",
+      "source_ids": [
+        504,
+        505
+      ]
+    },
+    {
+      "condensed_id": 231,
+      "text": "A loudspeaker activated.",
+      "source_ids": [
+        506
+      ]
+    },
+    {
+      "condensed_id": 232,
+      "text": "A voice told them their efforts were useless.",
+      "source_ids": [
+        507
+      ]
+    },
+    {
+      "condensed_id": 233,
+      "text": "Someone asked who the speaker was.",
+      "source_ids": [
+        508
+      ]
+    },
+    {
+      "condensed_id": 234,
+      "text": "The voice identified itself as the real Mr. Dorchin.",
+      "source_ids": [
+        509,
+        510
+      ]
+    },
+    {
+      "condensed_id": 235,
+      "text": "Someone asked what Dorchin was trying to do to them.",
+      "source_ids": [
+        511
+      ]
+    },
+    {
+      "condensed_id": 236,
+      "text": "Dorchin stated he was merely trying to prevent them from damaging his experiment.",
+      "source_ids": [
+        512
+      ]
+    },
+    {
+      "condensed_id": 237,
+      "text": "Burckhardt warned Dorchin that the FBI or someone would eventually discover this madness.",
+      "source_ids": [
+        513,
+        514
+      ]
+    },
+    {
+      "condensed_id": 238,
+      "text": "Dorchin called Burckhardt naive and suggested he let the maintenance crews adjust him.",
+      "source_ids": [
+        515,
+        516
+      ]
+    },
+    {
+      "condensed_id": 239,
+      "text": "Burckhardt asked what would happen if he refused and assumed Dorchin would kill him.",
+      "source_ids": [
+        517,
+        518
+      ]
+    },
+    {
+      "condensed_id": 240,
+      "text": "Dorchin said killing him would be impossible.",
+      "source_ids": [
+        519,
+        520
+      ]
+    },
+    {
+      "condensed_id": 241,
+      "text": "Dorchin revealed that Burckhardt was already dead.",
+      "source_ids": [
+        521,
+        522
+      ]
+    },
+    {
+      "condensed_id": 242,
+      "text": "Dorchin acknowledged Burckhardt's shock and confirmed the statement was true.",
+      "source_ids": [
+        523,
+        524
+      ]
+    },
+    {
+      "condensed_id": 243,
+      "text": "Dorchin explained that Burckhardt and everyone in town died from a premature atomic blast at the Contro Chemical plant.",
+      "source_ids": [
+        525
+      ]
+    },
+    {
+      "condensed_id": 244,
+      "text": "The blast occurred at seven A.M. on June fifteenth.",
+      "source_ids": [
+        526
+      ]
+    },
+    {
+      "condensed_id": 245,
+      "text": "Dorchin stated this was the last thing imprinted on their minds and explained why they wake up screaming each morning.",
+      "source_ids": [
+        527,
+        528
+      ]
+    },
+    {
+      "condensed_id": 246,
+      "text": "Burckhardt denied this was true.",
+      "source_ids": [
+        529,
+        530
+      ]
+    },
+    {
+      "condensed_id": 247,
+      "text": "Dorchin insisted it was true.",
+      "source_ids": [
+        531
+      ]
+    },
+    {
+      "condensed_id": 248,
+      "text": "Dorchin explained that he and his associates extracted brain circuits from the dead bodies and stored them in electrochemical batteries until they could rebuild the cities and begin their tests.",
+      "source_ids": [
+        532,
+        533
+      ]
+    },
+    {
+      "condensed_id": 249,
+      "text": "Burckhardt expressed disbelief at the story.",
+      "source_ids": [
+        534
+      ]
+    },
+    {
+      "condensed_id": 250,
+      "text": "Dorchin acknowledged the story seemed incredible and explained they did not rebuild everything exactly since it only needed to last for a single day, June fifteenth.",
+      "source_ids": [
+        535,
+        536,
+        537
+      ]
+    },
+    {
+      "condensed_id": 251,
+      "text": "Dorchin explained that at midnight they turn off the power and erase the memory of the day.",
+      "source_ids": [
+        538
+      ]
+    },
+    {
+      "condensed_id": 252,
+      "text": "Dorchin noted that Burckhardt and Swanson had defective circuits that allowed them to remember.",
+      "source_ids": [
+        539,
+        540
+      ]
+    },
+    {
+      "condensed_id": 253,
+      "text": "Swanson told Burckhardt their situation was hopeless and urged him to give up.",
+      "source_ids": [
+        541,
+        542,
+        543
+      ]
+    },
+    {
+      "condensed_id": 254,
+      "text": "Burckhardt refused to give up.",
+      "source_ids": [
+        544
+      ]
+    },
+    {
+      "condensed_id": 255,
+      "text": "Swanson asked what they could do.",
+      "source_ids": [
+        545
+      ]
+    },
+    {
+      "condensed_id": 256,
+      "text": "Burckhardt suggested they run down the tunnel and urged Swanson to follow.",
+      "source_ids": [
+        546,
+        547
+      ]
+    },
+    {
+      "condensed_id": 257,
+      "text": "Burckhardt and Swanson ran down the tunnel while Dorchin shouted that their escape was useless.",
+      "source_ids": [
+        548
+      ]
+    },
+    {
+      "condensed_id": 258,
+      "text": "Burckhardt told Swanson to keep going.",
+      "source_ids": [
+        549
+      ]
+    },
+    {
+      "condensed_id": 259,
+      "text": "Burckhardt and Swanson hurried through a tunnel while Swanson urged Burckhardt to go ahead without him because he was finished.",
+      "source_ids": [
+        550,
+        551,
+        552,
+        553
+      ]
+    },
+    {
+      "condensed_id": 260,
+      "text": "Burckhardt told Swanson they were almost at the end of the tunnel and he could see a door.",
+      "source_ids": [
+        554,
+        555
+      ]
+    },
+    {
+      "condensed_id": 261,
+      "text": "Burckhardt offered to help Swanson, but Swanson said he could not continue.",
+      "source_ids": [
+        556,
+        557
+      ]
+    },
+    {
+      "condensed_id": 262,
+      "text": "Their footsteps slowed to a stop and Burckhardt found the heavy metal door unlocked.",
+      "source_ids": [
+        558
+      ]
+    },
+    {
+      "condensed_id": 263,
+      "text": "The heavy metal door swung open with a creak.",
+      "source_ids": [
+        559,
+        560
+      ]
+    },
+    {
+      "condensed_id": 264,
+      "text": "Burckhardt expressed disbelief and told Swanson to look.",
+      "source_ids": [
+        561,
+        562,
+        563
+      ]
+    },
+    {
+      "condensed_id": 265,
+      "text": "They stood on a ledge of smooth finished metal with a chasm so deep they could not see the bottom dropping away at their feet.",
+      "source_ids": [
+        564,
+        565
+      ]
+    },
+    {
+      "condensed_id": 266,
+      "text": "Beyond the ledge a blinding glare obscured their vision, yet something enormous towered at the limit of what they could see.",
+      "source_ids": [
+        566,
+        567
+      ]
+    },
+    {
+      "condensed_id": 267,
+      "text": "Something addressed Burckhardt by name and identified itself as Dorchin, asking if Burckhardt now understood why escape was useless.",
+      "source_ids": [
+        568,
+        569,
+        570,
+        571
+      ]
+    },
+    {
+      "condensed_id": 268,
+      "text": "The great looming figure moved closer and began to take shape, though it remained gigantically unbelievable in size.",
+      "source_ids": [
+        572,
+        573,
+        574
+      ]
+    },
+    {
+      "condensed_id": 269,
+      "text": "The figure came closer, partially blocking the glare, and Guy Burckhardt recognized the towering shape as Dorchin himself.",
+      "source_ids": [
+        575,
+        576,
+        577
+      ]
+    },
+    {
+      "condensed_id": 270,
+      "text": "Dorchin explained that he had taken Burckhardt's brain circuits and reduced them to transfer into tiny humanoid mannequins, making Burckhardt a miniature version of himself.",
+      "source_ids": [
+        578,
+        579,
+        580
+      ]
+    },
+    {
+      "condensed_id": 271,
+      "text": "Dorchin revealed that the entire city and his experiment existed on a tabletop.",
+      "source_ids": [
+        581
+      ]
+    },
+    {
+      "condensed_id": 272,
+      "text": "A loud explosion sounded and Guy Burckhardt woke screaming from a dream on the morning of June fifteenth.",
+      "source_ids": [
+        582
+      ]
+    },
+    {
+      "condensed_id": 273,
+      "text": "The announcer stated the audience had heard X Minus One, presented by the National Broadcasting Company in cooperation with Galaxy Science Fiction Magazine, which featured another story by Frederik Pohl.",
+      "source_ids": [
+        583
+      ]
+    },
+    {
+      "condensed_id": 274,
+      "text": "The announcer described the second installment of Pohl's novel Slave Ship as a story about a world engaged in a wild nonwar where the order was to spare every animal and throw men to the wolves.",
+      "source_ids": [
+        584
+      ]
+    },
+    {
+      "condensed_id": 275,
+      "text": "The announcer promoted Galaxy Magazine as available on newsstands.",
+      "source_ids": [
+        585
+      ]
+    },
+    {
+      "condensed_id": 276,
+      "text": "The announcer stated that X Minus One had presented The Tunnel Under the World by transcription, a story from Galaxy written by Frederik Pohl, a former advertising executive and leading science fiction writer.",
+      "source_ids": [
+        586
+      ]
+    },
+    {
+      "condensed_id": 277,
+      "text": "George Lefferts adapted the story for radio.",
+      "source_ids": [
+        587
+      ]
+    },
+    {
+      "condensed_id": 278,
+      "text": "The cast featured Les Damon, Ginger Jones, Bob Hastings, Connie Lembcke, Stan Early, and Kermit Murdock.",
+      "source_ids": [
+        588
+      ]
+    },
+    {
+      "condensed_id": 279,
+      "text": "John Larkin served as narrator and Fred Collins served as announcer.",
+      "source_ids": [
+        589,
+        590
+      ]
+    },
+    {
+      "condensed_id": 280,
+      "text": "Daniel Sutter directed X Minus One as an NBC radio network production.",
+      "source_ids": [
+        591,
+        592
+      ]
+    }
+  ]
+}
