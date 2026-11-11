@@ -1,0 +1,1417 @@
+topic,model,history,story,sentence,total_sequentiality,contextual_sequentiality,topic_sequentiality,story_type
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,0,-0.0,-35.4228515625,-35.4228515625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,1,0.5239796108669705,-44.46251678466797,-53.89414978027344,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,2,1.5183840857611761,-33.97600173950195,-61.306915283203125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,3,2.08254337310791,-31.654010772705078,-56.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,4,0.3671123798076923,-43.3251953125,-48.09765625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,5,0.9676339285714286,-43.732421875,-57.279296875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,6,1.4008246527777777,-24.189453125,-36.796875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,7,1.9705366654829546,-33.1131591796875,-54.7890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,8,2.739796447753906,-17.3939208984375,-44.79188537597656,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,9,0.20279947916666666,-40.0419921875,-41.8671875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,10,0.5108587900797527,-30.431396484375,-38.09427833557129,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,11,0.6247910719651443,-41.558929443359375,-49.68121337890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,12,1.2708062065972223,-25.207275390625,-36.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,13,2.287017822265625,-20.6268310546875,-48.071044921875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,14,1.3017578125,-32.28125,-42.6953125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,15,0.595703125,-60.134765625,-70.857421875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,16,0.6694091796875,-28.1669921875,-34.861083984375,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,2,1,17,1.1962348090277777,-35.927734375,-57.4599609375,naive
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,0,-0.0,-34.150390625,-34.150390625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,1,0.5664629936218262,-47.39283466339111,-57.589168548583984,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,2,1.4871209462483723,-37.570796966552734,-64.33897399902344,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,3,2.1292726198832193,-34.30834770202637,-59.859619140625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,4,0.4347956730769231,-43.40234375,-49.0546875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,5,0.4790736607142857,-46.6904296875,-53.3974609375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,6,1.3286675347222223,-25.6083984375,-37.56640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,7,1.4156605113636365,-33.939453125,-49.51171875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,8,1.6586074829101562,-21.98345947265625,-38.56953430175781,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,9,-0.302734375,-38.412109375,-35.6875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,10,0.8746086120605469,-30.405776977539062,-43.524906158447266,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,11,1.113611074594351,-41.61045837402344,-56.08740234375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,12,1.6661512586805556,-25.201904296875,-40.197265625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,13,2.2191060384114585,-20.1693115234375,-46.798583984375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,14,1.4150390625,-34.1953125,-45.515625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,15,0.859375,-58.826171875,-74.294921875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,16,0.3439208984375,-28.97509765625,-32.414306640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,2,1,17,1.5120985243055556,-37.224609375,-64.4423828125,clairvoyant
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,0,-0.0,-37.1953125,-37.1953125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,1,1.9447699652777777,-9.693359375,-27.1962890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,2,1.8232421875,-9.7744140625,-20.7138671875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,3,0.6222098214285714,-12.234375,-16.58984375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,4,0.4371670809659091,-19.074951171875,-23.8837890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,5,1.818603515625,-3.4306640625,-14.34228515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,6,0.3261195591517857,-73.9931640625,-80.8416748046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,7,0.48783052884615385,-36.48828125,-42.830078125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,8,4.051339285714286,-16.0703125,-44.4296875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,9,1.7528004365808822,-37.700927734375,-67.49853515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,10,0.7443280901227679,-44.81915283203125,-55.23974609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,11,0.6389973958333334,-29.72265625,-35.4736328125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,12,0.5413501446063702,-38.593414306640625,-45.63096618652344,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,13,1.3928786057692308,-37.353515625,-55.4609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,14,1.6300546746504934,-43.338409423828125,-74.3094482421875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,15,1.4383433948863635,-51.6591796875,-83.302734375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,16,1.1068004261363635,-64.09912109375,-88.44873046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,2,2,17,1.03515625,-74.0283203125,-99.9072265625,naive
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,0,-0.0,-35.87890625,-35.87890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,1,2.380642361111111,-8.86328125,-30.2890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,2,1.8512369791666667,-9.99609375,-21.103515625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,3,1.4877232142857142,-19.09375,-29.5078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,4,1.5522682883522727,-17.573974609375,-34.64892578125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,5,2.1354166666666665,-3.48828125,-16.30078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,6,0.8508998325892857,-73.850830078125,-91.7197265625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,7,1.3704927884615385,-34.28515625,-52.1015625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,8,3.8861607142857144,-16.765625,-43.96875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,9,1.9722254136029411,-41.2216796875,-74.74951171875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,10,1.3777683803013392,-44.79132080078125,-64.080078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,11,0.9333224826388888,-30.47314453125,-38.873046875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,12,1.4007779634915865,-38.02801513671875,-56.238128662109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,13,2.105243389423077,-32.5849609375,-59.953125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,14,1.380421287135074,-43.869407653808594,-70.097412109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,15,1.4525701349431819,-51.14013671875,-83.0966796875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,16,1.2446011629971592,-62.2611083984375,-89.642333984375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,2,2,17,1.139140625,-74.705078125,-103.18359375,clairvoyant
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,0,-0.0,-40.5623779296875,-40.5623779296875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,1,1.62158203125,-18.82421875,-31.796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,2,0.8868963068181818,-30.712890625,-40.46875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,3,1.6429537259615385,-24.8232421875,-46.181640625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,4,0.7430895755165502,-41.99890899658203,-56.117610931396484,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,5,1.3060877663748605,-30.353168487548828,-48.638397216796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,6,1.3541165865384615,-24.298828125,-41.90234375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,7,1.59134521484375,-21.4635009765625,-37.376953125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,8,1.5535231370192308,-15.7802734375,-35.97607421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,9,0.20535714285714285,-67.7421875,-72.0546875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,10,1.0342684659090908,-85.8203125,-108.57421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,11,2.73291015625,-40.1669921875,-78.427734375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,12,1.704193115234375,-27.599853515625,-54.866943359375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,13,2.25,-26.22265625,-48.72265625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,14,2.1984293619791666,-35.9400634765625,-68.91650390625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,15,1.5677664620535714,-34.30078125,-56.24951171875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,16,0.9222005208333334,-41.76171875,-52.828125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,2,3,17,1.7820542279411764,-27.15234375,-57.447265625,naive
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,0,-0.0,-40.4228515625,-40.4228515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,1,1.6953125,-18.921875,-32.484375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,2,0.7435635653409091,-31.62939453125,-39.80859375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,3,1.6509915865384615,-24.451171875,-45.9140625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,4,0.7345186534680819,-43.266075134277344,-57.2219295501709,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,5,1.164499010358538,-28.465492248535156,-44.76847839355469,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,6,1.1607572115384615,-26.1953125,-41.28515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,7,1.6387451171875,-22.268798828125,-38.65625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,8,1.4577167217548077,-16.495361328125,-35.4456787109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,9,-0.04575892857142857,-63.4560546875,-62.4951171875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,10,0.3975497159090909,-82.078125,-90.82421875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,11,1.0046037946428572,-40.705078125,-54.76953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,12,0.682220458984375,-31.85546875,-42.77099609375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,13,1.435009765625,-25.91943359375,-40.26953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,14,1.43017578125,-34.837646484375,-56.290283203125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,15,1.45703125,-34.22265625,-54.62109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,16,0.2696940104166667,-40.490234375,-43.7265625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,2,3,17,1.5718060661764706,-27.6943359375,-54.4150390625,clairvoyant
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,0,-0.0,-34.707275390625,-34.707275390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,1,1.109765625,-30.47265625,-41.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,2,1.0070452008928572,-22.61083984375,-29.66015625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,3,0.9091695149739584,-18.09381103515625,-23.548828125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,4,0.634765625,-25.095703125,-29.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,5,1.52880859375,-9.40234375,-15.517578125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,6,0.5029296875,-29.1943359375,-34.7265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,7,2.5927734375,-14.685546875,-30.2421875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,8,0.18118722098214285,-32.03369140625,-34.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,9,1.643646240234375,-21.280517578125,-34.4296875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,10,0.8099738226996528,-24.787811279296875,-32.07757568359375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,11,1.0871233258928572,-26.83935546875,-34.44921875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,12,0.2378472222222222,-25.13671875,-27.27734375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,13,0.7097263336181641,-23.986618041992188,-29.6644287109375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,14,1.57314453125,-33.8076171875,-49.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,15,0.6013881138392857,-22.727783203125,-26.9375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,16,2.314453125,-19.92578125,-33.8125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,17,1.0251116071428572,-37.22265625,-44.3984375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,18,0.9825788225446429,-31.716552734375,-45.47265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,2,4,19,0.75120849609375,-23.17919921875,-30.6912841796875,naive
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,0,-0.0,-43.5,-43.5,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,1,2.50546875,-26.73828125,-51.79296875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,2,1.8051060267857142,-23.7119140625,-36.34765625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,3,1.0967000325520833,-18.3519287109375,-24.93212890625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,4,0.962890625,-22.490234375,-29.23046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,5,2.04931640625,-9.9453125,-18.142578125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,6,0.6041925603693182,-31.7406005859375,-38.38671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,7,3.1119791666666665,-14.9375,-33.609375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,8,0.5211356026785714,-29.8603515625,-37.15625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,9,1.29791259765625,-18.63037109375,-29.013671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,10,0.8425564236111112,-25.2669677734375,-32.8499755859375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,11,1.2301897321428572,-25.712890625,-34.32421875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,12,0.3884548611111111,-21.626953125,-25.123046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,13,0.7461414337158203,-23.700790405273438,-29.669921875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,14,1.192578125,-32.13671875,-44.0625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,15,0.397216796875,-15.246826171875,-18.02734375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,16,1.0572916666666667,-19.3515625,-25.6953125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,17,1.4654017857142858,-24.13671875,-34.39453125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,18,0.8522774832589286,-32.57177734375,-44.503662109375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,2,4,19,0.6855850219726562,-25.7001953125,-32.55604553222656,clairvoyant
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,0,-0.0,-28.369140625,-28.369140625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,1,0.7604758522727273,-39.2578125,-47.623046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,2,0.8975183823529411,-52.810546875,-68.068359375,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,3,0.3043852306547619,-55.28173828125,-61.673828125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,4,0.8872633713942307,-24.672607421875,-36.20703125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,5,0.9078924005681818,-32.23974609375,-42.2265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,6,0.24226888020833334,-30.11474609375,-33.02197265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,7,1.0094216086647727,-40.2967529296875,-51.400390625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,8,1.32265625,-31.75390625,-44.98046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,9,1.20263671875,-30.3056640625,-44.7373046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,10,1.0298828125,-25.970703125,-36.26953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,11,1.5476433249080883,-28.0152587890625,-54.3251953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,12,0.47347861842105265,-62.6455078125,-71.6416015625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,13,1.0792022378821122,-43.11216950416565,-63.61701202392578,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,2,5,14,0.3578559027777778,-63.458984375,-69.900390625,naive
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,0,-0.0,-24.2197265625,-24.2197265625,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,1,1.1351207386363635,-47.724609375,-60.2109375,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,2,0.7316176470588235,-51.8388671875,-64.2763671875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,3,0.25363885788690477,-53.3955078125,-58.721923828125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,4,0.753662109375,-25.004150390625,-34.8017578125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,5,0.7257634943181818,-33.7470703125,-41.73046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,6,0.113555908203125,-22.9603271484375,-24.322998046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,7,0.18561345880681818,-42.618896484375,-44.66064453125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,8,1.17734375,-30.4296875,-42.203125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,9,1.2036336263020833,-35.189208984375,-49.6328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,10,0.643408203125,-25.97705078125,-32.4111328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,11,0.976288963766659,-21.51608657836914,-38.112998962402344,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,12,0.17466976768092105,-62.0533447265625,-65.3720703125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,13,0.896382024413661,-42.83947670459747,-59.87073516845703,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,2,5,14,0.08539496527777778,-68.3779296875,-69.9150390625,clairvoyant
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,0,-0.0,-72.12109375,-72.12109375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,1,1.6838942307692308,-44.46875,-66.359375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,2,1.8080078125,-39.587890625,-57.66796875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,3,2.1750288876620205,-29.961400985717773,-53.88671875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,4,1.6731119791666667,-30.6650390625,-55.76171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,5,1.4462890625,-37.8720703125,-59.56640625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,6,1.5903494698660714,-45.223388671875,-67.48828125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,7,0.8968438042534722,-36.6947021484375,-52.837890625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,8,1.57667236328125,-34.419708251953125,-58.069793701171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,9,1.6987680288461537,-34.525390625,-56.609375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,10,1.0986979166666666,-28.8935546875,-45.3740234375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,11,1.3336642384529114,-30.82031750679016,-46.8242883682251,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,12,0.3412388392857143,-53.234375,-58.01171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,13,1.1023220486111112,-9.8076171875,-19.728515625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,14,0.9011712074279785,-47.58063507080078,-61.99937438964844,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,15,1.0645345052083333,-26.080078125,-38.8544921875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,16,2.102105712890625,-20.3929443359375,-41.41400146484375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,17,0.9306196732954546,-33.08349609375,-43.3203125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,2,6,18,1.1251302083333334,-42.529296875,-59.40625,naive
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,0,-0.0,-66.5390625,-66.5390625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,1,1.3490084134615385,-44.677734375,-62.21484375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,2,1.6158203125,-40.072265625,-56.23046875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,3,1.3125988353382458,-28.633678436279297,-43.072265625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,4,1.661328125,-29.5185546875,-54.4384765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,5,1.4824951171875,-34.8055419921875,-57.04296875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,6,1.9418291364397322,-41.99212646484375,-69.177734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,7,1.00043699476454,-35.83423614501953,-53.84210205078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,8,1.6250885009765625,-32.58174133300781,-56.95806884765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,9,1.4230769230769231,-35.3671875,-53.8671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,10,1.4417317708333333,-27.0126953125,-48.638671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,11,1.2591190040111542,-30.21875298023224,-45.32818102836609,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,12,0.875,-51.19140625,-63.44140625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,13,1.5243598090277777,-10.16357421875,-23.8828125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,14,0.9112738370895386,-43.55877876281738,-58.13916015625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,15,1.0006103515625,-25.72705078125,-37.734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,16,1.704674530029297,-18.70240020751953,-35.7491455078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,17,0.5306951349431818,-32.932861328125,-38.7705078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,2,6,18,0.769921875,-37.162109375,-48.7109375,clairvoyant
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,0,-0.0,-39.62890625,-39.62890625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,1,0.5087890625,-27.77734375,-33.3740234375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,2,1.5394965277777777,-18.72265625,-32.578125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,3,1.8258463541666667,-11.365234375,-22.3203125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,4,0.8351862980769231,-22.1171875,-32.974609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,5,0.7075639204545454,-21.380859375,-29.1640625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,6,2.0161576704545454,-9.720703125,-31.8984375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,7,1.9440104166666667,-24.5625,-42.05859375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,8,0.6375177556818182,-35.1044921875,-42.1171875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,9,0.81875,-29.142578125,-37.330078125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,10,1.602734375,-18.22265625,-26.236328125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,11,0.9153053977272727,-34.48046875,-44.548828125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,12,1.18994140625,-32.666015625,-44.5654296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,13,1.4313742897727273,-18.9052734375,-34.650390625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,14,0.95751953125,-26.31640625,-36.84912109375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,15,2.6513671875,-26.71875,-47.9296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,16,2.021484375,-42.203125,-66.4609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,2,7,17,0.794921875,-25.234375,-34.7734375,naive
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,0,-0.0,-39.19921875,-39.19921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,1,0.5479403409090909,-25.30859375,-31.3359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,2,0.78515625,-18.75390625,-25.8203125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,3,1.8525390625,-10.373046875,-21.48828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,4,0.14092548076923078,-24.341796875,-26.173828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,5,0.6527876420454546,-17.58984375,-24.7705078125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,6,1.8435280539772727,-9.45556640625,-29.734375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,7,1.5030381944444444,-27.30859375,-40.8359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,8,0.4797585227272727,-33.60205078125,-38.87939453125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,9,0.8220703125,-30.2734375,-38.494140625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,10,0.9080078125,-18.95703125,-23.4970703125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,11,0.9274680397727273,-29.5517578125,-39.75390625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,12,0.82001953125,-33.17578125,-41.3759765625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,13,1.2184392755681819,-18.77685546875,-32.1796875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,14,0.7519864169034091,-22.1361083984375,-30.407958984375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,15,2.310791015625,-20.962890625,-39.44921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,16,1.5665690104166667,-41.712890625,-60.51171875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,2,7,17,0.9474283854166666,-21.0908203125,-32.4599609375,clairvoyant
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,0,-0.0,-43.513671875,-43.513671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,1,0.7659717906605114,-25.38421630859375,-33.809906005859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,2,1.6208084106445313,-11.332931518554688,-27.541015625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,3,0.36416015625,-33.880859375,-37.5224609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,4,1.5738932291666667,-15.3408203125,-29.505859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,5,0.7446055692784926,-45.037200927734375,-57.69549560546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,6,0.5593039772727273,-26.73046875,-32.8828125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,7,1.6325334821428572,-25.001953125,-36.4296875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,8,0.9539306640625,-20.597412109375,-30.13671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,9,1.6802455357142858,-17.84765625,-29.609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,10,1.048486328125,-26.11474609375,-36.599609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,11,0.6808675130208334,-33.738525390625,-41.908935546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,12,1.203857421875,-24.349609375,-33.98046875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,13,0.2666348544034091,-64.166259765625,-70.0322265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,14,0.4200994318181818,-37.5234375,-42.14453125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,15,1.0121238014914773,-25.56390380859375,-36.697265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,2,8,16,1.57958984375,-34.080078125,-53.03515625,naive
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,0,-0.0,-43.0771484375,-43.0771484375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,1,0.4954889470880682,-25.794189453125,-31.24456787109375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,2,1.8900421142578125,-10.707000732421875,-29.607421875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,3,0.8482421875,-34.77001953125,-43.25244140625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,4,1.5551215277777777,-15.982421875,-29.978515625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,5,1.0067425896139706,-41.9747314453125,-59.08935546875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,6,0.7020596590909091,-26.07421875,-33.796875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,7,1.4236886160714286,-30.7177734375,-40.68359375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,8,1.40496826171875,-16.0382080078125,-30.087890625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,9,1.0786830357142858,-18.46875,-26.01953125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,10,0.59482421875,-30.7255859375,-36.673828125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,11,0.21401468912760416,-35.08563232421875,-37.65380859375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,12,1.383056640625,-21.4453125,-32.509765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,13,0.36204944957386365,-72.779296875,-80.744384765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,14,0.5031960227272727,-36.36328125,-41.8984375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,15,1.5500266335227273,-24.96337890625,-42.013671875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,2,8,16,1.3707682291666667,-26.15234375,-42.6015625,clairvoyant
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,0,-0.0,-49.435546875,-49.435546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,1,1.226708984375,-29.67822265625,-41.9453125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,2,0.7539284446022727,-24.971923828125,-33.26513671875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,3,0.8964797973632812,-35.752685546875,-49.19988250732422,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,4,0.7216796875,-26.0966796875,-34.03515625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,5,0.29649135044642855,-23.24169921875,-27.392578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,6,1.4015066964285714,-16.998046875,-26.80859375,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,7,0.7435678335336539,-36.9364013671875,-46.602783203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,8,1.7396392822265625,-12.7806396484375,-26.69775390625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,9,1.2862955729166667,-24.49755859375,-36.07421875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,10,1.148583984375,-28.70654296875,-40.1923828125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,11,1.1015625,-17.47265625,-24.08203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,12,-0.002734375,-50.4482421875,-50.3935546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,13,0.2723897298177083,-100.243896484375,-110.0499267578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,2,9,14,0.9580027262369791,-18.1702880859375,-29.66632080078125,naive
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,0,-0.0,-40.33984375,-40.33984375,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,1,0.848583984375,-29.18212890625,-37.66796875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,2,0.6308815696022727,-26.1824951171875,-33.1221923828125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,3,1.055627950032552,-35.202972412109375,-51.037391662597656,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,4,0.8386008522727273,-26.685546875,-35.91015625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,5,0.8371233258928571,-25.94482421875,-37.66455078125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,6,1.3733258928571428,-16.70703125,-26.3203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,7,0.8902822641225961,-34.25836181640625,-45.83203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,8,1.415069580078125,-15.79931640625,-27.119873046875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,9,1.3945041232638888,-20.152587890625,-32.703125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,10,1.028466796875,-32.00537109375,-42.2900390625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,11,0.763671875,-17.5625,-22.14453125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,12,0.6927978515625,-49.50830078125,-63.3642578125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,13,0.5699971516927084,-84.2398681640625,-104.759765625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,2,9,14,1.1046295166015625,-18.199462890625,-31.45501708984375,clairvoyant
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,0,-0.0,-64.2939453125,-64.2939453125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,1,1.3136390686035155,-18.210227966308594,-31.34661865234375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,2,0.441650390625,-64.873046875,-75.47265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,3,0.9636661305147058,-48.598388671875,-64.980712890625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,4,0.9352072010869565,-73.181640625,-94.69140625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,5,0.8744140625,-36.435546875,-45.1796875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,6,0.6878604888916016,-45.1827392578125,-56.188507080078125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,7,0.35266758845402646,-58.57566833496094,-67.74502563476562,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,8,1.0812852647569444,-37.790771484375,-57.25390625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,9,0.7919921875,-28.826171875,-36.74609375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,10,1.9585336538461537,-45.15234375,-70.61328125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,11,0.743701171875,-31.09521484375,-38.5322265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,12,0.6982297897338867,-54.15045166015625,-65.32212829589844,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,13,1.6664496527777777,-24.203125,-39.201171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,14,2.1479166666666667,-23.32470703125,-55.54345703125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,15,0.21602689302884615,-48.892822265625,-51.701171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,16,0.8547108968098959,-26.90235137939453,-37.15888214111328,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,17,1.6225674947102864,-32.42762756347656,-51.8984375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,2,10,18,1.2585797991071428,-49.26904296875,-75.69921875,naive
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,0,-0.0,-65.8345947265625,-65.8345947265625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,1,1.7489494323730468,-16.79871368408203,-34.2882080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,2,0.4634602864583333,-66.636474609375,-77.759521484375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,3,0.9132869944852942,-50.669189453125,-66.195068359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,4,0.9948199728260869,-76.619140625,-99.5,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,5,0.79423828125,-37.236328125,-45.1787109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,6,0.864537239074707,-44.60319519042969,-58.435791015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,7,0.38585721529447115,-54.92735290527344,-64.95964050292969,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,8,0.9255506727430556,-37.756103515625,-54.416015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,9,1.2259765625,-27.587890625,-39.84765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,10,1.7926682692307692,-47.03125,-70.3359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,11,0.63818359375,-31.0302734375,-37.412109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,12,0.4326944351196289,-50.95289611816406,-57.876007080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,13,1.5809461805555556,-25.119140625,-39.34765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,14,1.8876627604166667,-22.0888671875,-50.40380859375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,15,0.038912259615384616,-44.0234375,-44.529296875,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,16,0.4025427500406901,-26.629478454589844,-31.459991455078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,17,1.4039115905761719,-33.94499206542969,-50.79193115234375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,2,10,18,0.8008103143601191,-49.5218505859375,-66.3388671875,clairvoyant
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,0,-0.0,-35.4228515625,-35.4228515625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,1,0.5239796108669705,-44.46251678466797,-53.89414978027344,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,2,1.5183840857611761,-33.97600173950195,-61.306915283203125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,3,2.215670585632324,-30.05648422241211,-56.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,4,1.4453125,-29.30859375,-48.09765625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,5,1.4460100446428572,-37.03515625,-57.279296875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,6,1.7134331597222223,-21.3759765625,-36.796875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,7,2.5312333540482954,-26.94549560546875,-54.7890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,8,2.804280090332031,-16.74908447265625,-44.79188537597656,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,9,0.09266493055555555,-41.033203125,-41.8671875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,10,1.195110829671224,-20.16761589050293,-38.09427833557129,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,11,0.22806563744178185,-46.716360092163086,-49.68121337890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,12,1.1365831163194444,-26.415283203125,-36.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,13,2.489044189453125,-18.2025146484375,-48.071044921875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,14,1.937744140625,-27.193359375,-42.6953125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,15,0.6720920138888888,-58.759765625,-70.857421875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,16,0.66708984375,-28.190185546875,-34.861083984375,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,4,1,17,1.2052951388888888,-35.7646484375,-57.4599609375,naive
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,0,-0.0,-34.150390625,-34.150390625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,1,0.5664629936218262,-47.39283466339111,-57.589168548583984,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,2,1.4871209462483723,-37.570796966552734,-64.33897399902344,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,3,2.3010663986206055,-32.246822357177734,-59.859619140625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,4,1.4788161057692308,-29.830078125,-49.0546875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,5,1.1384626116071428,-37.458984375,-53.3974609375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,6,1.6782769097222223,-22.4619140625,-37.56640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,7,2.1622480912642046,-25.72698974609375,-49.51171875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,8,1.6890274047851563,-21.67926025390625,-38.56953430175781,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,9,-0.3518880208333333,-38.8544921875,-35.6875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,10,1.368161392211914,-23.002485275268555,-43.524906158447266,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,11,0.9050014202411358,-44.322383880615234,-56.08740234375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,12,1.4984118143717449,-26.711559295654297,-40.197265625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,13,2.4460652669270835,-17.44580078125,-46.798583984375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,14,2.1949462890625,-27.9560546875,-45.515625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,15,0.9917534722222222,-56.443359375,-74.294921875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,16,0.4400146484375,-28.01416015625,-32.414306640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,4,1,17,1.5682508680555556,-36.2138671875,-64.4423828125,clairvoyant
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,0,-0.0,-37.1953125,-37.1953125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,1,1.9447699652777777,-9.693359375,-27.1962890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,2,1.8232421875,-9.7744140625,-20.7138671875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,3,0.5161830357142857,-12.9765625,-16.58984375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,4,0.6019176136363636,-17.2626953125,-23.8837890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,5,1.8365071614583333,-3.3232421875,-14.34228515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,6,0.2171630859375,-76.28125,-80.8416748046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,7,0.7533052884615384,-33.037109375,-42.830078125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,8,3.9720982142857144,-16.625,-44.4296875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,9,2.0645392922794117,-32.4013671875,-67.49853515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,10,0.7009931291852679,-45.42584228515625,-55.23974609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,11,0.6156684027777778,-29.9326171875,-35.4736328125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,12,1.1283167325533354,-30.962848663330078,-45.63096618652344,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,13,2.410954402043269,-24.1185302734375,-55.4609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,14,1.66638866223787,-42.64806365966797,-74.3094482421875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,15,1.4889026988636365,-50.546875,-83.302734375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,16,1.055174394087358,-65.23489379882812,-88.44873046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,4,2,17,1.2107421875,-69.638671875,-99.9072265625,naive
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,0,-0.0,-35.87890625,-35.87890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,1,2.380642361111111,-8.86328125,-30.2890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,2,1.8512369791666667,-9.99609375,-21.103515625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,3,1.4475446428571428,-19.375,-29.5078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,4,1.8010031960227273,-14.837890625,-34.64892578125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,5,2.20361328125,-3.0791015625,-16.30078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,6,0.7401181175595238,-76.17724609375,-91.7197265625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,7,1.4295372596153846,-33.517578125,-52.1015625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,8,3.7354910714285716,-17.8203125,-43.96875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,9,2.5482105928308822,-31.429931640625,-74.74951171875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,10,1.2655290876116072,-46.3626708984375,-64.080078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,11,1.2198893229166667,-27.89404296875,-38.873046875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,12,1.9425142728365385,-30.985443115234375,-56.238128662109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,13,2.6956035907451925,-24.9102783203125,-59.953125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,14,1.3360262419048108,-44.712913513183594,-70.097412109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,15,1.5494939630681819,-49.0078125,-83.0966796875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,16,1.2470231489701704,-62.20782470703125,-89.642333984375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,4,2,17,1.3455078125,-69.5458984375,-103.18359375,clairvoyant
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,0,-0.0,-40.5623779296875,-40.5623779296875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,1,1.62158203125,-18.82421875,-31.796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,2,0.8868963068181818,-30.712890625,-40.46875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,3,1.7297175480769231,-23.6953125,-46.181640625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,4,0.6408014799419203,-43.9423828125,-56.117610931396484,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,5,1.3654982703072684,-29.521421432495117,-48.638397216796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,6,1.3088191105769231,-24.8876953125,-41.90234375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,7,1.8565887451171874,-18.811065673828125,-37.376953125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,8,1.4164663461538463,-17.56201171875,-35.97607421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,9,0.14015997023809523,-69.111328125,-72.0546875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,10,1.2476917613636365,-81.125,-108.57421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,11,2.890834263392857,-37.9560546875,-78.427734375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,12,1.6101837158203125,-29.10400390625,-54.866943359375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,13,2.090185546875,-27.82080078125,-48.72265625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,14,2.3717692057291666,-33.3399658203125,-68.91650390625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,15,1.7901436941964286,-31.1875,-56.24951171875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,16,1.4195963541666667,-35.79296875,-52.828125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,4,3,17,1.8402745863970589,-26.16259765625,-57.447265625,naive
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,0,-0.0,-40.4228515625,-40.4228515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,1,1.6953125,-18.921875,-32.484375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,2,0.7435635653409091,-31.62939453125,-39.80859375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,3,1.7164963942307692,-23.599609375,-45.9140625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,4,0.6303904683966386,-45.244510650634766,-57.2219295501709,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,5,1.1226647240774972,-29.051172256469727,-44.76847839355469,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,6,1.1638371394230769,-26.1552734375,-41.28515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,7,1.959613037109375,-19.06011962890625,-38.65625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,8,1.4144474909855769,-17.057861328125,-35.4456787109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,9,0.1090727306547619,-60.20458984375,-62.4951171875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,10,0.5249467329545454,-79.275390625,-90.82421875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,11,1.1243722098214286,-39.0283203125,-54.76953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,12,0.5999755859375,-33.17138671875,-42.77099609375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,13,1.286474609375,-27.40478515625,-40.26953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,14,1.5025960286458333,-33.7513427734375,-56.290283203125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,15,1.5963309151785714,-32.2724609375,-54.62109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,16,0.5823567708333334,-36.73828125,-43.7265625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,4,3,17,1.7147575827205883,-25.26416015625,-54.4150390625,clairvoyant
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,0,-0.0,-34.707275390625,-34.707275390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,1,1.109765625,-30.47265625,-41.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,2,1.0070452008928572,-22.61083984375,-29.66015625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,3,0.7445170084635416,-19.08172607421875,-23.548828125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,4,0.9296875,-23.03125,-29.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,5,1.90087890625,-7.9140625,-15.517578125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,6,1.43971079046076,-18.88974380493164,-34.7265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,7,2.6012369791666665,-14.634765625,-30.2421875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,8,0.24068777901785715,-31.20068359375,-34.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,9,1.65081787109375,-21.22314453125,-34.4296875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,10,0.8566385904947916,-24.367828369140625,-32.07757568359375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,11,2.1573660714285716,-19.34765625,-34.44921875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,12,1.0144314236111112,-18.1474609375,-27.27734375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,13,1.0785884857177734,-21.035720825195312,-29.6644287109375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,14,1.5853515625,-33.685546875,-49.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,15,0.8340541294642857,-21.09912109375,-26.9375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,16,2.1901041666666665,-20.671875,-33.8125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,17,2.24609375,-28.67578125,-44.3984375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,18,1.0606951032366072,-30.6229248046875,-45.47265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,4,4,19,0.5267425537109375,-25.423858642578125,-30.6912841796875,naive
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,0,-0.0,-43.5,-43.5,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,1,2.50546875,-26.73828125,-51.79296875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,2,1.8051060267857142,-23.7119140625,-36.34765625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,3,0.7437845865885416,-20.46942138671875,-24.93212890625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,4,1.0502232142857142,-21.87890625,-29.23046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,5,2.47119140625,-8.2578125,-18.142578125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,6,1.8150787353515625,-18.420852661132812,-38.38671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,7,3.0908203125,-15.064453125,-33.609375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,8,0.620849609375,-28.46435546875,-37.15625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,9,1.264892578125,-18.89453125,-29.013671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,10,0.9479997422960069,-24.317977905273438,-32.8499755859375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,11,1.7589983258928572,-22.01123046875,-34.32421875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,12,0.8280164930555556,-17.6708984375,-25.123046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,13,1.1666412353515625,-20.3367919921875,-29.669921875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,14,1.232421875,-31.73828125,-44.0625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,15,0.4282924107142857,-15.029296875,-18.02734375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,16,0.9296875,-20.1171875,-25.6953125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,17,1.6010044642857142,-23.1875,-34.39453125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,18,1.0401872907366072,-29.9410400390625,-44.503662109375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,4,4,19,0.6767440795898437,-25.788604736328125,-32.55604553222656,clairvoyant
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,0,-0.0,-28.369140625,-28.369140625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,1,0.7604758522727273,-39.2578125,-47.623046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,2,0.8975183823529411,-52.810546875,-68.068359375,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,3,0.48446800595238093,-51.5,-61.673828125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,4,0.9038837139423077,-24.45654296875,-36.20703125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,5,0.9665083451704546,-31.594970703125,-42.2265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,6,0.543212890625,-26.50341796875,-33.02197265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,7,1.0940163352272727,-39.3662109375,-51.400390625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,8,1.476171875,-30.21875,-44.98046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,9,1.271484375,-29.4794921875,-44.7373046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,10,1.0004150390625,-26.265380859375,-36.26953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,11,1.7541113460765165,-24.50530242919922,-54.3251953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,12,1.315712376644737,-46.64306640625,-71.6416015625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,13,1.0180506204303943,-44.27405023574829,-63.61701202392578,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,4,5,14,0.4329562717013889,-62.107177734375,-69.900390625,naive
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,0,-0.0,-24.2197265625,-24.2197265625,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,1,1.1351207386363635,-47.724609375,-60.2109375,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,2,0.7316176470588235,-51.8388671875,-64.2763671875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,3,0.2836216517857143,-52.765869140625,-58.721923828125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,4,0.6592735877403846,-26.231201171875,-34.8017578125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,5,0.9825994318181818,-30.921875,-41.73046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,6,0.020406087239583332,-24.078125,-24.322998046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,7,0.2793190696022727,-41.588134765625,-44.66064453125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,8,1.232421875,-29.87890625,-42.203125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,9,1.7890218098958333,-28.16455078125,-49.6328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,10,0.6498046875,-25.9130859375,-32.4111328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,11,1.0994158352122587,-19.422929763793945,-38.112998962402344,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,12,0.9198383532072368,-47.8951416015625,-65.3720703125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,13,0.8846201959409212,-43.06295144557953,-59.87073516845703,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,4,5,14,0.3197564019097222,-64.159423828125,-69.9150390625,clairvoyant
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,0,-0.0,-72.12109375,-72.12109375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,1,1.6838942307692308,-44.46875,-66.359375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,2,1.8080078125,-39.587890625,-57.66796875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,3,2.3952151211825283,-27.539352416992188,-53.88671875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,4,1.9101236979166667,-27.10986328125,-55.76171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,5,1.8287027994791667,-32.1358642578125,-59.56640625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,6,1.6968045915876115,-43.73301696777344,-67.48828125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,7,1.0390603807237413,-34.134803771972656,-52.837890625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,8,1.7878397623697917,-31.252197265625,-58.069793701171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,9,1.7859074519230769,-33.392578125,-56.609375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,10,1.1482421875,-28.150390625,-45.3740234375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,11,1.2583868304888408,-31.72364640235901,-46.8242883682251,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,12,0.720703125,-47.921875,-58.01171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,13,1.2069227430555556,-8.8662109375,-19.728515625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,14,1.6227535009384155,-36.03531837463379,-61.99937438964844,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,15,1.2500813802083333,-23.853515625,-38.8544921875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,16,2.4545654296875,-16.86834716796875,-41.41400146484375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,17,1.0751953125,-31.4931640625,-43.3203125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,4,6,18,1.5379557291666666,-36.3369140625,-59.40625,naive
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,0,-0.0,-66.5390625,-66.5390625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,1,1.3490084134615385,-44.677734375,-62.21484375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,2,1.6158203125,-40.072265625,-56.23046875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,3,1.6006405570290305,-25.465219497680664,-43.072265625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,4,1.7690104166666667,-27.9033203125,-54.4384765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,5,1.80111083984375,-30.02630615234375,-57.04296875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,6,1.8808419363839286,-42.845947265625,-69.177734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,7,1.1347020467122395,-33.41746520996094,-53.84210205078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,8,1.8480631510416667,-29.23712158203125,-56.95806884765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,9,1.5271935096153846,-34.013671875,-53.8671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,10,1.4690755208333333,-26.6025390625,-48.638671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,11,1.1328981320063274,-31.73340344429016,-45.32818102836609,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,12,1.0856584821428572,-48.2421875,-63.44140625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,13,1.6959364149305556,-8.619384765625,-23.8828125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,14,1.4137124419212341,-35.519761085510254,-58.13916015625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,15,1.2074788411458333,-23.24462890625,-37.734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,16,1.9255195617675782,-16.49394989013672,-35.7491455078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,17,0.5995871803977273,-32.175048828125,-38.7705078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,4,6,18,1.0893880208333333,-32.3701171875,-48.7109375,clairvoyant
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,0,-0.0,-39.62890625,-39.62890625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,1,0.5087890625,-27.77734375,-33.3740234375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,2,1.5394965277777777,-18.72265625,-32.578125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,3,1.9114583333333333,-10.8515625,-22.3203125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,4,0.8272235576923077,-22.220703125,-32.974609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,5,1.2498224431818181,-15.416015625,-29.1640625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,6,2.102272727272727,-8.7734375,-31.8984375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,7,1.7141927083333333,-26.630859375,-42.05859375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,8,1.0931729403409092,-30.09228515625,-42.1171875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,9,0.96416015625,-27.6884765625,-37.330078125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,10,1.723828125,-17.6171875,-26.236328125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,11,1.0080788352272727,-33.4599609375,-44.548828125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,12,1.281494140625,-31.75048828125,-44.5654296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,13,1.4842418323863635,-18.32373046875,-34.650390625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,14,0.8126553622159091,-27.909912109375,-36.84912109375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,15,3.48974609375,-20.01171875,-47.9296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,16,2.0633138020833335,-41.701171875,-66.4609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,4,7,17,1.5834147135416667,-15.7724609375,-34.7734375,naive
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,0,-0.0,-39.19921875,-39.19921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,1,0.5479403409090909,-25.30859375,-31.3359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,2,0.78515625,-18.75390625,-25.8203125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,3,1.8167317708333333,-10.587890625,-21.48828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,4,0.2510516826923077,-22.91015625,-26.173828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,5,1.0530007102272727,-13.1875,-24.7705078125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,6,1.9444247159090908,-8.345703125,-29.734375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,7,1.1343315972222223,-30.626953125,-40.8359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,8,0.9873712713068182,-28.018310546875,-38.87939453125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,9,1.0951171875,-27.54296875,-38.494140625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,10,1.1322265625,-17.8359375,-23.4970703125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,11,0.916015625,-29.677734375,-39.75390625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,12,1.1693603515625,-29.682373046875,-41.3759765625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,13,1.2472700639204546,-18.459716796875,-32.1796875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,14,0.4458562677556818,-25.5035400390625,-30.407958984375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,15,2.576171875,-18.83984375,-39.44921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,16,1.5035807291666667,-42.46875,-60.51171875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,4,7,17,1.4594319661458333,-14.94677734375,-32.4599609375,clairvoyant
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,0,-0.0,-43.513671875,-43.513671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,1,0.7659717906605114,-25.38421630859375,-33.809906005859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,2,1.6208084106445313,-11.332931518554688,-27.541015625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,3,0.079833984375,-36.72412109375,-37.5224609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,4,1.9303385416666667,-12.1328125,-29.505859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,5,1.0416861141429228,-39.98683166503906,-57.69549560546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,6,0.7292258522727273,-24.861328125,-32.8828125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,7,3.3353794642857144,-13.08203125,-36.4296875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,8,1.53328857421875,-14.8038330078125,-30.13671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,9,1.9143415178571428,-16.208984375,-29.609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,10,2.051123046875,-16.08837890625,-36.599609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,11,0.7135213216145834,-33.3466796875,-41.908935546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,12,1.71142578125,-20.2890625,-33.98046875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,13,0.7152238325639204,-54.29730224609375,-70.0322265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,14,0.5003551136363636,-36.640625,-42.14453125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,15,1.1916725852272727,-23.5888671875,-36.697265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,4,8,16,2.2708333333333335,-25.78515625,-53.03515625,naive
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,0,-0.0,-43.0771484375,-43.0771484375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,1,0.4954889470880682,-25.794189453125,-31.24456787109375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,2,1.8900421142578125,-10.707000732421875,-29.607421875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,3,0.5208984375,-38.04345703125,-43.25244140625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,4,1.9461805555555556,-12.462890625,-29.978515625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,5,1.179177676930147,-39.0433349609375,-59.08935546875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,6,0.8071732954545454,-24.91796875,-33.796875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,7,3.876953125,-13.544921875,-40.68359375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,8,1.51568603515625,-14.9310302734375,-30.087890625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,9,1.3722098214285714,-16.4140625,-26.01953125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,10,1.85810546875,-18.0927734375,-36.673828125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,11,0.3500569661458333,-33.453125,-37.65380859375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,12,1.6591796875,-19.236328125,-32.509765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,13,0.8640858043323864,-61.7344970703125,-80.744384765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,14,0.8423295454545454,-32.6328125,-41.8984375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,15,1.8483054421164773,-21.68231201171875,-42.013671875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,4,8,16,1.6220703125,-23.13671875,-42.6015625,clairvoyant
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,0,-0.0,-49.435546875,-49.435546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,1,1.226708984375,-29.67822265625,-41.9453125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,2,0.7539284446022727,-24.971923828125,-33.26513671875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,3,1.1741465250651042,-31.587684631347656,-49.19988250732422,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,4,0.8606178977272727,-24.568359375,-34.03515625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,5,0.36000279017857145,-22.3525390625,-27.392578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,6,1.7645089285714286,-14.45703125,-26.80859375,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,7,1.3108309232271635,-29.561981201171875,-46.602783203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,8,1.8987884521484375,-11.5074462890625,-26.69775390625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,9,1.2662217881944444,-24.67822265625,-36.07421875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,10,1.45,-25.6923828125,-40.1923828125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,11,1.1998697916666667,-16.8828125,-24.08203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,12,0.353009033203125,-43.3333740234375,-50.3935546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,13,0.5685967339409722,-89.5804443359375,-110.0499267578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,4,9,14,1.06353759765625,-16.90386962890625,-29.66632080078125,naive
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,0,-0.0,-40.33984375,-40.33984375,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,1,0.848583984375,-29.18212890625,-37.66796875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,2,0.6308815696022727,-26.1824951171875,-33.1221923828125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,3,1.2229281107584635,-32.6934700012207,-51.037391662597656,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,4,1.0414595170454546,-24.4541015625,-35.91015625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,5,0.8339146205357143,-25.98974609375,-37.66455078125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,6,1.6261160714285714,-14.9375,-26.3203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,7,1.467493203970102,-26.754619598388672,-45.83203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,8,1.8994827270507812,-11.92401123046875,-27.119873046875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,9,1.2614203559027777,-21.350341796875,-32.703125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,10,1.26064453125,-29.68359375,-42.2900390625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,11,0.7447916666666666,-17.67578125,-22.14453125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,12,1.138153076171875,-40.6011962890625,-63.3642578125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,13,0.6154276529947916,-82.6043701171875,-104.759765625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,4,9,14,1.2052688598632812,-16.991790771484375,-31.45501708984375,clairvoyant
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,0,-0.0,-64.2939453125,-64.2939453125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,1,1.3136390686035155,-18.210227966308594,-31.34661865234375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,2,0.441650390625,-64.873046875,-75.47265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,3,1.0662769990808822,-46.85400390625,-64.980712890625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,4,0.7780230978260869,-76.796875,-94.69140625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,5,1.2111328125,-33.068359375,-45.1796875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,6,0.9753086566925049,-40.58356857299805,-56.188507080078125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,7,0.30028533935546875,-59.93760681152344,-67.74502563476562,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,8,1.2117377387152777,-35.442626953125,-57.25390625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,9,1.25625,-24.18359375,-36.74609375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,10,1.8248197115384615,-46.890625,-70.61328125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,11,0.665234375,-31.8798828125,-38.5322265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,12,1.260024070739746,-45.1617431640625,-65.32212829589844,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,13,1.9878472222222223,-21.310546875,-39.201171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,14,2.253287760416667,-21.744140625,-55.54345703125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,15,0.951904296875,-39.326416015625,-51.701171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,16,1.1046781539916992,-23.90274429321289,-37.15888214111328,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,17,1.5714454650878906,-33.04109191894531,-51.8984375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,4,10,18,1.2928931826636905,-48.5484619140625,-75.69921875,naive
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,0,-0.0,-65.8345947265625,-65.8345947265625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,1,1.7489494323730468,-16.79871368408203,-34.2882080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,2,0.4634602864583333,-66.636474609375,-77.759521484375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,3,0.9848561006433824,-49.4525146484375,-66.195068359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,4,0.9252717391304348,-78.21875,-99.5,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,5,1.18876953125,-33.291015625,-45.1787109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,6,1.1540660858154297,-39.970733642578125,-58.435791015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,7,0.2501759162315956,-58.4550666809082,-64.95964050292969,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,8,1.1963026258680556,-32.882568359375,-54.416015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,9,1.576953125,-24.078125,-39.84765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,10,1.7992788461538463,-46.9453125,-70.3359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,11,0.349609375,-33.916015625,-37.412109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,12,1.0216946601867676,-41.528892517089844,-57.876007080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,13,2.044704861111111,-20.9453125,-39.34765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,14,1.9892252604166667,-20.5654296875,-50.40380859375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,15,0.40771484375,-39.22900390625,-44.529296875,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,16,0.6444400151570638,-23.72671127319336,-31.459991455078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,17,1.1035779317220051,-37.54899597167969,-50.79193115234375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,4,10,18,0.9398193359375,-46.6026611328125,-66.3388671875,clairvoyant
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,0,-0.0,-35.4228515625,-35.4228515625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,1,0.5239796108669705,-44.46251678466797,-53.89414978027344,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,2,1.5183840857611761,-33.97600173950195,-61.306915283203125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,3,2.215670585632324,-30.05648422241211,-56.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,4,1.4453125,-29.30859375,-48.09765625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,5,1.7022879464285714,-33.447265625,-57.279296875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,6,1.640625,-22.03125,-36.796875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,7,2.640907981178977,-25.73907470703125,-54.7890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,8,2.888508605957031,-15.90679931640625,-44.79188537597656,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,9,0.6295572916666666,-36.201171875,-41.8671875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,10,0.9912564595540364,-23.225431442260742,-38.09427833557129,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,11,1.0196497990534856,-36.42576599121094,-49.68121337890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,12,1.152647230360243,-26.270706176757812,-36.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,13,2.5611368815104165,-17.33740234375,-48.071044921875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,14,1.687744140625,-29.193359375,-42.6953125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,15,0.7909071180555556,-56.62109375,-70.857421875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,16,0.74324951171875,-27.4285888671875,-34.861083984375,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,6,1,17,1.3034939236111112,-33.9970703125,-57.4599609375,naive
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,0,-0.0,-34.150390625,-34.150390625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,1,0.5664629936218262,-47.39283466339111,-57.589168548583984,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,2,1.4871209462483723,-37.570796966552734,-64.33897399902344,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,3,2.3010663986206055,-32.246822357177734,-59.859619140625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,4,1.4788161057692308,-29.830078125,-49.0546875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,5,1.4225725446428572,-33.4814453125,-53.3974609375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,6,1.6923828125,-22.3349609375,-37.56640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,7,2.4267689098011362,-22.8172607421875,-49.51171875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,8,2.701215362548828,-11.557380676269531,-38.56953430175781,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,9,0.04275173611111111,-35.302734375,-35.6875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,10,1.3838329315185547,-22.767412185668945,-43.524906158447266,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,11,1.421655508188101,-37.60588073730469,-56.08740234375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,12,1.2273822360568576,-29.15082550048828,-40.197265625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,13,2.4505411783854165,-17.39208984375,-46.798583984375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,14,1.9742431640625,-29.7216796875,-45.515625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,15,0.9382595486111112,-57.40625,-74.294921875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,16,0.507421875,-27.340087890625,-32.414306640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,6,1,17,1.6789279513888888,-34.2216796875,-64.4423828125,clairvoyant
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,0,-0.0,-37.1953125,-37.1953125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,1,1.9447699652777777,-9.693359375,-27.1962890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,2,1.8232421875,-9.7744140625,-20.7138671875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,3,0.5161830357142857,-12.9765625,-16.58984375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,4,0.6019176136363636,-17.2626953125,-23.8837890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,5,1.9073486328125,-2.898193359375,-14.34228515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,6,0.5324997674851191,-69.6591796875,-80.8416748046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,7,0.8212139423076923,-32.154296875,-42.830078125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,8,4.163504464285714,-15.28515625,-44.4296875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,9,2.033835018382353,-32.92333984375,-67.49853515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,10,0.6501290457589286,-46.137939453125,-55.23974609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,11,0.5906032986111112,-30.158203125,-35.4736328125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,12,1.1989754896897535,-30.04428482055664,-45.63096618652344,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,13,2.3599759615384617,-24.78125,-55.4609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,14,1.7457291452508223,-41.140594482421875,-74.3094482421875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,15,1.6763583096590908,-46.4228515625,-83.302734375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,16,1.194789539683949,-62.163360595703125,-88.44873046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,6,2,17,1.1709375,-70.6337890625,-99.9072265625,naive
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,0,-0.0,-35.87890625,-35.87890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,1,2.380642361111111,-8.86328125,-30.2890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,2,1.8512369791666667,-9.99609375,-21.103515625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,3,1.4475446428571428,-19.375,-29.5078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,4,1.8010031960227273,-14.837890625,-34.64892578125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,5,2.2659505208333335,-2.705078125,-16.30078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,6,1.0499325706845237,-69.671142578125,-91.7197265625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,7,1.5294471153846154,-32.21875,-52.1015625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,8,3.9620535714285716,-16.234375,-43.96875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,9,2.484805836397059,-32.5078125,-74.74951171875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,10,1.17169189453125,-47.6763916015625,-64.080078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,11,1.0570746527777777,-29.359375,-38.873046875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,12,2.0223453228290262,-29.94763946533203,-56.238128662109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,13,2.655818058894231,-25.427490234375,-59.953125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,14,1.5461048326994244,-40.72142028808594,-70.097412109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,15,1.6359641335227273,-47.10546875,-83.0966796875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,16,1.3040851246226917,-60.95246124267578,-89.642333984375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,6,2,17,1.373046875,-68.857421875,-103.18359375,clairvoyant
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,0,-0.0,-40.5623779296875,-40.5623779296875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,1,1.62158203125,-18.82421875,-31.796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,2,0.8868963068181818,-30.712890625,-40.46875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,3,1.7297175480769231,-23.6953125,-46.181640625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,4,0.6408014799419203,-43.9423828125,-56.117610931396484,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,5,1.5083198547363281,-27.52191925048828,-48.638397216796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,6,1.3805964543269231,-23.95458984375,-41.90234375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,7,1.8638748168945312,-18.738204956054688,-37.376953125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,8,1.4730694110576923,-16.826171875,-35.97607421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,9,0.08165922619047619,-70.33984375,-72.0546875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,10,1.2825372869318181,-80.3583984375,-108.57421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,11,2.970912388392857,-36.8349609375,-78.427734375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,12,1.663360595703125,-28.253173828125,-54.866943359375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,13,1.7923583984375,-30.799072265625,-48.72265625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,14,2.4193522135416665,-32.626220703125,-68.91650390625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,15,1.799072265625,-31.0625,-56.24951171875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,16,1.56005859375,-34.107421875,-52.828125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,6,3,17,1.7982536764705883,-26.876953125,-57.447265625,naive
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,0,-0.0,-40.4228515625,-40.4228515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,1,1.6953125,-18.921875,-32.484375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,2,0.7435635653409091,-31.62939453125,-39.80859375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,3,1.7164963942307692,-23.599609375,-45.9140625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,4,0.6303904683966386,-45.244510650634766,-57.2219295501709,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,5,1.2554092407226562,-27.1927490234375,-44.76847839355469,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,6,1.2708834134615385,-24.763671875,-41.28515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,7,1.992730712890625,-18.72894287109375,-38.65625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,8,1.4513315054086537,-16.578369140625,-35.4456787109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,9,0.08972749255952381,-60.61083984375,-62.4951171875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,10,0.6285067471590909,-76.9970703125,-90.82421875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,11,1.3209054129464286,-36.27685546875,-54.76953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,12,0.6807403564453125,-31.879150390625,-42.77099609375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,13,0.901171875,-31.2578125,-40.26953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,14,1.4859700520833334,-34.000732421875,-56.290283203125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,15,1.73779296875,-30.2919921875,-54.62109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,16,0.7405598958333334,-34.83984375,-43.7265625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,6,3,17,1.6645220588235294,-26.1181640625,-54.4150390625,clairvoyant
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,0,-0.0,-34.707275390625,-34.707275390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,1,1.109765625,-30.47265625,-41.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,2,1.0070452008928572,-22.61083984375,-29.66015625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,3,0.7445170084635416,-19.08172607421875,-23.548828125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,4,0.9296875,-23.03125,-29.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,5,1.69873046875,-8.72265625,-15.517578125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,6,1.5671192515980115,-17.488250732421875,-34.7265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,7,2.5143229166666665,-15.15625,-30.2421875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,8,0.33583286830357145,-29.86865234375,-34.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,9,2.2253265380859375,-16.6270751953125,-34.4296875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,10,0.8725704616970487,-24.224441528320312,-32.07757568359375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,11,3.267613002232143,-11.575927734375,-34.44921875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,12,1.2061631944444444,-16.421875,-27.27734375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,13,1.23042631149292,-19.82101821899414,-29.6644287109375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,14,1.5759765625,-33.779296875,-49.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,15,0.8139299665178571,-21.239990234375,-26.9375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,16,2.3092447916666665,-19.95703125,-33.8125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,17,2.3660714285714284,-27.8359375,-44.3984375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,18,1.2795889718191964,-27.55841064453125,-45.47265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,6,4,19,0.588763427734375,-24.80364990234375,-30.6912841796875,naive
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,0,-0.0,-43.5,-43.5,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,1,2.50546875,-26.73828125,-51.79296875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,2,1.8051060267857142,-23.7119140625,-36.34765625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,3,0.7437845865885416,-20.46942138671875,-24.93212890625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,4,1.0502232142857142,-21.87890625,-29.23046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,5,2.23876953125,-9.1875,-18.142578125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,6,1.9063790061257102,-17.416549682617188,-38.38671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,7,3.1634114583333335,-14.62890625,-33.609375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,8,0.5894252232142857,-28.904296875,-37.15625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,9,1.7743911743164062,-14.81854248046875,-29.013671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,10,0.8451961941189237,-25.243209838867188,-32.8499755859375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,11,3.1902553013392856,-11.992431640625,-34.32421875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,12,1.0002170138888888,-16.12109375,-25.123046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,13,1.393704891204834,-18.520282745361328,-29.669921875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,14,0.953125,-34.53125,-44.0625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,15,0.6721888950892857,-13.322021484375,-18.02734375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,16,1.1266276041666667,-18.935546875,-25.6953125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,17,1.4905133928571428,-23.9609375,-34.39453125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,18,1.0936976841517858,-29.19189453125,-44.503662109375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,6,4,19,0.6744720458984375,-25.811325073242188,-32.55604553222656,clairvoyant
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,0,-0.0,-28.369140625,-28.369140625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,1,0.7604758522727273,-39.2578125,-47.623046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,2,0.8975183823529411,-52.810546875,-68.068359375,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,3,0.48446800595238093,-51.5,-61.673828125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,4,0.9038837139423077,-24.45654296875,-36.20703125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,5,1.0230379971590908,-30.97314453125,-42.2265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,6,0.6803690592447916,-24.8575439453125,-33.02197265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,7,1.3606622869318181,-36.43310546875,-51.400390625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,8,2.183203125,-23.1484375,-44.98046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,9,1.1969807942708333,-30.37353515625,-44.7373046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,10,1.028173828125,-25.98779296875,-36.26953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,11,1.848997901467716,-22.892230987548828,-54.3251953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,12,1.4284603721217106,-44.5008544921875,-71.6416015625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,13,1.1125709822303371,-42.47816336154938,-63.61701202392578,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,6,5,14,0.5072157118055556,-60.7705078125,-69.900390625,naive
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,0,-0.0,-24.2197265625,-24.2197265625,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,1,1.1351207386363635,-47.724609375,-60.2109375,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,2,0.7316176470588235,-51.8388671875,-64.2763671875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,3,0.2836216517857143,-52.765869140625,-58.721923828125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,4,0.6592735877403846,-26.231201171875,-34.8017578125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,5,0.8334517045454546,-32.5625,-41.73046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,6,0.07816569010416667,-23.385009765625,-24.322998046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,7,0.8113347833806818,-35.7359619140625,-44.66064453125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,8,1.881640625,-23.38671875,-42.203125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,9,1.7191162109375,-29.00341796875,-49.6328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,10,0.748291015625,-24.92822265625,-32.4111328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,11,1.111429999856388,-19.21868896484375,-38.112998962402344,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,12,1.0694483706825657,-45.05255126953125,-65.3720703125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,13,0.8619048971878854,-43.49454212188721,-59.87073516845703,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,6,5,14,0.4802652994791667,-61.270263671875,-69.9150390625,clairvoyant
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,0,-0.0,-72.12109375,-72.12109375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,1,1.6838942307692308,-44.46875,-66.359375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,2,1.8080078125,-39.587890625,-57.66796875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,3,2.3952151211825283,-27.539352416992188,-53.88671875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,4,1.9101236979166667,-27.10986328125,-55.76171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,5,1.9341267903645833,-30.55450439453125,-59.56640625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,6,1.841897964477539,-41.70170974731445,-67.48828125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,7,1.1538810729980469,-32.068031311035156,-52.837890625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,8,1.833673095703125,-30.564697265625,-58.069793701171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,9,1.7549579326923077,-33.794921875,-56.609375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,10,1.1722981770833334,-27.78955078125,-45.3740234375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,11,1.2944382429122925,-31.291029453277588,-46.8242883682251,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,12,0.9299665178571429,-44.9921875,-58.01171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,13,1.2494574652777777,-8.4833984375,-19.728515625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,14,1.794141948223114,-33.29310321807861,-61.99937438964844,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,15,1.3131917317708333,-23.09619140625,-38.8544921875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,16,2.57315673828125,-15.68243408203125,-41.41400146484375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,17,1.0881125710227273,-31.35107421875,-43.3203125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,6,6,18,1.5584635416666666,-36.029296875,-59.40625,naive
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,0,-0.0,-66.5390625,-66.5390625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,1,1.3490084134615385,-44.677734375,-62.21484375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,2,1.6158203125,-40.072265625,-56.23046875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,3,1.6006405570290305,-25.465219497680664,-43.072265625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,4,1.7690104166666667,-27.9033203125,-54.4384765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,5,1.8355916341145833,-29.50909423828125,-57.04296875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,6,1.942894799368722,-41.97720718383789,-69.177734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,7,1.237001207139757,-31.576080322265625,-53.84210205078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,8,1.8783602396647134,-28.782665252685547,-56.95806884765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,9,1.6078725961538463,-32.96484375,-53.8671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,10,1.4480143229166667,-26.91845703125,-48.638671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,11,1.1634152730305989,-31.3671977519989,-45.32818102836609,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,12,1.3359375,-44.73828125,-63.44140625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,13,1.6504720052083333,-9.028564453125,-23.8828125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,14,1.5442115664482117,-33.43177509307861,-58.13916015625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,15,1.2715657552083333,-22.4755859375,-37.734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,16,2.0237667083740236,-15.511478424072266,-35.7491455078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,17,0.5545099431818182,-32.6708984375,-38.7705078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,6,6,18,1.1225911458333333,-31.8720703125,-48.7109375,clairvoyant
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,0,-0.0,-39.62890625,-39.62890625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,1,0.5087890625,-27.77734375,-33.3740234375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,2,1.5394965277777777,-18.72265625,-32.578125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,3,1.9114583333333333,-10.8515625,-22.3203125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,4,0.8272235576923077,-22.220703125,-32.974609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,5,1.2807173295454546,-15.076171875,-29.1640625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,6,2.046786221590909,-9.3837890625,-31.8984375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,7,1.4789496527777777,-28.748046875,-42.05859375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,8,1.4395530007102273,-26.2821044921875,-42.1171875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,9,1.062890625,-26.701171875,-37.330078125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,10,1.852734375,-16.97265625,-26.236328125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,11,1.6902077414772727,-25.95654296875,-44.548828125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,12,1.36580810546875,-30.9073486328125,-44.5654296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,13,1.6695667613636365,-16.28515625,-34.650390625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,14,1.2062100497159092,-23.580810546875,-36.84912109375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,15,3.60107421875,-19.12109375,-47.9296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,16,1.9085286458333333,-43.55859375,-66.4609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,6,7,17,1.73486328125,-13.955078125,-34.7734375,naive
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,0,-0.0,-39.19921875,-39.19921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,1,0.5479403409090909,-25.30859375,-31.3359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,2,0.78515625,-18.75390625,-25.8203125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,3,1.8167317708333333,-10.587890625,-21.48828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,4,0.2510516826923077,-22.91015625,-26.173828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,5,1.1215376420454546,-12.43359375,-24.7705078125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,6,1.8781072443181819,-9.0751953125,-29.734375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,7,1.3559027777777777,-28.6328125,-40.8359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,8,1.2296919389204546,-25.352783203125,-38.87939453125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,9,1.26572265625,-25.8369140625,-38.494140625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,10,1.1619140625,-17.6875,-23.4970703125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,11,1.3664772727272727,-24.72265625,-39.75390625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,12,1.18250732421875,-29.5509033203125,-41.3759765625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,13,1.3167169744318181,-17.69580078125,-32.1796875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,14,0.7293590198863636,-22.385009765625,-30.407958984375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,15,2.703125,-17.82421875,-39.44921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,16,1.3606770833333333,-44.18359375,-60.51171875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,6,7,17,1.60137939453125,-13.243408203125,-32.4599609375,clairvoyant
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,0,-0.0,-43.513671875,-43.513671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,1,0.7659717906605114,-25.38421630859375,-33.809906005859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,2,1.6208084106445313,-11.332931518554688,-27.541015625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,3,0.079833984375,-36.72412109375,-37.5224609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,4,1.9303385416666667,-12.1328125,-29.505859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,5,1.083842109231388,-39.270179748535156,-57.69549560546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,6,0.6479048295454546,-25.755859375,-32.8828125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,7,3.533203125,-11.697265625,-36.4296875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,8,1.5960403442382813,-14.176315307617188,-30.13671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,9,1.9938616071428572,-15.65234375,-29.609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,10,2.00234375,-16.576171875,-36.599609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,11,0.6770273844401041,-33.78460693359375,-41.908935546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,12,1.38818359375,-22.875,-33.98046875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,13,0.7662076083096591,-53.1756591796875,-70.0322265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,14,0.7111150568181818,-34.322265625,-42.14453125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,15,1.0545210404829546,-25.0975341796875,-36.697265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,6,8,16,2.2307942708333335,-26.265625,-53.03515625,naive
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,0,-0.0,-43.0771484375,-43.0771484375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,1,0.4954889470880682,-25.794189453125,-31.24456787109375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,2,1.8900421142578125,-10.707000732421875,-29.607421875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,3,0.5208984375,-38.04345703125,-43.25244140625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,4,1.9461805555555556,-12.462890625,-29.978515625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,5,1.1555947696461397,-39.444244384765625,-59.08935546875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,6,0.7347301136363636,-25.71484375,-33.796875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,7,3.8529575892857144,-13.712890625,-40.68359375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,8,1.5704010009765625,-14.383880615234375,-30.087890625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,9,1.4874441964285714,-15.607421875,-26.01953125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,10,1.91845703125,-17.4892578125,-36.673828125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,11,0.3044077555338542,-34.00091552734375,-37.65380859375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,12,1.363525390625,-21.6015625,-32.509765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,13,1.2911487926136365,-52.339111328125,-80.744384765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,14,0.9612926136363636,-31.32421875,-41.8984375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,15,2.0291304154829546,-19.6932373046875,-42.013671875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,6,8,16,1.7850748697916667,-21.1806640625,-42.6015625,clairvoyant
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,0,-0.0,-49.435546875,-49.435546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,1,1.226708984375,-29.67822265625,-41.9453125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,2,0.7539284446022727,-24.971923828125,-33.26513671875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,3,1.1741465250651042,-31.587684631347656,-49.19988250732422,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,4,0.8606178977272727,-24.568359375,-34.03515625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,5,0.41190011160714285,-21.6259765625,-27.392578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,6,1.9084821428571428,-13.44921875,-26.80859375,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,7,1.3799690833458533,-28.663185119628906,-46.602783203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,8,1.775421142578125,-12.494384765625,-26.69775390625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,9,1.3361002604166667,-24.04931640625,-36.07421875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,10,2.01533203125,-20.0390625,-40.1923828125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,11,1.2200520833333333,-16.76171875,-24.08203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,12,0.592645263671875,-38.5406494140625,-50.3935546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,13,0.5867750379774306,-88.926025390625,-110.0499267578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,6,9,14,1.1381785074869792,-16.0081787109375,-29.66632080078125,naive
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,0,-0.0,-40.33984375,-40.33984375,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,1,0.848583984375,-29.18212890625,-37.66796875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,2,0.6308815696022727,-26.1824951171875,-33.1221923828125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,3,1.2229281107584635,-32.6934700012207,-51.037391662597656,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,4,1.0414595170454546,-24.4541015625,-35.91015625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,5,0.9332449776785714,-24.59912109375,-37.66455078125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,6,1.6233258928571428,-14.95703125,-26.3203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,7,1.3208403954139123,-28.66110610961914,-45.83203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,8,1.7608566284179688,-13.03302001953125,-27.119873046875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,9,1.1506483289930556,-22.3472900390625,-32.703125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,10,2.3580322265625,-18.709716796875,-42.2900390625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,11,0.791015625,-17.3984375,-22.14453125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,12,1.28206787109375,-37.722900390625,-63.3642578125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,13,0.5912594265407987,-83.47442626953125,-104.759765625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,6,9,14,1.2177581787109375,-16.8419189453125,-31.45501708984375,clairvoyant
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,0,-0.0,-64.2939453125,-64.2939453125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,1,1.3136390686035155,-18.210227966308594,-31.34661865234375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,2,0.441650390625,-64.873046875,-75.47265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,3,1.0662769990808822,-46.85400390625,-64.980712890625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,4,0.7780230978260869,-76.796875,-94.69140625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,5,1.36875,-31.4921875,-45.1796875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,6,1.0071258544921875,-40.074493408203125,-56.188507080078125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,7,0.41098844088040865,-57.059326171875,-67.74502563476562,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,8,1.2464599609375,-34.817626953125,-57.25390625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,9,1.22861328125,-24.4599609375,-36.74609375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,10,1.8440504807692308,-46.640625,-70.61328125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,11,0.7695556640625,-30.836669921875,-38.5322265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,12,1.3619022369384766,-43.53169250488281,-65.32212829589844,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,13,2.1294487847222223,-20.0361328125,-39.201171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,14,2.33525390625,-20.5146484375,-55.54345703125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,15,0.8412334735576923,-40.76513671875,-51.701171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,16,1.1438255310058594,-23.43297576904297,-37.15888214111328,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,17,1.6035645802815754,-32.655662536621094,-51.8984375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,6,10,18,1.2429315476190477,-49.59765625,-75.69921875,naive
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,0,-0.0,-65.8345947265625,-65.8345947265625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,1,1.7489494323730468,-16.79871368408203,-34.2882080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,2,0.4634602864583333,-66.636474609375,-77.759521484375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,3,0.9848561006433824,-49.4525146484375,-66.195068359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,4,0.9252717391304348,-78.21875,-99.5,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,5,1.34169921875,-31.76171875,-45.1787109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,6,1.0936956405639648,-40.93666076660156,-58.435791015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,7,0.3597406240609976,-55.60638427734375,-64.95964050292969,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,8,1.1571994357638888,-33.58642578125,-54.416015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,9,1.569140625,-24.15625,-39.84765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,10,1.8452524038461537,-46.34765625,-70.3359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,11,0.73212890625,-30.0908203125,-37.412109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,12,1.1082391738891602,-40.14418029785156,-57.876007080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,13,2.0356987847222223,-21.0263671875,-39.34765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,14,2.115234375,-18.67529296875,-50.40380859375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,15,0.4921123798076923,-38.1318359375,-44.529296875,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,16,0.690730094909668,-23.17123031616211,-31.459991455078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,17,1.2523829142252605,-35.763336181640625,-50.79193115234375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,6,10,18,0.9216773623511905,-46.983642578125,-66.3388671875,clairvoyant
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,0,-0.0,-35.4228515625,-35.4228515625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,1,0.5239796108669705,-44.46251678466797,-53.89414978027344,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,2,1.5183840857611761,-33.97600173950195,-61.306915283203125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,3,2.215670585632324,-30.05648422241211,-56.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,4,1.4453125,-29.30859375,-48.09765625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,5,1.7022879464285714,-33.447265625,-57.279296875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,6,1.640625,-22.03125,-36.796875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,7,2.845497824928977,-23.48858642578125,-54.7890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,8,3.718563747406006,-7.606247901916504,-44.79188537597656,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,9,0.8940972222222222,-33.8203125,-41.8671875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,10,1.155799674987793,-20.757283210754395,-38.09427833557129,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,11,0.8609701303335336,-38.48860168457031,-49.68121337890625,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,12,1.3134765625,-24.8232421875,-36.64453125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,13,2.605524698893229,-16.80474853515625,-48.071044921875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,14,1.8302001953125,-28.0537109375,-42.6953125,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,15,0.7323133680555556,-57.67578125,-70.857421875,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,16,0.62918701171875,-28.5692138671875,-34.861083984375,naive
+A short story titled 'Catch me if you Can',allenai/OLMo-2-1124-13B,8,1,17,1.3092719184027777,-33.89306640625,-57.4599609375,naive
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,0,-0.0,-34.150390625,-34.150390625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,1,0.5664629936218262,-47.39283466339111,-57.589168548583984,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,2,1.4871209462483723,-37.570796966552734,-64.33897399902344,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,3,2.3010663986206055,-32.246822357177734,-59.859619140625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,4,1.4788161057692308,-29.830078125,-49.0546875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,5,1.4225725446428572,-33.4814453125,-53.3974609375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,6,1.6923828125,-22.3349609375,-37.56640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,7,2.4932084517045454,-22.08642578125,-49.51171875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,8,3.040519142150879,-8.164342880249023,-38.56953430175781,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,9,0.11783854166666667,-34.626953125,-35.6875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,10,1.5840660095214845,-19.763916015625,-43.524906158447266,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,11,1.3011034451998198,-39.173057556152344,-56.08740234375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,12,1.6856689453125,-25.0262451171875,-40.197265625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,13,2.4521993001302085,-17.3721923828125,-46.798583984375,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,14,2.04638671875,-29.14453125,-45.515625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,15,0.9091254340277778,-57.9306640625,-74.294921875,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,16,0.363818359375,-28.776123046875,-32.414306640625,clairvoyant
+A short story about a famous con man being captured,allenai/OLMo-2-1124-13B,8,1,17,1.68603515625,-34.09375,-64.4423828125,clairvoyant
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,0,-0.0,-37.1953125,-37.1953125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,1,1.9447699652777777,-9.693359375,-27.1962890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,2,1.8232421875,-9.7744140625,-20.7138671875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,3,0.5161830357142857,-12.9765625,-16.58984375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,4,0.6019176136363636,-17.2626953125,-23.8837890625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,5,1.9073486328125,-2.898193359375,-14.34228515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,6,0.5324997674851191,-69.6591796875,-80.8416748046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,7,0.8924278846153846,-31.228515625,-42.830078125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,8,3.921875,-16.9765625,-44.4296875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,9,2.04248046875,-32.7763671875,-67.49853515625,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,10,0.6723371233258929,-45.8270263671875,-55.23974609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,11,0.6498480902777778,-29.625,-35.4736328125,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,12,1.2311025766225963,-29.626632690429688,-45.63096618652344,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,13,2.4077524038461537,-24.16015625,-55.4609375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,14,1.7250888222142269,-41.53276062011719,-74.3094482421875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,15,1.6210493607954546,-47.6396484375,-83.302734375,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,16,1.140712391246449,-63.353057861328125,-88.44873046875,naive
+A short story titled 'The Record',allenai/OLMo-2-1124-13B,8,2,17,1.1341015625,-71.5546875,-99.9072265625,naive
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,0,-0.0,-35.87890625,-35.87890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,1,2.380642361111111,-8.86328125,-30.2890625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,2,1.8512369791666667,-9.99609375,-21.103515625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,3,1.4475446428571428,-19.375,-29.5078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,4,1.8010031960227273,-14.837890625,-34.64892578125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,5,2.2659505208333335,-2.705078125,-16.30078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,6,1.0499325706845237,-69.671142578125,-91.7197265625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,7,1.5917217548076923,-31.4091796875,-52.1015625,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,8,3.506138392857143,-19.42578125,-43.96875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,9,2.432229434742647,-33.401611328125,-74.74951171875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,10,1.2138584681919642,-47.0860595703125,-64.080078125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,11,1.0580512152777777,-29.3505859375,-38.873046875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,12,2.0278648963341346,-29.875885009765625,-56.238128662109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,13,2.716487004206731,-24.6387939453125,-59.953125,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,14,1.5399559422543174,-40.83824920654297,-70.097412109375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,15,1.556640625,-48.8505859375,-83.0966796875,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,16,1.2780692360617898,-61.524810791015625,-89.642333984375,clairvoyant
+A short story about a woman rapidly aging through her entire life,allenai/OLMo-2-1124-13B,8,2,17,1.3850390625,-68.5576171875,-103.18359375,clairvoyant
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,0,-0.0,-40.5623779296875,-40.5623779296875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,1,1.62158203125,-18.82421875,-31.796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,2,0.8868963068181818,-30.712890625,-40.46875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,3,1.7297175480769231,-23.6953125,-46.181640625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,4,0.6408014799419203,-43.9423828125,-56.117610931396484,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,5,1.5083198547363281,-27.52191925048828,-48.638397216796875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,6,1.3805964543269231,-23.95458984375,-41.90234375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,7,2.0198089599609377,-17.178863525390625,-37.376953125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,8,1.4384671724759615,-17.2760009765625,-35.97607421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,9,0.11607142857142858,-69.6171875,-72.0546875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,10,1.3200461647727273,-79.533203125,-108.57421875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,11,2.9669015066964284,-36.89111328125,-78.427734375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,12,1.8689804077148438,-24.9632568359375,-54.866943359375,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,13,1.82916259765625,-30.4310302734375,-48.72265625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,14,2.4825419108072917,-31.678375244140625,-68.91650390625,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,15,1.7602190290178572,-31.6064453125,-56.24951171875,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,16,1.9300130208333333,-29.66796875,-52.828125,naive
+A short story titled 'The Boyfriend',allenai/OLMo-2-1124-13B,8,3,17,2.0086310891544117,-23.300537109375,-57.447265625,naive
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,0,-0.0,-40.4228515625,-40.4228515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,1,1.6953125,-18.921875,-32.484375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,2,0.7435635653409091,-31.62939453125,-39.80859375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,3,1.7164963942307692,-23.599609375,-45.9140625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,4,0.6303904683966386,-45.244510650634766,-57.2219295501709,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,5,1.2554092407226562,-27.1927490234375,-44.76847839355469,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,6,1.2708834134615385,-24.763671875,-41.28515625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,7,2.1020263671875,-17.635986328125,-38.65625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,8,1.4190298227163463,-16.998291015625,-35.4456787109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,9,-0.10007440476190477,-64.5966796875,-62.4951171875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,10,0.6374733664772727,-76.7998046875,-90.82421875,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,11,1.3026994977678572,-36.53173828125,-54.76953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,12,0.7554244995117188,-30.6842041015625,-42.77099609375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,13,0.93819580078125,-30.8875732421875,-40.26953125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,14,1.6158955891927083,-32.051849365234375,-56.290283203125,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,15,1.6298130580357142,-31.8037109375,-54.62109375,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,16,1.2679036458333333,-28.51171875,-43.7265625,clairvoyant
+A short story about a robot woman replacing her robot boyfriend,allenai/OLMo-2-1124-13B,8,3,17,1.9040096507352942,-22.046875,-54.4150390625,clairvoyant
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,0,-0.0,-34.707275390625,-34.707275390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,1,1.109765625,-30.47265625,-41.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,2,1.0070452008928572,-22.61083984375,-29.66015625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,3,0.7445170084635416,-19.08172607421875,-23.548828125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,4,0.9296875,-23.03125,-29.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,5,1.69873046875,-8.72265625,-15.517578125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,6,1.5671192515980115,-17.488250732421875,-34.7265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,7,2.7682291666666665,-13.6328125,-30.2421875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,8,0.5093994140625,-27.438720703125,-34.5703125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,9,2.144073486328125,-17.277099609375,-34.4296875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,10,0.76690673828125,-25.1754150390625,-32.07757568359375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,11,3.441929408482143,-10.355712890625,-34.44921875,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,12,1.1955295138888888,-16.517578125,-27.27734375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,13,1.1263799667358398,-20.65338897705078,-29.6644287109375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,14,1.5310546875,-34.228515625,-49.5390625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,15,0.7760707310267857,-21.5050048828125,-26.9375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,16,2.4518229166666665,-19.1015625,-33.8125,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,17,2.4888392857142856,-26.9765625,-44.3984375,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,18,1.1598379952566964,-29.23492431640625,-45.47265625,naive
+A short story titled 'The Shoe',allenai/OLMo-2-1124-13B,8,4,19,0.49775390625,-25.7137451171875,-30.6912841796875,naive
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,0,-0.0,-43.5,-43.5,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,1,2.50546875,-26.73828125,-51.79296875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,2,1.8051060267857142,-23.7119140625,-36.34765625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,3,0.7437845865885416,-20.46942138671875,-24.93212890625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,4,1.0502232142857142,-21.87890625,-29.23046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,5,2.23876953125,-9.1875,-18.142578125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,6,1.9063790061257102,-17.416549682617188,-38.38671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,7,3.2991536458333335,-13.814453125,-33.609375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,8,0.8005196707589286,-25.948974609375,-37.15625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,9,1.802215576171875,-14.595947265625,-29.013671875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,10,0.7430504692925347,-26.162521362304688,-32.8499755859375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,11,3.3497488839285716,-10.8759765625,-34.32421875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,12,0.8968098958333334,-17.0517578125,-25.123046875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,13,1.294097900390625,-19.317138671875,-29.669921875,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,14,1.01181640625,-33.9443359375,-44.0625,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,15,0.6805594308035714,-13.263427734375,-18.02734375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,16,1.3678385416666667,-17.48828125,-25.6953125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,17,1.2882254464285714,-25.376953125,-34.39453125,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,18,1.099273681640625,-29.11383056640625,-44.503662109375,clairvoyant
+A short story about a man and a woman mimicking each other until he is hit by a car,allenai/OLMo-2-1124-13B,8,4,19,0.5564834594726562,-26.9912109375,-32.55604553222656,clairvoyant
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,0,-0.0,-28.369140625,-28.369140625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,1,0.7604758522727273,-39.2578125,-47.623046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,2,0.8975183823529411,-52.810546875,-68.068359375,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,3,0.48446800595238093,-51.5,-61.673828125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,4,0.9038837139423077,-24.45654296875,-36.20703125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,5,1.0230379971590908,-30.97314453125,-42.2265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,6,0.6803690592447916,-24.8575439453125,-33.02197265625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,7,1.4050625887784092,-35.9447021484375,-51.400390625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,8,2.3015625,-21.96484375,-44.98046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,9,1.1328125,-31.1435546875,-44.7373046875,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,10,1.17646484375,-24.5048828125,-36.26953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,11,1.9143961738137638,-21.780460357666016,-54.3251953125,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,12,1.446912263569079,-44.1502685546875,-71.6416015625,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,13,1.091385565306011,-42.88068628311157,-63.61701202392578,naive
+A short story titled 'Keith Reynolds',allenai/OLMo-2-1124-13B,8,5,14,0.4980197482638889,-60.93603515625,-69.900390625,naive
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,0,-0.0,-24.2197265625,-24.2197265625,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,1,1.1351207386363635,-47.724609375,-60.2109375,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,2,0.7316176470588235,-51.8388671875,-64.2763671875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,3,0.2836216517857143,-52.765869140625,-58.721923828125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,4,0.6592735877403846,-26.231201171875,-34.8017578125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,5,0.8334517045454546,-32.5625,-41.73046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,6,0.07816569010416667,-23.385009765625,-24.322998046875,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,7,0.8130104758522727,-35.717529296875,-44.66064453125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,8,1.873828125,-23.46484375,-42.203125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,9,1.7060139973958333,-29.16064453125,-49.6328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,10,0.818896484375,-24.22216796875,-32.4111328125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,11,1.0468831342809342,-20.315985679626465,-38.112998962402344,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,12,1.1023591694078947,-44.42724609375,-65.3720703125,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,13,0.9045563246074476,-42.68416500091553,-59.87073516845703,clairvoyant
+A short story about a man hoping for a promotion who ends up killing a coworker,allenai/OLMo-2-1124-13B,8,5,14,0.4558241102430556,-61.710205078125,-69.9150390625,clairvoyant
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,0,-0.0,-72.12109375,-72.12109375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,1,1.6838942307692308,-44.46875,-66.359375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,2,1.8080078125,-39.587890625,-57.66796875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,3,2.3952151211825283,-27.539352416992188,-53.88671875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,4,1.9101236979166667,-27.10986328125,-55.76171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,5,1.9341267903645833,-30.55450439453125,-59.56640625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,6,1.841897964477539,-41.70170974731445,-67.48828125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,7,1.1929075453016493,-31.365554809570312,-52.837890625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,8,1.9831837972005208,-28.322036743164062,-58.069793701171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,9,2.116887019230769,-29.08984375,-56.609375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,10,1.2112955729166666,-27.20458984375,-45.3740234375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,11,1.3823290765285492,-30.236339449882507,-46.8242883682251,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,12,0.9977678571428571,-44.04296875,-58.01171875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,13,1.2432996961805556,-8.538818359375,-19.728515625,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,14,1.7428643703460693,-34.11354446411133,-61.99937438964844,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,15,1.343017578125,-22.73828125,-38.8544921875,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,16,2.6486764907836915,-14.927236557006836,-41.41400146484375,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,17,1.0863370028409092,-31.37060546875,-43.3203125,naive
+A short story titled 'The Rock',allenai/OLMo-2-1124-13B,8,6,18,1.6039713541666667,-35.3466796875,-59.40625,naive
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,0,-0.0,-66.5390625,-66.5390625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,1,1.3490084134615385,-44.677734375,-62.21484375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,2,1.6158203125,-40.072265625,-56.23046875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,3,1.6006405570290305,-25.465219497680664,-43.072265625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,4,1.7690104166666667,-27.9033203125,-54.4384765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,5,1.8355916341145833,-29.50909423828125,-57.04296875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,6,1.942894799368722,-41.97720718383789,-69.177734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,7,1.2611410352918837,-31.141563415527344,-53.84210205078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,8,1.9658284505208334,-27.47064208984375,-56.95806884765625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,9,1.9580829326923077,-28.412109375,-53.8671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,10,1.498046875,-26.16796875,-48.638671875,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,11,1.137698660294215,-31.67579710483551,-45.32818102836609,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,12,1.3708147321428572,-44.25,-63.44140625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,13,1.6684299045138888,-8.866943359375,-23.8828125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,14,1.5465203523635864,-33.39483451843262,-58.13916015625,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,15,1.3271484375,-21.80859375,-37.734375,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,16,2.0453763961791993,-15.295381546020508,-35.7491455078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,17,0.5390846946022727,-32.840576171875,-38.7705078125,clairvoyant
+A short story about a mountain becoming space debris,allenai/OLMo-2-1124-13B,8,6,18,1.1950520833333333,-30.78515625,-48.7109375,clairvoyant
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,0,-0.0,-39.62890625,-39.62890625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,1,0.5087890625,-27.77734375,-33.3740234375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,2,1.5394965277777777,-18.72265625,-32.578125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,3,1.9114583333333333,-10.8515625,-22.3203125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,4,0.8272235576923077,-22.220703125,-32.974609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,5,1.2807173295454546,-15.076171875,-29.1640625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,6,2.046786221590909,-9.3837890625,-31.8984375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,7,2.0416666666666665,-23.68359375,-42.05859375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,8,1.5809215198863635,-24.72705078125,-42.1171875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,9,0.94287109375,-27.9013671875,-37.330078125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,10,1.768359375,-17.39453125,-26.236328125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,11,1.7904829545454546,-24.853515625,-44.548828125,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,12,1.38961181640625,-30.6693115234375,-44.5654296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,13,1.6747824928977273,-16.227783203125,-34.650390625,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,14,1.3814808238636365,-21.65283203125,-36.84912109375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,15,3.8739013671875,-16.9384765625,-47.9296875,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,16,2.03173828125,-42.080078125,-66.4609375,naive
+A short story titled 'The Prisoner',allenai/OLMo-2-1124-13B,8,7,17,1.6503092447916667,-14.9697265625,-34.7734375,naive
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,0,-0.0,-39.19921875,-39.19921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,1,0.5479403409090909,-25.30859375,-31.3359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,2,0.78515625,-18.75390625,-25.8203125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,3,1.8167317708333333,-10.587890625,-21.48828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,4,0.2510516826923077,-22.91015625,-26.173828125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,5,1.1215376420454546,-12.43359375,-24.7705078125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,6,1.8781072443181819,-9.0751953125,-29.734375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,7,1.7389322916666667,-25.185546875,-40.8359375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,8,1.3334073153409092,-24.2119140625,-38.87939453125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,9,1.235546875,-26.138671875,-38.494140625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,10,1.1478515625,-17.7578125,-23.4970703125,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,11,1.3635031960227273,-24.75537109375,-39.75390625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,12,1.23056640625,-29.0703125,-41.3759765625,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,13,1.3920010653409092,-16.86767578125,-32.1796875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,14,0.8739568536931818,-20.79443359375,-30.407958984375,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,15,2.7059326171875,-17.8017578125,-39.44921875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,16,1.4807942708333333,-42.7421875,-60.51171875,clairvoyant
+A short story about a man trapped in a strange village,allenai/OLMo-2-1124-13B,8,7,17,1.5552164713541667,-13.79736328125,-32.4599609375,clairvoyant
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,0,-0.0,-43.513671875,-43.513671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,1,0.7659717906605114,-25.38421630859375,-33.809906005859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,2,1.6208084106445313,-11.332931518554688,-27.541015625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,3,0.079833984375,-36.72412109375,-37.5224609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,4,1.9303385416666667,-12.1328125,-29.505859375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,5,1.083842109231388,-39.270179748535156,-57.69549560546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,6,0.6479048295454546,-25.755859375,-32.8828125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,7,3.5613839285714284,-11.5,-36.4296875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,8,1.5562393188476562,-14.574325561523438,-30.13671875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,9,2.008091517857143,-15.552734375,-29.609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,10,1.920751953125,-17.39208984375,-36.599609375,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,11,0.7166252136230469,-33.30943298339844,-41.908935546875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,12,1.4033203125,-22.75390625,-33.98046875,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,13,0.7494451349431818,-53.54443359375,-70.0322265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,14,1.2844460227272727,-28.015625,-42.14453125,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,15,1.0987659801136365,-24.61083984375,-36.697265625,naive
+A short story titled 'The Black Hole',allenai/OLMo-2-1124-13B,8,8,16,2.2679036458333335,-25.8203125,-53.03515625,naive
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,0,-0.0,-43.0771484375,-43.0771484375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,1,0.4954889470880682,-25.794189453125,-31.24456787109375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,2,1.8900421142578125,-10.707000732421875,-29.607421875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,3,0.5208984375,-38.04345703125,-43.25244140625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,4,1.9461805555555556,-12.462890625,-29.978515625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,5,1.1555947696461397,-39.444244384765625,-59.08935546875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,6,0.7347301136363636,-25.71484375,-33.796875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,7,4.004464285714286,-12.65234375,-40.68359375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,8,1.568216896057129,-14.405721664428711,-30.087890625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,9,1.5094866071428572,-15.453125,-26.01953125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,10,1.91181640625,-17.5556640625,-36.673828125,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,11,0.27103932698567706,-34.401336669921875,-37.65380859375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,12,1.240478515625,-22.5859375,-32.509765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,13,1.2845569957386365,-52.484130859375,-80.744384765625,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,14,1.4623579545454546,-25.8125,-41.8984375,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,15,1.8397910378196023,-21.775970458984375,-42.013671875,clairvoyant
+A short story about a man getting trapped in a safe,allenai/OLMo-2-1124-13B,8,8,16,1.8035481770833333,-20.958984375,-42.6015625,clairvoyant
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,0,-0.0,-49.435546875,-49.435546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,1,1.226708984375,-29.67822265625,-41.9453125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,2,0.7539284446022727,-24.971923828125,-33.26513671875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,3,1.1741465250651042,-31.587684631347656,-49.19988250732422,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,4,0.8606178977272727,-24.568359375,-34.03515625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,5,0.41190011160714285,-21.6259765625,-27.392578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,6,1.9084821428571428,-13.44921875,-26.80859375,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,7,1.4089895395132213,-28.285919189453125,-46.602783203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,8,1.6987762451171875,-13.1075439453125,-26.69775390625,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,9,1.4522298177083333,-23.004150390625,-36.07421875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,10,1.86260986328125,-21.5662841796875,-40.1923828125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,11,1.330078125,-16.1015625,-24.08203125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,12,0.86668701171875,-33.059814453125,-50.3935546875,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,13,0.6132456461588541,-87.97308349609375,-110.0499267578125,naive
+A short story titled 'Post-it Love',allenai/OLMo-2-1124-13B,8,9,14,1.0895487467447917,-16.59173583984375,-29.66632080078125,naive
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,0,-0.0,-40.33984375,-40.33984375,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,1,0.848583984375,-29.18212890625,-37.66796875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,2,0.6308815696022727,-26.1824951171875,-33.1221923828125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,3,1.2229281107584635,-32.6934700012207,-51.037391662597656,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,4,1.0414595170454546,-24.4541015625,-35.91015625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,5,0.9332449776785714,-24.59912109375,-37.66455078125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,6,1.6233258928571428,-14.95703125,-26.3203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,7,1.4489911886361928,-26.995145797729492,-45.83203125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,8,1.6626663208007812,-13.81854248046875,-27.119873046875,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,9,1.5230848524305556,-18.995361328125,-32.703125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,10,2.15087890625,-20.78125,-42.2900390625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,11,0.8170572916666666,-17.2421875,-22.14453125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,12,1.5632781982421875,-32.09869384765625,-63.3642578125,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,13,0.5961083306206597,-83.29986572265625,-104.759765625,clairvoyant
+A short story about two coworkers creating a mural of themselves,allenai/OLMo-2-1124-13B,8,9,14,1.2240371704101562,-16.766571044921875,-31.45501708984375,clairvoyant
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,0,-0.0,-64.2939453125,-64.2939453125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,1,1.3136390686035155,-18.210227966308594,-31.34661865234375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,2,0.441650390625,-64.873046875,-75.47265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,3,1.0662769990808822,-46.85400390625,-64.980712890625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,4,0.7780230978260869,-76.796875,-94.69140625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,5,1.36875,-31.4921875,-45.1796875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,6,1.0071258544921875,-40.074493408203125,-56.188507080078125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,7,0.5223888984093299,-54.16291427612305,-67.74502563476562,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,8,1.2160712348090277,-35.3646240234375,-57.25390625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,9,1.2212890625,-24.533203125,-36.74609375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,10,1.9314903846153846,-45.50390625,-70.61328125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,11,1.010595703125,-28.42626953125,-38.5322265625,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,12,1.3677330017089844,-43.43840026855469,-65.32212829589844,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,13,2.1331380208333335,-20.0029296875,-39.201171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,14,2.4340494791666667,-19.03271484375,-55.54345703125,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,15,0.9251427283653846,-39.67431640625,-51.701171875,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,16,1.0776638984680176,-24.22691535949707,-37.15888214111328,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,17,1.6644312540690105,-31.925262451171875,-51.8984375,naive
+A short story titled 'Bus Stop',allenai/OLMo-2-1124-13B,8,10,18,1.3451567150297619,-47.450927734375,-75.69921875,naive
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,0,-0.0,-65.8345947265625,-65.8345947265625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,1,1.7489494323730468,-16.79871368408203,-34.2882080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,2,0.4634602864583333,-66.636474609375,-77.759521484375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,3,0.9848561006433824,-49.4525146484375,-66.195068359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,4,0.9252717391304348,-78.21875,-99.5,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,5,1.34169921875,-31.76171875,-45.1787109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,6,1.0936956405639648,-40.93666076660156,-58.435791015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,7,0.38084998497596156,-55.05754089355469,-64.95964050292969,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,8,1.1247626410590277,-34.1702880859375,-54.416015625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,9,1.53759765625,-24.4716796875,-39.84765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,10,1.9002403846153846,-45.6328125,-70.3359375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,11,0.782421875,-29.587890625,-37.412109375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,12,1.0733299255371094,-40.702728271484375,-57.876007080078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,13,2.1070963541666665,-20.3837890625,-39.34765625,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,14,2.09248046875,-19.0166015625,-50.40380859375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,15,0.4770695612980769,-38.327392578125,-44.529296875,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,16,0.6077469189961752,-24.167028427124023,-31.459991455078125,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,17,1.432077407836914,-33.60700225830078,-50.79193115234375,clairvoyant
+A short story about a man at a bus stop that turns into a dog,allenai/OLMo-2-1124-13B,8,10,18,1.0319359188988095,-44.668212890625,-66.3388671875,clairvoyant
